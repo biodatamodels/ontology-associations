@@ -1,0 +1,68 @@
+id: https://w3id.org/ontology_association
+name: ontology_association
+description: >-
+  My Schema Description
+imports:
+ - biolinkml:types
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+  biolink: https://w3id.org/biolink/vocab/
+  ontology_association: https://w3id.org/ontology_association/
+default_prefix: ontology_association
+
+types:
+  curie:
+    typeof: uriorcurie
+  symbol type:
+    typeof: string
+  name type:
+    typeof: string
+
+slots:
+  id:
+    description: >-
+      identifier
+    identifier: true
+    range: curie
+    
+  name:
+    description: >-
+      name
+    exact_mappings:
+      - biolink:name
+      
+  db object:
+    range: named thing
+    exact_mappings:
+      - biolink:subject
+
+  bioentity type:
+    description: >-
+      type of entity
+
+  negation:
+    range: boolean
+
+classes:
+  named thing:
+    slots:
+      - id
+      - name
+
+  gpi entity:
+    is_a: named thing
+    slots:
+      - id
+      - name
+      
+  gaf association:
+    description: >-
+      line of GAF
+      
+  gpad association:
+    description: >-
+      line of GPAD
+    slots:
+      - db object
+      - negation
+      
