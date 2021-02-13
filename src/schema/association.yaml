@@ -36,17 +36,65 @@ slots:
     exact_mappings:
       - biolink:subject
 
+  negation:
+    range: boolean
+      
   ontology class ref:
     range: named thing
     exact_mappings:
       - biolink:object
 
+  relation:
+    range: relation term
+    exact_mappings:
+      - biolink:predicate
+
+  references:
+    range: named thing
+    exact_mappings:
+      - biolink:publications
+    multivalued: true
+
+  with or from:
+    range: named thing
+    exact_mappings:
+      - biolink:evidence_object ## TODO
+    multivalued: true
+
+  interacting taxon ref:
+    range: taxon
+    exact_mappings:
+      - biolink:evidence_object ## TODO
+    multivalued: true
+
+  evidence type:
+    range: ontology class
+    exact_mappings:
+      - biolink:evidence
+
   bioentity type:
     description: >-
       type of entity
 
-  negation:
-    range: boolean
+  date:
+    description: >-
+      type of entity
+      range: datetime
+
+  assigned by:
+    description: >-
+      assigned by
+    range: provider
+
+  annotation extensions:
+    description: >-
+      disjunction
+    range: conjunction extension expression
+    multivalued: true
+
+  annotation properties:
+    range: property value pair
+    multivalued: true
 
 classes:
   named thing:
@@ -54,9 +102,20 @@ classes:
       - id
       - name
 
+  provider:
+    is_a: named thing
+
+  controlled term:
+    is_a: named thing
+
   ontology class:
-    is_a:
-      named thing
+    is_a: controlled term
+
+  taxon:
+    is_a: ontology class
+
+  relation term:
+    is_a: controlled term
 
   gpi entity:
     is_a: named thing
@@ -74,5 +133,24 @@ classes:
     slots:
       - db object ref
       - negation
+      - relation
       - ontology class ref
-      
+      - references
+      - evidence type
+      - with or from
+      - interacting taxon ref
+      - date
+      - assigned by
+      - annotation extensions
+      - annotation properties
+
+  property value pair:
+    attributes:
+      property:
+        range: controlled term
+      value:
+        description: >-
+          value
+  conjunction extension expression:
+    description: >-
+      set of expressions all true
