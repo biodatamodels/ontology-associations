@@ -31,10 +31,15 @@ slots:
     exact_mappings:
       - biolink:name
       
-  db object:
+  db object ref:
     range: named thing
     exact_mappings:
       - biolink:subject
+
+  ontology class ref:
+    range: named thing
+    exact_mappings:
+      - biolink:object
 
   bioentity type:
     description: >-
@@ -48,6 +53,10 @@ classes:
     slots:
       - id
       - name
+
+  ontology class:
+    is_a:
+      named thing
 
   gpi entity:
     is_a: named thing
@@ -63,6 +72,7 @@ classes:
     description: >-
       line of GPAD
     slots:
-      - db object
+      - db object ref
       - negation
+      - ontology class ref
       
