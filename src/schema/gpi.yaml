@@ -18,7 +18,7 @@ default_curi_maps:
 classes:
 
   gpi entity:
-#    is_a: named thing
+    is_a: biological entity
     slots:
       - db object ref
       - db object symbol

@@ -13,6 +13,19 @@ See http://cmungall.github.io/ontology_associations
 pip install -r requirements.txt
 ```
 
+## Running locally
+
+Python
+
+```
+pytest
+```
+
+See [tests](tests)
+
+## Targets
+
+
 You can make specific targets, e.g
 
 ```bash

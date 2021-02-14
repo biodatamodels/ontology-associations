@@ -72,7 +72,9 @@ metatype:Nodeidentifier NONLITERAL
 }
 
 <BiologicalEntity> {
-    (  $<BiologicalEntity_tes> rdf:type . * ;
+    (  $<BiologicalEntity_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ?
+       ) ;
        rdf:type [ <BiologicalEntity> ] ?
     )
 }
@@ -102,12 +104,14 @@ metatype:Nodeidentifier NONLITERAL
 )
 
 <Entity>  (
-    {
-       (  $<Entity_tes> rdf:type . * ;
-          rdf:type [ <Entity> ] ?
-       )
-    } OR @<AbstractThing>
+    @<AbstractThing> OR @<BiologicalEntity>
 )
+
+<Entity_struct> {
+    (  $<Entity_tes> rdf:type . * ;
+       rdf:type [ <Entity> ] ?
+    )
+}
 
 <OntologyClass>  (
     CLOSED {

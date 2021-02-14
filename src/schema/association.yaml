@@ -241,6 +241,7 @@ classes:
       - biolink:NamedThing
   
   biological entity:
+    is_a: entity
     abstract: true
     exact_mappings:
       - biolink:BiologicalEntity
