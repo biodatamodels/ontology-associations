@@ -9,21 +9,25 @@ Various association data models
 
  * [Association](Association.md) - generic association
     * [GafAssociation](GafAssociation.md) - line of GAF
+    * [GpadAssociation](GpadAssociation.md) - line of GPAD
+    * [HumanPhenotypeOntologyAssociation](HumanPhenotypeOntologyAssociation.md)
+ * [BiologicalEntity](BiologicalEntity.md)
  * [ConjunctionExtensionExpression](ConjunctionExtensionExpression.md) - set of expressions all true
  * [Document](Document.md) - root class for association or entity documents
     * [AssociationDocument](AssociationDocument.md)
        * [GafAssociationDocument](GafAssociationDocument.md)
        * [GpadAssociationDocument](GpadAssociationDocument.md)
+       * [HumanPhenotypeOntologyAssociationDocument](HumanPhenotypeOntologyAssociationDocument.md)
     * [GpiDocument](GpiDocument.md)
- * [GpadAssociation](GpadAssociation.md) - line of GPAD
+ * [Entity](Entity.md)
+    * [AbstractThing](AbstractThing.md)
+       * [ControlledTerm](ControlledTerm.md)
+          * [OntologyClass](OntologyClass.md)
+             * [Taxon](Taxon.md)
+          * [RelationTerm](RelationTerm.md)
+       * [Provider](Provider.md)
+       * [Publication](Publication.md)
  * [GpiEntity](GpiEntity.md)
- * [HumanPhenotypeOntologyAssociation](HumanPhenotypeOntologyAssociation.md)
- * [NamedThing](NamedThing.md)
-    * [ControlledTerm](ControlledTerm.md)
-       * [OntologyClass](OntologyClass.md)
-          * [Taxon](Taxon.md)
-       * [RelationTerm](RelationTerm.md)
-    * [Provider](Provider.md)
  * [PropertyValuePair](PropertyValuePair.md)
 
 ### Mixins
@@ -40,6 +44,7 @@ Various association data models
  * [➞associations](associationDocument__associations.md)
     * [gaf association document➞associations](gaf_association_document_associations.md)
     * [gpad association document➞associations](gpad_association_document_associations.md)
+    * [human phenotype ontology association document➞associations](human_phenotype_ontology_association_document_associations.md)
  * [bioentity type](bioentity_type.md) - type of entity
  * [db](db.md) - db part of identifier
  * [db object name](db_object_name.md)
