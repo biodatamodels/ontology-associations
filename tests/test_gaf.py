@@ -1,7 +1,11 @@
 from ontology_association.datamodel.gaf import GafAssociation, GafAssociationDocument
 
+DATE='1999-01-01'
 def test_gaf():
-    gafdoc = GafAssociationDocument()
+    gafdoc = GafAssociationDocument(
+        date_generated=DATE,
+        url='http://example.org'
+    )
     assoc = GafAssociation(
         db='UniProtKB',
         local_id='P1234',
@@ -12,7 +16,7 @@ def test_gaf():
         evidence_type='IEA',
         references=['PMID:123456'],
         assigned_by='MGI',
-        annotation_date='1999-01-01'
+        annotation_date=DATE
     )
     gafdoc.associations=[assoc]
     print(f'Assoc: {gafdoc}')

@@ -21,6 +21,7 @@ slots:
   
 classes:
   human phenotype ontology association:
+    is_a: association
     slots:
       - db
       - local id
@@ -37,3 +38,11 @@ classes:
       - db object synonyms
       - annotation date
       - assigned by
+      
+  human phenotype ontology association document:
+    is_a: association document
+    slot_usage:
+      associations:
+        range: human phenotype ontology association
+        multivalued: true
+    

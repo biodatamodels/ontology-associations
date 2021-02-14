@@ -17,6 +17,7 @@ default_curi_maps:
 
 classes:
   gaf association:
+    is_a: association
     description: >-
       line of GAF
     slots:

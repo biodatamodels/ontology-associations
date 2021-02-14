@@ -1,5 +1,5 @@
 # Auto generated from xaf.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 18:36
+# Generation date: 2021-02-13 19:00
 # Schema: xaf
 #
 # id: https://w3id.org/ontology_association/xaf
@@ -24,7 +24,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from . association import ConjunctionExtensionExpression, NameType, NamedThingId, OntologyClassId, ProviderId, RelationTermId, SymbolType, TaxonId
+from . association import Association, ConjunctionExtensionExpression, NameType, NamedThingId, OntologyClassId, ProviderId, RelationTermId, SymbolType, TaxonId
 from biolinkml.utils.metamodelcore import XSDDateTime
 from includes.types import Datetime, String
 
@@ -48,7 +48,7 @@ DEFAULT_ = ONTOLOGY_ASSOCIATION
 
 
 @dataclass
-class GafAssociation(YAMLRoot):
+class GafAssociation(Association):
     """
     line of GAF
     """

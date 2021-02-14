@@ -38,16 +38,26 @@ metatype:Objectidentifier IRI
 
 metatype:Nodeidentifier NONLITERAL
 
-<Association> CLOSED {
-    (  $<Association_tes> rdf:type . * ;
-       rdf:type [ <Association> ] ?
-    )
-}
+<Association>  (
+    CLOSED {
+       (  $<Association_tes> rdf:type . * ;
+          rdf:type [ <Association> ] ?
+       )
+    } OR @<GpadAssociation>
+)
 
 <AssociationDocument>  (
     CLOSED {
        (  $<AssociationDocument_tes> (  &<Document_tes> ;
              rdf:type [ <Document> ] ? ;
+             <date_generated> @metatype:String ? ;
+             <generated_by> @<Provider> ? ;
+             <url> @metatype:String ? ;
+             <project_release> @metatype:String ? ;
+             <funding> @metatype:String ? ;
+             <go_version> @metatype:String ? ;
+             <ro_version> @metatype:String ? ;
+             <gorel_version> @metatype:String ? ;
              <associations> @<Association> *
           ) ;
           rdf:type [ <AssociationDocument> ] ?
@@ -80,7 +90,9 @@ metatype:Nodeidentifier NONLITERAL
 )
 
 <GpadAssociation> CLOSED {
-    (  $<GpadAssociation_tes> (  <db_object_ref> @<NamedThing> ;
+    (  $<GpadAssociation_tes> (  &<Association_tes> ;
+          rdf:type [ <Association> ] ? ;
+          <db_object_ref> @<NamedThing> ;
           <negation> @metatype:Boolean ? ;
           <relation> @<RelationTerm> ? ;
           <ontology_class_ref> @<NamedThing> ;

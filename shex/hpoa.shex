@@ -38,6 +38,33 @@ metatype:Objectidentifier IRI
 
 metatype:Nodeidentifier NONLITERAL
 
+<Association>  (
+    CLOSED {
+       (  $<Association_tes> rdf:type . * ;
+          rdf:type [ <Association> ] ?
+       )
+    } OR @<HumanPhenotypeOntologyAssociation>
+)
+
+<AssociationDocument>  (
+    CLOSED {
+       (  $<AssociationDocument_tes> (  &<Document_tes> ;
+             rdf:type [ <Document> ] ? ;
+             <date_generated> @metatype:String ? ;
+             <generated_by> @<Provider> ? ;
+             <url> @metatype:String ? ;
+             <project_release> @metatype:String ? ;
+             <funding> @metatype:String ? ;
+             <go_version> @metatype:String ? ;
+             <ro_version> @metatype:String ? ;
+             <gorel_version> @metatype:String ? ;
+             <associations> @<Association> *
+          ) ;
+          rdf:type [ <AssociationDocument> ] ?
+       )
+    } OR @<HumanPhenotypeOntologyAssociationDocument>
+)
+
 <ConjunctionExtensionExpression> CLOSED {
     (  $<ConjunctionExtensionExpression_tes> rdf:type . * ;
        rdf:type [ <ConjunctionExtensionExpression> ] ?
@@ -54,26 +81,18 @@ metatype:Nodeidentifier NONLITERAL
     } OR @<OntologyClass> OR @<RelationTerm>
 )
 
-<GpiEntity> CLOSED {
-    (  $<GpiEntity_tes> (  &<NamedThing_tes> ;
-          rdf:type [ <NamedThing> ] ? ;
-          <db_object_symbol> @<SymbolType> ;
-          <db_object_name> @<NameType> ? ;
-          <db_object_synonyms> @<NameType> * ;
-          <db_object_type> @<GpEntityTypeEnum> ? ;
-          <db_object_taxon> @<Taxon> ;
-          <encoded_by> @<NamedThing> * ;
-          <parent_protein> @<NamedThing> * ;
-          <protein_containing_complex_members> @<NamedThing> * ;
-          <db_xrefs> @<Curie> * ;
-          <gene_product_properties> @<PropertyValuePair> *
-       ) ;
-       rdf:type [ <GpiEntity> ]
-    )
-}
+<Document>  (
+    {
+       (  $<Document_tes> rdf:type . * ;
+          rdf:type [ <Document> ] ?
+       )
+    } OR @<AssociationDocument>
+)
 
 <HumanPhenotypeOntologyAssociation> CLOSED {
-    (  $<HumanPhenotypeOntologyAssociation_tes> (  <db> @metatype:String ;
+    (  $<HumanPhenotypeOntologyAssociation_tes> (  &<Association_tes> ;
+          rdf:type [ <Association> ] ? ;
+          <db> @metatype:String ;
           <local_id> @metatype:String ;
           <db_object_symbol> @<SymbolType> ;
           <relation> @<RelationTerm> ? ;
@@ -83,7 +102,7 @@ metatype:Nodeidentifier NONLITERAL
           <onset> @metatype:String ? ;
           <frequency> @metatype:String ? ;
           <with_or_from> @<NamedThing> * ;
-          <aspect> @metatype:String ? ;
+          <aspect> @metatype:String ;
           <db_object_synonyms> @<NameType> * ;
           <annotation_date> @metatype:Datetime ? ;
           <assigned_by> @<Provider>
@@ -92,12 +111,21 @@ metatype:Nodeidentifier NONLITERAL
     )
 }
 
+<HumanPhenotypeOntologyAssociationDocument> CLOSED {
+    (  $<HumanPhenotypeOntologyAssociationDocument_tes> (  &<AssociationDocument_tes> ;
+          rdf:type [ <AssociationDocument> ] ? ;
+          <associations> @<HumanPhenotypeOntologyAssociation> *
+       ) ;
+       rdf:type [ <HumanPhenotypeOntologyAssociationDocument> ] ?
+    )
+}
+
 <NamedThing>  (
     CLOSED {
        (  $<NamedThing_tes> rdf:type . * ;
           rdf:type [ <NamedThing> ]
        )
-    } OR @<ControlledTerm> OR @<GpiEntity> OR @<Provider>
+    } OR @<ControlledTerm> OR @<Provider>
 )
 
 <OntologyClass>  (

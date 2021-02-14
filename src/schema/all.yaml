@@ -1,5 +1,5 @@
-id: https://w3id.org/ontology_association/hpoa
-name: hpoa
+id: https://w3id.org/ontology_association/all
+name: ontology_associations
 description: >-
   Various association data models
 imports:

@@ -1,3 +1,20 @@
+type Association
+  {
+  }
+
+type AssociationDocument
+  {
+    dateGenerated: String
+    generatedBy: Provider
+    url: String
+    projectRelease: String
+    funding: String
+    goVersion: String
+    roVersion: String
+    gorelVersion: String
+    associations: [Association]
+  }
+
 type ConjunctionExtensionExpression
   {
   }
@@ -5,6 +22,10 @@ type ConjunctionExtensionExpression
 type ControlledTerm
   {
     id: Curie!
+  }
+
+interface Document
+  {
   }
 
 type GafAssociation
@@ -17,7 +38,7 @@ type GafAssociation
     references: [NamedThing]!
     evidenceType: OntologyClass!
     withOrFrom: [NamedThing]
-    aspect: GeneOntologyAspectEnum
+    aspect: GeneOntologyAspectEnum!
     dbObjectName: NameType
     dbObjectSynonyms: [NameType]
     dbObjectType: GpEntityTypeEnum
@@ -25,6 +46,53 @@ type GafAssociation
     annotationDate: Datetime
     assignedBy: Provider!
     annotationExtensions: [ConjunctionExtensionExpression]
+  }
+
+type GafAssociationDocument
+  {
+    dateGenerated: String
+    generatedBy: Provider
+    url: String
+    projectRelease: String
+    funding: String
+    goVersion: String
+    roVersion: String
+    gorelVersion: String
+    associations: [GafAssociation]
+  }
+
+type GpadAssociation
+  {
+    dbObjectRef: NamedThing!
+    negation: Boolean
+    relation: RelationTerm
+    ontologyClassRef: NamedThing!
+    references: [NamedThing]!
+    evidenceType: OntologyClass!
+    withOrFrom: [NamedThing]
+    interactingTaxonRef: [Taxon]
+    annotationDate: Datetime
+    assignedBy: Provider!
+    annotationExtensions: [ConjunctionExtensionExpression]
+    annotationProperties: [PropertyValuePair]
+  }
+
+type GpadAssociationDocument
+  {
+    dateGenerated: String
+    generatedBy: Provider
+    url: String
+    projectRelease: String
+    funding: String
+    goVersion: String
+    roVersion: String
+    gorelVersion: String
+    associations: [GpadAssociation]
+  }
+
+type GpiDocument
+  {
+    entities: [GpiEntity]
   }
 
 type GpiEntity
@@ -40,6 +108,24 @@ type GpiEntity
     proteinContainingComplexMembers: [NamedThing]
     dbXrefs: [Curie]
     geneProductProperties: [PropertyValuePair]
+  }
+
+type HumanPhenotypeOntologyAssociation
+  {
+    db: String!
+    localId: String!
+    dbObjectSymbol: SymbolType!
+    relation: RelationTerm
+    ontologyClassRef: NamedThing!
+    references: [NamedThing]!
+    evidenceType: OntologyClass!
+    onset: String
+    frequency: String
+    withOrFrom: [NamedThing]
+    aspect: String!
+    dbObjectSynonyms: [NameType]
+    annotationDate: Datetime
+    assignedBy: Provider!
   }
 
 type NamedThing

@@ -1,4 +1,4 @@
-site_name: "{{schema.description}}"
+site_name: "ontology association"
 theme: readthedocs
 nav:
   - Home: home.md

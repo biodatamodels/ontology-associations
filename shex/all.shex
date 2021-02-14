@@ -38,6 +38,33 @@ metatype:Objectidentifier IRI
 
 metatype:Nodeidentifier NONLITERAL
 
+<Association>  (
+    CLOSED {
+       (  $<Association_tes> rdf:type . * ;
+          rdf:type [ <Association> ] ?
+       )
+    } OR @<GafAssociation>
+)
+
+<AssociationDocument>  (
+    CLOSED {
+       (  $<AssociationDocument_tes> (  &<Document_tes> ;
+             rdf:type [ <Document> ] ? ;
+             <date_generated> @metatype:String ? ;
+             <generated_by> @<Provider> ? ;
+             <url> @metatype:String ? ;
+             <project_release> @metatype:String ? ;
+             <funding> @metatype:String ? ;
+             <go_version> @metatype:String ? ;
+             <ro_version> @metatype:String ? ;
+             <gorel_version> @metatype:String ? ;
+             <associations> @<Association> *
+          ) ;
+          rdf:type [ <AssociationDocument> ] ?
+       )
+    } OR @<GafAssociationDocument> OR @<GpadAssociationDocument>
+)
+
 <ConjunctionExtensionExpression> CLOSED {
     (  $<ConjunctionExtensionExpression_tes> rdf:type . * ;
        rdf:type [ <ConjunctionExtensionExpression> ] ?
@@ -54,8 +81,20 @@ metatype:Nodeidentifier NONLITERAL
     } OR @<OntologyClass> OR @<RelationTerm>
 )
 
+<Document>  (
+    @<AssociationDocument> OR @<GpiDocument>
+)
+
+<Document_struct> {
+    (  $<Document_tes> rdf:type . * ;
+       rdf:type [ <Document> ] ?
+    )
+}
+
 <GafAssociation> CLOSED {
-    (  $<GafAssociation_tes> (  <db> @metatype:String ;
+    (  $<GafAssociation_tes> (  &<Association_tes> ;
+          rdf:type [ <Association> ] ? ;
+          <db> @metatype:String ;
           <local_id> @metatype:String ;
           <db_object_symbol> @<SymbolType> ;
           <relation> @<RelationTerm> ? ;
@@ -63,7 +102,7 @@ metatype:Nodeidentifier NONLITERAL
           <references> @<NamedThing> + ;
           <evidence_type> @<OntologyClass> ;
           <with_or_from> @<NamedThing> * ;
-          <aspect> @<GeneOntologyAspectEnum> ? ;
+          <aspect> @<GeneOntologyAspectEnum> ;
           <db_object_name> @<NameType> ? ;
           <db_object_synonyms> @<NameType> * ;
           <db_object_type> @<GpEntityTypeEnum> ? ;
@@ -76,10 +115,53 @@ metatype:Nodeidentifier NONLITERAL
     )
 }
 
+<GafAssociationDocument> CLOSED {
+    (  $<GafAssociationDocument_tes> (  &<AssociationDocument_tes> ;
+          rdf:type [ <AssociationDocument> ] ? ;
+          <associations> @<GafAssociation> *
+       ) ;
+       rdf:type [ <GafAssociationDocument> ] ?
+    )
+}
+
+<GpadAssociation> CLOSED {
+    (  $<GpadAssociation_tes> (  <db_object_ref> @<NamedThing> ;
+          <negation> @metatype:Boolean ? ;
+          <relation> @<RelationTerm> ? ;
+          <ontology_class_ref> @<NamedThing> ;
+          <references> @<NamedThing> + ;
+          <evidence_type> @<OntologyClass> ;
+          <with_or_from> @<NamedThing> * ;
+          <interacting_taxon_ref> @<Taxon> * ;
+          <annotation_date> @metatype:Datetime ? ;
+          <assigned_by> @<Provider> ;
+          <annotation_extensions> @<ConjunctionExtensionExpression> * ;
+          <annotation_properties> @<PropertyValuePair> *
+       ) ;
+       rdf:type [ <GpadAssociation> ] ?
+    )
+}
+
+<GpadAssociationDocument> CLOSED {
+    (  $<GpadAssociationDocument_tes> (  &<AssociationDocument_tes> ;
+          rdf:type [ <AssociationDocument> ] ? ;
+          <associations> @<GpadAssociation> *
+       ) ;
+       rdf:type [ <GpadAssociationDocument> ] ?
+    )
+}
+
+<GpiDocument> CLOSED {
+    (  $<GpiDocument_tes> (  &<Document_tes> ;
+          rdf:type [ <Document> ] ? ;
+          <entities> @<GpiEntity> *
+       ) ;
+       rdf:type [ <GpiDocument> ] ?
+    )
+}
+
 <GpiEntity> CLOSED {
-    (  $<GpiEntity_tes> (  &<NamedThing_tes> ;
-          rdf:type [ <NamedThing> ] ? ;
-          <db_object_symbol> @<SymbolType> ;
+    (  $<GpiEntity_tes> (  <db_object_symbol> @<SymbolType> ;
           <db_object_name> @<NameType> ? ;
           <db_object_synonyms> @<NameType> * ;
           <db_object_type> @<GpEntityTypeEnum> ? ;
@@ -94,12 +176,32 @@ metatype:Nodeidentifier NONLITERAL
     )
 }
 
+<HumanPhenotypeOntologyAssociation> CLOSED {
+    (  $<HumanPhenotypeOntologyAssociation_tes> (  <db> @metatype:String ;
+          <local_id> @metatype:String ;
+          <db_object_symbol> @<SymbolType> ;
+          <relation> @<RelationTerm> ? ;
+          <ontology_class_ref> @<NamedThing> ;
+          <references> @<NamedThing> + ;
+          <evidence_type> @<OntologyClass> ;
+          <onset> @metatype:String ? ;
+          <frequency> @metatype:String ? ;
+          <with_or_from> @<NamedThing> * ;
+          <aspect> @metatype:String ;
+          <db_object_synonyms> @<NameType> * ;
+          <annotation_date> @metatype:Datetime ? ;
+          <assigned_by> @<Provider>
+       ) ;
+       rdf:type [ <HumanPhenotypeOntologyAssociation> ] ?
+    )
+}
+
 <NamedThing>  (
     CLOSED {
        (  $<NamedThing_tes> rdf:type . * ;
           rdf:type [ <NamedThing> ]
        )
-    } OR @<ControlledTerm> OR @<GpiEntity> OR @<Provider>
+    } OR @<ControlledTerm> OR @<Provider>
 )
 
 <OntologyClass>  (

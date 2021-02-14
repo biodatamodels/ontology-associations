@@ -1,5 +1,5 @@
 # Auto generated from hpoa.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 18:15
+# Generation date: 2021-02-13 19:00
 # Schema: hpoa
 #
 # id: https://w3id.org/ontology_association/hpoa
@@ -24,7 +24,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from . association import NameType, NamedThingId, OntologyClassId, ProviderId, RelationTermId, SymbolType
+from . association import Association, AssociationDocument, NameType, NamedThingId, OntologyClassId, ProviderId, RelationTermId, SymbolType
 from biolinkml.utils.metamodelcore import XSDDateTime
 from includes.types import Datetime, String
 
@@ -47,7 +47,7 @@ DEFAULT_ = ONTOLOGY_ASSOCIATION
 
 
 @dataclass
-class HumanPhenotypeOntologyAssociation(YAMLRoot):
+class HumanPhenotypeOntologyAssociation(Association):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.HumanPhenotypeOntologyAssociation
@@ -61,12 +61,12 @@ class HumanPhenotypeOntologyAssociation(YAMLRoot):
     ontology_class_ref: Union[str, NamedThingId] = None
     references: Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]] = None
     evidence_type: Union[str, OntologyClassId] = None
+    aspect: str = None
     assigned_by: Union[str, ProviderId] = None
     relation: Optional[Union[str, RelationTermId]] = None
     onset: Optional[str] = None
     frequency: Optional[str] = None
     with_or_from: Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]] = empty_list()
-    aspect: Optional[str] = None
     db_object_synonyms: Optional[Union[Union[str, NameType], List[Union[str, NameType]]]] = empty_list()
     annotation_date: Optional[Union[str, XSDDateTime]] = None
 
@@ -104,6 +104,11 @@ class HumanPhenotypeOntologyAssociation(YAMLRoot):
         if not isinstance(self.evidence_type, OntologyClassId):
             self.evidence_type = OntologyClassId(self.evidence_type)
 
+        if self.aspect is None:
+            raise ValueError("aspect must be supplied")
+        if not isinstance(self.aspect, str):
+            self.aspect = str(self.aspect)
+
         if self.assigned_by is None:
             raise ValueError("assigned_by must be supplied")
         if not isinstance(self.assigned_by, ProviderId):
@@ -124,9 +129,6 @@ class HumanPhenotypeOntologyAssociation(YAMLRoot):
             self.with_or_from = [self.with_or_from]
         self.with_or_from = [v if isinstance(v, NamedThingId) else NamedThingId(v) for v in self.with_or_from]
 
-        if self.aspect is not None and not isinstance(self.aspect, str):
-            self.aspect = str(self.aspect)
-
         if self.db_object_synonyms is None:
             self.db_object_synonyms = []
         if not isinstance(self.db_object_synonyms, list):
@@ -135,6 +137,27 @@ class HumanPhenotypeOntologyAssociation(YAMLRoot):
 
         if self.annotation_date is not None and not isinstance(self.annotation_date, XSDDateTime):
             self.annotation_date = XSDDateTime(self.annotation_date)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class HumanPhenotypeOntologyAssociationDocument(AssociationDocument):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.HumanPhenotypeOntologyAssociationDocument
+    class_class_curie: ClassVar[str] = "ontology_association:HumanPhenotypeOntologyAssociationDocument"
+    class_name: ClassVar[str] = "human phenotype ontology association document"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.HumanPhenotypeOntologyAssociationDocument
+
+    associations: Optional[Union[Union[dict, HumanPhenotypeOntologyAssociation], List[Union[dict, HumanPhenotypeOntologyAssociation]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.associations is None:
+            self.associations = []
+        if not isinstance(self.associations, list):
+            self.associations = [self.associations]
+        self._normalize_inlined_slot(slot_name="associations", slot_type=HumanPhenotypeOntologyAssociation, key_name="db", inlined_as_list=True, keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -151,3 +174,6 @@ slots.onset = Slot(uri=ONTOLOGY_ASSOCIATION.onset, name="onset", curie=ONTOLOGY_
 
 slots.frequency = Slot(uri=ONTOLOGY_ASSOCIATION.frequency, name="frequency", curie=ONTOLOGY_ASSOCIATION.curie('frequency'),
                    model_uri=ONTOLOGY_ASSOCIATION.frequency, domain=None, range=Optional[str])
+
+slots.human_phenotype_ontology_association_document_associations = Slot(uri=ONTOLOGY_ASSOCIATION.associations, name="human phenotype ontology association document_associations", curie=ONTOLOGY_ASSOCIATION.curie('associations'),
+                   model_uri=ONTOLOGY_ASSOCIATION.human_phenotype_ontology_association_document_associations, domain=HumanPhenotypeOntologyAssociationDocument, range=Optional[Union[Union[dict, HumanPhenotypeOntologyAssociation], List[Union[dict, HumanPhenotypeOntologyAssociation]]]])

@@ -1,8 +1,8 @@
 # Auto generated from all.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 18:21
-# Schema: hpoa
+# Generation date: 2021-02-13 18:58
+# Schema: ontology_associations
 #
-# id: https://w3id.org/ontology_association/hpoa
+# id: https://w3id.org/ontology_association/all
 # description: Various association data models
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 

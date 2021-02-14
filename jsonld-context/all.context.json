@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from all.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-02-13 18:33\nSchema: hpoa\n\nid: https://w3id.org/ontology_association/hpoa\ndescription: Various association data models\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from all.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-02-13 18:58\nSchema: ontology_associations\n\nid: https://w3id.org/ontology_association/all\ndescription: Various association data models\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": "@type",
       "biolink": "https://w3id.org/biolink/vocab/",
@@ -18,6 +18,9 @@
       "assigned_by": {
          "@type": "@id"
       },
+      "associations": {
+         "@type": "@id"
+      },
       "db_object_ref": "@id",
       "db_object_taxon": {
          "@type": "@id"
@@ -29,6 +32,12 @@
          "@type": "@id"
       },
       "gene_product_properties": {
+         "@type": "@id"
+      },
+      "generated_by": {
+         "@type": "@id"
+      },
+      "entities": {
          "@type": "@id"
       },
       "id": "@id",

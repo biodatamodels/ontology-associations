@@ -1,7 +1,8 @@
-id: https://w3id.org/ontology_association/gaf
-name: gaf
+id: https://w3id.org/ontology_association/gpad
+name: gpad
 description: >-
-  Various association data models
+  GPAD datamodel
+  https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md
 imports:
  - association
 prefixes:
@@ -18,6 +19,7 @@ default_curi_maps:
 classes:
 
   gpad association:
+    is_a: association
     description: >-
       line of GPAD
     slots:

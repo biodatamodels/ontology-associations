@@ -1,8 +1,16 @@
 id,mappings,description
+association,,generic association
+association_document,,
 conjunction_extension_expression,,set of expressions all true
 controlled_term,,
+document,,root class for association or entity documents
 gaf_association,,line of GAF
+gaf_association_document,,
+gpad_association,,line of GPAD
+gpad_association_document,,
+gpi_document,,
 gpi_entity,,
+human_phenotype_ontology_association,,
 named_thing,,
 ontology_class,,
 property_value_pair,,

@@ -1,5 +1,5 @@
 # Auto generated from association.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 18:45
+# Generation date: 2021-02-13 19:03
 # Schema: ontology_association
 #
 # id: https://w3id.org/ontology_association
@@ -66,15 +66,15 @@ class NameType(String):
 
 
 # Class references
-class NamedThingId(Curie):
+class AbstractThingId(Curie):
     pass
 
 
-class ProviderId(NamedThingId):
+class ProviderId(AbstractThingId):
     pass
 
 
-class ControlledTermId(NamedThingId):
+class ControlledTermId(AbstractThingId):
     pass
 
 
@@ -90,28 +90,46 @@ class RelationTermId(ControlledTermId):
     pass
 
 
-@dataclass
-class NamedThing(YAMLRoot):
+class Entity(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.NamedThing
-    class_class_curie: ClassVar[str] = "ontology_association:NamedThing"
-    class_name: ClassVar[str] = "named thing"
-    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.NamedThing
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Entity
+    class_class_curie: ClassVar[str] = "ontology_association:Entity"
+    class_name: ClassVar[str] = "entity"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Entity
 
-    id: Union[str, NamedThingId] = None
+
+class BiologicalEntity(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.BiologicalEntity
+    class_class_curie: ClassVar[str] = "ontology_association:BiologicalEntity"
+    class_name: ClassVar[str] = "biological entity"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.BiologicalEntity
+
+
+@dataclass
+class AbstractThing(Entity):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.AbstractThing
+    class_class_curie: ClassVar[str] = "ontology_association:AbstractThing"
+    class_name: ClassVar[str] = "abstract thing"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.AbstractThing
+
+    id: Union[str, AbstractThingId] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError("id must be supplied")
-        if not isinstance(self.id, NamedThingId):
-            self.id = NamedThingId(self.id)
+        if not isinstance(self.id, AbstractThingId):
+            self.id = AbstractThingId(self.id)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass
-class Provider(NamedThing):
+class Provider(AbstractThing):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Provider
@@ -131,7 +149,7 @@ class Provider(NamedThing):
 
 
 @dataclass
-class ControlledTerm(NamedThing):
+class ControlledTerm(AbstractThing):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.ControlledTerm
@@ -277,9 +295,41 @@ class AssociationDocument(Document):
     class_name: ClassVar[str] = "association document"
     class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.AssociationDocument
 
+    date_generated: Optional[str] = None
+    generated_by: Optional[Union[str, ProviderId]] = None
+    url: Optional[str] = None
+    project_release: Optional[str] = None
+    funding: Optional[str] = None
+    go_version: Optional[str] = None
+    ro_version: Optional[str] = None
+    gorel_version: Optional[str] = None
     associations: Optional[Union[Union[dict, Association], List[Union[dict, Association]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.date_generated is not None and not isinstance(self.date_generated, str):
+            self.date_generated = str(self.date_generated)
+
+        if self.generated_by is not None and not isinstance(self.generated_by, ProviderId):
+            self.generated_by = ProviderId(self.generated_by)
+
+        if self.url is not None and not isinstance(self.url, str):
+            self.url = str(self.url)
+
+        if self.project_release is not None and not isinstance(self.project_release, str):
+            self.project_release = str(self.project_release)
+
+        if self.funding is not None and not isinstance(self.funding, str):
+            self.funding = str(self.funding)
+
+        if self.go_version is not None and not isinstance(self.go_version, str):
+            self.go_version = str(self.go_version)
+
+        if self.ro_version is not None and not isinstance(self.ro_version, str):
+            self.ro_version = str(self.ro_version)
+
+        if self.gorel_version is not None and not isinstance(self.gorel_version, str):
+            self.gorel_version = str(self.gorel_version)
+
         if self.associations is None:
             self.associations = []
         if not isinstance(self.associations, list):
@@ -331,7 +381,7 @@ slots.db = Slot(uri=ONTOLOGY_ASSOCIATION.db, name="db", curie=ONTOLOGY_ASSOCIATI
                    pattern=re.compile(r'[a-zA-Z0-9\.\-\_]+'))
 
 slots.db_object_ref = Slot(uri=ONTOLOGY_ASSOCIATION.db_object_ref, name="db object ref", curie=ONTOLOGY_ASSOCIATION.curie('db_object_ref'),
-                   model_uri=ONTOLOGY_ASSOCIATION.db_object_ref, domain=None, range=Union[str, NamedThingId])
+                   model_uri=ONTOLOGY_ASSOCIATION.db_object_ref, domain=None, range=Union[str, AbstractThingId])
 
 slots.aspect = Slot(uri=ONTOLOGY_ASSOCIATION.aspect, name="aspect", curie=ONTOLOGY_ASSOCIATION.curie('aspect'),
                    model_uri=ONTOLOGY_ASSOCIATION.aspect, domain=None, range=str)
@@ -352,13 +402,13 @@ slots.db_object_taxon = Slot(uri=ONTOLOGY_ASSOCIATION.db_object_taxon, name="db 
                    model_uri=ONTOLOGY_ASSOCIATION.db_object_taxon, domain=None, range=Union[str, TaxonId])
 
 slots.encoded_by = Slot(uri=ONTOLOGY_ASSOCIATION.encoded_by, name="encoded by", curie=ONTOLOGY_ASSOCIATION.curie('encoded_by'),
-                   model_uri=ONTOLOGY_ASSOCIATION.encoded_by, domain=None, range=Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]])
+                   model_uri=ONTOLOGY_ASSOCIATION.encoded_by, domain=None, range=Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]])
 
 slots.parent_protein = Slot(uri=ONTOLOGY_ASSOCIATION.parent_protein, name="parent protein", curie=ONTOLOGY_ASSOCIATION.curie('parent_protein'),
-                   model_uri=ONTOLOGY_ASSOCIATION.parent_protein, domain=None, range=Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]])
+                   model_uri=ONTOLOGY_ASSOCIATION.parent_protein, domain=None, range=Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]])
 
 slots.protein_containing_complex_members = Slot(uri=ONTOLOGY_ASSOCIATION.protein_containing_complex_members, name="protein containing complex members", curie=ONTOLOGY_ASSOCIATION.curie('protein_containing_complex_members'),
-                   model_uri=ONTOLOGY_ASSOCIATION.protein_containing_complex_members, domain=None, range=Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]])
+                   model_uri=ONTOLOGY_ASSOCIATION.protein_containing_complex_members, domain=None, range=Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]])
 
 slots.db_xrefs = Slot(uri=ONTOLOGY_ASSOCIATION.db_xrefs, name="db xrefs", curie=ONTOLOGY_ASSOCIATION.curie('db_xrefs'),
                    model_uri=ONTOLOGY_ASSOCIATION.db_xrefs, domain=None, range=Optional[Union[Union[str, Curie], List[Union[str, Curie]]]])
@@ -367,16 +417,16 @@ slots.negation = Slot(uri=ONTOLOGY_ASSOCIATION.negation, name="negation", curie=
                    model_uri=ONTOLOGY_ASSOCIATION.negation, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.ontology_class_ref = Slot(uri=ONTOLOGY_ASSOCIATION.ontology_class_ref, name="ontology class ref", curie=ONTOLOGY_ASSOCIATION.curie('ontology_class_ref'),
-                   model_uri=ONTOLOGY_ASSOCIATION.ontology_class_ref, domain=None, range=Union[str, NamedThingId])
+                   model_uri=ONTOLOGY_ASSOCIATION.ontology_class_ref, domain=None, range=Union[str, AbstractThingId])
 
 slots.relation = Slot(uri=ONTOLOGY_ASSOCIATION.relation, name="relation", curie=ONTOLOGY_ASSOCIATION.curie('relation'),
                    model_uri=ONTOLOGY_ASSOCIATION.relation, domain=None, range=Optional[Union[str, RelationTermId]])
 
 slots.references = Slot(uri=ONTOLOGY_ASSOCIATION.references, name="references", curie=ONTOLOGY_ASSOCIATION.curie('references'),
-                   model_uri=ONTOLOGY_ASSOCIATION.references, domain=None, range=Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]])
+                   model_uri=ONTOLOGY_ASSOCIATION.references, domain=None, range=Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]])
 
 slots.with_or_from = Slot(uri=ONTOLOGY_ASSOCIATION.with_or_from, name="with or from", curie=ONTOLOGY_ASSOCIATION.curie('with_or_from'),
-                   model_uri=ONTOLOGY_ASSOCIATION.with_or_from, domain=None, range=Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]])
+                   model_uri=ONTOLOGY_ASSOCIATION.with_or_from, domain=None, range=Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]])
 
 slots.interacting_taxon_ref = Slot(uri=ONTOLOGY_ASSOCIATION.interacting_taxon_ref, name="interacting taxon ref", curie=ONTOLOGY_ASSOCIATION.curie('interacting_taxon_ref'),
                    model_uri=ONTOLOGY_ASSOCIATION.interacting_taxon_ref, domain=None, range=Optional[Union[Union[str, TaxonId], List[Union[str, TaxonId]]]])
@@ -402,6 +452,39 @@ slots.annotation_properties = Slot(uri=ONTOLOGY_ASSOCIATION.annotation_propertie
 
 slots.gene_product_properties = Slot(uri=ONTOLOGY_ASSOCIATION.gene_product_properties, name="gene product properties", curie=ONTOLOGY_ASSOCIATION.curie('gene_product_properties'),
                    model_uri=ONTOLOGY_ASSOCIATION.gene_product_properties, domain=None, range=Optional[Union[Union[dict, PropertyValuePair], List[Union[dict, PropertyValuePair]]]])
+
+slots.document_metadata_field = Slot(uri=ONTOLOGY_ASSOCIATION.document_metadata_field, name="document metadata field", curie=ONTOLOGY_ASSOCIATION.curie('document_metadata_field'),
+                   model_uri=ONTOLOGY_ASSOCIATION.document_metadata_field, domain=None, range=Optional[str])
+
+slots.date_generated = Slot(uri=ONTOLOGY_ASSOCIATION.date_generated, name="date generated", curie=ONTOLOGY_ASSOCIATION.curie('date_generated'),
+                   model_uri=ONTOLOGY_ASSOCIATION.date_generated, domain=None, range=Optional[str])
+
+slots.generated_by = Slot(uri=ONTOLOGY_ASSOCIATION.generated_by, name="generated by", curie=ONTOLOGY_ASSOCIATION.curie('generated_by'),
+                   model_uri=ONTOLOGY_ASSOCIATION.generated_by, domain=None, range=Optional[Union[str, ProviderId]])
+
+slots.url = Slot(uri=ONTOLOGY_ASSOCIATION.url, name="url", curie=ONTOLOGY_ASSOCIATION.curie('url'),
+                   model_uri=ONTOLOGY_ASSOCIATION.url, domain=None, range=Optional[str])
+
+slots.project_release = Slot(uri=ONTOLOGY_ASSOCIATION.project_release, name="project release", curie=ONTOLOGY_ASSOCIATION.curie('project_release'),
+                   model_uri=ONTOLOGY_ASSOCIATION.project_release, domain=None, range=Optional[str])
+
+slots.funding = Slot(uri=ONTOLOGY_ASSOCIATION.funding, name="funding", curie=ONTOLOGY_ASSOCIATION.curie('funding'),
+                   model_uri=ONTOLOGY_ASSOCIATION.funding, domain=None, range=Optional[str])
+
+slots.ontology_version = Slot(uri=ONTOLOGY_ASSOCIATION.ontology_version, name="ontology version", curie=ONTOLOGY_ASSOCIATION.curie('ontology_version'),
+                   model_uri=ONTOLOGY_ASSOCIATION.ontology_version, domain=None, range=Optional[str])
+
+slots.go_version = Slot(uri=ONTOLOGY_ASSOCIATION.go_version, name="go version", curie=ONTOLOGY_ASSOCIATION.curie('go_version'),
+                   model_uri=ONTOLOGY_ASSOCIATION.go_version, domain=None, range=Optional[str])
+
+slots.ro_version = Slot(uri=ONTOLOGY_ASSOCIATION.ro_version, name="ro version", curie=ONTOLOGY_ASSOCIATION.curie('ro_version'),
+                   model_uri=ONTOLOGY_ASSOCIATION.ro_version, domain=None, range=Optional[str])
+
+slots.gorel_version = Slot(uri=ONTOLOGY_ASSOCIATION.gorel_version, name="gorel version", curie=ONTOLOGY_ASSOCIATION.curie('gorel_version'),
+                   model_uri=ONTOLOGY_ASSOCIATION.gorel_version, domain=None, range=Optional[str])
+
+slots.eco_version = Slot(uri=ONTOLOGY_ASSOCIATION.eco_version, name="eco version", curie=ONTOLOGY_ASSOCIATION.curie('eco_version'),
+                   model_uri=ONTOLOGY_ASSOCIATION.eco_version, domain=None, range=Optional[str])
 
 slots.propertyValuePair__property = Slot(uri=ONTOLOGY_ASSOCIATION.property, name="propertyValuePair__property", curie=ONTOLOGY_ASSOCIATION.curie('property'),
                    model_uri=ONTOLOGY_ASSOCIATION.propertyValuePair__property, domain=None, range=Optional[Union[str, ControlledTermId]])

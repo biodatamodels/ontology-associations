@@ -1,9 +1,9 @@
 # Auto generated from gpad.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 18:45
-# Schema: gaf
+# Generation date: 2021-02-13 18:59
+# Schema: gpad
 #
-# id: https://w3id.org/ontology_association/gaf
-# description: Various association data models
+# id: https://w3id.org/ontology_association/gpad
+# description: GPAD datamodel https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
 import dataclasses
@@ -24,9 +24,9 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from . association import AssociationDocument, ConjunctionExtensionExpression, NamedThingId, OntologyClassId, PropertyValuePair, ProviderId, RelationTermId, TaxonId
+from . association import Association, AssociationDocument, ConjunctionExtensionExpression, NamedThingId, OntologyClassId, PropertyValuePair, ProviderId, RelationTermId, TaxonId
 from biolinkml.utils.metamodelcore import Bool, XSDDateTime
-from includes.types import Boolean, Datetime
+from includes.types import Boolean, Datetime, String
 
 metamodel_version = "1.7.0"
 
@@ -48,7 +48,7 @@ DEFAULT_ = ONTOLOGY_ASSOCIATION
 
 
 @dataclass
-class GpadAssociation(YAMLRoot):
+class GpadAssociation(Association):
     """
     line of GPAD
     """
