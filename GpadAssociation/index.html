@@ -94,7 +94,11 @@
                 <h1 id="type-gpad-association">Type: gpad association</h1>
 <p>line of GPAD</p>
 <p>URI: <a href="https://w3id.org/ontology_association/GpadAssociation">ontology_association:GpadAssociation</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[RelationTerm],[Provider],[PropertyValuePair],[OntologyClass],[NamedThing],[GpadAssociationDocument],[PropertyValuePair]&lt;annotation%20properties%200..*-++[GpadAssociation&#124;negation:boolean%20%3F;annotation_date:datetime%20%3F],[ConjunctionExtensionExpression]&lt;annotation%20extensions%200..*-++[GpadAssociation],[Provider]&lt;assigned%20by%201..1-%20[GpadAssociation],[Taxon]&lt;interacting%20taxon%20ref%200..*-%20[GpadAssociation],[NamedThing]&lt;with%20or%20from%200..*-%20[GpadAssociation],[OntologyClass]&lt;evidence%20type%201..1-%20[GpadAssociation],[NamedThing]&lt;references%201..*-%20[GpadAssociation],[NamedThing]&lt;ontology%20class%20ref%201..1-%20[GpadAssociation],[RelationTerm]&lt;relation%200..1-%20[GpadAssociation],[NamedThing]&lt;db%20object%20ref%201..1-%20[GpadAssociation],[GpadAssociationDocument]++-%20associations%200..*&gt;[GpadAssociation],[ConjunctionExtensionExpression]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[RelationTerm],[Publication],[Provider],[PropertyValuePair],[OntologyClass],[GpadAssociationDocument],[PropertyValuePair]&lt;annotation%20properties%200..*-++[GpadAssociation&#124;negation:boolean%20%3F;annotation_date:datetime%20%3F],[ConjunctionExtensionExpression]&lt;annotation%20extensions%200..*-++[GpadAssociation],[Provider]&lt;assigned%20by%201..1-%20[GpadAssociation],[Taxon]&lt;interacting%20taxon%20ref%200..*-%20[GpadAssociation],[AbstractThing]&lt;with%20or%20from%200..*-%20[GpadAssociation],[OntologyClass]&lt;evidence%20type%201..1-%20[GpadAssociation],[Publication]&lt;references%201..*-%20[GpadAssociation],[AbstractThing]&lt;ontology%20class%20ref%201..1-%20[GpadAssociation],[RelationTerm]&lt;relation%200..1-%20[GpadAssociation],[AbstractThing]&lt;db%20object%20ref%201..1-%20[GpadAssociation],[GpadAssociationDocument]++-%20associations%200..*&gt;[GpadAssociation],[Association]^-[GpadAssociation],[ConjunctionExtensionExpression],[Association],[AbstractThing]" /></p>
+<h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="../Association/">Association</a> - generic association</li>
+</ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
 <li><strong><a href="../GpadAssociationDocument/">GpadAssociationDocument</a></strong> <em><a href="../gpad_association_document_associations/">gpad association document➞associations</a></em>  <sub>0..<em></sub>  </em><em><a href="./">GpadAssociation</a></em>*</li>
@@ -123,7 +127,7 @@
 </ul>
 </li>
 <li><a href="../db_object_ref/">db object ref</a>  <sub>REQ</sub><ul>
-<li>range: <a href="../NamedThing/">NamedThing</a></li>
+<li>range: <a href="../AbstractThing/">AbstractThing</a></li>
 <li>Example: UniProtKB:P11678 None</li>
 </ul>
 </li>
@@ -140,12 +144,12 @@
 </ul>
 </li>
 <li><a href="../ontology_class_ref/">ontology class ref</a>  <sub>REQ</sub><ul>
-<li>range: <a href="../NamedThing/">NamedThing</a></li>
+<li>range: <a href="../AbstractThing/">AbstractThing</a></li>
 <li>Example: GO:0050803 None</li>
 </ul>
 </li>
 <li><a href="../references/">references</a>  <sub>1..*</sub><ul>
-<li>range: <a href="../NamedThing/">NamedThing</a></li>
+<li>range: <a href="../Publication/">Publication</a></li>
 </ul>
 </li>
 <li><a href="relation.md">relation</a>  <sub>OPT</sub><ul>
@@ -154,7 +158,7 @@
 </ul>
 </li>
 <li><a href="../with_or_from/">with or from</a>  <sub>0..*</sub><ul>
-<li>range: <a href="../NamedThing/">NamedThing</a></li>
+<li>range: <a href="../AbstractThing/">AbstractThing</a></li>
 <li>Example: WB:WBVar00000510 None</li>
 </ul>
 </li>

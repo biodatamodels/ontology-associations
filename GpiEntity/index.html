@@ -93,7 +93,7 @@
               
                 <h1 id="type-gpi-entity">Type: gpi entity</h1>
 <p>URI: <a href="https://w3id.org/ontology_association/GpiEntity">ontology_association:GpiEntity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[PropertyValuePair],[NamedThing],[PropertyValuePair]&lt;gene%20product%20properties%200..*-++[GpiEntity&#124;db_object_symbol:symbol_type;db_object_name:name_type%20%3F;db_object_synonyms:name_type%20*;db_object_type:gp_entity_type_enum%20%3F;db_xrefs:curie%20*],[NamedThing]&lt;protein%20containing%20complex%20members%200..*-%20[GpiEntity],[NamedThing]&lt;parent%20protein%200..*-%20[GpiEntity],[NamedThing]&lt;encoded%20by%200..*-%20[GpiEntity],[Taxon]&lt;db%20object%20taxon%201..1-%20[GpiEntity],[NamedThing]&lt;db%20object%20ref%201..1-%20[GpiEntity],[GpiDocument]-%20entities%200..*&gt;[GpiEntity],[GpiDocument]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[PropertyValuePair],[PropertyValuePair]&lt;gene%20product%20properties%200..*-++[GpiEntity&#124;db_object_symbol:symbol_type;db_object_name:name_type%20%3F;db_object_synonyms:name_type%20*;db_object_type:gp_entity_type_enum%20%3F;db_xrefs:curie%20*],[AbstractThing]&lt;protein%20containing%20complex%20members%200..*-%20[GpiEntity],[AbstractThing]&lt;parent%20protein%200..*-%20[GpiEntity],[AbstractThing]&lt;encoded%20by%200..*-%20[GpiEntity],[Taxon]&lt;db%20object%20taxon%201..1-%20[GpiEntity],[AbstractThing]&lt;db%20object%20ref%201..1-%20[GpiEntity],[GpiDocument]-%20entities%200..*&gt;[GpiEntity],[GpiDocument],[AbstractThing]" /></p>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
 <li><strong>None</strong> <em><a href="../gpiDocument__entities/">➞entities</a></em>  <sub>0..<em></sub>  </em><em><a href="./">GpiEntity</a></em>*</li>
@@ -131,7 +131,7 @@
 </ul>
 </li>
 <li><a href="../encoded_by/">encoded by</a>  <sub>0..*</sub><ul>
-<li>range: <a href="../NamedThing/">NamedThing</a></li>
+<li>range: <a href="../AbstractThing/">AbstractThing</a></li>
 </ul>
 </li>
 <li><a href="../gene_product_properties/">gene product properties</a>  <sub>0..*</sub><ul>
@@ -140,15 +140,15 @@
 </ul>
 </li>
 <li><a href="../gpi_entity_db_object_ref/">gpi entity➞db object ref</a>  <sub>REQ</sub><ul>
-<li>range: <a href="../NamedThing/">NamedThing</a></li>
+<li>range: <a href="../AbstractThing/">AbstractThing</a></li>
 </ul>
 </li>
 <li><a href="../parent_protein/">parent protein</a>  <sub>0..*</sub><ul>
-<li>range: <a href="../NamedThing/">NamedThing</a></li>
+<li>range: <a href="../AbstractThing/">AbstractThing</a></li>
 </ul>
 </li>
 <li><a href="../protein_containing_complex_members/">protein containing complex members</a>  <sub>0..*</sub><ul>
-<li>range: <a href="../NamedThing/">NamedThing</a></li>
+<li>range: <a href="../AbstractThing/">AbstractThing</a></li>
 </ul>
 </li>
 </ul>

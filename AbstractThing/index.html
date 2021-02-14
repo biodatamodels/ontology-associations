@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Type: parent protein - ontology association</title>
+  <title>Type: abstract thing - ontology association</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Type: parent protein";
-    var mkdocs_page_input_path = "parent_protein.md";
+    var mkdocs_page_name = "Type: abstract thing";
+    var mkdocs_page_input_path = "AbstractThing.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -80,7 +80,7 @@
     
       
     
-    <li>Type: parent protein</li>
+    <li>Type: abstract thing</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -91,15 +91,37 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="type-parent-protein">Type: parent protein</h1>
-<p>URI: <a href="https://w3id.org/ontology_association/parent_protein">ontology_association:parent_protein</a></p>
-<h2 id="domain-and-range">Domain and Range</h2>
-<p>None -&gt;  <sub>0..*</sub> <a href="../AbstractThing/">AbstractThing</a></p>
+                <h1 id="type-abstract-thing">Type: abstract thing</h1>
+<p>URI: <a href="https://w3id.org/ontology_association/AbstractThing">ontology_association:AbstractThing</a></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[GpiEntity],[Entity],[ControlledTerm],[GpadAssociation]-%20db%20object%20ref%201..1&gt;[AbstractThing&#124;id:curie],[GpiEntity]-%20db%20object%20ref(i)%201..1&gt;[AbstractThing],[GpiEntity]-%20encoded%20by%200..*&gt;[AbstractThing],[GpiEntity]-%20db%20object%20ref%201..1&gt;[AbstractThing],[HumanPhenotypeOntologyAssociation]-%20ontology%20class%20ref%201..1&gt;[AbstractThing],[GafAssociation]-%20ontology%20class%20ref%201..1&gt;[AbstractThing],[GpadAssociation]-%20ontology%20class%20ref%201..1&gt;[AbstractThing],[GpiEntity]-%20parent%20protein%200..*&gt;[AbstractThing],[GpiEntity]-%20protein%20containing%20complex%20members%200..*&gt;[AbstractThing],[HumanPhenotypeOntologyAssociation]-%20with%20or%20from%200..*&gt;[AbstractThing],[GafAssociation]-%20with%20or%20from%200..*&gt;[AbstractThing],[GpadAssociation]-%20with%20or%20from%200..*&gt;[AbstractThing],[AbstractThing]^-[Publication],[AbstractThing]^-[Provider],[AbstractThing]^-[ControlledTerm],[Entity]^-[AbstractThing],[HumanPhenotypeOntologyAssociation],[GpadAssociation],[GafAssociation]" /></p>
 <h2 id="parents">Parents</h2>
-<h2 id="children">Children</h2>
-<h2 id="used-by">Used by</h2>
 <ul>
-<li><a href="../GpiEntity/">GpiEntity</a></li>
+<li>is_a: <a href="../Entity/">Entity</a></li>
+</ul>
+<h2 id="children">Children</h2>
+<ul>
+<li><a href="../ControlledTerm/">ControlledTerm</a></li>
+<li><a href="../Provider/">Provider</a></li>
+<li><a href="../Publication/">Publication</a></li>
+</ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong>None</strong> <em><a href="../db_object_ref/">db object ref</a></em>  <sub>REQ</sub>  <strong><a href="./">AbstractThing</a></strong></li>
+<li><strong>None</strong> <em><a href="../encoded_by/">encoded by</a></em>  <sub>0..<em></sub>  </em><em><a href="./">AbstractThing</a></em>*</li>
+<li><strong><a href="../GpiEntity/">GpiEntity</a></strong> <em><a href="../gpi_entity_db_object_ref/">gpi entity➞db object ref</a></em>  <sub>REQ</sub>  <strong><a href="./">AbstractThing</a></strong></li>
+<li><strong>None</strong> <em><a href="../ontology_class_ref/">ontology class ref</a></em>  <sub>REQ</sub>  <strong><a href="./">AbstractThing</a></strong></li>
+<li><strong>None</strong> <em><a href="../parent_protein/">parent protein</a></em>  <sub>0..<em></sub>  </em><em><a href="./">AbstractThing</a></em>*</li>
+<li><strong>None</strong> <em><a href="../protein_containing_complex_members/">protein containing complex members</a></em>  <sub>0..<em></sub>  </em><em><a href="./">AbstractThing</a></em>*</li>
+<li><strong>None</strong> <em><a href="../with_or_from/">with or from</a></em>  <sub>0..<em></sub>  </em><em><a href="./">AbstractThing</a></em>*</li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../id/">id</a>  <sub>REQ</sub><ul>
+<li>Description: identifier</li>
+<li>range: <a href="../types/Curie/">Curie</a></li>
+</ul>
+</li>
 </ul>
               
             </div>

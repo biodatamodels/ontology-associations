@@ -94,7 +94,7 @@
                 <h1 id="type-gaf-association">Type: gaf association</h1>
 <p>line of GAF</p>
 <p>URI: <a href="https://w3id.org/ontology_association/GafAssociation">ontology_association:GafAssociation</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[RelationTerm],[Provider],[OntologyClass],[NamedThing],[GafAssociationDocument],[ConjunctionExtensionExpression]&lt;annotation%20extensions%200..*-++[GafAssociation&#124;db:string;local_id:string;db_object_symbol:symbol_type;aspect:gene_ontology_aspect_enum;db_object_name:name_type%20%3F;db_object_synonyms:name_type%20*;db_object_type:gp_entity_type_enum%20%3F;annotation_date:datetime%20%3F],[Provider]&lt;assigned%20by%201..1-%20[GafAssociation],[Taxon]&lt;db%20object%20taxon%201..1-%20[GafAssociation],[NamedThing]&lt;with%20or%20from%200..*-%20[GafAssociation],[OntologyClass]&lt;evidence%20type%201..1-%20[GafAssociation],[NamedThing]&lt;references%201..*-%20[GafAssociation],[NamedThing]&lt;ontology%20class%20ref%201..1-%20[GafAssociation],[RelationTerm]&lt;relation%200..1-%20[GafAssociation],[GafAssociationDocument]++-%20associations%200..*&gt;[GafAssociation],[Association]^-[GafAssociation],[ConjunctionExtensionExpression],[Association]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[RelationTerm],[Publication],[Provider],[OntologyClass],[GafAssociationDocument],[ConjunctionExtensionExpression]&lt;annotation%20extensions%200..*-++[GafAssociation&#124;db:string;local_id:string;db_object_symbol:symbol_type;aspect:gene_ontology_aspect_enum;db_object_name:name_type%20%3F;db_object_synonyms:name_type%20*;db_object_type:gp_entity_type_enum%20%3F;annotation_date:datetime%20%3F],[Provider]&lt;assigned%20by%201..1-%20[GafAssociation],[Taxon]&lt;db%20object%20taxon%201..1-%20[GafAssociation],[AbstractThing]&lt;with%20or%20from%200..*-%20[GafAssociation],[OntologyClass]&lt;evidence%20type%201..1-%20[GafAssociation],[Publication]&lt;references%201..*-%20[GafAssociation],[AbstractThing]&lt;ontology%20class%20ref%201..1-%20[GafAssociation],[RelationTerm]&lt;relation%200..1-%20[GafAssociation],[GafAssociationDocument]++-%20associations%200..*&gt;[GafAssociation],[Association]^-[GafAssociation],[ConjunctionExtensionExpression],[Association],[AbstractThing]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Association/">Association</a> - generic association</li>
@@ -166,12 +166,12 @@
 </ul>
 </li>
 <li><a href="../ontology_class_ref/">ontology class ref</a>  <sub>REQ</sub><ul>
-<li>range: <a href="../NamedThing/">NamedThing</a></li>
+<li>range: <a href="../AbstractThing/">AbstractThing</a></li>
 <li>Example: GO:0050803 None</li>
 </ul>
 </li>
 <li><a href="../references/">references</a>  <sub>1..*</sub><ul>
-<li>range: <a href="../NamedThing/">NamedThing</a></li>
+<li>range: <a href="../Publication/">Publication</a></li>
 </ul>
 </li>
 <li><a href="relation.md">relation</a>  <sub>OPT</sub><ul>
@@ -180,7 +180,7 @@
 </ul>
 </li>
 <li><a href="../with_or_from/">with or from</a>  <sub>0..*</sub><ul>
-<li>range: <a href="../NamedThing/">NamedThing</a></li>
+<li>range: <a href="../AbstractThing/">AbstractThing</a></li>
 <li>Example: WB:WBVar00000510 None</li>
 </ul>
 </li>
