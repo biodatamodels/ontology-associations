@@ -1,5 +1,5 @@
 # Auto generated from gpad.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 18:59
+# Generation date: 2021-02-13 19:07
 # Schema: gpad
 #
 # id: https://w3id.org/ontology_association/gpad
@@ -24,7 +24,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from . association import Association, AssociationDocument, ConjunctionExtensionExpression, NamedThingId, OntologyClassId, PropertyValuePair, ProviderId, RelationTermId, TaxonId
+from . association import AbstractThingId, Association, AssociationDocument, ConjunctionExtensionExpression, OntologyClassId, PropertyValuePair, ProviderId, PublicationId, RelationTermId, TaxonId
 from biolinkml.utils.metamodelcore import Bool, XSDDateTime
 from includes.types import Boolean, Datetime, String
 
@@ -59,14 +59,14 @@ class GpadAssociation(Association):
     class_name: ClassVar[str] = "gpad association"
     class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GpadAssociation
 
-    db_object_ref: Union[str, NamedThingId] = None
-    ontology_class_ref: Union[str, NamedThingId] = None
-    references: Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]] = None
+    db_object_ref: Union[str, AbstractThingId] = None
+    ontology_class_ref: Union[str, AbstractThingId] = None
+    references: Union[Union[str, PublicationId], List[Union[str, PublicationId]]] = None
     evidence_type: Union[str, OntologyClassId] = None
     assigned_by: Union[str, ProviderId] = None
     negation: Optional[Union[bool, Bool]] = None
     relation: Optional[Union[str, RelationTermId]] = None
-    with_or_from: Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]] = empty_list()
+    with_or_from: Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]] = empty_list()
     interacting_taxon_ref: Optional[Union[Union[str, TaxonId], List[Union[str, TaxonId]]]] = empty_list()
     annotation_date: Optional[Union[str, XSDDateTime]] = None
     annotation_extensions: Optional[Union[Union[dict, ConjunctionExtensionExpression], List[Union[dict, ConjunctionExtensionExpression]]]] = empty_list()
@@ -75,13 +75,13 @@ class GpadAssociation(Association):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.db_object_ref is None:
             raise ValueError("db_object_ref must be supplied")
-        if not isinstance(self.db_object_ref, NamedThingId):
-            self.db_object_ref = NamedThingId(self.db_object_ref)
+        if not isinstance(self.db_object_ref, AbstractThingId):
+            self.db_object_ref = AbstractThingId(self.db_object_ref)
 
         if self.ontology_class_ref is None:
             raise ValueError("ontology_class_ref must be supplied")
-        if not isinstance(self.ontology_class_ref, NamedThingId):
-            self.ontology_class_ref = NamedThingId(self.ontology_class_ref)
+        if not isinstance(self.ontology_class_ref, AbstractThingId):
+            self.ontology_class_ref = AbstractThingId(self.ontology_class_ref)
 
         if self.references is None:
             raise ValueError("references must be supplied")
@@ -89,7 +89,7 @@ class GpadAssociation(Association):
             self.references = [self.references]
         elif len(self.references) == 0:
             raise ValueError(f"references must be a non-empty list")
-        self.references = [v if isinstance(v, NamedThingId) else NamedThingId(v) for v in self.references]
+        self.references = [v if isinstance(v, PublicationId) else PublicationId(v) for v in self.references]
 
         if self.evidence_type is None:
             raise ValueError("evidence_type must be supplied")
@@ -111,7 +111,7 @@ class GpadAssociation(Association):
             self.with_or_from = []
         if not isinstance(self.with_or_from, list):
             self.with_or_from = [self.with_or_from]
-        self.with_or_from = [v if isinstance(v, NamedThingId) else NamedThingId(v) for v in self.with_or_from]
+        self.with_or_from = [v if isinstance(v, AbstractThingId) else AbstractThingId(v) for v in self.with_or_from]
 
         if self.interacting_taxon_ref is None:
             self.interacting_taxon_ref = []

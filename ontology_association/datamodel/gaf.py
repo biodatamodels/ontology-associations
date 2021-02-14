@@ -1,5 +1,5 @@
 # Auto generated from gaf.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 18:45
+# Generation date: 2021-02-13 19:07
 # Schema: gaf
 #
 # id: https://w3id.org/ontology_association/gaf
@@ -24,7 +24,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from . association import Association, AssociationDocument, ConjunctionExtensionExpression, NameType, NamedThingId, OntologyClassId, ProviderId, RelationTermId, SymbolType, TaxonId
+from . association import AbstractThingId, Association, AssociationDocument, ConjunctionExtensionExpression, NameType, OntologyClassId, ProviderId, PublicationId, RelationTermId, SymbolType, TaxonId
 from biolinkml.utils.metamodelcore import XSDDateTime
 from includes.types import Datetime, String
 
@@ -62,14 +62,14 @@ class GafAssociation(Association):
     db: str = None
     local_id: str = None
     db_object_symbol: Union[str, SymbolType] = None
-    ontology_class_ref: Union[str, NamedThingId] = None
-    references: Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]] = None
+    ontology_class_ref: Union[str, AbstractThingId] = None
+    references: Union[Union[str, PublicationId], List[Union[str, PublicationId]]] = None
     evidence_type: Union[str, OntologyClassId] = None
     aspect: Union[str, "GeneOntologyAspectEnum"] = None
     db_object_taxon: Union[str, TaxonId] = None
     assigned_by: Union[str, ProviderId] = None
     relation: Optional[Union[str, RelationTermId]] = None
-    with_or_from: Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]] = empty_list()
+    with_or_from: Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]] = empty_list()
     db_object_name: Optional[Union[str, NameType]] = None
     db_object_synonyms: Optional[Union[Union[str, NameType], List[Union[str, NameType]]]] = empty_list()
     db_object_type: Optional[Union[str, "GpEntityTypeEnum"]] = None
@@ -94,8 +94,8 @@ class GafAssociation(Association):
 
         if self.ontology_class_ref is None:
             raise ValueError("ontology_class_ref must be supplied")
-        if not isinstance(self.ontology_class_ref, NamedThingId):
-            self.ontology_class_ref = NamedThingId(self.ontology_class_ref)
+        if not isinstance(self.ontology_class_ref, AbstractThingId):
+            self.ontology_class_ref = AbstractThingId(self.ontology_class_ref)
 
         if self.references is None:
             raise ValueError("references must be supplied")
@@ -103,7 +103,7 @@ class GafAssociation(Association):
             self.references = [self.references]
         elif len(self.references) == 0:
             raise ValueError(f"references must be a non-empty list")
-        self.references = [v if isinstance(v, NamedThingId) else NamedThingId(v) for v in self.references]
+        self.references = [v if isinstance(v, PublicationId) else PublicationId(v) for v in self.references]
 
         if self.evidence_type is None:
             raise ValueError("evidence_type must be supplied")
@@ -132,7 +132,7 @@ class GafAssociation(Association):
             self.with_or_from = []
         if not isinstance(self.with_or_from, list):
             self.with_or_from = [self.with_or_from]
-        self.with_or_from = [v if isinstance(v, NamedThingId) else NamedThingId(v) for v in self.with_or_from]
+        self.with_or_from = [v if isinstance(v, AbstractThingId) else AbstractThingId(v) for v in self.with_or_from]
 
         if self.db_object_name is not None and not isinstance(self.db_object_name, NameType):
             self.db_object_name = NameType(self.db_object_name)
