@@ -1,0 +1,148 @@
+BASE <https://w3id.org/ontology_association/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX metatype: <https://w3id.org/biolink/biolinkml/meta/types/>
+
+
+<Curie> xsd:string
+
+<SymbolType> xsd:string
+
+<NameType> xsd:string
+
+metatype:String xsd:string
+
+metatype:Integer xsd:integer
+
+metatype:Boolean xsd:boolean
+
+metatype:Float xsd:float
+
+metatype:Double xsd:double
+
+metatype:Decimal xsd:decimal
+
+metatype:Time xsd:dateTime
+
+metatype:Date xsd:date
+
+metatype:Datetime xsd:dateTime
+
+metatype:Uriorcurie IRI
+
+metatype:Uri IRI
+
+metatype:Ncname xsd:string
+
+metatype:Objectidentifier IRI
+
+metatype:Nodeidentifier NONLITERAL
+
+<ConjunctionExtensionExpression> CLOSED {
+    (  $<ConjunctionExtensionExpression_tes> rdf:type . * ;
+       rdf:type [ <ConjunctionExtensionExpression> ] ?
+    )
+}
+
+<ControlledTerm>  (
+    CLOSED {
+       (  $<ControlledTerm_tes> (  &<NamedThing_tes> ;
+             rdf:type [ <NamedThing> ] ?
+          ) ;
+          rdf:type [ <ControlledTerm> ]
+       )
+    } OR @<OntologyClass> OR @<RelationTerm>
+)
+
+<GafAssociation> CLOSED {
+    (  $<GafAssociation_tes> (  <db> @metatype:String ;
+          <local_id> @metatype:String ;
+          <db_object_symbol> @<SymbolType> ;
+          <relation> @<RelationTerm> ? ;
+          <ontology_class_ref> @<NamedThing> ;
+          <references> @<NamedThing> + ;
+          <evidence_type> @<OntologyClass> ;
+          <with_or_from> @<NamedThing> * ;
+          <aspect> @<GeneOntologyAspectEnum> ? ;
+          <db_object_name> @<NameType> ? ;
+          <db_object_synonyms> @<NameType> * ;
+          <db_object_type> @<GpEntityTypeEnum> ? ;
+          <db_object_taxon> @<Taxon> ;
+          <annotation_date> @metatype:Datetime ? ;
+          <assigned_by> @<Provider> ;
+          <annotation_extensions> @<ConjunctionExtensionExpression> *
+       ) ;
+       rdf:type [ <GafAssociation> ] ?
+    )
+}
+
+<GpiEntity> CLOSED {
+    (  $<GpiEntity_tes> (  &<NamedThing_tes> ;
+          rdf:type [ <NamedThing> ] ? ;
+          <db_object_symbol> @<SymbolType> ;
+          <db_object_name> @<NameType> ? ;
+          <db_object_synonyms> @<NameType> * ;
+          <db_object_type> @<GpEntityTypeEnum> ? ;
+          <db_object_taxon> @<Taxon> ;
+          <encoded_by> @<NamedThing> * ;
+          <parent_protein> @<NamedThing> * ;
+          <protein_containing_complex_members> @<NamedThing> * ;
+          <db_xrefs> @<Curie> * ;
+          <gene_product_properties> @<PropertyValuePair> *
+       ) ;
+       rdf:type [ <GpiEntity> ]
+    )
+}
+
+<NamedThing>  (
+    CLOSED {
+       (  $<NamedThing_tes> rdf:type . * ;
+          rdf:type [ <NamedThing> ]
+       )
+    } OR @<ControlledTerm> OR @<GpiEntity> OR @<Provider>
+)
+
+<OntologyClass>  (
+    CLOSED {
+       (  $<OntologyClass_tes> (  &<ControlledTerm_tes> ;
+             rdf:type [ <ControlledTerm> ] ?
+          ) ;
+          rdf:type [ <OntologyClass> ]
+       )
+    } OR @<Taxon>
+)
+
+<PropertyValuePair> CLOSED {
+    (  $<PropertyValuePair_tes> (  <property> @<ControlledTerm> ? ;
+          <value> @metatype:String ?
+       ) ;
+       rdf:type [ <PropertyValuePair> ] ?
+    )
+}
+
+<Provider> CLOSED {
+    (  $<Provider_tes> (  &<NamedThing_tes> ;
+          rdf:type [ <NamedThing> ] ?
+       ) ;
+       rdf:type [ <Provider> ]
+    )
+}
+
+<RelationTerm> CLOSED {
+    (  $<RelationTerm_tes> (  &<ControlledTerm_tes> ;
+          rdf:type [ <ControlledTerm> ] ?
+       ) ;
+       rdf:type [ <RelationTerm> ]
+    )
+}
+
+<Taxon> CLOSED {
+    (  $<Taxon_tes> (  &<OntologyClass_tes> ;
+          rdf:type [ <OntologyClass> ] ?
+       ) ;
+       rdf:type [ <Taxon> ]
+    )
+}
+
+
+

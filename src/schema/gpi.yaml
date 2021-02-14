@@ -1,0 +1,37 @@
+id: https://w3id.org/ontology_association/gpi
+name: gpi
+description: >-
+  Various association data models
+imports:
+ - association
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+  biolink: https://w3id.org/biolink/vocab/
+  ontology_association: https://w3id.org/ontology_association/
+  GO: http://purl.obolibrary.org/obo/GO_
+default_prefix: ontology_association
+
+default_curi_maps:
+  - obo_context
+  - semweb_context
+
+classes:
+
+  gpi entity:
+#    is_a: named thing
+    slots:
+      - db object ref
+      - db object symbol
+      - db object name
+      - db object synonyms
+      - db object type
+      - db object taxon
+      - encoded by
+      - parent protein
+      - protein containing complex members
+      - db xrefs
+      - gene product properties
+    slot_usage:
+      db object ref:
+        identifier: true
+      

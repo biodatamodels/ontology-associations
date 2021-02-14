@@ -209,21 +209,6 @@ classes:
   relation term:
     is_a: controlled term
 
-  gpi entity:
-    is_a: named thing
-    slots:
-      - id
-      - db object symbol
-      - db object name
-      - db object synonyms
-      - db object type
-      - db object taxon
-      - encoded by
-      - parent protein
-      - protein containing complex members
-      - db xrefs
-      - gene product properties
-      
       
       
 

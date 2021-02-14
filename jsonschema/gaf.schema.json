@@ -1,0 +1,272 @@
+{
+   "$id": "https://w3id.org/ontology_association/gaf",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "definitions": {
+      "ConjunctionExtensionExpression": {
+         "additionalProperties": false,
+         "description": "set of expressions all true",
+         "properties": {},
+         "required": [],
+         "title": "ConjunctionExtensionExpression",
+         "type": "object"
+      },
+      "ControlledTerm": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "id": {
+               "description": "identifier",
+               "type": "string"
+            }
+         },
+         "required": [
+            "id"
+         ],
+         "title": "ControlledTerm",
+         "type": "object"
+      },
+      "GafAssociation": {
+         "additionalProperties": false,
+         "description": "line of GAF",
+         "properties": {
+            "annotation_date": {
+               "description": "date when annotation was made",
+               "type": "string"
+            },
+            "annotation_extensions": {
+               "description": "disjunction",
+               "items": {
+                  "$ref": "#/definitions/ConjunctionExtensionExpression"
+               },
+               "type": "array"
+            },
+            "aspect": {
+               "type": "string"
+            },
+            "assigned_by": {
+               "description": "assigned by",
+               "type": "string"
+            },
+            "db": {
+               "description": "db part of identifier",
+               "type": "string"
+            },
+            "db_object_name": {
+               "type": "string"
+            },
+            "db_object_symbol": {
+               "type": "string"
+            },
+            "db_object_synonyms": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "db_object_taxon": {
+               "type": "string"
+            },
+            "db_object_type": {
+               "type": "string"
+            },
+            "evidence_type": {
+               "type": "string"
+            },
+            "local_id": {
+               "description": "local part of identifier",
+               "type": "string"
+            },
+            "ontology_class_ref": {
+               "type": "string"
+            },
+            "references": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "relation": {
+               "type": "string"
+            },
+            "with_or_from": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            }
+         },
+         "required": [
+            "db",
+            "local_id",
+            "db_object_symbol",
+            "ontology_class_ref",
+            "references",
+            "evidence_type",
+            "db_object_taxon",
+            "assigned_by"
+         ],
+         "title": "GafAssociation",
+         "type": "object"
+      },
+      "GpiEntity": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "db_object_name": {
+               "type": "string"
+            },
+            "db_object_symbol": {
+               "type": "string"
+            },
+            "db_object_synonyms": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "db_object_taxon": {
+               "type": "string"
+            },
+            "db_object_type": {
+               "type": "string"
+            },
+            "db_xrefs": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "encoded_by": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "gene_product_properties": {
+               "items": {
+                  "$ref": "#/definitions/PropertyValuePair"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "identifier",
+               "type": "string"
+            },
+            "parent_protein": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "protein_containing_complex_members": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            }
+         },
+         "required": [
+            "id",
+            "db_object_symbol",
+            "db_object_taxon"
+         ],
+         "title": "GpiEntity",
+         "type": "object"
+      },
+      "NamedThing": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "id": {
+               "description": "identifier",
+               "type": "string"
+            }
+         },
+         "required": [
+            "id"
+         ],
+         "title": "NamedThing",
+         "type": "object"
+      },
+      "OntologyClass": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "id": {
+               "description": "identifier",
+               "type": "string"
+            }
+         },
+         "required": [
+            "id"
+         ],
+         "title": "OntologyClass",
+         "type": "object"
+      },
+      "PropertyValuePair": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "property": {
+               "type": "string"
+            },
+            "value": {
+               "description": "value",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "PropertyValuePair",
+         "type": "object"
+      },
+      "Provider": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "id": {
+               "description": "identifier",
+               "type": "string"
+            }
+         },
+         "required": [
+            "id"
+         ],
+         "title": "Provider",
+         "type": "object"
+      },
+      "RelationTerm": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "id": {
+               "description": "identifier",
+               "type": "string"
+            }
+         },
+         "required": [
+            "id"
+         ],
+         "title": "RelationTerm",
+         "type": "object"
+      },
+      "Taxon": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "id": {
+               "description": "identifier",
+               "type": "string"
+            }
+         },
+         "required": [
+            "id"
+         ],
+         "title": "Taxon",
+         "type": "object"
+      }
+   },
+   "properties": {},
+   "title": "gaf",
+   "type": "object"
+}
+
