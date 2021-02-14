@@ -4,6 +4,8 @@ description: >-
   Various association data models
 imports:
  - hpoa
+ - gaf
+ - gpad
 prefixes:
   biolinkml: https://w3id.org/biolink/biolinkml/
   ontology_association: https://w3id.org/ontology_association/

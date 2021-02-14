@@ -1,5 +1,5 @@
-id: https://w3id.org/ontology_association/hpoa
-name: hpoa
+id: https://w3id.org/ontology_association/gaf
+name: gaf
 description: >-
   Various association data models
 imports:
@@ -33,7 +33,7 @@ classes:
       - db object synonyms
       - db object type
       - db object taxon  ## TODO: overloaded
-      - date
+      - annotation date
       - assigned by
       - annotation extensions
 #      - gene product form ref

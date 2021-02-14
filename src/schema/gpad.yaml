@@ -1,5 +1,5 @@
-id: https://w3id.org/ontology_association/hpoa
-name: hpoa
+id: https://w3id.org/ontology_association/gaf
+name: gaf
 description: >-
   Various association data models
 imports:
@@ -8,32 +8,29 @@ prefixes:
   biolinkml: https://w3id.org/biolink/biolinkml/
   biolink: https://w3id.org/biolink/vocab/
   ontology_association: https://w3id.org/ontology_association/
+  GO: http://purl.obolibrary.org/obo/GO_
 default_prefix: ontology_association
 
 default_curi_maps:
   - obo_context
   - semweb_context
 
-slots:
-  onset:
-  frequency:
-  
-  
 classes:
-  human phenotype ontology association:
+
+  gpad association:
+    description: >-
+      line of GPAD
     slots:
-      - db
-      - local id
-      - db object symbol
+      - db object ref
+      - negation
       - relation
-#      - qualifier
       - ontology class ref
       - references
       - evidence type
-      - onset
-      - frequency
       - with or from
-      - aspect
-      - db object synonyms
+      - interacting taxon ref
       - annotation date
       - assigned by
+      - annotation extensions
+      - annotation properties
+        

@@ -47,12 +47,8 @@ slots:
     identifier: false
     range: string
     pattern: "[a-zA-Z0-9\\.\\-\\_]+"
+    required: true
     
-  name:
-    description: >-
-      name
-    exact_mappings:
-      - biolink:name
       
   db object ref:
     range: named thing
@@ -78,6 +74,8 @@ slots:
     required: false
     examples:
       - value: Angiomotin
+    exact_mappings:
+      - biolink:name
   db object synonyms:
     range: name type
     multivalued: true
@@ -135,6 +133,7 @@ slots:
     exact_mappings:
       - biolink:publications
     multivalued: true
+    required: true
 
   with or from:
     range: named thing
@@ -154,20 +153,23 @@ slots:
     range: ontology class
     exact_mappings:
       - biolink:evidence
+    required: true
 
   bioentity type:
     description: >-
       type of entity
 
-  date:
+  annotation date:
     description: >-
-      type of entity
-      range: datetime
+      date when annotation was made
+    range: datetime
+    pattern: "^\\d{6}"
 
   assigned by:
     description: >-
       assigned by
     range: provider
+    required: true
 
   annotation extensions:
     description: >-
@@ -224,22 +226,6 @@ classes:
       
       
       
-  gpad association:
-    description: >-
-      line of GPAD
-    slots:
-      - db object ref
-      - negation
-      - relation
-      - ontology class ref
-      - references
-      - evidence type
-      - with or from
-      - interacting taxon ref
-      - date
-      - assigned by
-      - annotation extensions
-      - annotation properties
 
   property value pair:
     attributes:
