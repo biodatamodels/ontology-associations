@@ -1,14 +1,21 @@
 id: https://w3id.org/ontology_association
 name: ontology_association
 description: >-
-  My Schema Description
+  Various association data models
 imports:
  - biolinkml:types
 prefixes:
   biolinkml: https://w3id.org/biolink/biolinkml/
   biolink: https://w3id.org/biolink/vocab/
   ontology_association: https://w3id.org/ontology_association/
+  SO: http://purl.obolibrary.org/obo/SO_
+  PR: http://purl.obolibrary.org/obo/PR_
+  GO: http://purl.obolibrary.org/obo/GO_
 default_prefix: ontology_association
+
+default_curi_maps:
+  - obo_context
+  - semweb_context
 
 types:
   curie:
@@ -24,6 +31,7 @@ slots:
       identifier
     identifier: true
     range: curie
+    required: true
 
   local id:
     description: >-
@@ -31,8 +39,9 @@ slots:
     identifier: false
     range: string
     pattern: "\\S+"
+    required: true
 
-  db prefix:
+  db:
     description: >-
       db part of identifier
     identifier: false
@@ -52,7 +61,13 @@ slots:
       - biolink:subject
     examples:
       - value: UniProtKB:P11678
+    todos:
+      - in GAF this refers to a local id, in GPAD a CURIE
 
+  aspect:
+    description:
+      varies by association type
+      
   db object symbol:
     range: symbol type
     required: true
@@ -69,7 +84,7 @@ slots:
     examples:
       - value: Angiomotin
   db object type:
-    range: ontology class ## TODO enum
+    range: gp_entity_type_enum
     multivalued: false
     examples:
       - value: PR:000000001
@@ -166,7 +181,7 @@ slots:
     range: property value pair
     multivalued: true
 
-  gene product properties properties:
+  gene product properties:
     range: property value pair
     multivalued: true
     examples:
@@ -176,7 +191,6 @@ classes:
   named thing:
     slots:
       - id
-      - name
 
   provider:
     is_a: named thing
@@ -197,11 +211,18 @@ classes:
     is_a: named thing
     slots:
       - id
-      - name
+      - db object symbol
+      - db object name
+      - db object synonyms
+      - db object type
+      - db object taxon
+      - encoded by
+      - parent protein
+      - protein containing complex members
+      - db xrefs
+      - gene product properties
       
-  gaf association:
-    description: >-
-      line of GAF
+      
       
   gpad association:
     description: >-
@@ -230,3 +251,22 @@ classes:
   conjunction extension expression:
     description: >-
       set of expressions all true
+
+enums:
+  gp_entity_type_enum:
+    permissible_values:
+      protein_coding_gene:
+        meaning: SO:0001217
+      ncRNA_gene:
+        meaning: SO:0001263
+      mRNA:
+        meaning: SO:0000234
+      ncRNA:
+        meaning: SO:0000655
+      protein:
+        meaning: PR:000000001
+      protein-containing complex:
+        meaning: GO:0032991
+      genetic_marker:
+        meaning: SO:0001645
+

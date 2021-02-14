@@ -1,0 +1,39 @@
+id: https://w3id.org/ontology_association/hpoa
+name: hpoa
+description: >-
+  Various association data models
+imports:
+ - association
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+  biolink: https://w3id.org/biolink/vocab/
+  ontology_association: https://w3id.org/ontology_association/
+default_prefix: ontology_association
+
+default_curi_maps:
+  - obo_context
+  - semweb_context
+
+slots:
+  onset:
+  frequency:
+  
+  
+classes:
+  human phenotype ontology association:
+    slots:
+      - db
+      - local id
+      - db object symbol
+      - relation
+#      - qualifier
+      - ontology class ref
+      - references
+      - evidence type
+      - onset
+      - frequency
+      - with or from
+      - aspect
+      - db object synonyms
+      - date
+      - assigned by

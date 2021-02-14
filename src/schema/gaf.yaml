@@ -1,0 +1,55 @@
+id: https://w3id.org/ontology_association/hpoa
+name: hpoa
+description: >-
+  Various association data models
+imports:
+ - association
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+  biolink: https://w3id.org/biolink/vocab/
+  ontology_association: https://w3id.org/ontology_association/
+  GO: http://purl.obolibrary.org/obo/GO_
+default_prefix: ontology_association
+
+default_curi_maps:
+  - obo_context
+  - semweb_context
+
+classes:
+  gaf association:
+    description: >-
+      line of GAF
+    slots:
+      - db
+      - local id
+      - db object symbol
+      - relation ## TODO
+      - ontology class ref
+      - references
+      - evidence type
+      - with or from
+      - aspect
+      - db object name
+      - db object synonyms
+      - db object type
+      - db object taxon  ## TODO: overloaded
+      - date
+      - assigned by
+      - annotation extensions
+#      - gene product form ref
+    slot_usage:
+      aspect:
+        range: gene_ontology_aspect_enum
+
+enums:
+  gene_ontology_aspect_enum:
+    permissible_values:
+      F:
+        meaning: GO:0003674
+        description: molecular_function
+      P:
+        meaning: GO:0008150
+        description: biological_process
+      C:
+        meaning: GO:0005575
+        description: cellular_component

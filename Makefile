@@ -3,7 +3,7 @@ SCHEMA_DIR = $(SRC_DIR)/schema
 SOURCE_FILES := $(shell find $(SCHEMA_DIR) -name '*.yaml')
 SCHEMA_NAMES = $(patsubst $(SCHEMA_DIR)/%.yaml, %, $(SOURCE_FILES))
 
-SCHEMA_NAME = my_schema
+SCHEMA_NAME = gaf
 SCHEMA_SRC = $(SCHEMA_DIR)/$(SCHEMA_NAME).yaml
 TGTS = graphql jsonschema docs shex owl csv graphql python
 
@@ -22,7 +22,10 @@ t:
 echo:
 	echo $(patsubst %,gen-%,$(TGTS))
 
-test: all
+test: all pytest
+
+pytest:
+	pytest
 
 install:
 	. environment.sh
@@ -53,6 +56,7 @@ stage-docs: gen-docs
 ###  -- MARKDOWN DOCS --
 # TODO: modularize imports
 gen-python: $(patsubst %, target/python/%.py, $(SCHEMA_NAMES))
+	cp python/*py ontology_association/datamodel/
 .PHONY: gen-python
 target/python/%.py: $(SCHEMA_DIR)/%.yaml  tdir-python
 	gen-py-classes --no-mergeimports $(GEN_OPTS) $< > $@

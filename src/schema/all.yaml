@@ -1,0 +1,11 @@
+id: https://w3id.org/ontology_association/hpoa
+name: hpoa
+description: >-
+  Various association data models
+imports:
+ - hpoa
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+  ontology_association: https://w3id.org/ontology_association/
+default_prefix: ontology_association
+
