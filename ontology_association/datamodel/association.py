@@ -1,5 +1,5 @@
 # Auto generated from association.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 18:21
+# Generation date: 2021-02-13 18:45
 # Schema: ontology_association
 #
 # id: https://w3id.org/ontology_association
@@ -244,6 +244,51 @@ class ConjunctionExtensionExpression(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.ConjunctionExtensionExpression
 
 
+class Association(YAMLRoot):
+    """
+    generic association
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Association
+    class_class_curie: ClassVar[str] = "ontology_association:Association"
+    class_name: ClassVar[str] = "association"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Association
+
+
+class Document(YAMLRoot):
+    """
+    root class for association or entity documents
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Document
+    class_class_curie: ClassVar[str] = "ontology_association:Document"
+    class_name: ClassVar[str] = "document"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Document
+
+
+@dataclass
+class AssociationDocument(Document):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.AssociationDocument
+    class_class_curie: ClassVar[str] = "ontology_association:AssociationDocument"
+    class_name: ClassVar[str] = "association document"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.AssociationDocument
+
+    associations: Optional[Union[Union[dict, Association], List[Union[dict, Association]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.associations is None:
+            self.associations = []
+        if not isinstance(self.associations, list):
+            self.associations = [self.associations]
+        self.associations = [v if isinstance(v, Association) else Association(**v) for v in self.associations]
+
+        super().__post_init__(**kwargs)
+
+
 # Enumerations
 class GpEntityTypeEnum(EnumDefinitionImpl):
 
@@ -289,7 +334,7 @@ slots.db_object_ref = Slot(uri=ONTOLOGY_ASSOCIATION.db_object_ref, name="db obje
                    model_uri=ONTOLOGY_ASSOCIATION.db_object_ref, domain=None, range=Union[str, NamedThingId])
 
 slots.aspect = Slot(uri=ONTOLOGY_ASSOCIATION.aspect, name="aspect", curie=ONTOLOGY_ASSOCIATION.curie('aspect'),
-                   model_uri=ONTOLOGY_ASSOCIATION.aspect, domain=None, range=Optional[str])
+                   model_uri=ONTOLOGY_ASSOCIATION.aspect, domain=None, range=str)
 
 slots.db_object_symbol = Slot(uri=ONTOLOGY_ASSOCIATION.db_object_symbol, name="db object symbol", curie=ONTOLOGY_ASSOCIATION.curie('db_object_symbol'),
                    model_uri=ONTOLOGY_ASSOCIATION.db_object_symbol, domain=None, range=Union[str, SymbolType])
@@ -363,3 +408,6 @@ slots.propertyValuePair__property = Slot(uri=ONTOLOGY_ASSOCIATION.property, name
 
 slots.propertyValuePair__value = Slot(uri=ONTOLOGY_ASSOCIATION.value, name="propertyValuePair__value", curie=ONTOLOGY_ASSOCIATION.curie('value'),
                    model_uri=ONTOLOGY_ASSOCIATION.propertyValuePair__value, domain=None, range=Optional[str])
+
+slots.associationDocument__associations = Slot(uri=ONTOLOGY_ASSOCIATION.associations, name="associationDocument__associations", curie=ONTOLOGY_ASSOCIATION.curie('associations'),
+                   model_uri=ONTOLOGY_ASSOCIATION.associationDocument__associations, domain=None, range=Optional[Union[Union[dict, Association], List[Union[dict, Association]]]])

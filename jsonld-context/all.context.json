@@ -1,0 +1,64 @@
+{
+   "_comments": "Auto generated from all.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-02-13 18:33\nSchema: hpoa\n\nid: https://w3id.org/ontology_association/hpoa\ndescription: Various association data models\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "@context": {
+      "type": "@type",
+      "biolink": "https://w3id.org/biolink/vocab/",
+      "biolinkml": "https://w3id.org/biolink/biolinkml/",
+      "ontology_association": "https://w3id.org/ontology_association/",
+      "@vocab": "https://w3id.org/ontology_association/",
+      "annotation_date": {
+         "@type": "xsd:dateTime"
+      },
+      "annotation_extensions": {
+         "@type": "@id"
+      },
+      "annotation_properties": {
+         "@type": "@id"
+      },
+      "assigned_by": {
+         "@type": "@id"
+      },
+      "db_object_ref": "@id",
+      "db_object_taxon": {
+         "@type": "@id"
+      },
+      "encoded_by": {
+         "@type": "@id"
+      },
+      "evidence_type": {
+         "@type": "@id"
+      },
+      "gene_product_properties": {
+         "@type": "@id"
+      },
+      "id": "@id",
+      "interacting_taxon_ref": {
+         "@type": "@id"
+      },
+      "negation": {
+         "@type": "xsd:boolean"
+      },
+      "ontology_class_ref": {
+         "@type": "@id"
+      },
+      "parent_protein": {
+         "@type": "@id"
+      },
+      "property": {
+         "@type": "@id"
+      },
+      "protein_containing_complex_members": {
+         "@type": "@id"
+      },
+      "references": {
+         "@type": "@id"
+      },
+      "relation": {
+         "@type": "@id"
+      },
+      "with_or_from": {
+         "@type": "@id"
+      }
+   }
+}
+

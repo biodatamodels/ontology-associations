@@ -38,23 +38,6 @@ metatype:Objectidentifier IRI
 
 metatype:Nodeidentifier NONLITERAL
 
-<Association> CLOSED {
-    (  $<Association_tes> rdf:type . * ;
-       rdf:type [ <Association> ] ?
-    )
-}
-
-<AssociationDocument>  (
-    CLOSED {
-       (  $<AssociationDocument_tes> (  &<Document_tes> ;
-             rdf:type [ <Document> ] ? ;
-             <associations> @<Association> *
-          ) ;
-          rdf:type [ <AssociationDocument> ] ?
-       )
-    } OR @<GpadAssociationDocument>
-)
-
 <ConjunctionExtensionExpression> CLOSED {
     (  $<ConjunctionExtensionExpression_tes> rdf:type . * ;
        rdf:type [ <ConjunctionExtensionExpression> ] ?
@@ -71,38 +54,25 @@ metatype:Nodeidentifier NONLITERAL
     } OR @<OntologyClass> OR @<RelationTerm>
 )
 
-<Document>  (
-    {
-       (  $<Document_tes> rdf:type . * ;
-          rdf:type [ <Document> ] ?
-       )
-    } OR @<AssociationDocument>
-)
-
-<GpadAssociation> CLOSED {
-    (  $<GpadAssociation_tes> (  <db_object_ref> @<NamedThing> ;
-          <negation> @metatype:Boolean ? ;
+<GafAssociation> CLOSED {
+    (  $<GafAssociation_tes> (  <db> @metatype:String ;
+          <local_id> @metatype:String ;
+          <db_object_symbol> @<SymbolType> ;
           <relation> @<RelationTerm> ? ;
           <ontology_class_ref> @<NamedThing> ;
           <references> @<NamedThing> + ;
           <evidence_type> @<OntologyClass> ;
           <with_or_from> @<NamedThing> * ;
-          <interacting_taxon_ref> @<Taxon> * ;
+          <aspect> @metatype:String ;
+          <db_object_name> @<NameType> ? ;
+          <db_object_synonyms> @<NameType> * ;
+          <db_object_type> @<GpEntityTypeEnum> ? ;
+          <db_object_taxon> @<Taxon> ;
           <annotation_date> @metatype:Datetime ? ;
           <assigned_by> @<Provider> ;
-          <annotation_extensions> @<ConjunctionExtensionExpression> * ;
-          <annotation_properties> @<PropertyValuePair> *
+          <annotation_extensions> @<ConjunctionExtensionExpression> *
        ) ;
-       rdf:type [ <GpadAssociation> ] ?
-    )
-}
-
-<GpadAssociationDocument> CLOSED {
-    (  $<GpadAssociationDocument_tes> (  &<AssociationDocument_tes> ;
-          rdf:type [ <AssociationDocument> ] ? ;
-          <associations> @<GpadAssociation> *
-       ) ;
-       rdf:type [ <GpadAssociationDocument> ] ?
+       rdf:type [ <GafAssociation> ] ?
     )
 }
 

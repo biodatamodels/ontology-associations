@@ -1,5 +1,5 @@
 # Auto generated from gpi.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 18:24
+# Generation date: 2021-02-13 18:45
 # Schema: gpi
 #
 # id: https://w3id.org/ontology_association/gpi
@@ -24,7 +24,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from . association import Curie, NameType, NamedThingId, PropertyValuePair, SymbolType, TaxonId
+from . association import Curie, Document, NameType, NamedThingId, PropertyValuePair, SymbolType, TaxonId
 from includes.types import String
 
 metamodel_version = "1.7.0"
@@ -129,12 +129,36 @@ class GpiEntity(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
+class GpiDocument(Document):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GpiDocument
+    class_class_curie: ClassVar[str] = "ontology_association:GpiDocument"
+    class_name: ClassVar[str] = "gpi document"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GpiDocument
+
+    entities: Optional[Union[Union[str, GpiEntityDbObjectRef], List[Union[str, GpiEntityDbObjectRef]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.entities is None:
+            self.entities = []
+        if not isinstance(self.entities, list):
+            self.entities = [self.entities]
+        self.entities = [v if isinstance(v, GpiEntityDbObjectRef) else GpiEntityDbObjectRef(v) for v in self.entities]
+
+        super().__post_init__(**kwargs)
+
+
 # Enumerations
 
 
 # Slots
 class slots:
     pass
+
+slots.gpiDocument__entities = Slot(uri=ONTOLOGY_ASSOCIATION.entities, name="gpiDocument__entities", curie=ONTOLOGY_ASSOCIATION.curie('entities'),
+                   model_uri=ONTOLOGY_ASSOCIATION.gpiDocument__entities, domain=None, range=Optional[Union[Union[str, GpiEntityDbObjectRef], List[Union[str, GpiEntityDbObjectRef]]]])
 
 slots.gpi_entity_db_object_ref = Slot(uri=ONTOLOGY_ASSOCIATION.db_object_ref, name="gpi entity_db object ref", curie=ONTOLOGY_ASSOCIATION.curie('db_object_ref'),
                    model_uri=ONTOLOGY_ASSOCIATION.gpi_entity_db_object_ref, domain=GpiEntity, range=Union[str, GpiEntityDbObjectRef])

@@ -1,9 +1,9 @@
-# Auto generated from gpad.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 18:45
-# Schema: gaf
+# Auto generated from xaf.yaml by pythongen.py version: 0.9.0
+# Generation date: 2021-02-13 18:36
+# Schema: xaf
 #
-# id: https://w3id.org/ontology_association/gaf
-# description: Various association data models
+# id: https://w3id.org/ontology_association/xaf
+# description: Generalization/weakening of GAF
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
 import dataclasses
@@ -24,9 +24,9 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from . association import AssociationDocument, ConjunctionExtensionExpression, NamedThingId, OntologyClassId, PropertyValuePair, ProviderId, RelationTermId, TaxonId
-from biolinkml.utils.metamodelcore import Bool, XSDDateTime
-from includes.types import Boolean, Datetime
+from . association import ConjunctionExtensionExpression, NameType, NamedThingId, OntologyClassId, ProviderId, RelationTermId, SymbolType, TaxonId
+from biolinkml.utils.metamodelcore import XSDDateTime
+from includes.types import Datetime, String
 
 metamodel_version = "1.7.0"
 
@@ -48,35 +48,49 @@ DEFAULT_ = ONTOLOGY_ASSOCIATION
 
 
 @dataclass
-class GpadAssociation(YAMLRoot):
+class GafAssociation(YAMLRoot):
     """
-    line of GPAD
+    line of GAF
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GpadAssociation
-    class_class_curie: ClassVar[str] = "ontology_association:GpadAssociation"
-    class_name: ClassVar[str] = "gpad association"
-    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GpadAssociation
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GafAssociation
+    class_class_curie: ClassVar[str] = "ontology_association:GafAssociation"
+    class_name: ClassVar[str] = "gaf association"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GafAssociation
 
-    db_object_ref: Union[str, NamedThingId] = None
+    db: str = None
+    local_id: str = None
+    db_object_symbol: Union[str, SymbolType] = None
     ontology_class_ref: Union[str, NamedThingId] = None
     references: Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]] = None
     evidence_type: Union[str, OntologyClassId] = None
+    aspect: str = None
+    db_object_taxon: Union[str, TaxonId] = None
     assigned_by: Union[str, ProviderId] = None
-    negation: Optional[Union[bool, Bool]] = None
     relation: Optional[Union[str, RelationTermId]] = None
     with_or_from: Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]] = empty_list()
-    interacting_taxon_ref: Optional[Union[Union[str, TaxonId], List[Union[str, TaxonId]]]] = empty_list()
+    db_object_name: Optional[Union[str, NameType]] = None
+    db_object_synonyms: Optional[Union[Union[str, NameType], List[Union[str, NameType]]]] = empty_list()
+    db_object_type: Optional[Union[str, "GpEntityTypeEnum"]] = None
     annotation_date: Optional[Union[str, XSDDateTime]] = None
     annotation_extensions: Optional[Union[Union[dict, ConjunctionExtensionExpression], List[Union[dict, ConjunctionExtensionExpression]]]] = empty_list()
-    annotation_properties: Optional[Union[Union[dict, PropertyValuePair], List[Union[dict, PropertyValuePair]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.db_object_ref is None:
-            raise ValueError("db_object_ref must be supplied")
-        if not isinstance(self.db_object_ref, NamedThingId):
-            self.db_object_ref = NamedThingId(self.db_object_ref)
+        if self.db is None:
+            raise ValueError("db must be supplied")
+        if not isinstance(self.db, str):
+            self.db = str(self.db)
+
+        if self.local_id is None:
+            raise ValueError("local_id must be supplied")
+        if not isinstance(self.local_id, str):
+            self.local_id = str(self.local_id)
+
+        if self.db_object_symbol is None:
+            raise ValueError("db_object_symbol must be supplied")
+        if not isinstance(self.db_object_symbol, SymbolType):
+            self.db_object_symbol = SymbolType(self.db_object_symbol)
 
         if self.ontology_class_ref is None:
             raise ValueError("ontology_class_ref must be supplied")
@@ -96,13 +110,20 @@ class GpadAssociation(YAMLRoot):
         if not isinstance(self.evidence_type, OntologyClassId):
             self.evidence_type = OntologyClassId(self.evidence_type)
 
+        if self.aspect is None:
+            raise ValueError("aspect must be supplied")
+        if not isinstance(self.aspect, str):
+            self.aspect = str(self.aspect)
+
+        if self.db_object_taxon is None:
+            raise ValueError("db_object_taxon must be supplied")
+        if not isinstance(self.db_object_taxon, TaxonId):
+            self.db_object_taxon = TaxonId(self.db_object_taxon)
+
         if self.assigned_by is None:
             raise ValueError("assigned_by must be supplied")
         if not isinstance(self.assigned_by, ProviderId):
             self.assigned_by = ProviderId(self.assigned_by)
-
-        if self.negation is not None and not isinstance(self.negation, Bool):
-            self.negation = Bool(self.negation)
 
         if self.relation is not None and not isinstance(self.relation, RelationTermId):
             self.relation = RelationTermId(self.relation)
@@ -113,11 +134,17 @@ class GpadAssociation(YAMLRoot):
             self.with_or_from = [self.with_or_from]
         self.with_or_from = [v if isinstance(v, NamedThingId) else NamedThingId(v) for v in self.with_or_from]
 
-        if self.interacting_taxon_ref is None:
-            self.interacting_taxon_ref = []
-        if not isinstance(self.interacting_taxon_ref, list):
-            self.interacting_taxon_ref = [self.interacting_taxon_ref]
-        self.interacting_taxon_ref = [v if isinstance(v, TaxonId) else TaxonId(v) for v in self.interacting_taxon_ref]
+        if self.db_object_name is not None and not isinstance(self.db_object_name, NameType):
+            self.db_object_name = NameType(self.db_object_name)
+
+        if self.db_object_synonyms is None:
+            self.db_object_synonyms = []
+        if not isinstance(self.db_object_synonyms, list):
+            self.db_object_synonyms = [self.db_object_synonyms]
+        self.db_object_synonyms = [v if isinstance(v, NameType) else NameType(v) for v in self.db_object_synonyms]
+
+        if self.db_object_type is not None and not isinstance(self.db_object_type, GpEntityTypeEnum):
+            self.db_object_type = GpEntityTypeEnum(self.db_object_type)
 
         if self.annotation_date is not None and not isinstance(self.annotation_date, XSDDateTime):
             self.annotation_date = XSDDateTime(self.annotation_date)
@@ -127,33 +154,6 @@ class GpadAssociation(YAMLRoot):
         if not isinstance(self.annotation_extensions, list):
             self.annotation_extensions = [self.annotation_extensions]
         self.annotation_extensions = [v if isinstance(v, ConjunctionExtensionExpression) else ConjunctionExtensionExpression(**v) for v in self.annotation_extensions]
-
-        if self.annotation_properties is None:
-            self.annotation_properties = []
-        if not isinstance(self.annotation_properties, list):
-            self.annotation_properties = [self.annotation_properties]
-        self.annotation_properties = [v if isinstance(v, PropertyValuePair) else PropertyValuePair(**v) for v in self.annotation_properties]
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class GpadAssociationDocument(AssociationDocument):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GpadAssociationDocument
-    class_class_curie: ClassVar[str] = "ontology_association:GpadAssociationDocument"
-    class_name: ClassVar[str] = "gpad association document"
-    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GpadAssociationDocument
-
-    associations: Optional[Union[Union[dict, GpadAssociation], List[Union[dict, GpadAssociation]]]] = empty_list()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.associations is None:
-            self.associations = []
-        if not isinstance(self.associations, list):
-            self.associations = [self.associations]
-        self._normalize_inlined_slot(slot_name="associations", slot_type=GpadAssociation, key_name="db object ref", inlined_as_list=True, keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -165,5 +165,5 @@ class GpadAssociationDocument(AssociationDocument):
 class slots:
     pass
 
-slots.gpad_association_document_associations = Slot(uri=ONTOLOGY_ASSOCIATION.associations, name="gpad association document_associations", curie=ONTOLOGY_ASSOCIATION.curie('associations'),
-                   model_uri=ONTOLOGY_ASSOCIATION.gpad_association_document_associations, domain=GpadAssociationDocument, range=Optional[Union[Union[dict, GpadAssociation], List[Union[dict, GpadAssociation]]]])
+slots.gaf_association_aspect = Slot(uri=ONTOLOGY_ASSOCIATION.aspect, name="gaf association_aspect", curie=ONTOLOGY_ASSOCIATION.curie('aspect'),
+                   model_uri=ONTOLOGY_ASSOCIATION.gaf_association_aspect, domain=GafAssociation, range=str)

@@ -38,6 +38,25 @@ metatype:Objectidentifier IRI
 
 metatype:Nodeidentifier NONLITERAL
 
+<Association>  (
+    CLOSED {
+       (  $<Association_tes> rdf:type . * ;
+          rdf:type [ <Association> ] ?
+       )
+    } OR @<GafAssociation>
+)
+
+<AssociationDocument>  (
+    CLOSED {
+       (  $<AssociationDocument_tes> (  &<Document_tes> ;
+             rdf:type [ <Document> ] ? ;
+             <associations> @<Association> *
+          ) ;
+          rdf:type [ <AssociationDocument> ] ?
+       )
+    } OR @<GafAssociationDocument>
+)
+
 <ConjunctionExtensionExpression> CLOSED {
     (  $<ConjunctionExtensionExpression_tes> rdf:type . * ;
        rdf:type [ <ConjunctionExtensionExpression> ] ?
@@ -54,8 +73,18 @@ metatype:Nodeidentifier NONLITERAL
     } OR @<OntologyClass> OR @<RelationTerm>
 )
 
+<Document>  (
+    {
+       (  $<Document_tes> rdf:type . * ;
+          rdf:type [ <Document> ] ?
+       )
+    } OR @<AssociationDocument>
+)
+
 <GafAssociation> CLOSED {
-    (  $<GafAssociation_tes> (  <db> @metatype:String ;
+    (  $<GafAssociation_tes> (  &<Association_tes> ;
+          rdf:type [ <Association> ] ? ;
+          <db> @metatype:String ;
           <local_id> @metatype:String ;
           <db_object_symbol> @<SymbolType> ;
           <relation> @<RelationTerm> ? ;
@@ -63,7 +92,7 @@ metatype:Nodeidentifier NONLITERAL
           <references> @<NamedThing> + ;
           <evidence_type> @<OntologyClass> ;
           <with_or_from> @<NamedThing> * ;
-          <aspect> @<GeneOntologyAspectEnum> ? ;
+          <aspect> @<GeneOntologyAspectEnum> ;
           <db_object_name> @<NameType> ? ;
           <db_object_synonyms> @<NameType> * ;
           <db_object_type> @<GpEntityTypeEnum> ? ;
@@ -76,21 +105,12 @@ metatype:Nodeidentifier NONLITERAL
     )
 }
 
-<GpiEntity> CLOSED {
-    (  $<GpiEntity_tes> (  &<NamedThing_tes> ;
-          rdf:type [ <NamedThing> ] ? ;
-          <db_object_symbol> @<SymbolType> ;
-          <db_object_name> @<NameType> ? ;
-          <db_object_synonyms> @<NameType> * ;
-          <db_object_type> @<GpEntityTypeEnum> ? ;
-          <db_object_taxon> @<Taxon> ;
-          <encoded_by> @<NamedThing> * ;
-          <parent_protein> @<NamedThing> * ;
-          <protein_containing_complex_members> @<NamedThing> * ;
-          <db_xrefs> @<Curie> * ;
-          <gene_product_properties> @<PropertyValuePair> *
+<GafAssociationDocument> CLOSED {
+    (  $<GafAssociationDocument_tes> (  &<AssociationDocument_tes> ;
+          rdf:type [ <AssociationDocument> ] ? ;
+          <associations> @<GafAssociation> *
        ) ;
-       rdf:type [ <GpiEntity> ]
+       rdf:type [ <GafAssociationDocument> ] ?
     )
 }
 
@@ -99,7 +119,7 @@ metatype:Nodeidentifier NONLITERAL
        (  $<NamedThing_tes> rdf:type . * ;
           rdf:type [ <NamedThing> ]
        )
-    } OR @<ControlledTerm> OR @<GpiEntity> OR @<Provider>
+    } OR @<ControlledTerm> OR @<Provider>
 )
 
 <OntologyClass>  (

@@ -1,0 +1,76 @@
+type ConjunctionExtensionExpression
+  {
+  }
+
+type ControlledTerm
+  {
+    id: Curie!
+  }
+
+type GafAssociation
+  {
+    db: String!
+    localId: String!
+    dbObjectSymbol: SymbolType!
+    relation: RelationTerm
+    ontologyClassRef: NamedThing!
+    references: [NamedThing]!
+    evidenceType: OntologyClass!
+    withOrFrom: [NamedThing]
+    aspect: GeneOntologyAspectEnum
+    dbObjectName: NameType
+    dbObjectSynonyms: [NameType]
+    dbObjectType: GpEntityTypeEnum
+    dbObjectTaxon: Taxon!
+    annotationDate: Datetime
+    assignedBy: Provider!
+    annotationExtensions: [ConjunctionExtensionExpression]
+  }
+
+type GpiEntity
+  {
+    dbObjectRef: NamedThing!
+    dbObjectSymbol: SymbolType!
+    dbObjectName: NameType
+    dbObjectSynonyms: [NameType]
+    dbObjectType: GpEntityTypeEnum
+    dbObjectTaxon: Taxon!
+    encodedBy: [NamedThing]
+    parentProtein: [NamedThing]
+    proteinContainingComplexMembers: [NamedThing]
+    dbXrefs: [Curie]
+    geneProductProperties: [PropertyValuePair]
+  }
+
+type NamedThing
+  {
+    id: Curie!
+  }
+
+type OntologyClass
+  {
+    id: Curie!
+  }
+
+type PropertyValuePair
+  {
+    property: ControlledTerm
+    value: String
+  }
+
+type Provider
+  {
+    id: Curie!
+  }
+
+type RelationTerm
+  {
+    id: Curie!
+  }
+
+type Taxon
+  {
+    id: Curie!
+  }
+
+

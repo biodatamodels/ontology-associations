@@ -1,5 +1,5 @@
 # Auto generated from gaf.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 18:15
+# Generation date: 2021-02-13 18:45
 # Schema: gaf
 #
 # id: https://w3id.org/ontology_association/gaf
@@ -24,7 +24,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from . association import ConjunctionExtensionExpression, NameType, NamedThingId, OntologyClassId, ProviderId, RelationTermId, SymbolType, TaxonId
+from . association import Association, AssociationDocument, ConjunctionExtensionExpression, NameType, NamedThingId, OntologyClassId, ProviderId, RelationTermId, SymbolType, TaxonId
 from biolinkml.utils.metamodelcore import XSDDateTime
 from includes.types import Datetime, String
 
@@ -48,7 +48,7 @@ DEFAULT_ = ONTOLOGY_ASSOCIATION
 
 
 @dataclass
-class GafAssociation(YAMLRoot):
+class GafAssociation(Association):
     """
     line of GAF
     """
@@ -65,11 +65,11 @@ class GafAssociation(YAMLRoot):
     ontology_class_ref: Union[str, NamedThingId] = None
     references: Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]] = None
     evidence_type: Union[str, OntologyClassId] = None
+    aspect: Union[str, "GeneOntologyAspectEnum"] = None
     db_object_taxon: Union[str, TaxonId] = None
     assigned_by: Union[str, ProviderId] = None
     relation: Optional[Union[str, RelationTermId]] = None
     with_or_from: Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]] = empty_list()
-    aspect: Optional[Union[str, "GeneOntologyAspectEnum"]] = None
     db_object_name: Optional[Union[str, NameType]] = None
     db_object_synonyms: Optional[Union[Union[str, NameType], List[Union[str, NameType]]]] = empty_list()
     db_object_type: Optional[Union[str, "GpEntityTypeEnum"]] = None
@@ -110,6 +110,11 @@ class GafAssociation(YAMLRoot):
         if not isinstance(self.evidence_type, OntologyClassId):
             self.evidence_type = OntologyClassId(self.evidence_type)
 
+        if self.aspect is None:
+            raise ValueError("aspect must be supplied")
+        if not isinstance(self.aspect, GeneOntologyAspectEnum):
+            self.aspect = GeneOntologyAspectEnum(self.aspect)
+
         if self.db_object_taxon is None:
             raise ValueError("db_object_taxon must be supplied")
         if not isinstance(self.db_object_taxon, TaxonId):
@@ -128,9 +133,6 @@ class GafAssociation(YAMLRoot):
         if not isinstance(self.with_or_from, list):
             self.with_or_from = [self.with_or_from]
         self.with_or_from = [v if isinstance(v, NamedThingId) else NamedThingId(v) for v in self.with_or_from]
-
-        if self.aspect is not None and not isinstance(self.aspect, GeneOntologyAspectEnum):
-            self.aspect = GeneOntologyAspectEnum(self.aspect)
 
         if self.db_object_name is not None and not isinstance(self.db_object_name, NameType):
             self.db_object_name = NameType(self.db_object_name)
@@ -152,6 +154,27 @@ class GafAssociation(YAMLRoot):
         if not isinstance(self.annotation_extensions, list):
             self.annotation_extensions = [self.annotation_extensions]
         self.annotation_extensions = [v if isinstance(v, ConjunctionExtensionExpression) else ConjunctionExtensionExpression(**v) for v in self.annotation_extensions]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class GafAssociationDocument(AssociationDocument):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GafAssociationDocument
+    class_class_curie: ClassVar[str] = "ontology_association:GafAssociationDocument"
+    class_name: ClassVar[str] = "gaf association document"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GafAssociationDocument
+
+    associations: Optional[Union[Union[dict, GafAssociation], List[Union[dict, GafAssociation]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.associations is None:
+            self.associations = []
+        if not isinstance(self.associations, list):
+            self.associations = [self.associations]
+        self._normalize_inlined_slot(slot_name="associations", slot_type=GafAssociation, key_name="db", inlined_as_list=True, keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -178,4 +201,7 @@ class slots:
     pass
 
 slots.gaf_association_aspect = Slot(uri=ONTOLOGY_ASSOCIATION.aspect, name="gaf association_aspect", curie=ONTOLOGY_ASSOCIATION.curie('aspect'),
-                   model_uri=ONTOLOGY_ASSOCIATION.gaf_association_aspect, domain=GafAssociation, range=Optional[Union[str, "GeneOntologyAspectEnum"]])
+                   model_uri=ONTOLOGY_ASSOCIATION.gaf_association_aspect, domain=GafAssociation, range=Union[str, "GeneOntologyAspectEnum"])
+
+slots.gaf_association_document_associations = Slot(uri=ONTOLOGY_ASSOCIATION.associations, name="gaf association document_associations", curie=ONTOLOGY_ASSOCIATION.curie('associations'),
+                   model_uri=ONTOLOGY_ASSOCIATION.gaf_association_document_associations, domain=GafAssociationDocument, range=Optional[Union[Union[dict, GafAssociation], List[Union[dict, GafAssociation]]]])

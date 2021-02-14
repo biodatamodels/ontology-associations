@@ -35,3 +35,9 @@ classes:
       db object ref:
         identifier: true
       
+  gpi document:
+    is_a: document
+    attributes:
+      entities:
+        range: gpi entity
+        multivalued: true

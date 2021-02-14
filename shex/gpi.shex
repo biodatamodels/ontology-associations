@@ -38,6 +38,21 @@ metatype:Objectidentifier IRI
 
 metatype:Nodeidentifier NONLITERAL
 
+<Association> CLOSED {
+    (  $<Association_tes> rdf:type . * ;
+       rdf:type [ <Association> ] ?
+    )
+}
+
+<AssociationDocument> CLOSED {
+    (  $<AssociationDocument_tes> (  &<Document_tes> ;
+          rdf:type [ <Document> ] ? ;
+          <associations> @<Association> *
+       ) ;
+       rdf:type [ <AssociationDocument> ] ?
+    )
+}
+
 <ConjunctionExtensionExpression> CLOSED {
     (  $<ConjunctionExtensionExpression_tes> rdf:type . * ;
        rdf:type [ <ConjunctionExtensionExpression> ] ?
@@ -53,6 +68,25 @@ metatype:Nodeidentifier NONLITERAL
        )
     } OR @<OntologyClass> OR @<RelationTerm>
 )
+
+<Document>  (
+    @<AssociationDocument> OR @<GpiDocument>
+)
+
+<Document_struct> {
+    (  $<Document_tes> rdf:type . * ;
+       rdf:type [ <Document> ] ?
+    )
+}
+
+<GpiDocument> CLOSED {
+    (  $<GpiDocument_tes> (  &<Document_tes> ;
+          rdf:type [ <Document> ] ? ;
+          <entities> @<GpiEntity> *
+       ) ;
+       rdf:type [ <GpiDocument> ] ?
+    )
+}
 
 <GpiEntity> CLOSED {
     (  $<GpiEntity_tes> (  <db_object_symbol> @<SymbolType> ;

@@ -38,6 +38,21 @@ metatype:Objectidentifier IRI
 
 metatype:Nodeidentifier NONLITERAL
 
+<Association> CLOSED {
+    (  $<Association_tes> rdf:type . * ;
+       rdf:type [ <Association> ] ?
+    )
+}
+
+<AssociationDocument> CLOSED {
+    (  $<AssociationDocument_tes> (  &<Document_tes> ;
+          rdf:type [ <Document> ] ? ;
+          <associations> @<Association> *
+       ) ;
+       rdf:type [ <AssociationDocument> ] ?
+    )
+}
+
 <ConjunctionExtensionExpression> CLOSED {
     (  $<ConjunctionExtensionExpression_tes> rdf:type . * ;
        rdf:type [ <ConjunctionExtensionExpression> ] ?
@@ -52,6 +67,14 @@ metatype:Nodeidentifier NONLITERAL
           rdf:type [ <ControlledTerm> ]
        )
     } OR @<OntologyClass> OR @<RelationTerm>
+)
+
+<Document>  (
+    {
+       (  $<Document_tes> rdf:type . * ;
+          rdf:type [ <Document> ] ?
+       )
+    } OR @<AssociationDocument>
 )
 
 <NamedThing>  (

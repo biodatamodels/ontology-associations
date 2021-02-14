@@ -1,7 +1,7 @@
-id: https://w3id.org/ontology_association/gaf
-name: gaf
+id: https://w3id.org/ontology_association/xaf
+name: xaf
 description: >-
-  Various association data models
+  Generalization/weakening of GAF
 imports:
  - association
 prefixes:
@@ -16,28 +16,30 @@ default_curi_maps:
   - semweb_context
 
 classes:
-
-  gpad association:
+  gaf association:
     description: >-
-      line of GPAD
+      line of GAF
     slots:
-      - db object ref
-      - negation
-      - relation
+      - db
+      - local id
+      - db object symbol
+      - relation ## TODO
       - ontology class ref
       - references
       - evidence type
       - with or from
-      - interacting taxon ref
+      - aspect
+      - db object name
+      - db object synonyms
+      - db object type
+      - db object taxon  ## TODO: overloaded
       - annotation date
       - assigned by
       - annotation extensions
-      - annotation properties
-        
-  gpad association document:
-    is_a: association document
+#      - gene product form ref
     slot_usage:
-      associations:
-        range: gpad association
-        multivalued: true
-    
+      aspect:
+        range: string
+        comments:
+          - unlike GAF, we do not restrict this to an enum
+

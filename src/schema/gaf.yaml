@@ -17,6 +17,7 @@ default_curi_maps:
 
 classes:
   gaf association:
+    is_a: association
     description: >-
       line of GAF
     slots:
@@ -40,6 +41,15 @@ classes:
     slot_usage:
       aspect:
         range: gene_ontology_aspect_enum
+        required: true
+
+  gaf association document:
+    is_a: association document
+    slot_usage:
+      associations:
+        range: gaf association
+        multivalued: true
+    
 
 enums:
   gene_ontology_aspect_enum:

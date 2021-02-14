@@ -1,6 +1,10 @@
 id,mappings,description
+association,,generic association
+association_document,,
 conjunction_extension_expression,,set of expressions all true
 controlled_term,,
+document,,root class for association or entity documents
+gpi_document,,
 gpi_entity,,
 named_thing,,
 ontology_class,,
