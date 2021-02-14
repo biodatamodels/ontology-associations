@@ -44,6 +44,7 @@ stage-%: gen-%
 ###  -- MARKDOWN DOCS --
 # Generate documentation ready for mkdocs
 # TODO: modularize imports
+# TODO: ensure triggered
 gen-docs: target/docs/index.md copy-src-docs
 .PHONY: gen-docs
 copy-src-docs:

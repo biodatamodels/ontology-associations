@@ -1,5 +1,5 @@
 # Auto generated from association.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 19:03
+# Generation date: 2021-02-13 19:05
 # Schema: ontology_association
 #
 # id: https://w3id.org/ontology_association
@@ -74,6 +74,10 @@ class ProviderId(AbstractThingId):
     pass
 
 
+class PublicationId(AbstractThingId):
+    pass
+
+
 class ControlledTermId(AbstractThingId):
     pass
 
@@ -144,6 +148,26 @@ class Provider(AbstractThing):
             raise ValueError("id must be supplied")
         if not isinstance(self.id, ProviderId):
             self.id = ProviderId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Publication(AbstractThing):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Publication
+    class_class_curie: ClassVar[str] = "ontology_association:Publication"
+    class_name: ClassVar[str] = "publication"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Publication
+
+    id: Union[str, PublicationId] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.id is None:
+            raise ValueError("id must be supplied")
+        if not isinstance(self.id, PublicationId):
+            self.id = PublicationId(self.id)
 
         super().__post_init__(**kwargs)
 
@@ -423,7 +447,7 @@ slots.relation = Slot(uri=ONTOLOGY_ASSOCIATION.relation, name="relation", curie=
                    model_uri=ONTOLOGY_ASSOCIATION.relation, domain=None, range=Optional[Union[str, RelationTermId]])
 
 slots.references = Slot(uri=ONTOLOGY_ASSOCIATION.references, name="references", curie=ONTOLOGY_ASSOCIATION.curie('references'),
-                   model_uri=ONTOLOGY_ASSOCIATION.references, domain=None, range=Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]])
+                   model_uri=ONTOLOGY_ASSOCIATION.references, domain=None, range=Union[Union[str, PublicationId], List[Union[str, PublicationId]]])
 
 slots.with_or_from = Slot(uri=ONTOLOGY_ASSOCIATION.with_or_from, name="with or from", curie=ONTOLOGY_ASSOCIATION.curie('with_or_from'),
                    model_uri=ONTOLOGY_ASSOCIATION.with_or_from, domain=None, range=Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]])
