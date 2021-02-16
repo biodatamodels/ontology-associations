@@ -94,7 +94,7 @@
                 <h1 id="class-gpadassociation">Class: GpadAssociation</h1>
 <p>line of GPAD</p>
 <p>URI: <a href="https://w3id.org/ontology_association/GpadAssociation">ontology_association:GpadAssociation</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[RelationTerm],[Publication],[Provider],[PropertyValuePair],[OntologyClass],[GpadAssociationDocument],[PropertyValuePair]&lt;annotation%20properties%200..*-++[GpadAssociation&#124;negation:boolean%20%3F;annotation_date:datetime%20%3F],[ConjunctionExtensionExpression]&lt;annotation%20extensions%200..*-++[GpadAssociation],[Provider]&lt;assigned%20by%201..1-%20[GpadAssociation],[Taxon]&lt;interacting%20taxon%20ref%200..*-%20[GpadAssociation],[AbstractThing]&lt;with%20or%20from%200..*-%20[GpadAssociation],[OntologyClass]&lt;evidence%20type%201..1-%20[GpadAssociation],[Publication]&lt;supporting%20references%201..*-%20[GpadAssociation],[AbstractThing]&lt;ontology%20class%20ref%201..1-%20[GpadAssociation],[RelationTerm]&lt;relation%200..1-%20[GpadAssociation],[AbstractThing]&lt;db%20object%20ref%201..1-%20[GpadAssociation],[GpadAssociationDocument]++-%20associations%200..*&gt;[GpadAssociation],[GpadAssociation]uses%20-.-&gt;[Denormalized],[GpadAssociation]uses%20-.-&gt;[GoRelated],[Association]^-[GpadAssociation],[GoRelated],[Denormalized],[ConjunctionExtensionExpression],[Association],[AbstractThing]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[Publication],[Provider],[PropertyValuePair],[OntologyClass],[GpadAssociationDocument],[PropertyValuePair]&lt;annotation%20properties%200..*-++[GpadAssociation&#124;negation:boolean%20%3F;relation:gp2term_relation_enum;annotation_date:datetime%20%3F],[ConjunctionExtensionExpression]&lt;annotation%20extensions%200..*-++[GpadAssociation],[Provider]&lt;assigned%20by%201..1-%20[GpadAssociation],[Taxon]&lt;interacting%20taxon%20ref%200..*-%20[GpadAssociation],[AbstractThing]&lt;with%20or%20from%200..*-%20[GpadAssociation],[OntologyClass]&lt;evidence%20type%201..1-%20[GpadAssociation],[Publication]&lt;supporting%20references%201..*-%20[GpadAssociation],[AbstractThing]&lt;ontology%20class%20ref%201..1-%20[GpadAssociation],[AbstractThing]&lt;db%20object%20ref%201..1-%20[GpadAssociation],[GpadAssociationDocument]++-%20associations%200..*&gt;[GpadAssociation],[GpadAssociation]uses%20-.-&gt;[Denormalized],[GpadAssociation]uses%20-.-&gt;[GoRelated],[Association]^-[GpadAssociation],[GoRelated],[Denormalized],[ConjunctionExtensionExpression],[Association],[AbstractThing]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Association/">Association</a> - generic association</li>
@@ -153,8 +153,8 @@
 <li>Example: GO:0050803 None</li>
 </ul>
 </li>
-<li><a href="relation.md">relation</a>  <sub>OPT</sub><ul>
-<li>range: <a href="../RelationTerm/">RelationTerm</a></li>
+<li><a href="relation.md">relation</a>  <sub>REQ</sub><ul>
+<li>range: </li>
 <li>Example: RO:0002263 None</li>
 </ul>
 </li>

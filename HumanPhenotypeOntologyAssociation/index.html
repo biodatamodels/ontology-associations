@@ -93,7 +93,7 @@
               
                 <h1 id="class-humanphenotypeontologyassociation">Class: HumanPhenotypeOntologyAssociation</h1>
 <p>URI: <a href="https://w3id.org/ontology_association/HumanPhenotypeOntologyAssociation">ontology_association:HumanPhenotypeOntologyAssociation</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[RelationTerm],[Publication],[Provider],[OntologyClass],[HumanPhenotypeOntologyAssociationDocument],[Provider]&lt;assigned%20by%201..1-%20[HumanPhenotypeOntologyAssociation&#124;db:string;local_id:string;db_object_symbol:symbol_type;onset:string%20%3F;frequency:string%20%3F;aspect:string;db_object_synonyms:name_type%20*;annotation_date:datetime%20%3F],[AbstractThing]&lt;with%20or%20from%200..*-%20[HumanPhenotypeOntologyAssociation],[OntologyClass]&lt;evidence%20type%201..1-%20[HumanPhenotypeOntologyAssociation],[Publication]&lt;supporting%20references%201..*-%20[HumanPhenotypeOntologyAssociation],[AbstractThing]&lt;ontology%20class%20ref%201..1-%20[HumanPhenotypeOntologyAssociation],[RelationTerm]&lt;relation%200..1-%20[HumanPhenotypeOntologyAssociation],[HumanPhenotypeOntologyAssociationDocument]++-%20associations%200..*&gt;[HumanPhenotypeOntologyAssociation],[HumanPhenotypeOntologyAssociation]uses%20-.-&gt;[Denormalized],[Association]^-[HumanPhenotypeOntologyAssociation],[Denormalized],[Association],[AbstractThing]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[HumanPhenotypeOntologyAssociationDocument],[Provider]&lt;assigned%20by%201..1-%20[HumanPhenotypeOntologyAssociation&#124;db:string;local_id:string;db_object_symbol:symbol_type;relation:gp2term_relation_enum;onset:string%20%3F;frequency:string%20%3F;aspect:string;db_object_synonyms:name_type%20*;annotation_date:datetime%20%3F],[AbstractThing]&lt;with%20or%20from%200..*-%20[HumanPhenotypeOntologyAssociation],[OntologyClass]&lt;evidence%20type%201..1-%20[HumanPhenotypeOntologyAssociation],[Publication]&lt;supporting%20references%201..*-%20[HumanPhenotypeOntologyAssociation],[AbstractThing]&lt;ontology%20class%20ref%201..1-%20[HumanPhenotypeOntologyAssociation],[HumanPhenotypeOntologyAssociationDocument]++-%20associations%200..*&gt;[HumanPhenotypeOntologyAssociation],[HumanPhenotypeOntologyAssociation]uses%20-.-&gt;[Denormalized],[Association]^-[HumanPhenotypeOntologyAssociation],[Denormalized],[Association],[AbstractThing]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Association/">Association</a> - generic association</li>
@@ -161,8 +161,8 @@
 <li>Example: GO:0050803 None</li>
 </ul>
 </li>
-<li><a href="relation.md">relation</a>  <sub>OPT</sub><ul>
-<li>range: <a href="../RelationTerm/">RelationTerm</a></li>
+<li><a href="relation.md">relation</a>  <sub>REQ</sub><ul>
+<li>range: </li>
 <li>Example: RO:0002263 None</li>
 </ul>
 </li>
