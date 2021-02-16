@@ -6,3 +6,4 @@ docs/*md
 docs/types/
 __pycache__
 python/
+*.old
