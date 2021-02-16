@@ -1,0 +1,9 @@
+id: abstract_thing
+schema_generating: true
+display_name: abstract thing
+document_category: abstract thing
+weight: 20
+fields:
+- id: id
+  description: identifier
+  display_name: id

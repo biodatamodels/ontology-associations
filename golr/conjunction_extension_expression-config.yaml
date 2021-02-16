@@ -1,0 +1,6 @@
+id: conjunction_extension_expression
+schema_generating: true
+description: set of expressions all true
+display_name: conjunction extension expression
+document_category: conjunction extension expression
+weight: 20

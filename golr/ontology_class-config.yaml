@@ -1,0 +1,9 @@
+id: ontology_class
+schema_generating: true
+display_name: ontology class
+document_category: ontology class
+weight: 20
+fields:
+- id: id
+  description: identifier
+  display_name: id

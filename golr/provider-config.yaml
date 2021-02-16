@@ -1,0 +1,9 @@
+id: provider
+schema_generating: true
+display_name: provider
+document_category: provider
+weight: 20
+fields:
+- id: id
+  description: identifier
+  display_name: id

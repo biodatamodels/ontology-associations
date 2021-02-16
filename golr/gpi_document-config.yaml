@@ -1,0 +1,9 @@
+id: gpi_document
+schema_generating: true
+display_name: gpi document
+document_category: gpi document
+weight: 20
+fields:
+- id: entities
+  display_name: gpiDocument__entities
+  cardinality: multi
