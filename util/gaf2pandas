@@ -1,0 +1,3 @@
+#!/bin/sh
+cat csv/gaf.header.tsv
+grep -v ^\! $1

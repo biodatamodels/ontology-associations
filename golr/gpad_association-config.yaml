@@ -1,0 +1,39 @@
+id: gpad_association
+schema_generating: true
+description: line of GPAD
+display_name: gpad association
+document_category: gpad association
+weight: 20
+fields:
+- id: db_object_ref
+  display_name: db object ref
+- id: negation
+  display_name: negation
+- id: relation
+  display_name: relation
+- id: ontology_class_ref
+  display_name: ontology class ref
+- id: supporting_references
+  display_name: supporting references
+  cardinality: multi
+- id: evidence_type
+  display_name: evidence type
+- id: with_or_from
+  display_name: with or from
+  cardinality: multi
+- id: interacting_taxon_ref
+  display_name: interacting taxon ref
+  cardinality: multi
+- id: annotation_date
+  description: date when annotation was made
+  display_name: annotation date
+- id: assigned_by
+  description: assigned by
+  display_name: assigned by
+- id: annotation_extensions
+  description: disjunction
+  display_name: annotation extensions
+  cardinality: multi
+- id: annotation_properties
+  display_name: annotation properties
+  cardinality: multi

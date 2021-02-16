@@ -1,0 +1,42 @@
+id: human_phenotype_ontology_association
+schema_generating: true
+display_name: human phenotype ontology association
+document_category: human phenotype ontology association
+weight: 20
+fields:
+- id: db
+  description: db part of identifier
+  display_name: db
+- id: local_id
+  description: local part of identifier
+  display_name: local id
+- id: db_object_symbol
+  display_name: db object symbol
+- id: relation
+  display_name: relation
+- id: ontology_class_ref
+  display_name: ontology class ref
+- id: supporting_references
+  display_name: supporting references
+  cardinality: multi
+- id: evidence_type
+  display_name: evidence type
+- id: onset
+  display_name: onset
+- id: frequency
+  display_name: frequency
+- id: with_or_from
+  display_name: with or from
+  cardinality: multi
+- id: aspect
+  description: varies by association type
+  display_name: aspect
+- id: db_object_synonyms
+  display_name: db object synonyms
+  cardinality: multi
+- id: annotation_date
+  description: date when annotation was made
+  display_name: annotation date
+- id: assigned_by
+  description: assigned by
+  display_name: assigned by

@@ -1,0 +1,11 @@
+id: property_value_pair
+schema_generating: true
+display_name: property value pair
+document_category: property value pair
+weight: 20
+fields:
+- id: property
+  display_name: propertyValuePair__property
+- id: value
+  description: value
+  display_name: propertyValuePair__value

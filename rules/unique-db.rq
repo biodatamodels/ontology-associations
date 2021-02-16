@@ -1,0 +1,8 @@
+prefix oa: <https://w3id.org/ontology_association/>
+
+SELECT ?db (COUNT(distinct ?local_id) as ?count)
+WHERE {
+  ?a oa:db ?db ;
+     oa:local_id ?local_id
+}
+GROUP BY ?db

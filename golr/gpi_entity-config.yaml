@@ -1,0 +1,34 @@
+id: gpi_entity
+schema_generating: true
+display_name: gpi entity
+document_category: gpi entity
+weight: 20
+fields:
+- id: db_object_ref
+  display_name: gpi entity_db object ref
+- id: db_object_symbol
+  display_name: db object symbol
+- id: db_object_name
+  display_name: db object name
+- id: db_object_synonyms
+  display_name: db object synonyms
+  cardinality: multi
+- id: db_object_type
+  display_name: db object type
+- id: db_object_taxon
+  display_name: db object taxon
+- id: encoded_by
+  display_name: encoded by
+  cardinality: multi
+- id: parent_protein
+  display_name: parent protein
+  cardinality: multi
+- id: protein_containing_complex_members
+  display_name: protein containing complex members
+  cardinality: multi
+- id: db_xrefs
+  display_name: db xrefs
+  cardinality: multi
+- id: gene_product_properties
+  display_name: gene product properties
+  cardinality: multi
