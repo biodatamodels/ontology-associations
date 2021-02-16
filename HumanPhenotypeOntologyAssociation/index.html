@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Type: human phenotype ontology association - ontology association</title>
+  <title>Class: HumanPhenotypeOntologyAssociation - ontology association</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Type: human phenotype ontology association";
+    var mkdocs_page_name = "Class: HumanPhenotypeOntologyAssociation";
     var mkdocs_page_input_path = "HumanPhenotypeOntologyAssociation.md";
     var mkdocs_page_url = null;
   </script>
@@ -80,7 +80,7 @@
     
       
     
-    <li>Type: human phenotype ontology association</li>
+    <li>Class: HumanPhenotypeOntologyAssociation</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -91,12 +91,16 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="type-human-phenotype-ontology-association">Type: human phenotype ontology association</h1>
+                <h1 id="class-humanphenotypeontologyassociation">Class: HumanPhenotypeOntologyAssociation</h1>
 <p>URI: <a href="https://w3id.org/ontology_association/HumanPhenotypeOntologyAssociation">ontology_association:HumanPhenotypeOntologyAssociation</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[RelationTerm],[Publication],[Provider],[OntologyClass],[HumanPhenotypeOntologyAssociationDocument],[Provider]&lt;assigned%20by%201..1-%20[HumanPhenotypeOntologyAssociation&#124;db:string;local_id:string;db_object_symbol:symbol_type;onset:string%20%3F;frequency:string%20%3F;aspect:string;db_object_synonyms:name_type%20*;annotation_date:datetime%20%3F],[AbstractThing]&lt;with%20or%20from%200..*-%20[HumanPhenotypeOntologyAssociation],[OntologyClass]&lt;evidence%20type%201..1-%20[HumanPhenotypeOntologyAssociation],[Publication]&lt;references%201..*-%20[HumanPhenotypeOntologyAssociation],[AbstractThing]&lt;ontology%20class%20ref%201..1-%20[HumanPhenotypeOntologyAssociation],[RelationTerm]&lt;relation%200..1-%20[HumanPhenotypeOntologyAssociation],[HumanPhenotypeOntologyAssociationDocument]++-%20associations%200..*&gt;[HumanPhenotypeOntologyAssociation],[Association]^-[HumanPhenotypeOntologyAssociation],[Association],[AbstractThing]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[RelationTerm],[Publication],[Provider],[OntologyClass],[HumanPhenotypeOntologyAssociationDocument],[Provider]&lt;assigned%20by%201..1-%20[HumanPhenotypeOntologyAssociation&#124;db:string;local_id:string;db_object_symbol:symbol_type;onset:string%20%3F;frequency:string%20%3F;aspect:string;db_object_synonyms:name_type%20*;annotation_date:datetime%20%3F],[AbstractThing]&lt;with%20or%20from%200..*-%20[HumanPhenotypeOntologyAssociation],[OntologyClass]&lt;evidence%20type%201..1-%20[HumanPhenotypeOntologyAssociation],[Publication]&lt;supporting%20references%201..*-%20[HumanPhenotypeOntologyAssociation],[AbstractThing]&lt;ontology%20class%20ref%201..1-%20[HumanPhenotypeOntologyAssociation],[RelationTerm]&lt;relation%200..1-%20[HumanPhenotypeOntologyAssociation],[HumanPhenotypeOntologyAssociationDocument]++-%20associations%200..*&gt;[HumanPhenotypeOntologyAssociation],[HumanPhenotypeOntologyAssociation]uses%20-.-&gt;[Denormalized],[Association]^-[HumanPhenotypeOntologyAssociation],[Denormalized],[Association],[AbstractThing]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Association/">Association</a> - generic association</li>
+</ul>
+<h2 id="uses-mixins">Uses Mixins</h2>
+<ul>
+<li>mixin: <a href="../Denormalized/">Denormalized</a> - mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
@@ -157,13 +161,13 @@
 <li>Example: GO:0050803 None</li>
 </ul>
 </li>
-<li><a href="../references/">references</a>  <sub>1..*</sub><ul>
-<li>range: <a href="../Publication/">Publication</a></li>
-</ul>
-</li>
 <li><a href="relation.md">relation</a>  <sub>OPT</sub><ul>
 <li>range: <a href="../RelationTerm/">RelationTerm</a></li>
 <li>Example: RO:0002263 None</li>
+</ul>
+</li>
+<li><a href="../supporting_references/">supporting references</a>  <sub>1..*</sub><ul>
+<li>range: <a href="../Publication/">Publication</a></li>
 </ul>
 </li>
 <li><a href="../with_or_from/">with or from</a>  <sub>0..*</sub><ul>
