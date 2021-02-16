@@ -40,8 +40,15 @@ meta:gpi_entity_db_object_ref a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "gpi entity_db object ref" ;
     rdfs:domain <https://w3id.org/ontology_association/GpiEntity> ;
-    rdfs:range <https://w3id.org/ontology_association/NamedThing> ;
+    rdfs:range <https://w3id.org/ontology_association/AbstractThing> ;
     rdfs:subPropertyOf <https://w3id.org/ontology_association/db_object_ref> .
+
+meta:human_phenotype_ontology_association_document_associations a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "human phenotype ontology association document_associations" ;
+    rdfs:domain <https://w3id.org/ontology_association/HumanPhenotypeOntologyAssociationDocument> ;
+    rdfs:range <https://w3id.org/ontology_association/HumanPhenotypeOntologyAssociation> ;
+    rdfs:subPropertyOf meta:associationDocument__associations .
 
 meta:propertyValuePair__property a owl:ObjectProperty,
         meta:SlotDefinition ;
@@ -164,74 +171,20 @@ meta:propertyValuePair__value a owl:ObjectProperty,
             owl:onProperty meta:entities ],
         <https://w3id.org/ontology_association/Document> .
 
-<https://w3id.org/ontology_association/HumanPhenotypeOntologyAssociation> a owl:Class,
+<https://w3id.org/ontology_association/Normalized> a owl:Class,
         meta:ClassDefinition ;
-    rdfs:label "human phenotype ontology association" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/SymbolType> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_object_symbol> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <https://w3id.org/ontology_association/frequency> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/NameType> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_object_synonyms> ],
-        [ a owl:Class ;
-            owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:allValuesFrom <https://w3id.org/ontology_association/NamedThing> ;
-                        owl:onProperty <https://w3id.org/ontology_association/references> ] [ a owl:Restriction ;
-                        owl:onProperty <https://w3id.org/ontology_association/references> ;
-                        owl:someValuesFrom <https://w3id.org/ontology_association/NamedThing> ] ) ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <https://w3id.org/ontology_association/aspect> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/NamedThing> ;
-            owl:onProperty <https://w3id.org/ontology_association/ontology_class_ref> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <https://w3id.org/ontology_association/local_id> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <https://w3id.org/ontology_association/onset> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Datetime> ;
-            owl:onProperty <https://w3id.org/ontology_association/annotation_date> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/NamedThing> ;
-            owl:onProperty <https://w3id.org/ontology_association/with_or_from> ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <https://w3id.org/ontology_association/db> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/OntologyClass> ;
-            owl:onProperty <https://w3id.org/ontology_association/evidence_type> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/ontology_association/RelationTerm> ;
-            owl:onProperty <https://w3id.org/ontology_association/relation> ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/Provider> ;
-            owl:onProperty <https://w3id.org/ontology_association/assigned_by> ;
-            owl:qualifiedCardinality 1 ] .
+    rdfs:label "normalized" ;
+    rdfs:subClassOf meta:mixin ;
+    skos:definition "mixin for a normalized class, in the sense of database normal forms" .
 
 <https://w3id.org/ontology_association/all> a owl:Ontology ;
     rdfs:label "ontology_associations" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     skos:definition "Various association data models" ;
-    meta:generation_date "2021-02-13 18:58" ;
+    meta:generation_date "2021-02-16 08:15" ;
     meta:metamodel_version "1.7.0" ;
     meta:source_file "all.yaml" ;
-    meta:source_file_date "Sat Feb 13 18:58:25 2021" ;
+    meta:source_file_date "Mon Feb 15 18:55:25 2021" ;
     meta:source_file_size 323 .
 
 <https://w3id.org/ontology_association/bioentity_type> a owl:ObjectProperty,
@@ -262,6 +215,14 @@ meta:propertyValuePair__value a owl:ObjectProperty,
             owl:onProperty meta:associations ],
         <https://w3id.org/ontology_association/AssociationDocument> .
 
+<https://w3id.org/ontology_association/HumanPhenotypeOntologyAssociationDocument> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "human phenotype ontology association document" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/HumanPhenotypeOntologyAssociation> ;
+            owl:onProperty meta:associations ],
+        <https://w3id.org/ontology_association/AssociationDocument> .
+
 <https://w3id.org/ontology_association/annotation_properties> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "annotation properties" ;
@@ -281,7 +242,7 @@ meta:propertyValuePair__value a owl:ObjectProperty,
 <https://w3id.org/ontology_association/encoded_by> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "encoded by" ;
-    rdfs:range <https://w3id.org/ontology_association/NamedThing> .
+    rdfs:range <https://w3id.org/ontology_association/AbstractThing> .
 
 <https://w3id.org/ontology_association/frequency> a owl:ObjectProperty,
         meta:SlotDefinition ;
@@ -294,6 +255,12 @@ meta:propertyValuePair__value a owl:ObjectProperty,
     rdfs:range <https://w3id.org/biolink/biolinkml/meta/types/String> ;
     rdfs:subPropertyOf <https://w3id.org/ontology_association/document_metadata_field> ;
     skos:definition "e.g. NHGRI" .
+
+<https://w3id.org/ontology_association/gene_product_form> a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "gene product form" ;
+    rdfs:range <https://w3id.org/ontology_association/BiologicalEntity> ;
+    skos:definition "isoform" .
 
 <https://w3id.org/ontology_association/gene_product_properties> a owl:ObjectProperty,
         meta:SlotDefinition ;
@@ -344,7 +311,7 @@ meta:propertyValuePair__value a owl:ObjectProperty,
 <https://w3id.org/ontology_association/parent_protein> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "parent protein" ;
-    rdfs:range <https://w3id.org/ontology_association/NamedThing> .
+    rdfs:range <https://w3id.org/ontology_association/AbstractThing> .
 
 <https://w3id.org/ontology_association/project_release> a owl:ObjectProperty,
         meta:SlotDefinition ;
@@ -356,7 +323,7 @@ meta:propertyValuePair__value a owl:ObjectProperty,
 <https://w3id.org/ontology_association/protein_containing_complex_members> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "protein containing complex members" ;
-    rdfs:range <https://w3id.org/ontology_association/NamedThing> .
+    rdfs:range <https://w3id.org/ontology_association/AbstractThing> .
 
 <https://w3id.org/ontology_association/ro_version> a owl:ObjectProperty,
         meta:SlotDefinition ;
@@ -371,11 +338,6 @@ meta:propertyValuePair__value a owl:ObjectProperty,
     rdfs:subPropertyOf <https://w3id.org/ontology_association/document_metadata_field> ;
     skos:definition "e.g. http://www.yeastgenome.org/" .
 
-meta:associationDocument__associations a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "associationDocument__associations" ;
-    rdfs:range <https://w3id.org/ontology_association/Association> .
-
 <https://w3id.org/biolink/biolinkml/meta/types/Boolean> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "boolean" ;
@@ -385,85 +347,126 @@ meta:associationDocument__associations a owl:ObjectProperty,
             owl:qualifiedCardinality 1 ] ;
     skos:definition "A binary (true or false) value" .
 
-<https://w3id.org/ontology_association/AssociationDocument> a owl:Class,
-        meta:ClassDefinition ;
-    rdfs:label "association document" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/Association> ;
-            owl:onProperty meta:associations ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <https://w3id.org/ontology_association/date_generated> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <https://w3id.org/ontology_association/project_release> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <https://w3id.org/ontology_association/url> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <https://w3id.org/ontology_association/gorel_version> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <https://w3id.org/ontology_association/go_version> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <https://w3id.org/ontology_association/funding> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/ontology_association/Provider> ;
-            owl:onProperty <https://w3id.org/ontology_association/generated_by> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <https://w3id.org/ontology_association/ro_version> ],
-        <https://w3id.org/ontology_association/Document> .
-
 <https://w3id.org/ontology_association/Document> a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "document" ;
     skos:definition "root class for association or entity documents" .
 
+<https://w3id.org/ontology_association/Entity> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "entity" .
+
+<https://w3id.org/ontology_association/GoRelated> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "go related" ;
+    rdfs:subClassOf meta:mixin ;
+    skos:definition "mixin for any association that is GO related" .
+
 <https://w3id.org/ontology_association/GpadAssociation> a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "gpad association" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/ontology_association/AbstractThing> ;
+            owl:onProperty <https://w3id.org/ontology_association/ontology_class_ref> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/ontology_association/Taxon> ;
             owl:onProperty <https://w3id.org/ontology_association/interacting_taxon_ref> ],
-        [ a owl:Class ;
-            owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:allValuesFrom <https://w3id.org/ontology_association/NamedThing> ;
-                        owl:onProperty <https://w3id.org/ontology_association/references> ] [ a owl:Restriction ;
-                        owl:onProperty <https://w3id.org/ontology_association/references> ;
-                        owl:someValuesFrom <https://w3id.org/ontology_association/NamedThing> ] ) ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/ontology_association/AbstractThing> ;
+            owl:onProperty <https://w3id.org/ontology_association/db_object_ref> ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/ontology_association/ConjunctionExtensionExpression> ;
             owl:onProperty <https://w3id.org/ontology_association/annotation_extensions> ],
         [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/NamedThing> ;
-            owl:onProperty <https://w3id.org/ontology_association/ontology_class_ref> ;
+            owl:onClass <https://w3id.org/ontology_association/Provider> ;
+            owl:onProperty <https://w3id.org/ontology_association/assigned_by> ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/AbstractThing> ;
+            owl:onProperty <https://w3id.org/ontology_association/with_or_from> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/ontology_association/RelationTerm> ;
+            owl:onProperty <https://w3id.org/ontology_association/relation> ],
+        [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom <https://w3id.org/ontology_association/Publication> ;
+                        owl:onProperty <https://w3id.org/ontology_association/supporting_references> ] [ a owl:Restriction ;
+                        owl:onProperty <https://w3id.org/ontology_association/supporting_references> ;
+                        owl:someValuesFrom <https://w3id.org/ontology_association/Publication> ] ) ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Datetime> ;
             owl:onProperty <https://w3id.org/ontology_association/annotation_date> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
+            owl:onProperty <https://w3id.org/ontology_association/negation> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/PropertyValuePair> ;
+            owl:onProperty <https://w3id.org/ontology_association/annotation_properties> ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/ontology_association/OntologyClass> ;
+            owl:onProperty <https://w3id.org/ontology_association/evidence_type> ;
+            owl:qualifiedCardinality 1 ],
+        <https://w3id.org/ontology_association/Association>,
+        <https://w3id.org/ontology_association/Denormalized>,
+        <https://w3id.org/ontology_association/GoRelated> ;
+    skos:definition "line of GPAD" .
+
+<https://w3id.org/ontology_association/HumanPhenotypeOntologyAssociation> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "human phenotype ontology association" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/NameType> ;
+            owl:onProperty <https://w3id.org/ontology_association/db_object_synonyms> ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/ontology_association/SymbolType> ;
+            owl:onProperty <https://w3id.org/ontology_association/db_object_symbol> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/AbstractThing> ;
+            owl:onProperty <https://w3id.org/ontology_association/with_or_from> ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <https://w3id.org/ontology_association/db> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <https://w3id.org/ontology_association/onset> ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <https://w3id.org/ontology_association/local_id> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/ontology_association/AbstractThing> ;
+            owl:onProperty <https://w3id.org/ontology_association/ontology_class_ref> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <https://w3id.org/ontology_association/aspect> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <https://w3id.org/ontology_association/frequency> ],
+        [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom <https://w3id.org/ontology_association/Publication> ;
+                        owl:onProperty <https://w3id.org/ontology_association/supporting_references> ] [ a owl:Restriction ;
+                        owl:onProperty <https://w3id.org/ontology_association/supporting_references> ;
+                        owl:someValuesFrom <https://w3id.org/ontology_association/Publication> ] ) ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/ontology_association/RelationTerm> ;
             owl:onProperty <https://w3id.org/ontology_association/relation> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/NamedThing> ;
-            owl:onProperty <https://w3id.org/ontology_association/with_or_from> ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/NamedThing> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_object_ref> ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Datetime> ;
+            owl:onProperty <https://w3id.org/ontology_association/annotation_date> ],
         [ a owl:Restriction ;
             owl:onClass <https://w3id.org/ontology_association/OntologyClass> ;
             owl:onProperty <https://w3id.org/ontology_association/evidence_type> ;
@@ -472,14 +475,8 @@ meta:associationDocument__associations a owl:ObjectProperty,
             owl:onClass <https://w3id.org/ontology_association/Provider> ;
             owl:onProperty <https://w3id.org/ontology_association/assigned_by> ;
             owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
-            owl:onProperty <https://w3id.org/ontology_association/negation> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/PropertyValuePair> ;
-            owl:onProperty <https://w3id.org/ontology_association/annotation_properties> ] ;
-    skos:definition "line of GPAD" .
+        <https://w3id.org/ontology_association/Association>,
+        <https://w3id.org/ontology_association/Denormalized> .
 
 <https://w3id.org/ontology_association/annotation_extensions> a owl:ObjectProperty,
         meta:SlotDefinition ;
@@ -518,15 +515,66 @@ meta:associationDocument__associations a owl:ObjectProperty,
     rdfs:range <https://w3id.org/biolink/biolinkml/meta/types/String> ;
     skos:definition "local part of identifier" .
 
-<https://w3id.org/ontology_association/Association> a owl:Class,
+meta:associationDocument__associations a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "associationDocument__associations" ;
+    rdfs:range <https://w3id.org/ontology_association/Association> .
+
+<https://w3id.org/ontology_association/AssociationDocument> a owl:Class,
         meta:ClassDefinition ;
-    rdfs:label "association" ;
-    skos:definition "generic association" .
+    rdfs:label "association document" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <https://w3id.org/ontology_association/ro_version> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <https://w3id.org/ontology_association/project_release> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <https://w3id.org/ontology_association/url> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/ontology_association/Provider> ;
+            owl:onProperty <https://w3id.org/ontology_association/generated_by> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <https://w3id.org/ontology_association/gorel_version> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/Association> ;
+            owl:onProperty meta:associations ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <https://w3id.org/ontology_association/date_generated> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <https://w3id.org/ontology_association/funding> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <https://w3id.org/ontology_association/go_version> ],
+        <https://w3id.org/ontology_association/Document> .
+
+<https://w3id.org/ontology_association/BiologicalEntity> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "biological entity" ;
+    rdfs:subClassOf <https://w3id.org/ontology_association/Entity> .
 
 <https://w3id.org/ontology_association/ConjunctionExtensionExpression> a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "conjunction extension expression" ;
     skos:definition "set of expressions all true" .
+
+<https://w3id.org/ontology_association/Denormalized> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "denormalized" ;
+    rdfs:subClassOf meta:mixin ;
+    skos:definition "mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes" .
 
 <https://w3id.org/ontology_association/GafAssociation> a owl:Class,
         meta:ClassDefinition ;
@@ -536,56 +584,89 @@ meta:associationDocument__associations a owl:ObjectProperty,
             owl:onProperty <https://w3id.org/ontology_association/local_id> ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/Taxon> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_object_taxon> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Class ;
-            owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:allValuesFrom <https://w3id.org/ontology_association/NamedThing> ;
-                        owl:onProperty <https://w3id.org/ontology_association/references> ] [ a owl:Restriction ;
-                        owl:onProperty <https://w3id.org/ontology_association/references> ;
-                        owl:someValuesFrom <https://w3id.org/ontology_association/NamedThing> ] ) ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/OntologyClass> ;
-            owl:onProperty <https://w3id.org/ontology_association/evidence_type> ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <https://w3id.org/ontology_association/db> ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass <https://w3id.org/ontology_association/SymbolType> ;
             owl:onProperty <https://w3id.org/ontology_association/db_object_symbol> ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/NamedThing> ;
-            owl:onProperty <https://w3id.org/ontology_association/ontology_class_ref> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Datetime> ;
-            owl:onProperty <https://w3id.org/ontology_association/annotation_date> ],
+            owl:onClass <https://w3id.org/ontology_association/NameType> ;
+            owl:onProperty <https://w3id.org/ontology_association/db_object_name> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/NamedThing> ;
-            owl:onProperty <https://w3id.org/ontology_association/with_or_from> ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <https://w3id.org/ontology_association/db> ;
+            owl:onClass <http://UNKNOWN.org/gene_ontology_aspect_enum> ;
+            owl:onProperty <https://w3id.org/ontology_association/aspect> ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/AbstractThing> ;
+            owl:onProperty <https://w3id.org/ontology_association/with_or_from> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/gp_entity_type_enum> ;
             owl:onProperty <https://w3id.org/ontology_association/db_object_type> ],
         [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/gene_ontology_aspect_enum> ;
-            owl:onProperty <https://w3id.org/ontology_association/aspect> ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Datetime> ;
+            owl:onProperty <https://w3id.org/ontology_association/annotation_date> ],
+        [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom <https://w3id.org/ontology_association/Publication> ;
+                        owl:onProperty <https://w3id.org/ontology_association/supporting_references> ] [ a owl:Restriction ;
+                        owl:onProperty <https://w3id.org/ontology_association/supporting_references> ;
+                        owl:someValuesFrom <https://w3id.org/ontology_association/Publication> ] ) ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/NameType> ;
+            owl:onProperty <https://w3id.org/ontology_association/db_object_synonyms> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/ConjunctionExtensionExpression> ;
+            owl:onProperty <https://w3id.org/ontology_association/annotation_extensions> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/ontology_association/BiologicalEntity> ;
+            owl:onProperty <https://w3id.org/ontology_association/gene_product_form> ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/ontology_association/Taxon> ;
+            owl:onProperty <https://w3id.org/ontology_association/db_object_taxon> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/ontology_association/Provider> ;
+            owl:onProperty <https://w3id.org/ontology_association/assigned_by> ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/ontology_association/RelationTerm> ;
             owl:onProperty <https://w3id.org/ontology_association/relation> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/ConjunctionExtensionExpression> ;
-            owl:onProperty <https://w3id.org/ontology_association/annotation_extensions> ],
+            owl:onClass <https://w3id.org/ontology_association/OntologyClass> ;
+            owl:onProperty <https://w3id.org/ontology_association/evidence_type> ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/Provider> ;
-            owl:onProperty <https://w3id.org/ontology_association/assigned_by> ;
+            owl:onClass <https://w3id.org/ontology_association/AbstractThing> ;
+            owl:onProperty <https://w3id.org/ontology_association/ontology_class_ref> ;
+            owl:qualifiedCardinality 1 ],
+        <https://w3id.org/ontology_association/Association>,
+        <https://w3id.org/ontology_association/Denormalized>,
+        <https://w3id.org/ontology_association/GoRelated> ;
+    skos:definition "line of GAF" .
+
+<https://w3id.org/ontology_association/GpiEntity> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "gpi entity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/ontology_association/SymbolType> ;
+            owl:onProperty <https://w3id.org/ontology_association/db_object_symbol> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/AbstractThing> ;
+            owl:onProperty <https://w3id.org/ontology_association/encoded_by> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/PropertyValuePair> ;
+            owl:onProperty <https://w3id.org/ontology_association/gene_product_properties> ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/ontology_association/AbstractThing> ;
+            owl:onProperty <https://w3id.org/ontology_association/db_object_ref> ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/ontology_association/NameType> ;
@@ -594,13 +675,10 @@ meta:associationDocument__associations a owl:ObjectProperty,
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/ontology_association/NameType> ;
             owl:onProperty <https://w3id.org/ontology_association/db_object_name> ],
-        <https://w3id.org/ontology_association/Association> ;
-    skos:definition "line of GAF" .
-
-<https://w3id.org/ontology_association/GpiEntity> a owl:Class,
-        meta:ClassDefinition ;
-    rdfs:label "gpi entity" ;
-    rdfs:subClassOf [ a owl:Restriction ;
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/AbstractThing> ;
+            owl:onProperty <https://w3id.org/ontology_association/protein_containing_complex_members> ],
+        [ a owl:Restriction ;
             owl:onClass <https://w3id.org/ontology_association/Taxon> ;
             owl:onProperty <https://w3id.org/ontology_association/db_object_taxon> ;
             owl:qualifiedCardinality 1 ],
@@ -608,36 +686,13 @@ meta:associationDocument__associations a owl:ObjectProperty,
             owl:allValuesFrom <https://w3id.org/ontology_association/Curie> ;
             owl:onProperty <https://w3id.org/ontology_association/db_xrefs> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/AbstractThing> ;
+            owl:onProperty <https://w3id.org/ontology_association/parent_protein> ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/gp_entity_type_enum> ;
             owl:onProperty <https://w3id.org/ontology_association/db_object_type> ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/SymbolType> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_object_symbol> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/NamedThing> ;
-            owl:onProperty <https://w3id.org/ontology_association/encoded_by> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/ontology_association/NameType> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_object_name> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/NameType> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_object_synonyms> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/NamedThing> ;
-            owl:onProperty <https://w3id.org/ontology_association/parent_protein> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/NamedThing> ;
-            owl:onProperty <https://w3id.org/ontology_association/protein_containing_complex_members> ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/NamedThing> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_object_ref> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/PropertyValuePair> ;
-            owl:onProperty <https://w3id.org/ontology_association/gene_product_properties> ] .
+        <https://w3id.org/ontology_association/BiologicalEntity> .
 
 <https://w3id.org/ontology_association/annotation_date> a owl:ObjectProperty,
         meta:SlotDefinition ;
@@ -660,7 +715,7 @@ meta:associationDocument__associations a owl:ObjectProperty,
 <https://w3id.org/ontology_association/db_object_ref> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "db object ref" ;
-    rdfs:range <https://w3id.org/ontology_association/NamedThing> ;
+    rdfs:range <https://w3id.org/ontology_association/AbstractThing> ;
     meta:examples "Example(value='UniProtKB:P11678', description=None)" .
 
 <https://w3id.org/ontology_association/db_object_symbol> a owl:ObjectProperty,
@@ -683,7 +738,7 @@ meta:associationDocument__associations a owl:ObjectProperty,
 <https://w3id.org/ontology_association/ontology_class_ref> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "ontology class ref" ;
-    rdfs:range <https://w3id.org/ontology_association/NamedThing> ;
+    rdfs:range <https://w3id.org/ontology_association/AbstractThing> ;
     meta:examples "Example(value='GO:0050803', description=None)" .
 
 <https://w3id.org/ontology_association/relation> a owl:ObjectProperty,
@@ -695,7 +750,7 @@ meta:associationDocument__associations a owl:ObjectProperty,
 <https://w3id.org/ontology_association/with_or_from> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "with or from" ;
-    rdfs:range <https://w3id.org/ontology_association/NamedThing> ;
+    rdfs:range <https://w3id.org/ontology_association/AbstractThing> ;
     meta:examples "Example(value='WB:WBVar00000510', description=None)" .
 
 <https://w3id.org/biolink/biolinkml/meta/types/Datetime> a owl:Class,
@@ -710,7 +765,7 @@ meta:associationDocument__associations a owl:ObjectProperty,
 <https://w3id.org/ontology_association/ControlledTerm> a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "controlled term" ;
-    rdfs:subClassOf <https://w3id.org/ontology_association/NamedThing> .
+    rdfs:subClassOf <https://w3id.org/ontology_association/AbstractThing> .
 
 <https://w3id.org/ontology_association/Curie> a owl:Class,
         meta:TypeDefinition ;
@@ -745,6 +800,11 @@ meta:associationDocument__associations a owl:ObjectProperty,
     rdfs:range <https://w3id.org/biolink/biolinkml/meta/types/String> ;
     rdfs:subPropertyOf <https://w3id.org/ontology_association/document_metadata_field> .
 
+<https://w3id.org/ontology_association/Association> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "association" ;
+    skos:definition "generic association" .
+
 <https://w3id.org/ontology_association/OntologyClass> a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "ontology class" ;
@@ -758,22 +818,27 @@ meta:associationDocument__associations a owl:ObjectProperty,
 <https://w3id.org/ontology_association/Provider> a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "provider" ;
-    rdfs:subClassOf <https://w3id.org/ontology_association/NamedThing> .
+    rdfs:subClassOf <https://w3id.org/ontology_association/AbstractThing> .
 
 <https://w3id.org/ontology_association/document_metadata_field> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "document metadata field" ;
     rdfs:range <https://w3id.org/biolink/biolinkml/meta/types/String> .
 
-<https://w3id.org/ontology_association/references> a owl:ObjectProperty,
+<https://w3id.org/ontology_association/supporting_references> a owl:ObjectProperty,
         meta:SlotDefinition ;
-    rdfs:label "references" ;
-    rdfs:range <https://w3id.org/ontology_association/NamedThing> .
+    rdfs:label "supporting references" ;
+    rdfs:range <https://w3id.org/ontology_association/Publication> .
 
 <https://w3id.org/ontology_association/NameType> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "name type" ;
     rdfs:subClassOf <https://w3id.org/biolink/biolinkml/meta/types/String> .
+
+<https://w3id.org/ontology_association/Publication> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "publication" ;
+    rdfs:subClassOf <https://w3id.org/ontology_association/AbstractThing> .
 
 meta:topValue a owl:DatatypeProperty ;
     rdfs:label "value" .
@@ -782,17 +847,18 @@ meta:TypeDefinition a owl:Class ;
     rdfs:label "type_definition" ;
     skos:definition "A data type definition." .
 
-meta:ClassDefinition a owl:Class ;
-    rdfs:label "class_definition" ;
-    skos:definition "the definition of a class or interface" .
-
-<https://w3id.org/ontology_association/NamedThing> a owl:Class,
+<https://w3id.org/ontology_association/AbstractThing> a owl:Class,
         meta:ClassDefinition ;
-    rdfs:label "named thing" ;
+    rdfs:label "abstract thing" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass <https://w3id.org/ontology_association/Curie> ;
             owl:onProperty <https://w3id.org/ontology_association/id> ;
-            owl:qualifiedCardinality 1 ] .
+            owl:qualifiedCardinality 1 ],
+        <https://w3id.org/ontology_association/Entity> .
+
+meta:ClassDefinition a owl:Class ;
+    rdfs:label "class_definition" ;
+    skos:definition "the definition of a class or interface" .
 
 <https://w3id.org/biolink/biolinkml/meta/types/String> a owl:Class,
         meta:TypeDefinition ;

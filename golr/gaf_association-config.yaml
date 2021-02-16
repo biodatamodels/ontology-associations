@@ -13,8 +13,9 @@ fields:
   display_name: local id
 - id: db_object_symbol
   display_name: db object symbol
-- id: relation
-  display_name: relation
+- id: qualifiers
+  display_name: qualifiers
+  cardinality: multi
 - id: ontology_class_ref
   display_name: ontology class ref
 - id: supporting_references

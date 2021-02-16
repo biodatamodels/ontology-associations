@@ -1,5 +1,5 @@
 # Auto generated from gaf.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-14 15:29
+# Generation date: 2021-02-16 11:39
 # Schema: gaf
 #
 # id: https://w3id.org/ontology_association/gaf
@@ -24,7 +24,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from . association import AbstractThingId, Association, AssociationDocument, BiologicalEntity, ConjunctionExtensionExpression, NameType, OntologyClassId, ProviderId, PublicationId, RelationTermId, SymbolType, TaxonId
+from . association import AbstractThingId, Association, AssociationDocument, BiologicalEntity, ConjunctionExtensionExpression, Gp2termRelationEnum, GpEntityTypeEnum, NameType, OntologyClassId, ProviderId, PublicationId, SimpleQualifierEnum, SymbolType, TaxonId
 from biolinkml.utils.metamodelcore import XSDDateTime
 from includes.types import Datetime, String
 
@@ -34,7 +34,9 @@ metamodel_version = "1.7.0"
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
+BFO = CurieNamespace('BFO', 'http://purl.obolibrary.org/obo/BFO_')
 GO = CurieNamespace('GO', 'http://purl.obolibrary.org/obo/GO_')
+RO = CurieNamespace('RO', 'http://purl.obolibrary.org/obo/RO_')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/vocab/')
 BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
 ONTOLOGY_ASSOCIATION = CurieNamespace('ontology_association', 'https://w3id.org/ontology_association/')
@@ -68,7 +70,7 @@ class GafAssociation(Association):
     aspect: Union[str, "GeneOntologyAspectEnum"] = None
     db_object_taxon: Union[str, TaxonId] = None
     assigned_by: Union[str, ProviderId] = None
-    relation: Optional[Union[str, RelationTermId]] = None
+    qualifiers: Optional[Union[Union[str, "Gp2termRelationEnum"], List[Union[str, "Gp2termRelationEnum"]]]] = empty_list()
     with_or_from: Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]] = empty_list()
     db_object_name: Optional[Union[str, NameType]] = None
     db_object_synonyms: Optional[Union[Union[str, NameType], List[Union[str, NameType]]]] = empty_list()
@@ -126,8 +128,11 @@ class GafAssociation(Association):
         if not isinstance(self.assigned_by, ProviderId):
             self.assigned_by = ProviderId(self.assigned_by)
 
-        if self.relation is not None and not isinstance(self.relation, RelationTermId):
-            self.relation = RelationTermId(self.relation)
+        if self.qualifiers is None:
+            self.qualifiers = []
+        if not isinstance(self.qualifiers, list):
+            self.qualifiers = [self.qualifiers]
+        self.qualifiers = [v if isinstance(v, Gp2termRelationEnum) else Gp2termRelationEnum(v) for v in self.qualifiers]
 
         if self.with_or_from is None:
             self.with_or_from = []
@@ -158,6 +163,36 @@ class GafAssociation(Association):
 
         if self.gene_product_form is not None and not isinstance(self.gene_product_form, BiologicalEntity):
             self.gene_product_form = BiologicalEntity()
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class SimpleGafAssociation(GafAssociation):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.SimpleGafAssociation
+    class_class_curie: ClassVar[str] = "ontology_association:SimpleGafAssociation"
+    class_name: ClassVar[str] = "simple gaf association"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.SimpleGafAssociation
+
+    db: str = None
+    local_id: str = None
+    db_object_symbol: Union[str, SymbolType] = None
+    ontology_class_ref: Union[str, AbstractThingId] = None
+    supporting_references: Union[Union[str, PublicationId], List[Union[str, PublicationId]]] = None
+    evidence_type: Union[str, OntologyClassId] = None
+    aspect: Union[str, "GeneOntologyAspectEnum"] = None
+    db_object_taxon: Union[str, TaxonId] = None
+    assigned_by: Union[str, ProviderId] = None
+    qualifiers: Optional[Union[Union[str, "SimpleQualifierEnum"], List[Union[str, "SimpleQualifierEnum"]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.qualifiers is None:
+            self.qualifiers = []
+        if not isinstance(self.qualifiers, list):
+            self.qualifiers = [self.qualifiers]
+        self.qualifiers = [v if isinstance(v, SimpleQualifierEnum) else SimpleQualifierEnum(v) for v in self.qualifiers]
 
         super().__post_init__(**kwargs)
 
@@ -206,6 +241,9 @@ class slots:
 
 slots.gaf_association_aspect = Slot(uri=ONTOLOGY_ASSOCIATION.aspect, name="gaf association_aspect", curie=ONTOLOGY_ASSOCIATION.curie('aspect'),
                    model_uri=ONTOLOGY_ASSOCIATION.gaf_association_aspect, domain=GafAssociation, range=Union[str, "GeneOntologyAspectEnum"])
+
+slots.simple_gaf_association_qualifiers = Slot(uri=ONTOLOGY_ASSOCIATION.qualifiers, name="simple gaf association_qualifiers", curie=ONTOLOGY_ASSOCIATION.curie('qualifiers'),
+                   model_uri=ONTOLOGY_ASSOCIATION.simple_gaf_association_qualifiers, domain=SimpleGafAssociation, range=Optional[Union[Union[str, "SimpleQualifierEnum"], List[Union[str, "SimpleQualifierEnum"]]]])
 
 slots.gaf_association_document_associations = Slot(uri=ONTOLOGY_ASSOCIATION.associations, name="gaf association document_associations", curie=ONTOLOGY_ASSOCIATION.curie('associations'),
                    model_uri=ONTOLOGY_ASSOCIATION.gaf_association_document_associations, domain=GafAssociationDocument, range=Optional[Union[Union[dict, GafAssociation], List[Union[dict, GafAssociation]]]])

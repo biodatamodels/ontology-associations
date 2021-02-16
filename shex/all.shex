@@ -49,12 +49,14 @@ metatype:Nodeidentifier NONLITERAL
 )
 
 <Association>  (
-    CLOSED {
-       (  $<Association_tes> rdf:type . * ;
-          rdf:type [ <Association> ] ?
-       )
-    } OR @<GafAssociation> OR @<GpadAssociation> OR @<HumanPhenotypeOntologyAssociation>
+    @<GafAssociation> OR @<GpadAssociation> OR @<HumanPhenotypeOntologyAssociation>
 )
+
+<Association_struct> {
+    (  $<Association_tes> rdf:type . * ;
+       rdf:type [ <Association> ] ?
+    )
+}
 
 <AssociationDocument>  (
     CLOSED {
@@ -101,6 +103,12 @@ metatype:Nodeidentifier NONLITERAL
     } OR @<OntologyClass> OR @<RelationTerm>
 )
 
+<Denormalized> {
+    (  $<Denormalized_tes> rdf:type . * ;
+       rdf:type [ <Denormalized> ] ?
+    )
+}
+
 <Document>  (
     @<AssociationDocument> OR @<GpiDocument>
 )
@@ -124,6 +132,10 @@ metatype:Nodeidentifier NONLITERAL
 <GafAssociation> CLOSED {
     (  $<GafAssociation_tes> (  &<Association_tes> ;
           rdf:type [ <Association> ] ? ;
+          &<Denormalized_tes> ;
+          rdf:type [ <Denormalized> ] ? ;
+          &<GoRelated_tes> ;
+          rdf:type [ <GoRelated> ] ? ;
           <db> @metatype:String ;
           <local_id> @metatype:String ;
           <db_object_symbol> @<SymbolType> ;
@@ -139,7 +151,8 @@ metatype:Nodeidentifier NONLITERAL
           <db_object_taxon> @<Taxon> ;
           <annotation_date> @metatype:Datetime ? ;
           <assigned_by> @<Provider> ;
-          <annotation_extensions> @<ConjunctionExtensionExpression> *
+          <annotation_extensions> @<ConjunctionExtensionExpression> * ;
+          <gene_product_form> @<BiologicalEntity> ?
        ) ;
        rdf:type [ <GafAssociation> ] ?
     )
@@ -154,9 +167,19 @@ metatype:Nodeidentifier NONLITERAL
     )
 }
 
+<GoRelated> {
+    (  $<GoRelated_tes> rdf:type . * ;
+       rdf:type [ <GoRelated> ] ?
+    )
+}
+
 <GpadAssociation> CLOSED {
     (  $<GpadAssociation_tes> (  &<Association_tes> ;
           rdf:type [ <Association> ] ? ;
+          &<Denormalized_tes> ;
+          rdf:type [ <Denormalized> ] ? ;
+          &<GoRelated_tes> ;
+          rdf:type [ <GoRelated> ] ? ;
           <db_object_ref> @<AbstractThing> ;
           <negation> @metatype:Boolean ? ;
           <relation> @<RelationTerm> ? ;
@@ -213,6 +236,8 @@ metatype:Nodeidentifier NONLITERAL
 <HumanPhenotypeOntologyAssociation> CLOSED {
     (  $<HumanPhenotypeOntologyAssociation_tes> (  &<Association_tes> ;
           rdf:type [ <Association> ] ? ;
+          &<Denormalized_tes> ;
+          rdf:type [ <Denormalized> ] ? ;
           <db> @metatype:String ;
           <local_id> @metatype:String ;
           <db_object_symbol> @<SymbolType> ;
@@ -238,6 +263,12 @@ metatype:Nodeidentifier NONLITERAL
           <associations> @<HumanPhenotypeOntologyAssociation> *
        ) ;
        rdf:type [ <HumanPhenotypeOntologyAssociationDocument> ] ?
+    )
+}
+
+<Normalized> {
+    (  $<Normalized_tes> rdf:type . * ;
+       rdf:type [ <Normalized> ] ?
     )
 }
 

@@ -123,34 +123,36 @@ metatype:Nodeidentifier NONLITERAL
     )
 }
 
-<GafAssociation> CLOSED {
-    (  $<GafAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ <Association> ] ? ;
-          &<Denormalized_tes> ;
-          rdf:type [ <Denormalized> ] ? ;
-          &<GoRelated_tes> ;
-          rdf:type [ <GoRelated> ] ? ;
-          <db> @metatype:String ;
-          <local_id> @metatype:String ;
-          <db_object_symbol> @<SymbolType> ;
-          <relation> @<RelationTerm> ? ;
-          <ontology_class_ref> @<AbstractThing> ;
-          <supporting_references> @<Publication> + ;
-          <evidence_type> @<OntologyClass> ;
-          <with_or_from> @<AbstractThing> * ;
-          <aspect> @<GeneOntologyAspectEnum> ;
-          <db_object_name> @<NameType> ? ;
-          <db_object_synonyms> @<NameType> * ;
-          <db_object_type> @<GpEntityTypeEnum> ? ;
-          <db_object_taxon> @<Taxon> ;
-          <annotation_date> @metatype:Datetime ? ;
-          <assigned_by> @<Provider> ;
-          <annotation_extensions> @<ConjunctionExtensionExpression> * ;
-          <gene_product_form> @<BiologicalEntity> ?
-       ) ;
-       rdf:type [ <GafAssociation> ] ?
-    )
-}
+<GafAssociation>  (
+    CLOSED {
+       (  $<GafAssociation_tes> (  &<Association_tes> ;
+             rdf:type [ <Association> ] ? ;
+             &<Denormalized_tes> ;
+             rdf:type [ <Denormalized> ] ? ;
+             &<GoRelated_tes> ;
+             rdf:type [ <GoRelated> ] ? ;
+             <db> @metatype:String ;
+             <local_id> @metatype:String ;
+             <db_object_symbol> @<SymbolType> ;
+             <qualifiers> @<Gp2termRelationEnum> * ;
+             <ontology_class_ref> @<AbstractThing> ;
+             <supporting_references> @<Publication> + ;
+             <evidence_type> @<OntologyClass> ;
+             <with_or_from> @<AbstractThing> * ;
+             <aspect> @<GeneOntologyAspectEnum> ;
+             <db_object_name> @<NameType> ? ;
+             <db_object_synonyms> @<NameType> * ;
+             <db_object_type> @<GpEntityTypeEnum> ? ;
+             <db_object_taxon> @<Taxon> ;
+             <annotation_date> @metatype:Datetime ? ;
+             <assigned_by> @<Provider> ;
+             <annotation_extensions> @<ConjunctionExtensionExpression> * ;
+             <gene_product_form> @<BiologicalEntity> ?
+          ) ;
+          rdf:type [ <GafAssociation> ] ?
+       )
+    } OR @<SimpleGafAssociation>
+)
 
 <GafAssociationDocument> CLOSED {
     (  $<GafAssociationDocument_tes> (  &<AssociationDocument_tes> ;
@@ -212,6 +214,15 @@ metatype:Nodeidentifier NONLITERAL
           rdf:type [ <ControlledTerm> ] ?
        ) ;
        rdf:type [ <RelationTerm> ]
+    )
+}
+
+<SimpleGafAssociation> CLOSED {
+    (  $<SimpleGafAssociation_tes> (  &<GafAssociation_tes> ;
+          rdf:type [ <GafAssociation> ] ? ;
+          <qualifiers> @<SimpleQualifierEnum> *
+       ) ;
+       rdf:type [ <SimpleGafAssociation> ] ?
     )
 }
 

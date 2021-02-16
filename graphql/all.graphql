@@ -1,4 +1,9 @@
-type Association
+type AbstractThing
+  {
+    id: Curie!
+  }
+
+interface Association
   {
   }
 
@@ -15,6 +20,10 @@ type AssociationDocument
     associations: [Association]
   }
 
+interface BiologicalEntity
+  {
+  }
+
 type ConjunctionExtensionExpression
   {
   }
@@ -24,20 +33,28 @@ type ControlledTerm
     id: Curie!
   }
 
+interface Denormalized
+  {
+  }
+
 interface Document
   {
   }
 
-type GafAssociation
+interface Entity
+  {
+  }
+
+type GafAssociation implements Denormalized, GoRelated
   {
     db: String!
     localId: String!
     dbObjectSymbol: SymbolType!
     relation: RelationTerm
-    ontologyClassRef: NamedThing!
-    references: [NamedThing]!
+    ontologyClassRef: AbstractThing!
+    supportingReferences: [Publication]!
     evidenceType: OntologyClass!
-    withOrFrom: [NamedThing]
+    withOrFrom: [AbstractThing]
     aspect: GeneOntologyAspectEnum!
     dbObjectName: NameType
     dbObjectSynonyms: [NameType]
@@ -46,6 +63,7 @@ type GafAssociation
     annotationDate: Datetime
     assignedBy: Provider!
     annotationExtensions: [ConjunctionExtensionExpression]
+    geneProductForm: BiologicalEntity
   }
 
 type GafAssociationDocument
@@ -61,15 +79,19 @@ type GafAssociationDocument
     associations: [GafAssociation]
   }
 
-type GpadAssociation
+interface GoRelated
   {
-    dbObjectRef: NamedThing!
+  }
+
+type GpadAssociation implements Denormalized, GoRelated
+  {
+    dbObjectRef: AbstractThing!
     negation: Boolean
     relation: RelationTerm
-    ontologyClassRef: NamedThing!
-    references: [NamedThing]!
+    ontologyClassRef: AbstractThing!
+    supportingReferences: [Publication]!
     evidenceType: OntologyClass!
-    withOrFrom: [NamedThing]
+    withOrFrom: [AbstractThing]
     interactingTaxonRef: [Taxon]
     annotationDate: Datetime
     assignedBy: Provider!
@@ -97,40 +119,52 @@ type GpiDocument
 
 type GpiEntity
   {
-    dbObjectRef: NamedThing!
+    dbObjectRef: AbstractThing!
     dbObjectSymbol: SymbolType!
     dbObjectName: NameType
     dbObjectSynonyms: [NameType]
     dbObjectType: GpEntityTypeEnum
     dbObjectTaxon: Taxon!
-    encodedBy: [NamedThing]
-    parentProtein: [NamedThing]
-    proteinContainingComplexMembers: [NamedThing]
+    encodedBy: [AbstractThing]
+    parentProtein: [AbstractThing]
+    proteinContainingComplexMembers: [AbstractThing]
     dbXrefs: [Curie]
     geneProductProperties: [PropertyValuePair]
   }
 
-type HumanPhenotypeOntologyAssociation
+type HumanPhenotypeOntologyAssociation implements Denormalized
   {
     db: String!
     localId: String!
     dbObjectSymbol: SymbolType!
     relation: RelationTerm
-    ontologyClassRef: NamedThing!
-    references: [NamedThing]!
+    ontologyClassRef: AbstractThing!
+    supportingReferences: [Publication]!
     evidenceType: OntologyClass!
     onset: String
     frequency: String
-    withOrFrom: [NamedThing]
+    withOrFrom: [AbstractThing]
     aspect: String!
     dbObjectSynonyms: [NameType]
     annotationDate: Datetime
     assignedBy: Provider!
   }
 
-type NamedThing
+type HumanPhenotypeOntologyAssociationDocument
   {
-    id: Curie!
+    dateGenerated: String
+    generatedBy: Provider
+    url: String
+    projectRelease: String
+    funding: String
+    goVersion: String
+    roVersion: String
+    gorelVersion: String
+    associations: [HumanPhenotypeOntologyAssociation]
+  }
+
+interface Normalized
+  {
   }
 
 type OntologyClass
@@ -145,6 +179,11 @@ type PropertyValuePair
   }
 
 type Provider
+  {
+    id: Curie!
+  }
+
+type Publication
   {
     id: Curie!
   }

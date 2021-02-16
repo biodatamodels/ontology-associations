@@ -1,4 +1,4 @@
-db	local_id	db_object_symbol	relation	ontology_class_ref	supporting_references	evidence_type	with_or_from	aspect	db_object_name	db_object_synonyms	db_object_type	db_object_taxon	annotation_date	assigned_by	annotation_extensions	gene_product_form
+db	local_id	db_object_symbol	qualifiers	ontology_class_ref	supporting_references	evidence_type	with_or_from	aspect	db_object_name	db_object_synonyms	db_object_type	db_object_taxon	annotation_date	assigned_by	annotation_extensions	gene_product_form
 MGI	MGI:1918911	0610005C13Rik		GO:0003674	MGI:MGI:2156816|GO_REF:0000015	ND		F	RIKEN cDNA 0610005C13 gene		gene	taxon:10090	20200917	MGI		
 MGI	MGI:1918911	0610005C13Rik		GO:0005575	MGI:MGI:2156816|GO_REF:0000015	ND		C	RIKEN cDNA 0610005C13 gene		gene	taxon:10090	20100209	MGI		
 MGI	MGI:1918911	0610005C13Rik		GO:0008150	MGI:MGI:2156816|GO_REF:0000015	ND		P	RIKEN cDNA 0610005C13 gene		gene	taxon:10090	20100209	MGI		

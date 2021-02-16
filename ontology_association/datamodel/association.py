@@ -1,5 +1,5 @@
 # Auto generated from association.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-14 15:30
+# Generation date: 2021-02-16 11:37
 # Schema: ontology_association
 #
 # id: https://w3id.org/ontology_association
@@ -33,12 +33,15 @@ metamodel_version = "1.7.0"
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
+BFO = CurieNamespace('BFO', 'http://purl.obolibrary.org/obo/BFO_')
 GO = CurieNamespace('GO', 'http://purl.obolibrary.org/obo/GO_')
 PR = CurieNamespace('PR', 'http://purl.obolibrary.org/obo/PR_')
+RO = CurieNamespace('RO', 'http://purl.obolibrary.org/obo/RO_')
 SO = CurieNamespace('SO', 'http://purl.obolibrary.org/obo/SO_')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/vocab/')
 BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
 ONTOLOGY_ASSOCIATION = CurieNamespace('ontology_association', 'https://w3id.org/ontology_association/')
+OWL = CurieNamespace('owl', 'http://www.w3.org/2002/07/owl#')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = ONTOLOGY_ASSOCIATION
 
@@ -425,6 +428,52 @@ class GpEntityTypeEnum(EnumDefinitionImpl):
                 PermissibleValue(text="protein-containing complex",
                                  meaning=GO["0032991"]) )
 
+class Gp2termRelationEnum(EnumDefinitionImpl):
+
+    NOT = PermissibleValue(text="NOT",
+                             meaning=OWL.complementOf)
+    enables = PermissibleValue(text="enables",
+                                     meaning=RO["0002327"])
+    involved_in = PermissibleValue(text="involved_in",
+                                             meaning=RO["0002331"])
+    located_in = PermissibleValue(text="located_in",
+                                           meaning=RO["0001025"])
+    contributes_to = PermissibleValue(text="contributes_to",
+                                                   meaning=RO["0002326"])
+    acts_upstream_of = PermissibleValue(text="acts_upstream_of",
+                                                       meaning=RO["0002263"])
+    part_of = PermissibleValue(text="part_of",
+                                     meaning=BFO["0000050"])
+    acts_upstream_of_positive_effect = PermissibleValue(text="acts_upstream_of_positive_effect",
+                                                                                       meaning=RO["0004034"])
+    is_active_in = PermissibleValue(text="is_active_in",
+                                               meaning=RO["0002432"])
+    acts_upstream_of_negative_effect = PermissibleValue(text="acts_upstream_of_negative_effect",
+                                                                                       meaning=RO["0004035"])
+    colocalizes_with = PermissibleValue(text="colocalizes_with",
+                                                       meaning=RO["0002325"])
+    acts_upstream_of_or_within = PermissibleValue(text="acts_upstream_of_or_within",
+                                                                           meaning=RO["0002264"])
+    acts_upstream_of_or_within_positive_effect = PermissibleValue(text="acts_upstream_of_or_within_positive_effect",
+                                                                                                           meaning=RO["0004032"])
+    acts_upstream_of_or_within_negative_effect = PermissibleValue(text="acts_upstream_of_or_within_negative_effect",
+                                                                                                           meaning=RO["0004033"])
+
+    _defn = EnumDefinition(
+        name="Gp2termRelationEnum",
+    )
+
+class SimpleQualifierEnum(EnumDefinitionImpl):
+
+    NOT = PermissibleValue(text="NOT",
+                             meaning=OWL.complementOf)
+    contributes_to = PermissibleValue(text="contributes_to",
+                                                   meaning=RO["0002326"])
+
+    _defn = EnumDefinition(
+        name="SimpleQualifierEnum",
+    )
+
 # Slots
 class slots:
     pass
@@ -479,8 +528,11 @@ slots.negation = Slot(uri=ONTOLOGY_ASSOCIATION.negation, name="negation", curie=
 slots.ontology_class_ref = Slot(uri=ONTOLOGY_ASSOCIATION.ontology_class_ref, name="ontology class ref", curie=ONTOLOGY_ASSOCIATION.curie('ontology_class_ref'),
                    model_uri=ONTOLOGY_ASSOCIATION.ontology_class_ref, domain=None, range=Union[str, AbstractThingId])
 
+slots.qualifiers = Slot(uri=ONTOLOGY_ASSOCIATION.qualifiers, name="qualifiers", curie=ONTOLOGY_ASSOCIATION.curie('qualifiers'),
+                   model_uri=ONTOLOGY_ASSOCIATION.qualifiers, domain=None, range=Optional[Union[Union[str, "Gp2termRelationEnum"], List[Union[str, "Gp2termRelationEnum"]]]])
+
 slots.relation = Slot(uri=ONTOLOGY_ASSOCIATION.relation, name="relation", curie=ONTOLOGY_ASSOCIATION.curie('relation'),
-                   model_uri=ONTOLOGY_ASSOCIATION.relation, domain=None, range=Optional[Union[str, RelationTermId]])
+                   model_uri=ONTOLOGY_ASSOCIATION.relation, domain=None, range=Union[str, "Gp2termRelationEnum"])
 
 slots.supporting_references = Slot(uri=ONTOLOGY_ASSOCIATION.supporting_references, name="supporting references", curie=ONTOLOGY_ASSOCIATION.curie('supporting_references'),
                    model_uri=ONTOLOGY_ASSOCIATION.supporting_references, domain=None, range=Union[Union[str, PublicationId], List[Union[str, PublicationId]]])

@@ -2,12 +2,19 @@
    "$id": "https://w3id.org/ontology_association/all",
    "$schema": "http://json-schema.org/draft-07/schema#",
    "definitions": {
-      "Association": {
+      "AbstractThing": {
          "additionalProperties": false,
-         "description": "generic association",
-         "properties": {},
-         "required": [],
-         "title": "Association",
+         "description": "",
+         "properties": {
+            "id": {
+               "description": "identifier",
+               "type": "string"
+            }
+         },
+         "required": [
+            "id"
+         ],
+         "title": "AbstractThing",
          "type": "object"
       },
       "AssociationDocument": {
@@ -123,6 +130,10 @@
             "evidence_type": {
                "type": "string"
             },
+            "gene_product_form": {
+               "$ref": "#/definitions/BiologicalEntity",
+               "description": "isoform"
+            },
             "local_id": {
                "description": "local part of identifier",
                "type": "string"
@@ -130,14 +141,14 @@
             "ontology_class_ref": {
                "type": "string"
             },
-            "references": {
+            "relation": {
+               "type": "string"
+            },
+            "supporting_references": {
                "items": {
                   "type": "string"
                },
                "type": "array"
-            },
-            "relation": {
-               "type": "string"
             },
             "with_or_from": {
                "items": {
@@ -151,7 +162,7 @@
             "local_id",
             "db_object_symbol",
             "ontology_class_ref",
-            "references",
+            "supporting_references",
             "evidence_type",
             "aspect",
             "db_object_taxon",
@@ -246,14 +257,14 @@
             "ontology_class_ref": {
                "type": "string"
             },
-            "references": {
+            "relation": {
+               "type": "string"
+            },
+            "supporting_references": {
                "items": {
                   "type": "string"
                },
                "type": "array"
-            },
-            "relation": {
-               "type": "string"
             },
             "with_or_from": {
                "items": {
@@ -265,7 +276,7 @@
          "required": [
             "db_object_ref",
             "ontology_class_ref",
-            "references",
+            "supporting_references",
             "evidence_type",
             "assigned_by"
          ],
@@ -439,14 +450,14 @@
             "ontology_class_ref": {
                "type": "string"
             },
-            "references": {
+            "relation": {
+               "type": "string"
+            },
+            "supporting_references": {
                "items": {
                   "type": "string"
                },
                "type": "array"
-            },
-            "relation": {
-               "type": "string"
             },
             "with_or_from": {
                "items": {
@@ -460,7 +471,7 @@
             "local_id",
             "db_object_symbol",
             "ontology_class_ref",
-            "references",
+            "supporting_references",
             "evidence_type",
             "aspect",
             "assigned_by"
@@ -468,19 +479,47 @@
          "title": "HumanPhenotypeOntologyAssociation",
          "type": "object"
       },
-      "NamedThing": {
+      "HumanPhenotypeOntologyAssociationDocument": {
          "additionalProperties": false,
          "description": "",
          "properties": {
-            "id": {
-               "description": "identifier",
+            "associations": {
+               "items": {
+                  "$ref": "#/definitions/HumanPhenotypeOntologyAssociation"
+               },
+               "type": "array"
+            },
+            "date_generated": {
+               "type": "string"
+            },
+            "funding": {
+               "description": "e.g. NHGRI",
+               "type": "string"
+            },
+            "generated_by": {
+               "description": "YYYY-MM-DD or YYYY-MM-DDTHH:MM",
+               "type": "string"
+            },
+            "go_version": {
+               "type": "string"
+            },
+            "gorel_version": {
+               "type": "string"
+            },
+            "project_release": {
+               "description": "e.g.  WS275",
+               "type": "string"
+            },
+            "ro_version": {
+               "type": "string"
+            },
+            "url": {
+               "description": "e.g. http://www.yeastgenome.org/",
                "type": "string"
             }
          },
-         "required": [
-            "id"
-         ],
-         "title": "NamedThing",
+         "required": [],
+         "title": "HumanPhenotypeOntologyAssociationDocument",
          "type": "object"
       },
       "OntologyClass": {
@@ -527,6 +566,21 @@
             "id"
          ],
          "title": "Provider",
+         "type": "object"
+      },
+      "Publication": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "id": {
+               "description": "identifier",
+               "type": "string"
+            }
+         },
+         "required": [
+            "id"
+         ],
+         "title": "Publication",
          "type": "object"
       },
       "RelationTerm": {

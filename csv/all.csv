@@ -1,20 +1,27 @@
 id,mappings,description
+abstract_thing,,
 association,,generic association
 association_document,,
+biological_entity,,
 conjunction_extension_expression,,set of expressions all true
 controlled_term,,
+denormalized,,mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes
 document,,root class for association or entity documents
+entity,,
 gaf_association,,line of GAF
 gaf_association_document,,
+go_related,,mixin for any association that is GO related
 gpad_association,,line of GPAD
 gpad_association_document,,
 gpi_document,,
 gpi_entity,,
 human_phenotype_ontology_association,,
-named_thing,,
+human_phenotype_ontology_association_document,,
+normalized,,"mixin for a normalized class, in the sense of database normal forms"
 ontology_class,,
 property_value_pair,,
 provider,,
+publication,,
 relation_term,,
 taxon,,
 

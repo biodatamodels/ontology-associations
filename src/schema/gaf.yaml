@@ -9,6 +9,8 @@ prefixes:
   biolink: https://w3id.org/biolink/vocab/
   ontology_association: https://w3id.org/ontology_association/
   GO: http://purl.obolibrary.org/obo/GO_
+  RO: http://purl.obolibrary.org/obo/RO_
+  BFO: http://purl.obolibrary.org/obo/BFO_
 default_prefix: ontology_association
 
 default_curi_maps:
@@ -27,7 +29,7 @@ classes:
       - db
       - local id
       - db object symbol
-      - relation ## TODO
+      - qualifiers
       - ontology class ref
       - supporting references
       - evidence type
@@ -46,6 +48,12 @@ classes:
         range: gene_ontology_aspect_enum
         required: true
 
+  simple gaf association:
+    is_a: gaf association
+    slot_usage:
+      qualifiers:
+        range: simple_qualifier_enum
+        
   gaf association document:
     is_a: association document
     slot_usage:
@@ -66,3 +74,4 @@ enums:
       C:
         meaning: GO:0005575
         description: cellular_component
+

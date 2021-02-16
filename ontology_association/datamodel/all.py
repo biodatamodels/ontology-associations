@@ -1,5 +1,5 @@
 # Auto generated from all.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-14 14:34
+# Generation date: 2021-02-16 08:16
 # Schema: ontology_associations
 #
 # id: https://w3id.org/ontology_association/all
