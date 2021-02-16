@@ -1,5 +1,5 @@
 # Auto generated from association.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 19:05
+# Generation date: 2021-02-14 15:30
 # Schema: ontology_association
 #
 # id: https://w3id.org/ontology_association
@@ -103,7 +103,7 @@ class Entity(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Entity
 
 
-class BiologicalEntity(YAMLRoot):
+class BiologicalEntity(Entity):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.BiologicalEntity
@@ -363,6 +363,42 @@ class AssociationDocument(Document):
         super().__post_init__(**kwargs)
 
 
+class Denormalized(YAMLRoot):
+    """
+    mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Denormalized
+    class_class_curie: ClassVar[str] = "ontology_association:Denormalized"
+    class_name: ClassVar[str] = "denormalized"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Denormalized
+
+
+class Normalized(YAMLRoot):
+    """
+    mixin for a normalized class, in the sense of database normal forms
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Normalized
+    class_class_curie: ClassVar[str] = "ontology_association:Normalized"
+    class_name: ClassVar[str] = "normalized"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Normalized
+
+
+class GoRelated(YAMLRoot):
+    """
+    mixin for any association that is GO related
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GoRelated
+    class_class_curie: ClassVar[str] = "ontology_association:GoRelated"
+    class_name: ClassVar[str] = "go related"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GoRelated
+
+
 # Enumerations
 class GpEntityTypeEnum(EnumDefinitionImpl):
 
@@ -446,8 +482,8 @@ slots.ontology_class_ref = Slot(uri=ONTOLOGY_ASSOCIATION.ontology_class_ref, nam
 slots.relation = Slot(uri=ONTOLOGY_ASSOCIATION.relation, name="relation", curie=ONTOLOGY_ASSOCIATION.curie('relation'),
                    model_uri=ONTOLOGY_ASSOCIATION.relation, domain=None, range=Optional[Union[str, RelationTermId]])
 
-slots.references = Slot(uri=ONTOLOGY_ASSOCIATION.references, name="references", curie=ONTOLOGY_ASSOCIATION.curie('references'),
-                   model_uri=ONTOLOGY_ASSOCIATION.references, domain=None, range=Union[Union[str, PublicationId], List[Union[str, PublicationId]]])
+slots.supporting_references = Slot(uri=ONTOLOGY_ASSOCIATION.supporting_references, name="supporting references", curie=ONTOLOGY_ASSOCIATION.curie('supporting_references'),
+                   model_uri=ONTOLOGY_ASSOCIATION.supporting_references, domain=None, range=Union[Union[str, PublicationId], List[Union[str, PublicationId]]])
 
 slots.with_or_from = Slot(uri=ONTOLOGY_ASSOCIATION.with_or_from, name="with or from", curie=ONTOLOGY_ASSOCIATION.curie('with_or_from'),
                    model_uri=ONTOLOGY_ASSOCIATION.with_or_from, domain=None, range=Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]])
@@ -467,6 +503,9 @@ slots.annotation_date = Slot(uri=ONTOLOGY_ASSOCIATION.annotation_date, name="ann
 
 slots.assigned_by = Slot(uri=ONTOLOGY_ASSOCIATION.assigned_by, name="assigned by", curie=ONTOLOGY_ASSOCIATION.curie('assigned_by'),
                    model_uri=ONTOLOGY_ASSOCIATION.assigned_by, domain=None, range=Union[str, ProviderId])
+
+slots.gene_product_form = Slot(uri=ONTOLOGY_ASSOCIATION.gene_product_form, name="gene product form", curie=ONTOLOGY_ASSOCIATION.curie('gene_product_form'),
+                   model_uri=ONTOLOGY_ASSOCIATION.gene_product_form, domain=None, range=Optional[Union[dict, BiologicalEntity]])
 
 slots.annotation_extensions = Slot(uri=ONTOLOGY_ASSOCIATION.annotation_extensions, name="annotation extensions", curie=ONTOLOGY_ASSOCIATION.curie('annotation_extensions'),
                    model_uri=ONTOLOGY_ASSOCIATION.annotation_extensions, domain=None, range=Optional[Union[Union[dict, ConjunctionExtensionExpression], List[Union[dict, ConjunctionExtensionExpression]]]])

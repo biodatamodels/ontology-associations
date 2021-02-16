@@ -20,6 +20,9 @@ classes:
 
   gpad association:
     is_a: association
+    mixins:
+      - denormalized
+      - go related
     description: >-
       line of GPAD
     slots:
@@ -27,7 +30,7 @@ classes:
       - negation
       - relation
       - ontology class ref
-      - references
+      - supporting references
       - evidence type
       - with or from
       - interacting taxon ref

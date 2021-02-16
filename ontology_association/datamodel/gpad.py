@@ -1,5 +1,5 @@
 # Auto generated from gpad.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 19:07
+# Generation date: 2021-02-14 15:29
 # Schema: gpad
 #
 # id: https://w3id.org/ontology_association/gpad
@@ -61,7 +61,7 @@ class GpadAssociation(Association):
 
     db_object_ref: Union[str, AbstractThingId] = None
     ontology_class_ref: Union[str, AbstractThingId] = None
-    references: Union[Union[str, PublicationId], List[Union[str, PublicationId]]] = None
+    supporting_references: Union[Union[str, PublicationId], List[Union[str, PublicationId]]] = None
     evidence_type: Union[str, OntologyClassId] = None
     assigned_by: Union[str, ProviderId] = None
     negation: Optional[Union[bool, Bool]] = None
@@ -83,13 +83,13 @@ class GpadAssociation(Association):
         if not isinstance(self.ontology_class_ref, AbstractThingId):
             self.ontology_class_ref = AbstractThingId(self.ontology_class_ref)
 
-        if self.references is None:
-            raise ValueError("references must be supplied")
-        elif not isinstance(self.references, list):
-            self.references = [self.references]
-        elif len(self.references) == 0:
-            raise ValueError(f"references must be a non-empty list")
-        self.references = [v if isinstance(v, PublicationId) else PublicationId(v) for v in self.references]
+        if self.supporting_references is None:
+            raise ValueError("supporting_references must be supplied")
+        elif not isinstance(self.supporting_references, list):
+            self.supporting_references = [self.supporting_references]
+        elif len(self.supporting_references) == 0:
+            raise ValueError(f"supporting_references must be a non-empty list")
+        self.supporting_references = [v if isinstance(v, PublicationId) else PublicationId(v) for v in self.supporting_references]
 
         if self.evidence_type is None:
             raise ValueError("evidence_type must be supplied")

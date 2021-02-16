@@ -1,5 +1,5 @@
 # Auto generated from hpoa.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 19:00
+# Generation date: 2021-02-14 15:29
 # Schema: hpoa
 #
 # id: https://w3id.org/ontology_association/hpoa
@@ -24,7 +24,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from . association import Association, AssociationDocument, NameType, NamedThingId, OntologyClassId, ProviderId, RelationTermId, SymbolType
+from . association import AbstractThingId, Association, AssociationDocument, NameType, OntologyClassId, ProviderId, PublicationId, RelationTermId, SymbolType
 from biolinkml.utils.metamodelcore import XSDDateTime
 from includes.types import Datetime, String
 
@@ -58,15 +58,15 @@ class HumanPhenotypeOntologyAssociation(Association):
     db: str = None
     local_id: str = None
     db_object_symbol: Union[str, SymbolType] = None
-    ontology_class_ref: Union[str, NamedThingId] = None
-    references: Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]] = None
+    ontology_class_ref: Union[str, AbstractThingId] = None
+    supporting_references: Union[Union[str, PublicationId], List[Union[str, PublicationId]]] = None
     evidence_type: Union[str, OntologyClassId] = None
     aspect: str = None
     assigned_by: Union[str, ProviderId] = None
     relation: Optional[Union[str, RelationTermId]] = None
     onset: Optional[str] = None
     frequency: Optional[str] = None
-    with_or_from: Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]] = empty_list()
+    with_or_from: Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]] = empty_list()
     db_object_synonyms: Optional[Union[Union[str, NameType], List[Union[str, NameType]]]] = empty_list()
     annotation_date: Optional[Union[str, XSDDateTime]] = None
 
@@ -88,16 +88,16 @@ class HumanPhenotypeOntologyAssociation(Association):
 
         if self.ontology_class_ref is None:
             raise ValueError("ontology_class_ref must be supplied")
-        if not isinstance(self.ontology_class_ref, NamedThingId):
-            self.ontology_class_ref = NamedThingId(self.ontology_class_ref)
+        if not isinstance(self.ontology_class_ref, AbstractThingId):
+            self.ontology_class_ref = AbstractThingId(self.ontology_class_ref)
 
-        if self.references is None:
-            raise ValueError("references must be supplied")
-        elif not isinstance(self.references, list):
-            self.references = [self.references]
-        elif len(self.references) == 0:
-            raise ValueError(f"references must be a non-empty list")
-        self.references = [v if isinstance(v, NamedThingId) else NamedThingId(v) for v in self.references]
+        if self.supporting_references is None:
+            raise ValueError("supporting_references must be supplied")
+        elif not isinstance(self.supporting_references, list):
+            self.supporting_references = [self.supporting_references]
+        elif len(self.supporting_references) == 0:
+            raise ValueError(f"supporting_references must be a non-empty list")
+        self.supporting_references = [v if isinstance(v, PublicationId) else PublicationId(v) for v in self.supporting_references]
 
         if self.evidence_type is None:
             raise ValueError("evidence_type must be supplied")
@@ -127,7 +127,7 @@ class HumanPhenotypeOntologyAssociation(Association):
             self.with_or_from = []
         if not isinstance(self.with_or_from, list):
             self.with_or_from = [self.with_or_from]
-        self.with_or_from = [v if isinstance(v, NamedThingId) else NamedThingId(v) for v in self.with_or_from]
+        self.with_or_from = [v if isinstance(v, AbstractThingId) else AbstractThingId(v) for v in self.with_or_from]
 
         if self.db_object_synonyms is None:
             self.db_object_synonyms = []

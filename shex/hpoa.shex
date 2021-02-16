@@ -38,8 +38,18 @@ metatype:Objectidentifier IRI
 
 metatype:Nodeidentifier NONLITERAL
 
-<Association>  (
+<AbstractThing>  (
     CLOSED {
+       (  $<AbstractThing_tes> (  &<Entity_tes> ;
+             rdf:type [ <Entity> ] ?
+          ) ;
+          rdf:type [ <AbstractThing> ]
+       )
+    } OR @<ControlledTerm> OR @<Provider> OR @<Publication>
+)
+
+<Association>  (
+    {
        (  $<Association_tes> rdf:type . * ;
           rdf:type [ <Association> ] ?
        )
@@ -65,6 +75,14 @@ metatype:Nodeidentifier NONLITERAL
     } OR @<HumanPhenotypeOntologyAssociationDocument>
 )
 
+<BiologicalEntity> {
+    (  $<BiologicalEntity_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ?
+       ) ;
+       rdf:type [ <BiologicalEntity> ] ?
+    )
+}
+
 <ConjunctionExtensionExpression> CLOSED {
     (  $<ConjunctionExtensionExpression_tes> rdf:type . * ;
        rdf:type [ <ConjunctionExtensionExpression> ] ?
@@ -73,13 +91,19 @@ metatype:Nodeidentifier NONLITERAL
 
 <ControlledTerm>  (
     CLOSED {
-       (  $<ControlledTerm_tes> (  &<NamedThing_tes> ;
-             rdf:type [ <NamedThing> ] ?
+       (  $<ControlledTerm_tes> (  &<AbstractThing_tes> ;
+             rdf:type [ <AbstractThing> ] ?
           ) ;
           rdf:type [ <ControlledTerm> ]
        )
     } OR @<OntologyClass> OR @<RelationTerm>
 )
+
+<Denormalized> {
+    (  $<Denormalized_tes> rdf:type . * ;
+       rdf:type [ <Denormalized> ] ?
+    )
+}
 
 <Document>  (
     {
@@ -89,19 +113,37 @@ metatype:Nodeidentifier NONLITERAL
     } OR @<AssociationDocument>
 )
 
+<Entity>  (
+    @<AbstractThing> OR @<BiologicalEntity>
+)
+
+<Entity_struct> {
+    (  $<Entity_tes> rdf:type . * ;
+       rdf:type [ <Entity> ] ?
+    )
+}
+
+<GoRelated> {
+    (  $<GoRelated_tes> rdf:type . * ;
+       rdf:type [ <GoRelated> ] ?
+    )
+}
+
 <HumanPhenotypeOntologyAssociation> CLOSED {
     (  $<HumanPhenotypeOntologyAssociation_tes> (  &<Association_tes> ;
           rdf:type [ <Association> ] ? ;
+          &<Denormalized_tes> ;
+          rdf:type [ <Denormalized> ] ? ;
           <db> @metatype:String ;
           <local_id> @metatype:String ;
           <db_object_symbol> @<SymbolType> ;
           <relation> @<RelationTerm> ? ;
-          <ontology_class_ref> @<NamedThing> ;
-          <references> @<NamedThing> + ;
+          <ontology_class_ref> @<AbstractThing> ;
+          <supporting_references> @<Publication> + ;
           <evidence_type> @<OntologyClass> ;
           <onset> @metatype:String ? ;
           <frequency> @metatype:String ? ;
-          <with_or_from> @<NamedThing> * ;
+          <with_or_from> @<AbstractThing> * ;
           <aspect> @metatype:String ;
           <db_object_synonyms> @<NameType> * ;
           <annotation_date> @metatype:Datetime ? ;
@@ -120,13 +162,11 @@ metatype:Nodeidentifier NONLITERAL
     )
 }
 
-<NamedThing>  (
-    CLOSED {
-       (  $<NamedThing_tes> rdf:type . * ;
-          rdf:type [ <NamedThing> ]
-       )
-    } OR @<ControlledTerm> OR @<Provider>
-)
+<Normalized> {
+    (  $<Normalized_tes> rdf:type . * ;
+       rdf:type [ <Normalized> ] ?
+    )
+}
 
 <OntologyClass>  (
     CLOSED {
@@ -147,10 +187,18 @@ metatype:Nodeidentifier NONLITERAL
 }
 
 <Provider> CLOSED {
-    (  $<Provider_tes> (  &<NamedThing_tes> ;
-          rdf:type [ <NamedThing> ] ?
+    (  $<Provider_tes> (  &<AbstractThing_tes> ;
+          rdf:type [ <AbstractThing> ] ?
        ) ;
        rdf:type [ <Provider> ]
+    )
+}
+
+<Publication> CLOSED {
+    (  $<Publication_tes> (  &<AbstractThing_tes> ;
+          rdf:type [ <AbstractThing> ] ?
+       ) ;
+       rdf:type [ <Publication> ]
     )
 }
 

@@ -49,7 +49,7 @@ metatype:Nodeidentifier NONLITERAL
 )
 
 <Association>  (
-    CLOSED {
+    {
        (  $<Association_tes> rdf:type . * ;
           rdf:type [ <Association> ] ?
        )
@@ -76,7 +76,9 @@ metatype:Nodeidentifier NONLITERAL
 )
 
 <BiologicalEntity> {
-    (  $<BiologicalEntity_tes> rdf:type . * ;
+    (  $<BiologicalEntity_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ?
+       ) ;
        rdf:type [ <BiologicalEntity> ] ?
     )
 }
@@ -97,6 +99,12 @@ metatype:Nodeidentifier NONLITERAL
     } OR @<OntologyClass> OR @<RelationTerm>
 )
 
+<Denormalized> {
+    (  $<Denormalized_tes> rdf:type . * ;
+       rdf:type [ <Denormalized> ] ?
+    )
+}
+
 <Document>  (
     {
        (  $<Document_tes> rdf:type . * ;
@@ -106,22 +114,28 @@ metatype:Nodeidentifier NONLITERAL
 )
 
 <Entity>  (
-    {
-       (  $<Entity_tes> rdf:type . * ;
-          rdf:type [ <Entity> ] ?
-       )
-    } OR @<AbstractThing>
+    @<AbstractThing> OR @<BiologicalEntity>
 )
+
+<Entity_struct> {
+    (  $<Entity_tes> rdf:type . * ;
+       rdf:type [ <Entity> ] ?
+    )
+}
 
 <GafAssociation> CLOSED {
     (  $<GafAssociation_tes> (  &<Association_tes> ;
           rdf:type [ <Association> ] ? ;
+          &<Denormalized_tes> ;
+          rdf:type [ <Denormalized> ] ? ;
+          &<GoRelated_tes> ;
+          rdf:type [ <GoRelated> ] ? ;
           <db> @metatype:String ;
           <local_id> @metatype:String ;
           <db_object_symbol> @<SymbolType> ;
           <relation> @<RelationTerm> ? ;
           <ontology_class_ref> @<AbstractThing> ;
-          <references> @<Publication> + ;
+          <supporting_references> @<Publication> + ;
           <evidence_type> @<OntologyClass> ;
           <with_or_from> @<AbstractThing> * ;
           <aspect> @<GeneOntologyAspectEnum> ;
@@ -131,7 +145,8 @@ metatype:Nodeidentifier NONLITERAL
           <db_object_taxon> @<Taxon> ;
           <annotation_date> @metatype:Datetime ? ;
           <assigned_by> @<Provider> ;
-          <annotation_extensions> @<ConjunctionExtensionExpression> *
+          <annotation_extensions> @<ConjunctionExtensionExpression> * ;
+          <gene_product_form> @<BiologicalEntity> ?
        ) ;
        rdf:type [ <GafAssociation> ] ?
     )
@@ -143,6 +158,18 @@ metatype:Nodeidentifier NONLITERAL
           <associations> @<GafAssociation> *
        ) ;
        rdf:type [ <GafAssociationDocument> ] ?
+    )
+}
+
+<GoRelated> {
+    (  $<GoRelated_tes> rdf:type . * ;
+       rdf:type [ <GoRelated> ] ?
+    )
+}
+
+<Normalized> {
+    (  $<Normalized_tes> rdf:type . * ;
+       rdf:type [ <Normalized> ] ?
     )
 }
 

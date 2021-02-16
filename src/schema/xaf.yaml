@@ -18,6 +18,8 @@ default_curi_maps:
 classes:
   gaf association:
     is_a: association
+    mixins:
+      - denormalized
     description: >-
       line of GAF
     slots:
@@ -26,7 +28,7 @@ classes:
       - db object symbol
       - relation ## TODO
       - ontology class ref
-      - references
+      - supporting references
       - evidence type
       - with or from
       - aspect

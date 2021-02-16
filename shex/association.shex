@@ -48,7 +48,7 @@ metatype:Nodeidentifier NONLITERAL
     } OR @<ControlledTerm> OR @<Provider> OR @<Publication>
 )
 
-<Association> CLOSED {
+<Association> {
     (  $<Association_tes> rdf:type . * ;
        rdf:type [ <Association> ] ?
     )
@@ -95,6 +95,12 @@ metatype:Nodeidentifier NONLITERAL
     } OR @<OntologyClass> OR @<RelationTerm>
 )
 
+<Denormalized> {
+    (  $<Denormalized_tes> rdf:type . * ;
+       rdf:type [ <Denormalized> ] ?
+    )
+}
+
 <Document>  (
     {
        (  $<Document_tes> rdf:type . * ;
@@ -110,6 +116,18 @@ metatype:Nodeidentifier NONLITERAL
 <Entity_struct> {
     (  $<Entity_tes> rdf:type . * ;
        rdf:type [ <Entity> ] ?
+    )
+}
+
+<GoRelated> {
+    (  $<GoRelated_tes> rdf:type . * ;
+       rdf:type [ <GoRelated> ] ?
+    )
+}
+
+<Normalized> {
+    (  $<Normalized_tes> rdf:type . * ;
+       rdf:type [ <Normalized> ] ?
     )
 }
 

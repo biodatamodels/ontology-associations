@@ -22,6 +22,8 @@ slots:
 classes:
   human phenotype ontology association:
     is_a: association
+    mixins:
+      - denormalized
     slots:
       - db
       - local id
@@ -29,7 +31,7 @@ classes:
       - relation
 #      - qualifier
       - ontology class ref
-      - references
+      - supporting references
       - evidence type
       - onset
       - frequency

@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from all.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-02-13 18:58\nSchema: ontology_associations\n\nid: https://w3id.org/ontology_association/all\ndescription: Various association data models\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from all.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-02-14 15:00\nSchema: ontology_associations\n\nid: https://w3id.org/ontology_association/all\ndescription: Various association data models\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": "@type",
       "biolink": "https://w3id.org/biolink/vocab/",
@@ -31,6 +31,9 @@
       "evidence_type": {
          "@type": "@id"
       },
+      "gene_product_form": {
+         "@type": "@id"
+      },
       "gene_product_properties": {
          "@type": "@id"
       },
@@ -59,10 +62,10 @@
       "protein_containing_complex_members": {
          "@type": "@id"
       },
-      "references": {
+      "relation": {
          "@type": "@id"
       },
-      "relation": {
+      "supporting_references": {
          "@type": "@id"
       },
       "with_or_from": {

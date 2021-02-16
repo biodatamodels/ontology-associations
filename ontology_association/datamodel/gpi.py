@@ -1,5 +1,5 @@
 # Auto generated from gpi.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-13 18:45
+# Generation date: 2021-02-14 14:34
 # Schema: gpi
 #
 # id: https://w3id.org/ontology_association/gpi
@@ -24,7 +24,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from . association import Curie, Document, NameType, NamedThingId, PropertyValuePair, SymbolType, TaxonId
+from . association import AbstractThingId, BiologicalEntity, Curie, Document, NameType, PropertyValuePair, SymbolType, TaxonId
 from includes.types import String
 
 metamodel_version = "1.7.0"
@@ -43,12 +43,12 @@ DEFAULT_ = ONTOLOGY_ASSOCIATION
 # Types
 
 # Class references
-class GpiEntityDbObjectRef(NamedThingId):
+class GpiEntityDbObjectRef(AbstractThingId):
     pass
 
 
 @dataclass
-class GpiEntity(YAMLRoot):
+class GpiEntity(BiologicalEntity):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GpiEntity
@@ -62,9 +62,9 @@ class GpiEntity(YAMLRoot):
     db_object_name: Optional[Union[str, NameType]] = None
     db_object_synonyms: Optional[Union[Union[str, NameType], List[Union[str, NameType]]]] = empty_list()
     db_object_type: Optional[Union[str, "GpEntityTypeEnum"]] = None
-    encoded_by: Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]] = empty_list()
-    parent_protein: Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]] = empty_list()
-    protein_containing_complex_members: Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]] = empty_list()
+    encoded_by: Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]] = empty_list()
+    parent_protein: Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]] = empty_list()
+    protein_containing_complex_members: Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]] = empty_list()
     db_xrefs: Optional[Union[Union[str, Curie], List[Union[str, Curie]]]] = empty_list()
     gene_product_properties: Optional[Union[Union[dict, PropertyValuePair], List[Union[dict, PropertyValuePair]]]] = empty_list()
 
@@ -100,19 +100,19 @@ class GpiEntity(YAMLRoot):
             self.encoded_by = []
         if not isinstance(self.encoded_by, list):
             self.encoded_by = [self.encoded_by]
-        self.encoded_by = [v if isinstance(v, NamedThingId) else NamedThingId(v) for v in self.encoded_by]
+        self.encoded_by = [v if isinstance(v, AbstractThingId) else AbstractThingId(v) for v in self.encoded_by]
 
         if self.parent_protein is None:
             self.parent_protein = []
         if not isinstance(self.parent_protein, list):
             self.parent_protein = [self.parent_protein]
-        self.parent_protein = [v if isinstance(v, NamedThingId) else NamedThingId(v) for v in self.parent_protein]
+        self.parent_protein = [v if isinstance(v, AbstractThingId) else AbstractThingId(v) for v in self.parent_protein]
 
         if self.protein_containing_complex_members is None:
             self.protein_containing_complex_members = []
         if not isinstance(self.protein_containing_complex_members, list):
             self.protein_containing_complex_members = [self.protein_containing_complex_members]
-        self.protein_containing_complex_members = [v if isinstance(v, NamedThingId) else NamedThingId(v) for v in self.protein_containing_complex_members]
+        self.protein_containing_complex_members = [v if isinstance(v, AbstractThingId) else AbstractThingId(v) for v in self.protein_containing_complex_members]
 
         if self.db_xrefs is None:
             self.db_xrefs = []

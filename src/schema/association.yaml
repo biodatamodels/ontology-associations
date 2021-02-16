@@ -129,7 +129,7 @@ slots:
     examples:
       - value: RO:0002263
 
-  references:
+  supporting references:
     range: publication
     exact_mappings:
       - biolink:publications
@@ -171,6 +171,11 @@ slots:
       assigned by
     range: provider
     required: true
+
+  gene product form:
+    description: >-
+      isoform
+    range: biological entity
 
   annotation extensions:
     description: >-
@@ -285,6 +290,7 @@ classes:
       set of expressions all true
 
   association:
+    abstract: true
     description: >-
       generic association
 
@@ -307,6 +313,21 @@ classes:
       - go version
       - ro version
       - gorel version
+
+  denormalized:
+    mixin: true
+    description: >-
+      mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes
+
+  normalized:
+    mixin: true
+    description: >-
+      mixin for a normalized class, in the sense of database normal forms
+
+  go related:
+    mixin: true
+    description: >-
+      mixin for any association that is GO related
 
 enums:
   gp_entity_type_enum:

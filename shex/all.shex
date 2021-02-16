@@ -38,12 +38,22 @@ metatype:Objectidentifier IRI
 
 metatype:Nodeidentifier NONLITERAL
 
+<AbstractThing>  (
+    CLOSED {
+       (  $<AbstractThing_tes> (  &<Entity_tes> ;
+             rdf:type [ <Entity> ] ?
+          ) ;
+          rdf:type [ <AbstractThing> ]
+       )
+    } OR @<ControlledTerm> OR @<Provider> OR @<Publication>
+)
+
 <Association>  (
     CLOSED {
        (  $<Association_tes> rdf:type . * ;
           rdf:type [ <Association> ] ?
        )
-    } OR @<GafAssociation>
+    } OR @<GafAssociation> OR @<GpadAssociation> OR @<HumanPhenotypeOntologyAssociation>
 )
 
 <AssociationDocument>  (
@@ -62,7 +72,17 @@ metatype:Nodeidentifier NONLITERAL
           ) ;
           rdf:type [ <AssociationDocument> ] ?
        )
-    } OR @<GafAssociationDocument> OR @<GpadAssociationDocument>
+    } OR @<GafAssociationDocument> OR @<GpadAssociationDocument> OR @<HumanPhenotypeOntologyAssociationDocument>
+)
+
+<BiologicalEntity>  (
+    {
+       (  $<BiologicalEntity_tes> (  &<Entity_tes> ;
+             rdf:type [ <Entity> ] ?
+          ) ;
+          rdf:type [ <BiologicalEntity> ] ?
+       )
+    } OR @<GpiEntity>
 )
 
 <ConjunctionExtensionExpression> CLOSED {
@@ -73,8 +93,8 @@ metatype:Nodeidentifier NONLITERAL
 
 <ControlledTerm>  (
     CLOSED {
-       (  $<ControlledTerm_tes> (  &<NamedThing_tes> ;
-             rdf:type [ <NamedThing> ] ?
+       (  $<ControlledTerm_tes> (  &<AbstractThing_tes> ;
+             rdf:type [ <AbstractThing> ] ?
           ) ;
           rdf:type [ <ControlledTerm> ]
        )
@@ -91,6 +111,16 @@ metatype:Nodeidentifier NONLITERAL
     )
 }
 
+<Entity>  (
+    @<AbstractThing> OR @<BiologicalEntity>
+)
+
+<Entity_struct> {
+    (  $<Entity_tes> rdf:type . * ;
+       rdf:type [ <Entity> ] ?
+    )
+}
+
 <GafAssociation> CLOSED {
     (  $<GafAssociation_tes> (  &<Association_tes> ;
           rdf:type [ <Association> ] ? ;
@@ -98,10 +128,10 @@ metatype:Nodeidentifier NONLITERAL
           <local_id> @metatype:String ;
           <db_object_symbol> @<SymbolType> ;
           <relation> @<RelationTerm> ? ;
-          <ontology_class_ref> @<NamedThing> ;
-          <references> @<NamedThing> + ;
+          <ontology_class_ref> @<AbstractThing> ;
+          <supporting_references> @<Publication> + ;
           <evidence_type> @<OntologyClass> ;
-          <with_or_from> @<NamedThing> * ;
+          <with_or_from> @<AbstractThing> * ;
           <aspect> @<GeneOntologyAspectEnum> ;
           <db_object_name> @<NameType> ? ;
           <db_object_synonyms> @<NameType> * ;
@@ -125,13 +155,15 @@ metatype:Nodeidentifier NONLITERAL
 }
 
 <GpadAssociation> CLOSED {
-    (  $<GpadAssociation_tes> (  <db_object_ref> @<NamedThing> ;
+    (  $<GpadAssociation_tes> (  &<Association_tes> ;
+          rdf:type [ <Association> ] ? ;
+          <db_object_ref> @<AbstractThing> ;
           <negation> @metatype:Boolean ? ;
           <relation> @<RelationTerm> ? ;
-          <ontology_class_ref> @<NamedThing> ;
-          <references> @<NamedThing> + ;
+          <ontology_class_ref> @<AbstractThing> ;
+          <supporting_references> @<Publication> + ;
           <evidence_type> @<OntologyClass> ;
-          <with_or_from> @<NamedThing> * ;
+          <with_or_from> @<AbstractThing> * ;
           <interacting_taxon_ref> @<Taxon> * ;
           <annotation_date> @metatype:Datetime ? ;
           <assigned_by> @<Provider> ;
@@ -161,14 +193,16 @@ metatype:Nodeidentifier NONLITERAL
 }
 
 <GpiEntity> CLOSED {
-    (  $<GpiEntity_tes> (  <db_object_symbol> @<SymbolType> ;
+    (  $<GpiEntity_tes> (  &<BiologicalEntity_tes> ;
+          rdf:type [ <BiologicalEntity> ] ? ;
+          <db_object_symbol> @<SymbolType> ;
           <db_object_name> @<NameType> ? ;
           <db_object_synonyms> @<NameType> * ;
           <db_object_type> @<GpEntityTypeEnum> ? ;
           <db_object_taxon> @<Taxon> ;
-          <encoded_by> @<NamedThing> * ;
-          <parent_protein> @<NamedThing> * ;
-          <protein_containing_complex_members> @<NamedThing> * ;
+          <encoded_by> @<AbstractThing> * ;
+          <parent_protein> @<AbstractThing> * ;
+          <protein_containing_complex_members> @<AbstractThing> * ;
           <db_xrefs> @<Curie> * ;
           <gene_product_properties> @<PropertyValuePair> *
        ) ;
@@ -177,16 +211,18 @@ metatype:Nodeidentifier NONLITERAL
 }
 
 <HumanPhenotypeOntologyAssociation> CLOSED {
-    (  $<HumanPhenotypeOntologyAssociation_tes> (  <db> @metatype:String ;
+    (  $<HumanPhenotypeOntologyAssociation_tes> (  &<Association_tes> ;
+          rdf:type [ <Association> ] ? ;
+          <db> @metatype:String ;
           <local_id> @metatype:String ;
           <db_object_symbol> @<SymbolType> ;
           <relation> @<RelationTerm> ? ;
-          <ontology_class_ref> @<NamedThing> ;
-          <references> @<NamedThing> + ;
+          <ontology_class_ref> @<AbstractThing> ;
+          <supporting_references> @<Publication> + ;
           <evidence_type> @<OntologyClass> ;
           <onset> @metatype:String ? ;
           <frequency> @metatype:String ? ;
-          <with_or_from> @<NamedThing> * ;
+          <with_or_from> @<AbstractThing> * ;
           <aspect> @metatype:String ;
           <db_object_synonyms> @<NameType> * ;
           <annotation_date> @metatype:Datetime ? ;
@@ -196,13 +232,14 @@ metatype:Nodeidentifier NONLITERAL
     )
 }
 
-<NamedThing>  (
-    CLOSED {
-       (  $<NamedThing_tes> rdf:type . * ;
-          rdf:type [ <NamedThing> ]
-       )
-    } OR @<ControlledTerm> OR @<Provider>
-)
+<HumanPhenotypeOntologyAssociationDocument> CLOSED {
+    (  $<HumanPhenotypeOntologyAssociationDocument_tes> (  &<AssociationDocument_tes> ;
+          rdf:type [ <AssociationDocument> ] ? ;
+          <associations> @<HumanPhenotypeOntologyAssociation> *
+       ) ;
+       rdf:type [ <HumanPhenotypeOntologyAssociationDocument> ] ?
+    )
+}
 
 <OntologyClass>  (
     CLOSED {
@@ -223,10 +260,18 @@ metatype:Nodeidentifier NONLITERAL
 }
 
 <Provider> CLOSED {
-    (  $<Provider_tes> (  &<NamedThing_tes> ;
-          rdf:type [ <NamedThing> ] ?
+    (  $<Provider_tes> (  &<AbstractThing_tes> ;
+          rdf:type [ <AbstractThing> ] ?
        ) ;
        rdf:type [ <Provider> ]
+    )
+}
+
+<Publication> CLOSED {
+    (  $<Publication_tes> (  &<AbstractThing_tes> ;
+          rdf:type [ <AbstractThing> ] ?
+       ) ;
+       rdf:type [ <Publication> ]
     )
 }
 
