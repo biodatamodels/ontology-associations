@@ -1,11 +1,24 @@
 {
-   "_comments": "Auto generated from all.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-02-16 08:17\nSchema: ontology_associations\n\nid: https://w3id.org/ontology_association/all\ndescription: Various association data models\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from all.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-02-22 15:31\nSchema: ontology_associations\n\nid: https://w3id.org/ontology_association/all\ndescription: Various association data models\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": "@type",
       "biolink": "https://w3id.org/biolink/vocab/",
       "biolinkml": "https://w3id.org/biolink/biolinkml/",
+      "mitab": "https://w3id.org/mitab",
       "ontology_association": "https://w3id.org/ontology_association/",
       "@vocab": "https://w3id.org/ontology_association/",
+      "Alias(es)_interactor_A": {
+         "@id": "mitab:Alias(es)_interactor_A"
+      },
+      "Alias(es)_interactor_B": {
+         "@id": "mitab:Alias(es)_interactor_B"
+      },
+      "Alt._ID(s)_interactor_A": {
+         "@id": "mitab:Alt._ID(s)_interactor_A"
+      },
+      "Alt._ID(s)_interactor_B": {
+         "@id": "mitab:Alt._ID(s)_interactor_B"
+      },
       "annotation_date": {
          "@type": "xsd:dateTime"
       },
@@ -15,11 +28,36 @@
       "annotation_properties": {
          "@type": "@id"
       },
+      "Annotation(s)_interactor_A": {
+         "@id": "mitab:Annotation(s)_interactor_A"
+      },
+      "Annotation(s)_interactor_B": {
+         "@id": "mitab:Annotation(s)_interactor_B"
+      },
       "assigned_by": {
          "@type": "@id"
       },
       "associations": {
          "@type": "@id"
+      },
+      "Biological_role(s)_interactor_A": {
+         "@id": "mitab:Biological_role(s)_interactor_A"
+      },
+      "Biological_role(s)_interactor_B": {
+         "@id": "mitab:Biological_role(s)_interactor_B"
+      },
+      "Checksum(s)_interactor_A": {
+         "@id": "mitab:Checksum(s)_interactor_A"
+      },
+      "Checksum(s)_interactor_B": {
+         "@id": "mitab:Checksum(s)_interactor_B"
+      },
+      "Confidence_value(s)": {
+         "@id": "mitab:Confidence_value(s)"
+      },
+      "Creation_date": {
+         "@type": "xsd:dateTime",
+         "@id": "mitab:Creation_date"
       },
       "db_object_ref": "@id",
       "db_object_taxon": {
@@ -30,6 +68,21 @@
       },
       "evidence_type": {
          "@type": "@id"
+      },
+      "Expansion_method(s)": {
+         "@id": "mitab:Expansion_method(s)"
+      },
+      "Experimental_role(s)_interactor_A": {
+         "@id": "mitab:Experimental_role(s)_interactor_A"
+      },
+      "Experimental_role(s)_interactor_B": {
+         "@id": "mitab:Experimental_role(s)_interactor_B"
+      },
+      "Feature(s)_interactor_A": {
+         "@id": "mitab:Feature(s)_interactor_A"
+      },
+      "Feature(s)_interactor_B": {
+         "@id": "mitab:Feature(s)_interactor_B"
       },
       "gene_product_form": {
          "@type": "@id"
@@ -43,12 +96,51 @@
       "entities": {
          "@type": "@id"
       },
+      "Host_organism(s)": {
+         "@id": "mitab:Host_organism(s)"
+      },
       "id": "@id",
+      "ID(s)_interactor_A": {
+         "@id": "mitab:ID(s)_interactor_A"
+      },
+      "ID(s)_interactor_B": {
+         "@id": "mitab:ID(s)_interactor_B"
+      },
+      "Identification_method_participant_A": {
+         "@id": "mitab:Identification_method_participant_A"
+      },
+      "Identification_method_participant_B": {
+         "@id": "mitab:Identification_method_participant_B"
+      },
       "interacting_taxon_ref": {
          "@type": "@id"
       },
+      "Interaction_annotation(s)": {
+         "@id": "mitab:Interaction_annotation(s)"
+      },
+      "Interaction_Checksum(s)": {
+         "@id": "mitab:Interaction_Checksum(s)"
+      },
+      "Interaction_detection_method(s)": {
+         "@id": "mitab:Interaction_detection_method(s)"
+      },
+      "Interaction_identifier(s)": {
+         "@id": "mitab:Interaction_identifier(s)"
+      },
+      "Interaction_parameter(s)": {
+         "@id": "mitab:Interaction_parameter(s)"
+      },
+      "Interaction_type(s)": {
+         "@id": "mitab:Interaction_type(s)"
+      },
+      "Interaction_Xref(s)": {
+         "@id": "mitab:Interaction_Xref(s)"
+      },
       "negation": {
          "@type": "xsd:boolean"
+      },
+      "Negative": {
+         "@id": "mitab:Negative"
       },
       "ontology_class_ref": {
          "@type": "@id"
@@ -62,14 +154,51 @@
       "protein_containing_complex_members": {
          "@type": "@id"
       },
-      "relation": {
-         "@type": "@id"
+      "Publication_1st_author(s)": {
+         "@id": "mitab:Publication_1st_author(s)"
+      },
+      "Publication_Identifier(s)": {
+         "@id": "mitab:Publication_Identifier(s)"
+      },
+      "Source_database(s)": {
+         "@id": "mitab:Source_database(s)"
+      },
+      "Stoichiometry(s)_interactor_A": {
+         "@id": "mitab:Stoichiometry(s)_interactor_A"
+      },
+      "Stoichiometry(s)_interactor_B": {
+         "@id": "mitab:Stoichiometry(s)_interactor_B"
       },
       "supporting_references": {
          "@type": "@id"
       },
+      "Taxid_interactor_A": {
+         "@id": "mitab:Taxid_interactor_A"
+      },
+      "Taxid_interactor_B": {
+         "@id": "mitab:Taxid_interactor_B"
+      },
+      "Type(s)_interactor_A": {
+         "@id": "mitab:Type(s)_interactor_A"
+      },
+      "Type(s)_interactor_B": {
+         "@id": "mitab:Type(s)_interactor_B"
+      },
+      "Update_date": {
+         "@type": "xsd:dateTime",
+         "@id": "mitab:Update_date"
+      },
       "with_or_from": {
          "@type": "@id"
+      },
+      "Xref(s)_interactor_A": {
+         "@id": "mitab:Xref(s)_interactor_A"
+      },
+      "Xref(s)_interactor_B": {
+         "@id": "mitab:Xref(s)_interactor_B"
+      },
+      "MitabInteraction": {
+         "@id": "mitab:MitabInteraction"
       }
    }
 }

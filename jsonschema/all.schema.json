@@ -141,8 +141,11 @@
             "ontology_class_ref": {
                "type": "string"
             },
-            "relation": {
-               "type": "string"
+            "qualifiers": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "supporting_references": {
                "items": {
@@ -275,6 +278,7 @@
          },
          "required": [
             "db_object_ref",
+            "relation",
             "ontology_class_ref",
             "supporting_references",
             "evidence_type",
@@ -470,6 +474,7 @@
             "db",
             "local_id",
             "db_object_symbol",
+            "relation",
             "ontology_class_ref",
             "supporting_references",
             "evidence_type",
@@ -520,6 +525,192 @@
          },
          "required": [],
          "title": "HumanPhenotypeOntologyAssociationDocument",
+         "type": "object"
+      },
+      "MitabInteraction": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "Alias(es)_interactor_A": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Alias(es)_interactor_B": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Alt._ID(s)_interactor_A": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Alt._ID(s)_interactor_B": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Annotation(s)_interactor_A": {
+               "type": "string"
+            },
+            "Annotation(s)_interactor_B": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Biological_role(s)_interactor_A": {
+               "type": "string"
+            },
+            "Biological_role(s)_interactor_B": {
+               "type": "string"
+            },
+            "Checksum(s)_interactor_A": {
+               "type": "string"
+            },
+            "Checksum(s)_interactor_B": {
+               "type": "string"
+            },
+            "Confidence_value(s)": {
+               "type": "string"
+            },
+            "Creation_date": {
+               "type": "string"
+            },
+            "Expansion_method(s)": {
+               "type": "string"
+            },
+            "Experimental_role(s)_interactor_A": {
+               "type": "string"
+            },
+            "Experimental_role(s)_interactor_B": {
+               "type": "string"
+            },
+            "Feature(s)_interactor_A": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Feature(s)_interactor_B": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Host_organism(s)": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "ID(s)_interactor_A": {
+               "type": "string"
+            },
+            "ID(s)_interactor_B": {
+               "type": "string"
+            },
+            "Identification_method_participant_A": {
+               "type": "string"
+            },
+            "Identification_method_participant_B": {
+               "type": "string"
+            },
+            "Interaction_Checksum(s)": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Interaction_Xref(s)": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Interaction_annotation(s)": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Interaction_detection_method(s)": {
+               "type": "string"
+            },
+            "Interaction_identifier(s)": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Interaction_parameter(s)": {
+               "type": "string"
+            },
+            "Interaction_type(s)": {
+               "type": "string"
+            },
+            "Negative": {
+               "type": "string"
+            },
+            "Publication_1st_author(s)": {
+               "type": "string"
+            },
+            "Publication_Identifier(s)": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Source_database(s)": {
+               "type": "string"
+            },
+            "Stoichiometry(s)_interactor_A": {
+               "type": "string"
+            },
+            "Stoichiometry(s)_interactor_B": {
+               "type": "string"
+            },
+            "Taxid_interactor_A": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Taxid_interactor_B": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Type(s)_interactor_A": {
+               "type": "string"
+            },
+            "Type(s)_interactor_B": {
+               "type": "string"
+            },
+            "Update_date": {
+               "type": "string"
+            },
+            "Xref(s)_interactor_A": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Xref(s)_interactor_B": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "MitabInteraction",
          "type": "object"
       },
       "OntologyClass": {
@@ -596,6 +787,97 @@
             "id"
          ],
          "title": "RelationTerm",
+         "type": "object"
+      },
+      "SimpleGafAssociation": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "annotation_date": {
+               "description": "date when annotation was made",
+               "type": "string"
+            },
+            "annotation_extensions": {
+               "description": "disjunction",
+               "items": {
+                  "$ref": "#/definitions/ConjunctionExtensionExpression"
+               },
+               "type": "array"
+            },
+            "aspect": {
+               "type": "string"
+            },
+            "assigned_by": {
+               "description": "assigned by",
+               "type": "string"
+            },
+            "db": {
+               "description": "db part of identifier",
+               "type": "string"
+            },
+            "db_object_name": {
+               "type": "string"
+            },
+            "db_object_symbol": {
+               "type": "string"
+            },
+            "db_object_synonyms": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "db_object_taxon": {
+               "type": "string"
+            },
+            "db_object_type": {
+               "type": "string"
+            },
+            "evidence_type": {
+               "type": "string"
+            },
+            "gene_product_form": {
+               "$ref": "#/definitions/BiologicalEntity",
+               "description": "isoform"
+            },
+            "local_id": {
+               "description": "local part of identifier",
+               "type": "string"
+            },
+            "ontology_class_ref": {
+               "type": "string"
+            },
+            "qualifiers": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "supporting_references": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "with_or_from": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            }
+         },
+         "required": [
+            "db",
+            "local_id",
+            "db_object_symbol",
+            "ontology_class_ref",
+            "supporting_references",
+            "evidence_type",
+            "aspect",
+            "db_object_taxon",
+            "assigned_by"
+         ],
+         "title": "SimpleGafAssociation",
          "type": "object"
       },
       "Taxon": {

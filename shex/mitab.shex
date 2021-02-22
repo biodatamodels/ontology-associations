@@ -1,0 +1,104 @@
+BASE <https://w3id.org/mitab/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX metatype: <https://w3id.org/biolink/biolinkml/meta/types/>
+
+
+<https://w3id.org/mitabIdentifier> xsd:string
+
+<https://w3id.org/mitabPsi-miIdentifier> xsd:string
+
+<https://w3id.org/mitabTaxidIdentifier> xsd:string
+
+<https://w3id.org/mitabIntact-miscoreIdentifier> xsd:string
+
+<https://w3id.org/mitabRogidIdentifier> xsd:string
+
+metatype:String xsd:string
+
+metatype:Integer xsd:integer
+
+metatype:Boolean xsd:boolean
+
+metatype:Float xsd:float
+
+metatype:Double xsd:double
+
+metatype:Decimal xsd:decimal
+
+metatype:Time xsd:dateTime
+
+metatype:Date xsd:date
+
+metatype:Datetime xsd:dateTime
+
+metatype:Uriorcurie IRI
+
+metatype:Uri IRI
+
+metatype:Ncname xsd:string
+
+metatype:Objectidentifier IRI
+
+metatype:Nodeidentifier NONLITERAL
+
+<https://w3id.org/mitabInteraction>  (
+    CLOSED {
+       (  $<https://w3id.org/mitabInteraction_tes> rdf:type . * ;
+          rdf:type [ <https://w3id.org/mitabInteraction> ] ?
+       )
+    } OR @<https://w3id.org/mitabMitabInteraction>
+)
+
+<https://w3id.org/mitabMitabInteraction> CLOSED {
+    (  $<https://w3id.org/mitabMitabInteraction_tes> (  &<https://w3id.org/mitabInteraction_tes> ;
+          rdf:type [ <https://w3id.org/mitabInteraction> ] ? ;
+          <https://w3id.org/mitabID(s)_interactor_A> @<https://w3id.org/mitabIdentifier> ? ;
+          <https://w3id.org/mitabID(s)_interactor_B> @<https://w3id.org/mitabIdentifier> ? ;
+          <https://w3id.org/mitabAlt._ID(s)_interactor_A> @<https://w3id.org/mitabIdentifier> * ;
+          <https://w3id.org/mitabAlt._ID(s)_interactor_B> @metatype:String * ;
+          <https://w3id.org/mitabAlias(es)_interactor_A> @<https://w3id.org/mitabIdentifier> * ;
+          <https://w3id.org/mitabAlias(es)_interactor_B> @<https://w3id.org/mitabIdentifier> * ;
+          <https://w3id.org/mitabInteraction_detection_method(s)> @<https://w3id.org/mitabInteractionDetectionMethodEnum> ? ;
+          <https://w3id.org/mitabPublication_1st_author(s)> @metatype:String ? ;
+          <https://w3id.org/mitabPublication_Identifier(s)> @<https://w3id.org/mitabIdentifier> * ;
+          <https://w3id.org/mitabTaxid_interactor_A> @<https://w3id.org/mitabTaxidIdentifier> * ;
+          <https://w3id.org/mitabTaxid_interactor_B> @<https://w3id.org/mitabTaxidIdentifier> * ;
+          <https://w3id.org/mitabInteraction_type(s)> @<https://w3id.org/mitabInteractionTypeEnum> ? ;
+          <https://w3id.org/mitabSource_database(s)> @<https://w3id.org/mitabPsi-miIdentifier> ? ;
+          <https://w3id.org/mitabInteraction_identifier(s)> @<https://w3id.org/mitabIdentifier> * ;
+          <https://w3id.org/mitabConfidence_value(s)> @<https://w3id.org/mitabIntact-miscoreIdentifier> ? ;
+          <https://w3id.org/mitabExpansion_method(s)> @<https://w3id.org/mitabExpansionMethodEnum> ? ;
+          <https://w3id.org/mitabBiological_role(s)_interactor_A> @<https://w3id.org/mitabBiologicalRoleInteractorEnum> ? ;
+          <https://w3id.org/mitabBiological_role(s)_interactor_B> @<https://w3id.org/mitabBiologicalRoleInteractorEnum> ? ;
+          <https://w3id.org/mitabExperimental_role(s)_interactor_A> @<https://w3id.org/mitabExperimentalRoleInteractorEnum> ? ;
+          <https://w3id.org/mitabExperimental_role(s)_interactor_B> @<https://w3id.org/mitabExperimentalRoleInteractorEnum> ? ;
+          <https://w3id.org/mitabType(s)_interactor_A> @<https://w3id.org/mitabPsi-miIdentifier> ? ;
+          <https://w3id.org/mitabType(s)_interactor_B> @<https://w3id.org/mitabPsi-miIdentifier> ? ;
+          <https://w3id.org/mitabXref(s)_interactor_A> @<https://w3id.org/mitabIdentifier> * ;
+          <https://w3id.org/mitabXref(s)_interactor_B> @<https://w3id.org/mitabIdentifier> * ;
+          <https://w3id.org/mitabInteraction_Xref(s)> @<https://w3id.org/mitabInteractionXrefEnum> * ;
+          <https://w3id.org/mitabAnnotation(s)_interactor_A> @metatype:String ? ;
+          <https://w3id.org/mitabAnnotation(s)_interactor_B> @metatype:String * ;
+          <https://w3id.org/mitabInteraction_annotation(s)> @<https://w3id.org/mitabIdentifier> * ;
+          <https://w3id.org/mitabHost_organism(s)> @<https://w3id.org/mitabTaxidIdentifier> * ;
+          <https://w3id.org/mitabInteraction_parameter(s)> @metatype:String ? ;
+          <https://w3id.org/mitabCreation_date> @metatype:Datetime ? ;
+          <https://w3id.org/mitabUpdate_date> @metatype:Datetime ? ;
+          <https://w3id.org/mitabChecksum(s)_interactor_A> @<https://w3id.org/mitabRogidIdentifier> ? ;
+          <https://w3id.org/mitabChecksum(s)_interactor_B> @metatype:String ? ;
+          <https://w3id.org/mitabInteraction_Checksum(s)> @<https://w3id.org/mitabIdentifier> * ;
+          <https://w3id.org/mitabNegative> @<https://w3id.org/mitabNegativeEnum> ? ;
+          <https://w3id.org/mitabFeature(s)_interactor_A> @metatype:String * ;
+          <https://w3id.org/mitabFeature(s)_interactor_B> @metatype:String * ;
+          <https://w3id.org/mitabStoichiometry(s)_interactor_A> @<https://w3id.org/mitabStoichiometryInteractorEnum> ? ;
+          <https://w3id.org/mitabStoichiometry(s)_interactor_B> @<https://w3id.org/mitabStoichiometryInteractorEnum> ? ;
+          <https://w3id.org/mitabIdentification_method_participant_A> @<https://w3id.org/mitabPsi-miIdentifier> ? ;
+          <https://w3id.org/mitabIdentification_method_participant_B> @<https://w3id.org/mitabPsi-miIdentifier> ?
+       ) ;
+       rdf:type [ <https://w3id.org/mitabMitabInteraction> ] ?
+    )
+}
+
+
+

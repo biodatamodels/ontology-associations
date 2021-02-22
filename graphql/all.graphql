@@ -50,7 +50,7 @@ type GafAssociation implements Denormalized, GoRelated
     db: String!
     localId: String!
     dbObjectSymbol: SymbolType!
-    relation: RelationTerm
+    qualifiers: [Gp2termRelationEnum]
     ontologyClassRef: AbstractThing!
     supportingReferences: [Publication]!
     evidenceType: OntologyClass!
@@ -87,7 +87,7 @@ type GpadAssociation implements Denormalized, GoRelated
   {
     dbObjectRef: AbstractThing!
     negation: Boolean
-    relation: RelationTerm
+    relation: Gp2termRelationEnum!
     ontologyClassRef: AbstractThing!
     supportingReferences: [Publication]!
     evidenceType: OntologyClass!
@@ -137,7 +137,7 @@ type HumanPhenotypeOntologyAssociation implements Denormalized
     db: String!
     localId: String!
     dbObjectSymbol: SymbolType!
-    relation: RelationTerm
+    relation: Gp2termRelationEnum!
     ontologyClassRef: AbstractThing!
     supportingReferences: [Publication]!
     evidenceType: OntologyClass!
@@ -161,6 +161,52 @@ type HumanPhenotypeOntologyAssociationDocument
     roVersion: String
     gorelVersion: String
     associations: [HumanPhenotypeOntologyAssociation]
+  }
+
+type MitabInteraction
+  {
+    iD(s)InteractorA: Identifier
+    iD(s)InteractorB: Identifier
+    alt.ID(s)InteractorA: [Identifier]
+    alt.ID(s)InteractorB: [String]
+    alias(es)InteractorA: [Identifier]
+    alias(es)InteractorB: [Identifier]
+    interactionDetectionMethod(s): InteractionDetectionMethodEnum
+    publication1stAuthor(s): Publication1stAuthorEnum
+    publicationIdentifier(s): [Identifier]
+    taxidInteractorA: [TaxidIdentifier]
+    taxidInteractorB: [TaxidIdentifier]
+    interactionType(s): InteractionTypeEnum
+    sourceDatabase(s): Psi-miIdentifier
+    interactionIdentifier(s): [Identifier]
+    confidenceValue(s): Intact-miscoreIdentifier
+    expansionMethod(s): ExpansionMethodEnum
+    biologicalRole(s)InteractorA: BiologicalRoleInteractorAEnum
+    biologicalRole(s)InteractorB: BiologicalRoleInteractorBEnum
+    experimentalRole(s)InteractorA: ExperimentalRoleInteractorAEnum
+    experimentalRole(s)InteractorB: ExperimentalRoleInteractorBEnum
+    type(s)InteractorA: Psi-miIdentifier
+    type(s)InteractorB: Psi-miIdentifier
+    xref(s)InteractorA: [Identifier]
+    xref(s)InteractorB: [Identifier]
+    interactionXref(s): [InteractionXrefEnum]
+    annotation(s)InteractorA: AnnotationInteractorAEnum
+    annotation(s)InteractorB: [AnnotationInteractorBEnum]
+    interactionAnnotation(s): [Identifier]
+    hostOrganism(s): [TaxidIdentifier]
+    interactionParameter(s): InteractionParameterEnum
+    creationDate: Datetime
+    updateDate: Datetime
+    checksum(s)InteractorA: RogidIdentifier
+    checksum(s)InteractorB: String
+    interactionChecksum(s): [Identifier]
+    negative: NegativeEnum
+    feature(s)InteractorA: [FeatureInteractorAEnum]
+    feature(s)InteractorB: [String]
+    stoichiometry(s)InteractorA: StoichiometryInteractorAEnum
+    stoichiometry(s)InteractorB: StoichiometryInteractorBEnum
+    identificationMethodParticipantA: Psi-miIdentifier
+    identificationMethodParticipantB: Psi-miIdentifier
   }
 
 interface Normalized
@@ -191,6 +237,27 @@ type Publication
 type RelationTerm
   {
     id: Curie!
+  }
+
+type SimpleGafAssociation
+  {
+    db: String!
+    localId: String!
+    dbObjectSymbol: SymbolType!
+    ontologyClassRef: AbstractThing!
+    supportingReferences: [Publication]!
+    evidenceType: OntologyClass!
+    withOrFrom: [AbstractThing]
+    aspect: GeneOntologyAspectEnum!
+    dbObjectName: NameType
+    dbObjectSynonyms: [NameType]
+    dbObjectType: GpEntityTypeEnum
+    dbObjectTaxon: Taxon!
+    annotationDate: Datetime
+    assignedBy: Provider!
+    annotationExtensions: [ConjunctionExtensionExpression]
+    geneProductForm: BiologicalEntity
+    qualifiers: [SimpleQualifierEnum]
   }
 
 type Taxon

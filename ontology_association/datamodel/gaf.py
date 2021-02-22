@@ -1,5 +1,5 @@
 # Auto generated from gaf.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-16 11:39
+# Generation date: 2021-02-16 13:14
 # Schema: gaf
 #
 # id: https://w3id.org/ontology_association/gaf
@@ -24,7 +24,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from . association import AbstractThingId, Association, AssociationDocument, BiologicalEntity, ConjunctionExtensionExpression, Gp2termRelationEnum, GpEntityTypeEnum, NameType, OntologyClassId, ProviderId, PublicationId, SimpleQualifierEnum, SymbolType, TaxonId
+from . association import AbstractThingId, Association, AssociationDocument, BiologicalEntity, ConjunctionExtensionExpression, NameType, OntologyClassId, ProviderId, PublicationId, SymbolType, TaxonId
 from biolinkml.utils.metamodelcore import XSDDateTime
 from includes.types import Datetime, String
 

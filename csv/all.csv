@@ -17,11 +17,13 @@ gpi_document,,
 gpi_entity,,
 human_phenotype_ontology_association,,
 human_phenotype_ontology_association_document,,
+mitab_interaction,,
 normalized,,"mixin for a normalized class, in the sense of database normal forms"
 ontology_class,,
 property_value_pair,,
 provider,,
 publication,,
 relation_term,,
+simple_gaf_association,,
 taxon,,
 
