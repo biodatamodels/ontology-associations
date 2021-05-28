@@ -11,6 +11,8 @@ entity,,
 gaf_association,,line of GAF
 gaf_association_document,,
 go_related,,mixin for any association that is GO related
+gpad_association,,line of GPAD
+gpad_association_document,,
 normalized,,"mixin for a normalized class, in the sense of database normal forms"
 ontology_class,,
 property_value_pair,,
@@ -19,4 +21,5 @@ publication,,
 relation_term,,
 simple_gaf_association,,
 taxon,,
+xaf_association,,"line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions."
 

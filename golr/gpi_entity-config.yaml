@@ -1,5 +1,7 @@
 id: gpi_entity
 schema_generating: true
+description: An entity that can be annotated using GO. May be a gene, gene product,
+  or complex
 display_name: gpi entity
 document_category: gpi entity
 weight: 20

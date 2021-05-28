@@ -2,12 +2,13 @@ id: https://w3id.org/mitab
 name: mitab
 description: mitab
 imports:
-- biolinkml:types
+- linkml:types
 prefixes:
-  biolinkml: https://w3id.org/biolink/biolinkml/
-  biolin: https://w3id.org/biolink/
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/
   mitab: https://w3id.org/mitab
   MI: http://purl.obolibrary.org/obo/MI_
+  MI2CAST: https://github.com/MI2CAST/MI2CAST/
 default_prefix: mitab
 types:
   identifier:
@@ -24,6 +25,7 @@ classes:
   interaction:
     description: >-
       An interaction between two molecular entities
+      
   mitab interaction:
     is_a: interaction
     slots:
@@ -69,6 +71,19 @@ classes:
     - Stoichiometry(s) interactor B
     - Identification method participant A
     - Identification method participant B
+
+  causaltab interaction:
+    is_a: mitab interaction
+    slots:
+    - Biological Effect interactor A
+    - Biological Effect interactor B
+    - Causal Regulatory Mechanism
+    - Causal statement
+    see_also:
+      - https://github.com/PSICQUIC/psicquic-documentation/blob/develop/MITAB28Format.md
+    
+    
+    
 slots:
   ID(s) interactor A:
     range: identifier
@@ -285,6 +300,25 @@ slots:
     range: psi-mi identifier
     examples:
       value: psi-mi:"MI:0396"(predetermined participant)
+
+## CAUSALTAB
+
+  Biological Effect interactor A:
+    range: Biological_Effect_interactor_enum
+    examples:
+      value: '-'
+  Biological Effect interactor B:
+    range: Biological_Effect_interactor_enum
+    examples:
+      value: '-'
+  Causal Regulatory Mechanism:
+    range: Causal_Regulatory_Mechanism_enum
+    examples:
+      value: '-'
+  Causal statement:
+    range: psi-mi identifier
+    examples:
+      value: psi-mi:"MI:2236"(up-regulates activity)
 enums:
   Interaction_detection_method_enum:
     permissible_values:
@@ -370,3 +404,19 @@ enums:
       '1':
         description: '1'
 
+  Biological_Effect_interactor_enum:
+    permissible_values:
+      '-':
+        description: '-'
+  Causal_Regulatory_Mechanism_enum:
+    permissible_values:
+      psi-mi:"MI:2246"(indirect causal regulation):
+        description: psi-mi:"MI:2246"(indirect causal regulation)
+      psi-mi:"MI:2249"(post transcriptional regulation):
+        description: psi-mi:"MI:2249"(post transcriptional regulation)
+      psi-mi:"MI:2248"(translation regulation):
+        description: psi-mi:"MI:2248"(translation regulation)
+      '-':
+        description: '-'
+      psi-mi:"MI:2247"(transcriptional regulation):
+        description: psi-mi:"MI:2247"(transcriptional regulation)

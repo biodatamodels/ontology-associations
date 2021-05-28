@@ -1,5 +1,5 @@
 # Auto generated from hpoa.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-14 15:29
+# Generation date: 2021-05-27 10:07
 # Schema: hpoa
 #
 # id: https://w3id.org/ontology_association/hpoa
@@ -11,22 +11,19 @@ import sys
 import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
-from biolinkml.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+from linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
 
-from biolinkml.utils.slot import Slot
-from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
-from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
-if sys.version_info < (3, 7, 6):
-    from biolinkml.utils.dataclass_extensions_375 import dataclasses_init_fn_with_kwargs
-else:
-    from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
-from biolinkml.utils.formatutils import camelcase, underscore, sfx
-from biolinkml.utils.enumerations import EnumDefinitionImpl
+from linkml.utils.slot import Slot
+from linkml.utils.metamodelcore import empty_list, empty_dict, bnode
+from linkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
+from linkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
+from linkml.utils.formatutils import camelcase, underscore, sfx
+from linkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
-from biolinkml.utils.curienamespace import CurieNamespace
-from . association import AbstractThingId, Association, AssociationDocument, NameType, OntologyClassId, ProviderId, PublicationId, RelationTermId, SymbolType
-from biolinkml.utils.metamodelcore import XSDDateTime
-from includes.types import Datetime, String
+from linkml.utils.curienamespace import CurieNamespace
+from . association import AbstractThingId, Association, AssociationDocument, Gp2termRelationEnum, NameType, OntologyClassId, ProviderId, PublicationId, SymbolType
+from linkml.utils.metamodelcore import XSDDateTime
+from linkml_model.types import Datetime, String
 
 metamodel_version = "1.7.0"
 
@@ -35,7 +32,7 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/vocab/')
-BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
+LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 ONTOLOGY_ASSOCIATION = CurieNamespace('ontology_association', 'https://w3id.org/ontology_association/')
 DEFAULT_ = ONTOLOGY_ASSOCIATION
 
@@ -58,12 +55,12 @@ class HumanPhenotypeOntologyAssociation(Association):
     db: str = None
     local_id: str = None
     db_object_symbol: Union[str, SymbolType] = None
+    relation: Union[str, "Gp2termRelationEnum"] = None
     ontology_class_ref: Union[str, AbstractThingId] = None
     supporting_references: Union[Union[str, PublicationId], List[Union[str, PublicationId]]] = None
     evidence_type: Union[str, OntologyClassId] = None
     aspect: str = None
     assigned_by: Union[str, ProviderId] = None
-    relation: Optional[Union[str, RelationTermId]] = None
     onset: Optional[str] = None
     frequency: Optional[str] = None
     with_or_from: Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]] = empty_list()
@@ -85,6 +82,11 @@ class HumanPhenotypeOntologyAssociation(Association):
             raise ValueError("db_object_symbol must be supplied")
         if not isinstance(self.db_object_symbol, SymbolType):
             self.db_object_symbol = SymbolType(self.db_object_symbol)
+
+        if self.relation is None:
+            raise ValueError("relation must be supplied")
+        if not isinstance(self.relation, Gp2termRelationEnum):
+            self.relation = Gp2termRelationEnum(self.relation)
 
         if self.ontology_class_ref is None:
             raise ValueError("ontology_class_ref must be supplied")
@@ -113,9 +115,6 @@ class HumanPhenotypeOntologyAssociation(Association):
             raise ValueError("assigned_by must be supplied")
         if not isinstance(self.assigned_by, ProviderId):
             self.assigned_by = ProviderId(self.assigned_by)
-
-        if self.relation is not None and not isinstance(self.relation, RelationTermId):
-            self.relation = RelationTermId(self.relation)
 
         if self.onset is not None and not isinstance(self.onset, str):
             self.onset = str(self.onset)

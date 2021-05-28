@@ -1,12 +1,13 @@
 id: https://w3id.org/ontology_association/gpad
 name: gpad
 description: >-
+  DEPRECATED: merged in to other file
   GPAD datamodel
   https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md
 imports:
  - association
 prefixes:
-  biolinkml: https://w3id.org/biolink/biolinkml/
+  linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/vocab/
   ontology_association: https://w3id.org/ontology_association/
   GO: http://purl.obolibrary.org/obo/GO_
@@ -18,31 +19,4 @@ default_curi_maps:
 
 classes:
 
-  gpad association:
-    is_a: association
-    mixins:
-      - denormalized
-      - go related
-    description: >-
-      line of GPAD
-    slots:
-      - db object ref
-      - negation
-      - relation
-      - ontology class ref
-      - supporting references
-      - evidence type
-      - with or from
-      - interacting taxon ref
-      - annotation date
-      - assigned by
-      - annotation extensions
-      - annotation properties
-        
-  gpad association document:
-    is_a: association document
-    slot_usage:
-      associations:
-        range: gpad association
-        multivalued: true
     

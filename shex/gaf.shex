@@ -1,7 +1,7 @@
 BASE <https://w3id.org/ontology_association/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX metatype: <https://w3id.org/biolink/biolinkml/meta/types/>
+PREFIX linkml: <https://w3id.org/linkml/>
 
 
 <Curie> xsd:string
@@ -10,33 +10,33 @@ PREFIX metatype: <https://w3id.org/biolink/biolinkml/meta/types/>
 
 <NameType> xsd:string
 
-metatype:String xsd:string
+linkml:String xsd:string
 
-metatype:Integer xsd:integer
+linkml:Integer xsd:integer
 
-metatype:Boolean xsd:boolean
+linkml:Boolean xsd:boolean
 
-metatype:Float xsd:float
+linkml:Float xsd:float
 
-metatype:Double xsd:double
+linkml:Double xsd:double
 
-metatype:Decimal xsd:decimal
+linkml:Decimal xsd:decimal
 
-metatype:Time xsd:dateTime
+linkml:Time xsd:dateTime
 
-metatype:Date xsd:date
+linkml:Date xsd:date
 
-metatype:Datetime xsd:dateTime
+linkml:Datetime xsd:dateTime
 
-metatype:Uriorcurie IRI
+linkml:Uriorcurie IRI
 
-metatype:Uri IRI
+linkml:Uri IRI
 
-metatype:Ncname xsd:string
+linkml:Ncname xsd:string
 
-metatype:Objectidentifier IRI
+linkml:Objectidentifier IRI
 
-metatype:Nodeidentifier NONLITERAL
+linkml:Nodeidentifier NONLITERAL
 
 <AbstractThing>  (
     CLOSED {
@@ -49,30 +49,32 @@ metatype:Nodeidentifier NONLITERAL
 )
 
 <Association>  (
-    {
-       (  $<Association_tes> rdf:type . * ;
-          rdf:type [ <Association> ] ?
-       )
-    } OR @<GafAssociation>
+    @<GpadAssociation> OR @<XafAssociation>
 )
+
+<Association_struct> {
+    (  $<Association_tes> rdf:type . * ;
+       rdf:type [ <Association> ] ?
+    )
+}
 
 <AssociationDocument>  (
     CLOSED {
        (  $<AssociationDocument_tes> (  &<Document_tes> ;
              rdf:type [ <Document> ] ? ;
-             <date_generated> @metatype:String ? ;
+             <date_generated> @linkml:String ? ;
              <generated_by> @<Provider> ? ;
-             <url> @metatype:String ? ;
-             <project_release> @metatype:String ? ;
-             <funding> @metatype:String ? ;
-             <go_version> @metatype:String ? ;
-             <ro_version> @metatype:String ? ;
-             <gorel_version> @metatype:String ? ;
+             <url> @linkml:String ? ;
+             <project_release> @linkml:String ? ;
+             <funding> @linkml:String ? ;
+             <go_version> @linkml:String ? ;
+             <ro_version> @linkml:String ? ;
+             <gorel_version> @linkml:String ? ;
              <associations> @<Association> *
           ) ;
           rdf:type [ <AssociationDocument> ] ?
        )
-    } OR @<GafAssociationDocument>
+    } OR @<GafAssociationDocument> OR @<GpadAssociationDocument>
 )
 
 <BiologicalEntity> {
@@ -125,29 +127,16 @@ metatype:Nodeidentifier NONLITERAL
 
 <GafAssociation>  (
     CLOSED {
-       (  $<GafAssociation_tes> (  &<Association_tes> ;
-             rdf:type [ <Association> ] ? ;
+       (  $<GafAssociation_tes> (  &<XafAssociation_tes> ;
+             rdf:type [ <XafAssociation> ] ? ;
              &<Denormalized_tes> ;
              rdf:type [ <Denormalized> ] ? ;
              &<GoRelated_tes> ;
              rdf:type [ <GoRelated> ] ? ;
-             <db> @metatype:String ;
-             <local_id> @metatype:String ;
-             <db_object_symbol> @<SymbolType> ;
              <qualifiers> @<Gp2termRelationEnum> * ;
              <ontology_class_ref> @<AbstractThing> ;
-             <supporting_references> @<Publication> + ;
-             <evidence_type> @<OntologyClass> ;
-             <with_or_from> @<AbstractThing> * ;
              <aspect> @<GeneOntologyAspectEnum> ;
-             <db_object_name> @<NameType> ? ;
-             <db_object_synonyms> @<NameType> * ;
-             <db_object_type> @<GpEntityTypeEnum> ? ;
-             <db_object_taxon> @<Taxon> ;
-             <annotation_date> @metatype:Datetime ? ;
-             <assigned_by> @<Provider> ;
-             <annotation_extensions> @<ConjunctionExtensionExpression> * ;
-             <gene_product_form> @<BiologicalEntity> ?
+             <db_object_type> @<GpEntityTypeEnum> ?
           ) ;
           rdf:type [ <GafAssociation> ] ?
        )
@@ -169,6 +158,40 @@ metatype:Nodeidentifier NONLITERAL
     )
 }
 
+<GpadAssociation> CLOSED {
+    (  $<GpadAssociation_tes> (  &<Association_tes> ;
+          rdf:type [ <Association> ] ? ;
+          &<Denormalized_tes> ;
+          rdf:type [ <Denormalized> ] ? ;
+          &<GoRelated_tes> ;
+          rdf:type [ <GoRelated> ] ? ;
+          <db_object_ref> @<AbstractThing> ;
+          <negation> @linkml:Boolean ? ;
+          <relation> @<Gp2termRelationEnum> ;
+          <ontology_class_ref> @<AbstractThing> ;
+          <supporting_references> @<Publication> + ;
+          <evidence_type> @<OntologyClass> ;
+          <with_or_from> @<AbstractThing> * ;
+          <interacting_taxon_ref> @<Taxon> * ;
+          <annotation_date> @linkml:Datetime ? ;
+          <assigned_by> @<Provider> ;
+          <annotation_extensions> @<ConjunctionExtensionExpression> * ;
+          <annotation_properties> @<PropertyValuePair> * ;
+          <db_object_type> @<GpEntityTypeEnum> ?
+       ) ;
+       rdf:type [ <GpadAssociation> ] ?
+    )
+}
+
+<GpadAssociationDocument> CLOSED {
+    (  $<GpadAssociationDocument_tes> (  &<AssociationDocument_tes> ;
+          rdf:type [ <AssociationDocument> ] ? ;
+          <associations> @<GpadAssociation> *
+       ) ;
+       rdf:type [ <GpadAssociationDocument> ] ?
+    )
+}
+
 <Normalized> {
     (  $<Normalized_tes> rdf:type . * ;
        rdf:type [ <Normalized> ] ?
@@ -187,7 +210,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <PropertyValuePair> CLOSED {
     (  $<PropertyValuePair_tes> (  <property> @<ControlledTerm> ? ;
-          <value> @metatype:String ?
+          <value> @linkml:String ?
        ) ;
        rdf:type [ <PropertyValuePair> ] ?
     )
@@ -233,6 +256,35 @@ metatype:Nodeidentifier NONLITERAL
        rdf:type [ <Taxon> ]
     )
 }
+
+<XafAssociation>  (
+    CLOSED {
+       (  $<XafAssociation_tes> (  &<Association_tes> ;
+             rdf:type [ <Association> ] ? ;
+             &<Denormalized_tes> ;
+             rdf:type [ <Denormalized> ] ? ;
+             <db> @linkml:String ;
+             <local_id> @linkml:String ;
+             <db_object_symbol> @<SymbolType> ;
+             <qualifiers> @linkml:String * ;
+             <ontology_class_ref> @<AbstractThing> ;
+             <supporting_references> @<Publication> + ;
+             <evidence_type> @<OntologyClass> ;
+             <with_or_from> @<AbstractThing> * ;
+             <aspect> @linkml:String ;
+             <db_object_name> @<NameType> ? ;
+             <db_object_synonyms> @<NameType> * ;
+             <db_object_type> @linkml:String ? ;
+             <db_object_taxon> @<Taxon> ;
+             <annotation_date> @linkml:Datetime ? ;
+             <assigned_by> @<Provider> ;
+             <annotation_extensions> @<ConjunctionExtensionExpression> * ;
+             <gene_product_form> @<BiologicalEntity> ?
+          ) ;
+          rdf:type [ <XafAssociation> ] ?
+       )
+    } OR @<GafAssociation>
+)
 
 
 

@@ -60,6 +60,204 @@
          "title": "AssociationDocument",
          "type": "object"
       },
+      "CausaltabInteraction": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "Alias(es)_interactor_A": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Alias(es)_interactor_B": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Alt._ID(s)_interactor_A": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Alt._ID(s)_interactor_B": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Annotation(s)_interactor_A": {
+               "type": "string"
+            },
+            "Annotation(s)_interactor_B": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Biological_Effect_interactor_A": {
+               "type": "string"
+            },
+            "Biological_Effect_interactor_B": {
+               "type": "string"
+            },
+            "Biological_role(s)_interactor_A": {
+               "type": "string"
+            },
+            "Biological_role(s)_interactor_B": {
+               "type": "string"
+            },
+            "Causal_Regulatory_Mechanism": {
+               "type": "string"
+            },
+            "Causal_statement": {
+               "type": "string"
+            },
+            "Checksum(s)_interactor_A": {
+               "type": "string"
+            },
+            "Checksum(s)_interactor_B": {
+               "type": "string"
+            },
+            "Confidence_value(s)": {
+               "type": "string"
+            },
+            "Creation_date": {
+               "type": "string"
+            },
+            "Expansion_method(s)": {
+               "type": "string"
+            },
+            "Experimental_role(s)_interactor_A": {
+               "type": "string"
+            },
+            "Experimental_role(s)_interactor_B": {
+               "type": "string"
+            },
+            "Feature(s)_interactor_A": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Feature(s)_interactor_B": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Host_organism(s)": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "ID(s)_interactor_A": {
+               "type": "string"
+            },
+            "ID(s)_interactor_B": {
+               "type": "string"
+            },
+            "Identification_method_participant_A": {
+               "type": "string"
+            },
+            "Identification_method_participant_B": {
+               "type": "string"
+            },
+            "Interaction_Checksum(s)": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Interaction_Xref(s)": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Interaction_annotation(s)": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Interaction_detection_method(s)": {
+               "type": "string"
+            },
+            "Interaction_identifier(s)": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Interaction_parameter(s)": {
+               "type": "string"
+            },
+            "Interaction_type(s)": {
+               "type": "string"
+            },
+            "Negative": {
+               "type": "string"
+            },
+            "Publication_1st_author(s)": {
+               "type": "string"
+            },
+            "Publication_Identifier(s)": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Source_database(s)": {
+               "type": "string"
+            },
+            "Stoichiometry(s)_interactor_A": {
+               "type": "string"
+            },
+            "Stoichiometry(s)_interactor_B": {
+               "type": "string"
+            },
+            "Taxid_interactor_A": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Taxid_interactor_B": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Type(s)_interactor_A": {
+               "type": "string"
+            },
+            "Type(s)_interactor_B": {
+               "type": "string"
+            },
+            "Update_date": {
+               "type": "string"
+            },
+            "Xref(s)_interactor_A": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "Xref(s)_interactor_B": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "CausaltabInteraction",
+         "type": "object"
+      },
       "ConjunctionExtensionExpression": {
          "additionalProperties": false,
          "description": "set of expressions all true",
@@ -243,6 +441,9 @@
                "type": "string"
             },
             "db_object_ref": {
+               "type": "string"
+            },
+            "db_object_type": {
                "type": "string"
             },
             "evidence_type": {
@@ -525,6 +726,14 @@
          },
          "required": [],
          "title": "HumanPhenotypeOntologyAssociationDocument",
+         "type": "object"
+      },
+      "Interaction": {
+         "additionalProperties": false,
+         "description": "An interaction between two molecular entities",
+         "properties": {},
+         "required": [],
+         "title": "Interaction",
          "type": "object"
       },
       "MitabInteraction": {

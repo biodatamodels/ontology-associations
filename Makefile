@@ -31,6 +31,8 @@ clean:
 
 t:
 	echo $(SCHEMA_NAMES)
+ts:
+	echo $(SOURCE_FILES)
 
 echo:
 	echo $(patsubst %,gen-%,$(TGTS))
@@ -64,14 +66,14 @@ gen-docs: target/docs/index.md copy-src-docs
 .PHONY: gen-docs
 copy-src-docs:
 	cp $(SRC_DIR)/docs/*md target/docs/
-target/docs/%.md: $(SCHEMA_SRC) tdir-docs
-	gen-markdown $(GEN_OPTS) --dir target/docs $<
+target/docs/%.md: $(SOURCE_FILES) tdir-docs
+	gen-markdown $(GEN_OPTS) --dir target/docs src/schema/all.yaml
 stage-docs: gen-docs
 	cp -pr target/docs .
 
 ###  -- MARKDOWN DOCS --
 # TODO: modularize imports
-gen-python: $(patsubst %, target/python/%.py, $(SCHEMA_NAMES))
+gen-python: $(patsubst %, target/python/%.py, $(SOURCE_NAMES))
 	cp python/*py ontology_association/datamodel/
 .PHONY: gen-python
 target/python/%.py: $(SCHEMA_DIR)/%.yaml  tdir-python

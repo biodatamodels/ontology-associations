@@ -5,11 +5,10 @@ description: >-
 imports:
  - hpoa
  - gaf
- - gpad
  - gpi
  - mitab
 prefixes:
-  biolinkml: https://w3id.org/biolink/biolinkml/
+  linkml: https://w3id.org/linkml/
   ontology_association: https://w3id.org/ontology_association/
 default_prefix: ontology_association
 

@@ -5,7 +5,7 @@ description: >-
 imports:
  - association
 prefixes:
-  biolinkml: https://w3id.org/biolink/biolinkml/
+  linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/vocab/
   ontology_association: https://w3id.org/ontology_association/
   GO: http://purl.obolibrary.org/obo/GO_
@@ -19,6 +19,8 @@ classes:
 
   gpi entity:
     is_a: biological entity
+    description: >-
+      An entity that can be annotated using GO. May be a gene, gene product, or complex
     slots:
       - db object ref
       - db object symbol
@@ -37,6 +39,8 @@ classes:
       
   gpi document:
     is_a: document
+    description: >-
+      A collection of gpi entities plus associated metadata
     attributes:
       entities:
         range: gpi entity

@@ -1,5 +1,5 @@
 # Auto generated from gpi.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-14 14:34
+# Generation date: 2021-05-27 10:55
 # Schema: gpi
 #
 # id: https://w3id.org/ontology_association/gpi
@@ -11,21 +11,18 @@ import sys
 import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
-from biolinkml.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+from linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
 
-from biolinkml.utils.slot import Slot
-from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
-from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
-if sys.version_info < (3, 7, 6):
-    from biolinkml.utils.dataclass_extensions_375 import dataclasses_init_fn_with_kwargs
-else:
-    from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
-from biolinkml.utils.formatutils import camelcase, underscore, sfx
-from biolinkml.utils.enumerations import EnumDefinitionImpl
+from linkml.utils.slot import Slot
+from linkml.utils.metamodelcore import empty_list, empty_dict, bnode
+from linkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
+from linkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
+from linkml.utils.formatutils import camelcase, underscore, sfx
+from linkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
-from biolinkml.utils.curienamespace import CurieNamespace
+from linkml.utils.curienamespace import CurieNamespace
 from . association import AbstractThingId, BiologicalEntity, Curie, Document, NameType, PropertyValuePair, SymbolType, TaxonId
-from includes.types import String
+from linkml_model.types import String
 
 metamodel_version = "1.7.0"
 
@@ -35,7 +32,7 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 # Namespaces
 GO = CurieNamespace('GO', 'http://purl.obolibrary.org/obo/GO_')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/vocab/')
-BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
+LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 ONTOLOGY_ASSOCIATION = CurieNamespace('ontology_association', 'https://w3id.org/ontology_association/')
 DEFAULT_ = ONTOLOGY_ASSOCIATION
 
@@ -49,6 +46,9 @@ class GpiEntityDbObjectRef(AbstractThingId):
 
 @dataclass
 class GpiEntity(BiologicalEntity):
+    """
+    An entity that can be annotated using GO. May be a gene, gene product, or complex
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GpiEntity
@@ -61,7 +61,7 @@ class GpiEntity(BiologicalEntity):
     db_object_taxon: Union[str, TaxonId] = None
     db_object_name: Optional[Union[str, NameType]] = None
     db_object_synonyms: Optional[Union[Union[str, NameType], List[Union[str, NameType]]]] = empty_list()
-    db_object_type: Optional[Union[str, "GpEntityTypeEnum"]] = None
+    db_object_type: Optional[str] = None
     encoded_by: Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]] = empty_list()
     parent_protein: Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]] = empty_list()
     protein_containing_complex_members: Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]] = empty_list()
@@ -93,8 +93,8 @@ class GpiEntity(BiologicalEntity):
             self.db_object_synonyms = [self.db_object_synonyms]
         self.db_object_synonyms = [v if isinstance(v, NameType) else NameType(v) for v in self.db_object_synonyms]
 
-        if self.db_object_type is not None and not isinstance(self.db_object_type, GpEntityTypeEnum):
-            self.db_object_type = GpEntityTypeEnum(self.db_object_type)
+        if self.db_object_type is not None and not isinstance(self.db_object_type, str):
+            self.db_object_type = str(self.db_object_type)
 
         if self.encoded_by is None:
             self.encoded_by = []
@@ -131,6 +131,9 @@ class GpiEntity(BiologicalEntity):
 
 @dataclass
 class GpiDocument(Document):
+    """
+    A collection of gpi entities plus associated metadata
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.GpiDocument

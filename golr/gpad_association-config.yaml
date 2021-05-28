@@ -10,7 +10,7 @@ fields:
 - id: negation
   display_name: negation
 - id: relation
-  display_name: relation
+  display_name: gpad association_relation
 - id: ontology_class_ref
   display_name: ontology class ref
 - id: supporting_references
@@ -37,3 +37,5 @@ fields:
 - id: annotation_properties
   display_name: annotation properties
   cardinality: multi
+- id: db_object_type
+  display_name: gpad association_db object type

@@ -1,5 +1,5 @@
 # Auto generated from mitab.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-22 15:42
+# Generation date: 2021-05-27 10:07
 # Schema: mitab
 #
 # id: https://w3id.org/mitab
@@ -11,21 +11,18 @@ import sys
 import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
-from biolinkml.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+from linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
 
-from biolinkml.utils.slot import Slot
-from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
-from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
-if sys.version_info < (3, 7, 6):
-    from biolinkml.utils.dataclass_extensions_375 import dataclasses_init_fn_with_kwargs
-else:
-    from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
-from biolinkml.utils.formatutils import camelcase, underscore, sfx
-from biolinkml.utils.enumerations import EnumDefinitionImpl
+from linkml.utils.slot import Slot
+from linkml.utils.metamodelcore import empty_list, empty_dict, bnode
+from linkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
+from linkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
+from linkml.utils.formatutils import camelcase, underscore, sfx
+from linkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
-from biolinkml.utils.curienamespace import CurieNamespace
-from biolinkml.utils.metamodelcore import XSDDateTime
-from includes.types import Datetime, String
+from linkml.utils.curienamespace import CurieNamespace
+from linkml.utils.metamodelcore import XSDDateTime
+from linkml_model.types import Datetime, String
 
 metamodel_version = "1.7.0"
 
@@ -34,7 +31,9 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 MI = CurieNamespace('MI', 'http://purl.obolibrary.org/obo/MI_')
-BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
+MI2CAST = CurieNamespace('MI2CAST', 'https://github.com/MI2CAST/MI2CAST/')
+BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
+LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 MITAB = CurieNamespace('mitab', 'https://w3id.org/mitab')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = MITAB
@@ -80,8 +79,20 @@ class RogidIdentifier(String):
 
 
 
+class Interaction(YAMLRoot):
+    """
+    An interaction between two molecular entities
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MITAB.Interaction
+    class_class_curie: ClassVar[str] = "mitab:Interaction"
+    class_name: ClassVar[str] = "interaction"
+    class_model_uri: ClassVar[URIRef] = MITAB.Interaction
+
+
 @dataclass
-class MitabInteraction(YAMLRoot):
+class MitabInteraction(Interaction):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = MITAB.MitabInteraction
@@ -313,6 +324,36 @@ class MitabInteraction(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
+class CausaltabInteraction(MitabInteraction):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MITAB.CausaltabInteraction
+    class_class_curie: ClassVar[str] = "mitab:CausaltabInteraction"
+    class_name: ClassVar[str] = "causaltab interaction"
+    class_model_uri: ClassVar[URIRef] = MITAB.CausaltabInteraction
+
+    Biological_Effect_interactor_A: Optional[Union[str, "BiologicalEffectInteractorEnum"]] = None
+    Biological_Effect_interactor_B: Optional[Union[str, "BiologicalEffectInteractorEnum"]] = None
+    Causal_Regulatory_Mechanism: Optional[Union[str, "CausalRegulatoryMechanismEnum"]] = None
+    Causal_statement: Optional[Union[str, Psi-miIdentifier]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.Biological_Effect_interactor_A is not None and not isinstance(self.Biological_Effect_interactor_A, BiologicalEffectInteractorEnum):
+            self.Biological_Effect_interactor_A = BiologicalEffectInteractorEnum(self.Biological_Effect_interactor_A)
+
+        if self.Biological_Effect_interactor_B is not None and not isinstance(self.Biological_Effect_interactor_B, BiologicalEffectInteractorEnum):
+            self.Biological_Effect_interactor_B = BiologicalEffectInteractorEnum(self.Biological_Effect_interactor_B)
+
+        if self.Causal_Regulatory_Mechanism is not None and not isinstance(self.Causal_Regulatory_Mechanism, CausalRegulatoryMechanismEnum):
+            self.Causal_Regulatory_Mechanism = CausalRegulatoryMechanismEnum(self.Causal_Regulatory_Mechanism)
+
+        if self.Causal_statement is not None and not isinstance(self.Causal_statement, Psi-miIdentifier):
+            self.Causal_statement = Psi-miIdentifier(self.Causal_statement)
+
+        super().__post_init__(**kwargs)
+
+
 # Enumerations
 class InteractionDetectionMethodEnum(EnumDefinitionImpl):
 
@@ -477,6 +518,42 @@ class StoichiometryInteractorEnum(EnumDefinitionImpl):
                 PermissibleValue(text="1",
                                  description="1") )
 
+class BiologicalEffectInteractorEnum(EnumDefinitionImpl):
+
+    _defn = EnumDefinition(
+        name="BiologicalEffectInteractorEnum",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "-",
+                PermissibleValue(text="-",
+                                 description="-") )
+
+class CausalRegulatoryMechanismEnum(EnumDefinitionImpl):
+
+    _defn = EnumDefinition(
+        name="CausalRegulatoryMechanismEnum",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "psi-mi:\"MI:2246\"(indirect causal regulation)",
+                PermissibleValue(text="psi-mi:"MI:2246"(indirect causal regulation)",
+                                 description="psi-mi:"MI:2246"(indirect causal regulation)") )
+        setattr(cls, "psi-mi:\"MI:2249\"(post transcriptional regulation)",
+                PermissibleValue(text="psi-mi:"MI:2249"(post transcriptional regulation)",
+                                 description="psi-mi:"MI:2249"(post transcriptional regulation)") )
+        setattr(cls, "psi-mi:\"MI:2248\"(translation regulation)",
+                PermissibleValue(text="psi-mi:"MI:2248"(translation regulation)",
+                                 description="psi-mi:"MI:2248"(translation regulation)") )
+        setattr(cls, "-",
+                PermissibleValue(text="-",
+                                 description="-") )
+        setattr(cls, "psi-mi:\"MI:2247\"(transcriptional regulation)",
+                PermissibleValue(text="psi-mi:"MI:2247"(transcriptional regulation)",
+                                 description="psi-mi:"MI:2247"(transcriptional regulation)") )
+
 # Slots
 class slots:
     pass
@@ -606,3 +683,15 @@ slots.Identification_method_participant_A = Slot(uri=MITAB.Identification_method
 
 slots.Identification_method_participant_B = Slot(uri=MITAB.Identification_method_participant_B, name="Identification method participant B", curie=MITAB.curie('Identification_method_participant_B'),
                    model_uri=MITAB.Identification_method_participant_B, domain=None, range=Optional[Union[str, Psi-miIdentifier]])
+
+slots.Biological_Effect_interactor_A = Slot(uri=MITAB.Biological_Effect_interactor_A, name="Biological Effect interactor A", curie=MITAB.curie('Biological_Effect_interactor_A'),
+                   model_uri=MITAB.Biological_Effect_interactor_A, domain=None, range=Optional[Union[str, "BiologicalEffectInteractorEnum"]])
+
+slots.Biological_Effect_interactor_B = Slot(uri=MITAB.Biological_Effect_interactor_B, name="Biological Effect interactor B", curie=MITAB.curie('Biological_Effect_interactor_B'),
+                   model_uri=MITAB.Biological_Effect_interactor_B, domain=None, range=Optional[Union[str, "BiologicalEffectInteractorEnum"]])
+
+slots.Causal_Regulatory_Mechanism = Slot(uri=MITAB.Causal_Regulatory_Mechanism, name="Causal Regulatory Mechanism", curie=MITAB.curie('Causal_Regulatory_Mechanism'),
+                   model_uri=MITAB.Causal_Regulatory_Mechanism, domain=None, range=Optional[Union[str, "CausalRegulatoryMechanismEnum"]])
+
+slots.Causal_statement = Slot(uri=MITAB.Causal_statement, name="Causal statement", curie=MITAB.curie('Causal_statement'),
+                   model_uri=MITAB.Causal_statement, domain=None, range=Optional[Union[str, Psi-miIdentifier]])

@@ -24,6 +24,56 @@ interface BiologicalEntity
   {
   }
 
+type CausaltabInteraction
+  {
+    iD(s)InteractorA: Identifier
+    iD(s)InteractorB: Identifier
+    alt.ID(s)InteractorA: [Identifier]
+    alt.ID(s)InteractorB: [String]
+    alias(es)InteractorA: [Identifier]
+    alias(es)InteractorB: [Identifier]
+    interactionDetectionMethod(s): InteractionDetectionMethodEnum
+    publication1stAuthor(s): String
+    publicationIdentifier(s): [Identifier]
+    taxidInteractorA: [TaxidIdentifier]
+    taxidInteractorB: [TaxidIdentifier]
+    interactionType(s): InteractionTypeEnum
+    sourceDatabase(s): Psi-miIdentifier
+    interactionIdentifier(s): [Identifier]
+    confidenceValue(s): Intact-miscoreIdentifier
+    expansionMethod(s): ExpansionMethodEnum
+    biologicalRole(s)InteractorA: BiologicalRoleInteractorEnum
+    biologicalRole(s)InteractorB: BiologicalRoleInteractorEnum
+    experimentalRole(s)InteractorA: ExperimentalRoleInteractorEnum
+    experimentalRole(s)InteractorB: ExperimentalRoleInteractorEnum
+    type(s)InteractorA: Psi-miIdentifier
+    type(s)InteractorB: Psi-miIdentifier
+    xref(s)InteractorA: [Identifier]
+    xref(s)InteractorB: [Identifier]
+    interactionXref(s): [InteractionXrefEnum]
+    annotation(s)InteractorA: String
+    annotation(s)InteractorB: [String]
+    interactionAnnotation(s): [Identifier]
+    hostOrganism(s): [TaxidIdentifier]
+    interactionParameter(s): String
+    creationDate: Datetime
+    updateDate: Datetime
+    checksum(s)InteractorA: RogidIdentifier
+    checksum(s)InteractorB: String
+    interactionChecksum(s): [Identifier]
+    negative: NegativeEnum
+    feature(s)InteractorA: [String]
+    feature(s)InteractorB: [String]
+    stoichiometry(s)InteractorA: StoichiometryInteractorEnum
+    stoichiometry(s)InteractorB: StoichiometryInteractorEnum
+    identificationMethodParticipantA: Psi-miIdentifier
+    identificationMethodParticipantB: Psi-miIdentifier
+    biologicalEffectInteractorA: BiologicalEffectInteractorEnum
+    biologicalEffectInteractorB: BiologicalEffectInteractorEnum
+    causalRegulatoryMechanism: CausalRegulatoryMechanismEnum
+    causalStatement: Psi-miIdentifier
+  }
+
 type ConjunctionExtensionExpression
   {
   }
@@ -97,6 +147,7 @@ type GpadAssociation implements Denormalized, GoRelated
     assignedBy: Provider!
     annotationExtensions: [ConjunctionExtensionExpression]
     annotationProperties: [PropertyValuePair]
+    dbObjectType: GpEntityTypeEnum
   }
 
 type GpadAssociationDocument
@@ -123,7 +174,7 @@ type GpiEntity
     dbObjectSymbol: SymbolType!
     dbObjectName: NameType
     dbObjectSynonyms: [NameType]
-    dbObjectType: GpEntityTypeEnum
+    dbObjectType: String
     dbObjectTaxon: Taxon!
     encodedBy: [AbstractThing]
     parentProtein: [AbstractThing]
@@ -137,7 +188,7 @@ type HumanPhenotypeOntologyAssociation implements Denormalized
     db: String!
     localId: String!
     dbObjectSymbol: SymbolType!
-    relation: Gp2termRelationEnum!
+    relation: String!
     ontologyClassRef: AbstractThing!
     supportingReferences: [Publication]!
     evidenceType: OntologyClass!
@@ -163,6 +214,10 @@ type HumanPhenotypeOntologyAssociationDocument
     associations: [HumanPhenotypeOntologyAssociation]
   }
 
+type Interaction
+  {
+  }
+
 type MitabInteraction
   {
     iD(s)InteractorA: Identifier
@@ -172,7 +227,7 @@ type MitabInteraction
     alias(es)InteractorA: [Identifier]
     alias(es)InteractorB: [Identifier]
     interactionDetectionMethod(s): InteractionDetectionMethodEnum
-    publication1stAuthor(s): Publication1stAuthorEnum
+    publication1stAuthor(s): String
     publicationIdentifier(s): [Identifier]
     taxidInteractorA: [TaxidIdentifier]
     taxidInteractorB: [TaxidIdentifier]
@@ -181,30 +236,30 @@ type MitabInteraction
     interactionIdentifier(s): [Identifier]
     confidenceValue(s): Intact-miscoreIdentifier
     expansionMethod(s): ExpansionMethodEnum
-    biologicalRole(s)InteractorA: BiologicalRoleInteractorAEnum
-    biologicalRole(s)InteractorB: BiologicalRoleInteractorBEnum
-    experimentalRole(s)InteractorA: ExperimentalRoleInteractorAEnum
-    experimentalRole(s)InteractorB: ExperimentalRoleInteractorBEnum
+    biologicalRole(s)InteractorA: BiologicalRoleInteractorEnum
+    biologicalRole(s)InteractorB: BiologicalRoleInteractorEnum
+    experimentalRole(s)InteractorA: ExperimentalRoleInteractorEnum
+    experimentalRole(s)InteractorB: ExperimentalRoleInteractorEnum
     type(s)InteractorA: Psi-miIdentifier
     type(s)InteractorB: Psi-miIdentifier
     xref(s)InteractorA: [Identifier]
     xref(s)InteractorB: [Identifier]
     interactionXref(s): [InteractionXrefEnum]
-    annotation(s)InteractorA: AnnotationInteractorAEnum
-    annotation(s)InteractorB: [AnnotationInteractorBEnum]
+    annotation(s)InteractorA: String
+    annotation(s)InteractorB: [String]
     interactionAnnotation(s): [Identifier]
     hostOrganism(s): [TaxidIdentifier]
-    interactionParameter(s): InteractionParameterEnum
+    interactionParameter(s): String
     creationDate: Datetime
     updateDate: Datetime
     checksum(s)InteractorA: RogidIdentifier
     checksum(s)InteractorB: String
     interactionChecksum(s): [Identifier]
     negative: NegativeEnum
-    feature(s)InteractorA: [FeatureInteractorAEnum]
+    feature(s)InteractorA: [String]
     feature(s)InteractorB: [String]
-    stoichiometry(s)InteractorA: StoichiometryInteractorAEnum
-    stoichiometry(s)InteractorB: StoichiometryInteractorBEnum
+    stoichiometry(s)InteractorA: StoichiometryInteractorEnum
+    stoichiometry(s)InteractorB: StoichiometryInteractorEnum
     identificationMethodParticipantA: Psi-miIdentifier
     identificationMethodParticipantB: Psi-miIdentifier
   }

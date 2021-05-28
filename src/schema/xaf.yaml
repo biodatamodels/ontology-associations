@@ -5,7 +5,7 @@ description: >-
 imports:
  - association
 prefixes:
-  biolinkml: https://w3id.org/biolink/biolinkml/
+  linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/vocab/
   ontology_association: https://w3id.org/ontology_association/
   GO: http://purl.obolibrary.org/obo/GO_

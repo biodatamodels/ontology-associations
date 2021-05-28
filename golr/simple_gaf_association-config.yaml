@@ -1,5 +1,6 @@
 id: simple_gaf_association
 schema_generating: true
+description: ''
 display_name: simple gaf association
 document_category: simple gaf association
 weight: 20
@@ -13,7 +14,8 @@ fields:
 - id: db_object_symbol
   display_name: db object symbol
 - id: ontology_class_ref
-  display_name: ontology class ref
+  description: this must be a GO ID
+  display_name: gaf association_ontology class ref
 - id: supporting_references
   display_name: supporting references
   cardinality: multi
@@ -30,7 +32,7 @@ fields:
   display_name: db object synonyms
   cardinality: multi
 - id: db_object_type
-  display_name: db object type
+  display_name: gaf association_db object type
 - id: db_object_taxon
   display_name: db object taxon
 - id: annotation_date

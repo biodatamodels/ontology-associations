@@ -16,4 +16,5 @@ provider,,
 publication,,
 relation_term,,
 taxon,,
+xaf_association,,"line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions."
 

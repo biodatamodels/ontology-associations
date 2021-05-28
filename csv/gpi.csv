@@ -5,14 +5,18 @@ association_document,,
 biological_entity,,
 conjunction_extension_expression,,set of expressions all true
 controlled_term,,
+denormalized,,mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes
 document,,root class for association or entity documents
 entity,,
-gpi_document,,
-gpi_entity,,
+go_related,,mixin for any association that is GO related
+gpi_document,,A collection of gpi entities plus associated metadata
+gpi_entity,,"An entity that can be annotated using GO. May be a gene, gene product, or complex"
+normalized,,"mixin for a normalized class, in the sense of database normal forms"
 ontology_class,,
 property_value_pair,,
 provider,,
 publication,,
 relation_term,,
 taxon,,
+xaf_association,,"line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions."
 
