@@ -92,8 +92,9 @@
             <div class="section">
               
                 <h1 id="class-gpientity">Class: GpiEntity</h1>
+<p>An entity that can be annotated using GO. May be a gene, gene product, or complex</p>
 <p>URI: <a href="https://w3id.org/ontology_association/GpiEntity">ontology_association:GpiEntity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[PropertyValuePair],[PropertyValuePair]&lt;gene%20product%20properties%200..*-++[GpiEntity&#124;db_object_symbol:symbol_type;db_object_name:name_type%20%3F;db_object_synonyms:name_type%20*;db_object_type:gp_entity_type_enum%20%3F;db_xrefs:curie%20*],[AbstractThing]&lt;protein%20containing%20complex%20members%200..*-%20[GpiEntity],[AbstractThing]&lt;parent%20protein%200..*-%20[GpiEntity],[AbstractThing]&lt;encoded%20by%200..*-%20[GpiEntity],[Taxon]&lt;db%20object%20taxon%201..1-%20[GpiEntity],[AbstractThing]&lt;db%20object%20ref%201..1-%20[GpiEntity],[GpiDocument]-%20entities%200..*&gt;[GpiEntity],[BiologicalEntity]^-[GpiEntity],[GpiDocument],[BiologicalEntity],[AbstractThing]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[PropertyValuePair],[PropertyValuePair]&lt;gene%20product%20properties%200..*-++[GpiEntity&#124;db_object_symbol:symbol_type;db_object_name:name_type%20%3F;db_object_synonyms:name_type%20*;db_object_type:string%20%3F;db_xrefs:curie%20*],[AbstractThing]&lt;protein%20containing%20complex%20members%200..*-%20[GpiEntity],[AbstractThing]&lt;parent%20protein%200..*-%20[GpiEntity],[AbstractThing]&lt;encoded%20by%200..*-%20[GpiEntity],[Taxon]&lt;db%20object%20taxon%201..1-%20[GpiEntity],[AbstractThing]&lt;db%20object%20ref%201..1-%20[GpiEntity],[GpiDocument]-%20entities%200..*&gt;[GpiEntity],[BiologicalEntity]^-[GpiEntity],[GpiDocument],[BiologicalEntity],[AbstractThing]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../BiologicalEntity/">BiologicalEntity</a></li>
@@ -126,7 +127,7 @@
 </ul>
 </li>
 <li><a href="../db_object_type/">db object type</a>  <sub>OPT</sub><ul>
-<li>range: </li>
+<li>range: <a href="../types/String/">String</a></li>
 <li>Example: PR:000000001 None</li>
 </ul>
 </li>

@@ -93,7 +93,7 @@
               
                 <h1 id="class-simplegafassociation">Class: SimpleGafAssociation</h1>
 <p>URI: <a href="https://w3id.org/ontology_association/SimpleGafAssociation">ontology_association:SimpleGafAssociation</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[GafAssociation]^-[SimpleGafAssociation&#124;qualifiers:simple_qualifier_enum%20*;db(i):string;local_id(i):string;db_object_symbol(i):symbol_type;aspect(i):gene_ontology_aspect_enum;db_object_name(i):name_type%20%3F;db_object_synonyms(i):name_type%20*;db_object_type(i):gp_entity_type_enum%20%3F;annotation_date(i):datetime%20%3F],[Publication],[Provider],[OntologyClass],[GafAssociation],[ConjunctionExtensionExpression],[BiologicalEntity],[AbstractThing]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[GafAssociation]^-[SimpleGafAssociation&#124;qualifiers:simple_qualifier_enum%20*;aspect(i):gene_ontology_aspect_enum;db_object_type(i):gp_entity_type_enum%20%3F;db(i):string;local_id(i):string;db_object_symbol(i):symbol_type;db_object_name(i):name_type%20%3F;db_object_synonyms(i):name_type%20*;annotation_date(i):datetime%20%3F],[Publication],[Provider],[OntologyClass],[GafAssociation],[ConjunctionExtensionExpression],[BiologicalEntity],[AbstractThing]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../GafAssociation/">GafAssociation</a> - line of GAF</li>
@@ -150,17 +150,21 @@
 <li>Example: NCBITaxon:9606 None</li>
 </ul>
 </li>
-<li><a href="../db_object_type/">db object type</a>  <sub>OPT</sub><ul>
-<li>range: </li>
-<li>Example: PR:000000001 None</li>
-</ul>
-</li>
 <li><a href="../evidence_type/">evidence type</a>  <sub>REQ</sub><ul>
 <li>range: <a href="../OntologyClass/">OntologyClass</a></li>
 </ul>
 </li>
 <li><a href="../gaf_association_aspect/">gaf association➞aspect</a>  <sub>REQ</sub><ul>
 <li>range: </li>
+</ul>
+</li>
+<li><a href="../gaf_association_db_object_type/">gaf association➞db object type</a>  <sub>OPT</sub><ul>
+<li>range: </li>
+</ul>
+</li>
+<li><a href="../gaf_association_ontology_class_ref/">gaf association➞ontology class ref</a>  <sub>REQ</sub><ul>
+<li>Description: this must be a GO ID</li>
+<li>range: <a href="../AbstractThing/">AbstractThing</a></li>
 </ul>
 </li>
 <li><a href="../gene_product_form/">gene product form</a>  <sub>OPT</sub><ul>
@@ -171,11 +175,6 @@
 <li><a href="../local_id/">local id</a>  <sub>REQ</sub><ul>
 <li>Description: local part of identifier</li>
 <li>range: <a href="../types/String/">String</a></li>
-</ul>
-</li>
-<li><a href="../ontology_class_ref/">ontology class ref</a>  <sub>REQ</sub><ul>
-<li>range: <a href="../AbstractThing/">AbstractThing</a></li>
-<li>Example: GO:0050803 None</li>
 </ul>
 </li>
 <li><a href="../supporting_references/">supporting references</a>  <sub>1..*</sub><ul>

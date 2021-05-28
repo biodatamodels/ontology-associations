@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Class: Denormalized - ontology association</title>
+  <title>Slot: gaf_association_ontology_class_ref - ontology association</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Class: Denormalized";
-    var mkdocs_page_input_path = "Denormalized.md";
+    var mkdocs_page_name = "Slot: gaf_association_ontology_class_ref";
+    var mkdocs_page_input_path = "gaf_association_ontology_class_ref.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -80,7 +80,7 @@
     
       
     
-    <li>Class: Denormalized</li>
+    <li>Slot: gaf_association_ontology_class_ref</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -91,19 +91,21 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="class-denormalized">Class: Denormalized</h1>
-<p>mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes</p>
-<p>URI: <a href="https://w3id.org/ontology_association/Denormalized">ontology_association:Denormalized</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[XafAssociation]uses%20-.-&gt;[Denormalized],[HumanPhenotypeOntologyAssociation]uses%20-.-&gt;[Denormalized],[GpadAssociation]uses%20-.-&gt;[Denormalized],[GafAssociation]uses%20-.-&gt;[Denormalized],[XafAssociation],[HumanPhenotypeOntologyAssociation],[GpadAssociation],[GafAssociation]" /></p>
-<h2 id="mixin-for">Mixin for</h2>
+                <h1 id="slot-gaf_association_ontology_class_ref">Slot: gaf_association_ontology_class_ref</h1>
+<p>this must be a GO ID</p>
+<p>URI: <a href="https://w3id.org/ontology_association/gaf_association_ontology_class_ref">ontology_association:gaf_association_ontology_class_ref</a></p>
+<h2 id="domain-and-range">Domain and Range</h2>
+<p><a href="../GafAssociation/">GafAssociation</a> -&gt;  <sub>REQ</sub> <a href="../AbstractThing/">AbstractThing</a></p>
+<h2 id="parents">Parents</h2>
 <ul>
-<li><a href="../GafAssociation/">GafAssociation</a> (mixin)  - line of GAF</li>
-<li><a href="../GpadAssociation/">GpadAssociation</a> (mixin)  - line of GPAD</li>
-<li><a href="../HumanPhenotypeOntologyAssociation/">HumanPhenotypeOntologyAssociation</a> (mixin) </li>
-<li><a href="../XafAssociation/">XafAssociation</a> (mixin)  - line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions. </li>
+<li>is_a: <a href="../ontology_class_ref/">ontology class ref</a></li>
 </ul>
-<h2 id="referenced-by-class">Referenced by class</h2>
-<h2 id="attributes">Attributes</h2>
+<h2 id="children">Children</h2>
+<h2 id="used-by">Used by</h2>
+<ul>
+<li><a href="../GafAssociation/">GafAssociation</a></li>
+<li><a href="../SimpleGafAssociation/">SimpleGafAssociation</a></li>
+</ul>
               
             </div>
           </div>
