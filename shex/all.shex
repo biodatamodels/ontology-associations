@@ -1,3 +1,6 @@
+Warning: The following errors were encountered in the schema
+		File "/Users/cjm/repos/ontology_associations/src/schema/gpi.yaml", line 37, col 7:  Slot gpi entity_db object ref is declared inline but single valued
+
 BASE <https://w3id.org/ontology_association/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -13,6 +16,12 @@ PREFIX linkml: <https://w3id.org/linkml/>
 <https://w3id.org/mitabIntact-miscoreIdentifier> xsd:string
 
 <https://w3id.org/mitabRogidIdentifier> xsd:string
+
+<FYPOIdentifier> xsd:string
+
+<PECOIdentifier> xsd:string
+
+<FYPOEXTIdentifier> xsd:string
 
 <Curie> xsd:string
 
@@ -48,22 +57,32 @@ linkml:Objectidentifier IRI
 
 linkml:Nodeidentifier NONLITERAL
 
-<AbstractThing>  (
-    CLOSED {
-       (  $<AbstractThing_tes> (  &<Entity_tes> ;
-             rdf:type [ <Entity> ] ?
-          ) ;
-          rdf:type [ <AbstractThing> ]
-       )
-    } OR @<ControlledTerm> OR @<Provider> OR @<Publication>
+<Annotation>  (
+    @<Association> OR @<https://w3id.org/mitabInteraction>
 )
 
+<Annotation_struct> {
+    (  $<Annotation_tes> rdf:type . * ;
+       rdf:type [ <Annotation> ] ?
+    )
+}
+
+<AnnotationExtension> CLOSED {
+    (  $<AnnotationExtension_tes> (  &<RelationalConstruct_tes> ;
+          rdf:type [ <RelationalConstruct> ] ?
+       ) ;
+       rdf:type [ <AnnotationExtension> ] ?
+    )
+}
+
 <Association>  (
-    @<GafAssociation> OR @<GpadAssociation> OR @<HumanPhenotypeOntologyAssociation>
+    @<GpadAssociation> OR @<HumanPhenotypeOntologyAssociation> OR @<XafAssociation>
 )
 
 <Association_struct> {
-    (  $<Association_tes> rdf:type . * ;
+    (  $<Association_tes> (  &<Annotation_tes> ;
+          rdf:type [ <Annotation> ] ?
+       ) ;
        rdf:type [ <Association> ] ?
     )
 }
@@ -84,7 +103,8 @@ linkml:Nodeidentifier NONLITERAL
           ) ;
           rdf:type [ <AssociationDocument> ] ?
        )
-    } OR @<GafAssociationDocument> OR @<GpadAssociationDocument> OR @<HumanPhenotypeOntologyAssociationDocument>
+    } OR @<GafAssociationDocument> OR @<GpadAssociationDocument> OR @<HumanPhenotypeOntologyAssociationDocument> OR
+    @<PhafAssociationDocument>
 )
 
 <BiologicalEntity>  (
@@ -109,18 +129,12 @@ linkml:Nodeidentifier NONLITERAL
     )
 }
 
-<ConjunctionExtensionExpression> CLOSED {
-    (  $<ConjunctionExtensionExpression_tes> rdf:type . * ;
-       rdf:type [ <ConjunctionExtensionExpression> ] ?
-    )
-}
-
 <ControlledTerm>  (
     CLOSED {
-       (  $<ControlledTerm_tes> (  &<AbstractThing_tes> ;
-             rdf:type [ <AbstractThing> ] ?
+       (  $<ControlledTerm_tes> (  &<Entity_tes> ;
+             rdf:type [ <Entity> ] ?
           ) ;
-          rdf:type [ <ControlledTerm> ]
+          rdf:type [ <ControlledTerm> ] ?
        )
     } OR @<OntologyClass> OR @<RelationTerm>
 )
@@ -142,7 +156,7 @@ linkml:Nodeidentifier NONLITERAL
 }
 
 <Entity>  (
-    @<AbstractThing> OR @<BiologicalEntity>
+    @<BiologicalEntity> OR @<ControlledTerm> OR @<Provider> OR @<Publication>
 )
 
 <Entity_struct> {
@@ -153,29 +167,16 @@ linkml:Nodeidentifier NONLITERAL
 
 <GafAssociation>  (
     CLOSED {
-       (  $<GafAssociation_tes> (  &<Association_tes> ;
-             rdf:type [ <Association> ] ? ;
+       (  $<GafAssociation_tes> (  &<XafAssociation_tes> ;
+             rdf:type [ <XafAssociation> ] ? ;
              &<Denormalized_tes> ;
              rdf:type [ <Denormalized> ] ? ;
              &<GoRelated_tes> ;
              rdf:type [ <GoRelated> ] ? ;
-             <db> @linkml:String ;
-             <local_id> @linkml:String ;
-             <db_object_symbol> @<SymbolType> ;
              <qualifiers> @<Gp2termRelationEnum> * ;
-             <ontology_class_ref> @<AbstractThing> ;
-             <supporting_references> @<Publication> + ;
-             <evidence_type> @<OntologyClass> ;
-             <with_or_from> @<AbstractThing> * ;
+             <ontology_class_ref> @<OntologyClass> ;
              <aspect> @<GeneOntologyAspectEnum> ;
-             <db_object_name> @<NameType> ? ;
-             <db_object_synonyms> @<NameType> * ;
-             <db_object_type> @<GpEntityTypeEnum> ? ;
-             <db_object_taxon> @<Taxon> ;
-             <annotation_date> @linkml:Datetime ? ;
-             <assigned_by> @<Provider> ;
-             <annotation_extensions> @<ConjunctionExtensionExpression> * ;
-             <gene_product_form> @<BiologicalEntity> ?
+             <db_object_type> @<GpEntityTypeEnum> ?
           ) ;
           rdf:type [ <GafAssociation> ] ?
        )
@@ -204,17 +205,17 @@ linkml:Nodeidentifier NONLITERAL
           rdf:type [ <Denormalized> ] ? ;
           &<GoRelated_tes> ;
           rdf:type [ <GoRelated> ] ? ;
-          <db_object_ref> @<AbstractThing> ;
+          <db_object_ref> @<Entity> ;
           <negation> @linkml:Boolean ? ;
           <relation> @<Gp2termRelationEnum> ;
-          <ontology_class_ref> @<AbstractThing> ;
+          <ontology_class_ref> @<OntologyClass> ;
           <supporting_references> @<Publication> + ;
           <evidence_type> @<OntologyClass> ;
-          <with_or_from> @<AbstractThing> * ;
+          <with_or_from> @<Entity> * ;
           <interacting_taxon_ref> @<Taxon> * ;
           <annotation_date> @linkml:Datetime ? ;
           <assigned_by> @<Provider> ;
-          <annotation_extensions> @<ConjunctionExtensionExpression> * ;
+          <annotation_extensions> @<AnnotationExtension> * ;
           <annotation_properties> @<PropertyValuePair> * ;
           <db_object_type> @<GpEntityTypeEnum> ?
        ) ;
@@ -248,9 +249,9 @@ linkml:Nodeidentifier NONLITERAL
           <db_object_synonyms> @<NameType> * ;
           <db_object_type> @linkml:String ? ;
           <db_object_taxon> @<Taxon> ;
-          <encoded_by> @<AbstractThing> * ;
-          <parent_protein> @<AbstractThing> * ;
-          <protein_containing_complex_members> @<AbstractThing> * ;
+          <encoded_by> @<Entity> * ;
+          <parent_protein> @<Entity> * ;
+          <protein_containing_complex_members> @<Entity> * ;
           <db_xrefs> @<Curie> * ;
           <gene_product_properties> @<PropertyValuePair> *
        ) ;
@@ -267,12 +268,12 @@ linkml:Nodeidentifier NONLITERAL
           <local_id> @linkml:String ;
           <db_object_symbol> @<SymbolType> ;
           <relation> @linkml:String ;
-          <ontology_class_ref> @<AbstractThing> ;
+          <ontology_class_ref> @<OntologyClass> ;
           <supporting_references> @<Publication> + ;
           <evidence_type> @<OntologyClass> ;
           <onset> @linkml:String ? ;
           <frequency> @linkml:String ? ;
-          <with_or_from> @<AbstractThing> * ;
+          <with_or_from> @<Entity> * ;
           <aspect> @linkml:String ;
           <db_object_synonyms> @<NameType> * ;
           <annotation_date> @linkml:Datetime ? ;
@@ -293,7 +294,9 @@ linkml:Nodeidentifier NONLITERAL
 
 <https://w3id.org/mitabInteraction>  (
     CLOSED {
-       (  $<https://w3id.org/mitabInteraction_tes> rdf:type . * ;
+       (  $<https://w3id.org/mitabInteraction_tes> (  &<Annotation_tes> ;
+             rdf:type [ <Annotation> ] ?
+          ) ;
           rdf:type [ <https://w3id.org/mitabInteraction> ] ?
        )
     } OR @<https://w3id.org/mitabMitabInteraction>
@@ -362,13 +365,54 @@ linkml:Nodeidentifier NONLITERAL
        (  $<OntologyClass_tes> (  &<ControlledTerm_tes> ;
              rdf:type [ <ControlledTerm> ] ?
           ) ;
-          rdf:type [ <OntologyClass> ]
+          rdf:type [ <OntologyClass> ] ?
        )
     } OR @<Taxon>
 )
 
+<PhafAssociation> CLOSED {
+    (  $<PhafAssociation_tes> (  &<XafAssociation_tes> ;
+          rdf:type [ <XafAssociation> ] ? ;
+          &<Denormalized_tes> ;
+          rdf:type [ <Denormalized> ] ? ;
+          <Database_name> @<DatabaseNameEnum> ;
+          <Gene_systematic_ID> @linkml:String ;
+          <FYPO_ID> @<FYPOIdentifier> ;
+          <Allele_description> @linkml:String ? ;
+          <Expression> @<ExpressionEnum> ? ;
+          <Parental_strain> @linkml:String ? ;
+          <Strain_name_(background)> @linkml:String ? ;
+          <Genotype_description> @linkml:String ? ;
+          <Gene_name> @linkml:String ? ;
+          <Allele_name> @linkml:String ? ;
+          <Allele_synonym> @linkml:String ? ;
+          <Allele_type> @<AlleleTypeEnum> ? ;
+          <Evidence> @<EvidenceEnum> ;
+          <Condition> @<PECOIdentifier> ? ;
+          <Penetrance> @linkml:String ? ;
+          <Severity> @<FYPOEXTIdentifier> ? ;
+          <Extension> @linkml:String ? ;
+          <Reference> @<Publication> + ;
+          <Taxon> @linkml:Integer ;
+          <Date> @linkml:Integer ?
+       ) ;
+       rdf:type [ <PhafAssociation> ] ?
+    )
+}
+
+<PhafAssociationDocument> CLOSED {
+    (  $<PhafAssociationDocument_tes> (  &<AssociationDocument_tes> ;
+          rdf:type [ <AssociationDocument> ] ? ;
+          <associations> @<PhafAssociation> *
+       ) ;
+       rdf:type [ <PhafAssociationDocument> ] ?
+    )
+}
+
 <PropertyValuePair> CLOSED {
-    (  $<PropertyValuePair_tes> (  <property> @<ControlledTerm> ? ;
+    (  $<PropertyValuePair_tes> (  &<RelationalConstruct_tes> ;
+          rdf:type [ <RelationalConstruct> ] ? ;
+          <property> @<ControlledTerm> ? ;
           <value> @linkml:String ?
        ) ;
        rdf:type [ <PropertyValuePair> ] ?
@@ -376,18 +420,18 @@ linkml:Nodeidentifier NONLITERAL
 }
 
 <Provider> CLOSED {
-    (  $<Provider_tes> (  &<AbstractThing_tes> ;
-          rdf:type [ <AbstractThing> ] ?
+    (  $<Provider_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ?
        ) ;
-       rdf:type [ <Provider> ]
+       rdf:type [ <Provider> ] ?
     )
 }
 
 <Publication> CLOSED {
-    (  $<Publication_tes> (  &<AbstractThing_tes> ;
-          rdf:type [ <AbstractThing> ] ?
+    (  $<Publication_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ?
        ) ;
-       rdf:type [ <Publication> ]
+       rdf:type [ <Publication> ] ?
     )
 }
 
@@ -395,7 +439,17 @@ linkml:Nodeidentifier NONLITERAL
     (  $<RelationTerm_tes> (  &<ControlledTerm_tes> ;
           rdf:type [ <ControlledTerm> ] ?
        ) ;
-       rdf:type [ <RelationTerm> ]
+       rdf:type [ <RelationTerm> ] ?
+    )
+}
+
+<RelationalConstruct>  (
+    @<AnnotationExtension> OR @<PropertyValuePair>
+)
+
+<RelationalConstruct_struct> {
+    (  $<RelationalConstruct_tes> rdf:type . * ;
+       rdf:type [ <RelationalConstruct> ] ?
     )
 }
 
@@ -412,9 +466,38 @@ linkml:Nodeidentifier NONLITERAL
     (  $<Taxon_tes> (  &<OntologyClass_tes> ;
           rdf:type [ <OntologyClass> ] ?
        ) ;
-       rdf:type [ <Taxon> ]
+       rdf:type [ <Taxon> ] ?
     )
 }
+
+<XafAssociation>  (
+    CLOSED {
+       (  $<XafAssociation_tes> (  &<Association_tes> ;
+             rdf:type [ <Association> ] ? ;
+             &<Denormalized_tes> ;
+             rdf:type [ <Denormalized> ] ? ;
+             <db> @linkml:String ;
+             <local_id> @linkml:String ;
+             <db_object_symbol> @<SymbolType> ;
+             <qualifiers> @linkml:String * ;
+             <ontology_class_ref> @<OntologyClass> ;
+             <supporting_references> @<Publication> + ;
+             <evidence_type> @<OntologyClass> ;
+             <with_or_from> @<Entity> * ;
+             <aspect> @linkml:String ;
+             <db_object_name> @<NameType> ? ;
+             <db_object_synonyms> @<NameType> * ;
+             <db_object_type> @linkml:String ? ;
+             <db_object_taxon> @<Taxon> ;
+             <annotation_date> @linkml:Datetime ? ;
+             <assigned_by> @<Provider> ;
+             <annotation_extensions> @<AnnotationExtension> * ;
+             <gene_product_form> @<BiologicalEntity> ?
+          ) ;
+          rdf:type [ <XafAssociation> ] ?
+       )
+    } OR @<GafAssociation> OR @<PhafAssociation>
+)
 
 
 

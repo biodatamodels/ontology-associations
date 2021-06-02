@@ -1,6 +1,12 @@
-type AbstractThing
+Warning: The following errors were encountered in the schema
+		File "/Users/cjm/repos/ontology_associations/src/schema/gpi.yaml", line 37, col 7:  Slot gpi entity_db object ref is declared inline but single valued
+
+interface Annotation
   {
-    id: Curie!
+  }
+
+type AnnotationExtension
+  {
   }
 
 interface Association
@@ -74,13 +80,8 @@ type CausaltabInteraction
     causalStatement: Psi-miIdentifier
   }
 
-type ConjunctionExtensionExpression
-  {
-  }
-
 type ControlledTerm
   {
-    id: Curie!
   }
 
 interface Denormalized
@@ -101,10 +102,10 @@ type GafAssociation implements Denormalized, GoRelated
     localId: String!
     dbObjectSymbol: SymbolType!
     qualifiers: [Gp2termRelationEnum]
-    ontologyClassRef: AbstractThing!
+    ontologyClassRef: OntologyClass!
     supportingReferences: [Publication]!
     evidenceType: OntologyClass!
-    withOrFrom: [AbstractThing]
+    withOrFrom: [Entity]
     aspect: GeneOntologyAspectEnum!
     dbObjectName: NameType
     dbObjectSynonyms: [NameType]
@@ -112,7 +113,7 @@ type GafAssociation implements Denormalized, GoRelated
     dbObjectTaxon: Taxon!
     annotationDate: Datetime
     assignedBy: Provider!
-    annotationExtensions: [ConjunctionExtensionExpression]
+    annotationExtensions: [AnnotationExtension]
     geneProductForm: BiologicalEntity
   }
 
@@ -135,17 +136,17 @@ interface GoRelated
 
 type GpadAssociation implements Denormalized, GoRelated
   {
-    dbObjectRef: AbstractThing!
+    dbObjectRef: Entity!
     negation: Boolean
     relation: Gp2termRelationEnum!
-    ontologyClassRef: AbstractThing!
+    ontologyClassRef: OntologyClass!
     supportingReferences: [Publication]!
     evidenceType: OntologyClass!
-    withOrFrom: [AbstractThing]
+    withOrFrom: [Entity]
     interactingTaxonRef: [Taxon]
     annotationDate: Datetime
     assignedBy: Provider!
-    annotationExtensions: [ConjunctionExtensionExpression]
+    annotationExtensions: [AnnotationExtension]
     annotationProperties: [PropertyValuePair]
     dbObjectType: GpEntityTypeEnum
   }
@@ -170,15 +171,15 @@ type GpiDocument
 
 type GpiEntity
   {
-    dbObjectRef: AbstractThing!
+    dbObjectRef: Entity!
     dbObjectSymbol: SymbolType!
     dbObjectName: NameType
     dbObjectSynonyms: [NameType]
     dbObjectType: String
     dbObjectTaxon: Taxon!
-    encodedBy: [AbstractThing]
-    parentProtein: [AbstractThing]
-    proteinContainingComplexMembers: [AbstractThing]
+    encodedBy: [Entity]
+    parentProtein: [Entity]
+    proteinContainingComplexMembers: [Entity]
     dbXrefs: [Curie]
     geneProductProperties: [PropertyValuePair]
   }
@@ -189,12 +190,12 @@ type HumanPhenotypeOntologyAssociation implements Denormalized
     localId: String!
     dbObjectSymbol: SymbolType!
     relation: String!
-    ontologyClassRef: AbstractThing!
+    ontologyClassRef: OntologyClass!
     supportingReferences: [Publication]!
     evidenceType: OntologyClass!
     onset: String
     frequency: String
-    withOrFrom: [AbstractThing]
+    withOrFrom: [Entity]
     aspect: String!
     dbObjectSynonyms: [NameType]
     annotationDate: Datetime
@@ -270,7 +271,60 @@ interface Normalized
 
 type OntologyClass
   {
-    id: Curie!
+  }
+
+type PhafAssociation implements Denormalized
+  {
+    db: String!
+    localId: String!
+    dbObjectSymbol: SymbolType!
+    qualifiers: [String]
+    ontologyClassRef: OntologyClass!
+    supportingReferences: [Publication]!
+    evidenceType: OntologyClass!
+    withOrFrom: [Entity]
+    aspect: String!
+    dbObjectName: NameType
+    dbObjectSynonyms: [NameType]
+    dbObjectType: String
+    dbObjectTaxon: Taxon!
+    annotationDate: Datetime
+    assignedBy: Provider!
+    annotationExtensions: [AnnotationExtension]
+    geneProductForm: BiologicalEntity
+    databaseName: DatabaseNameEnum!
+    geneSystematicID: String!
+    fYPOID: FYPOIdentifier!
+    alleleDescription: String
+    expression: ExpressionEnum
+    parentalStrain: String
+    strainName(background): String
+    genotypeDescription: String
+    geneName: String
+    alleleName: String
+    alleleSynonym: String
+    alleleType: AlleleTypeEnum
+    evidence: EvidenceEnum!
+    condition: PECOIdentifier
+    penetrance: String
+    severity: FYPOEXTIdentifier
+    extension: String
+    reference: Identifier
+    taxon: Integer
+    date: Integer
+  }
+
+type PhafAssociationDocument
+  {
+    dateGenerated: String
+    generatedBy: Provider
+    url: String
+    projectRelease: String
+    funding: String
+    goVersion: String
+    roVersion: String
+    gorelVersion: String
+    associations: [PhafAssociation]
   }
 
 type PropertyValuePair
@@ -281,17 +335,18 @@ type PropertyValuePair
 
 type Provider
   {
-    id: Curie!
   }
 
 type Publication
   {
-    id: Curie!
   }
 
 type RelationTerm
   {
-    id: Curie!
+  }
+
+interface RelationalConstruct
+  {
   }
 
 type SimpleGafAssociation
@@ -299,10 +354,10 @@ type SimpleGafAssociation
     db: String!
     localId: String!
     dbObjectSymbol: SymbolType!
-    ontologyClassRef: AbstractThing!
+    ontologyClassRef: OntologyClass!
     supportingReferences: [Publication]!
     evidenceType: OntologyClass!
-    withOrFrom: [AbstractThing]
+    withOrFrom: [Entity]
     aspect: GeneOntologyAspectEnum!
     dbObjectName: NameType
     dbObjectSynonyms: [NameType]
@@ -310,14 +365,34 @@ type SimpleGafAssociation
     dbObjectTaxon: Taxon!
     annotationDate: Datetime
     assignedBy: Provider!
-    annotationExtensions: [ConjunctionExtensionExpression]
+    annotationExtensions: [AnnotationExtension]
     geneProductForm: BiologicalEntity
     qualifiers: [SimpleQualifierEnum]
   }
 
 type Taxon
   {
-    id: Curie!
+  }
+
+type XafAssociation implements Denormalized
+  {
+    db: String!
+    localId: String!
+    dbObjectSymbol: SymbolType!
+    qualifiers: [String]
+    ontologyClassRef: OntologyClass!
+    supportingReferences: [Publication]!
+    evidenceType: OntologyClass!
+    withOrFrom: [Entity]
+    aspect: String!
+    dbObjectName: NameType
+    dbObjectSynonyms: [NameType]
+    dbObjectType: String
+    dbObjectTaxon: Taxon!
+    annotationDate: Datetime
+    assignedBy: Provider!
+    annotationExtensions: [AnnotationExtension]
+    geneProductForm: BiologicalEntity
   }
 
 

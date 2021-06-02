@@ -1,9 +1,9 @@
 id,mappings,description
-abstract_thing,,
-association,,generic association
+annotation,,
+annotation_extension,,set of expressions all true
+association,,generic association between an entity and an ontological term
 association_document,,
 biological_entity,,
-conjunction_extension_expression,,set of expressions all true
 controlled_term,,
 denormalized,,mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes
 document,,root class for association or entity documents
@@ -19,6 +19,7 @@ property_value_pair,,
 provider,,
 publication,,
 relation_term,,
+relational_construct,,
 simple_gaf_association,,
 taxon,,
 xaf_association,,"line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions."

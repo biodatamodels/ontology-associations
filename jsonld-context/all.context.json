@@ -1,5 +1,8 @@
+Warning: The following errors were encountered in the schema
+		File "/Users/cjm/repos/ontology_associations/src/schema/gpi.yaml", line 37, col 7:  Slot gpi entity_db object ref is declared inline but single valued
+
 {
-   "_comments": "Auto generated from all.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-05-27 10:32\n    Schema: ontology_associations\n    \n    id: https://w3id.org/ontology_association/all\n    description: Various association data models\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "_comments": "Auto generated from all.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-06-01 19:46\n    Schema: ontology_associations\n    \n    id: https://w3id.org/ontology_association/all\n    description: Various association data models\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
    "@context": {
       "biolink": "https://w3id.org/biolink/vocab/",
       "linkml": "https://w3id.org/linkml/",
@@ -15,6 +18,14 @@
       },
       "Alias(es)_interactor_B": {
          "@id": "mitab:Alias(es)_interactor_B"
+      },
+      "Allele_type": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
       },
       "Alt._ID(s)_interactor_A": {
          "@id": "mitab:Alt._ID(s)_interactor_A"
@@ -104,12 +115,31 @@
          "@type": "xsd:dateTime",
          "@id": "mitab:Creation_date"
       },
+      "Database_name": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "Date": {
+         "@type": "xsd:integer"
+      },
       "db_object_ref": "@id",
       "db_object_taxon": {
          "@type": "@id"
       },
       "encoded_by": {
          "@type": "@id"
+      },
+      "Evidence": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
       },
       "evidence_type": {
          "@type": "@id"
@@ -140,6 +170,14 @@
             "meaning": "@id"
          },
          "@id": "mitab:Experimental_role(s)_interactor_B"
+      },
+      "Expression": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
       },
       "Feature(s)_interactor_A": {
          "@id": "mitab:Feature(s)_interactor_A"
@@ -247,6 +285,9 @@
       "Publication_Identifier(s)": {
          "@id": "mitab:Publication_Identifier(s)"
       },
+      "Reference": {
+         "@type": "@id"
+      },
       "Source_database(s)": {
          "@id": "mitab:Source_database(s)"
       },
@@ -276,6 +317,9 @@
       },
       "Taxid_interactor_B": {
          "@id": "mitab:Taxid_interactor_B"
+      },
+      "Taxon": {
+         "@type": "xsd:integer"
       },
       "Type(s)_interactor_A": {
          "@id": "mitab:Type(s)_interactor_A"

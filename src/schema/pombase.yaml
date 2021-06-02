@@ -1,5 +1,5 @@
-id: https://w3id.org/ontology_association/phaf
-name: phaf
+id: https://w3id.org/ontology_association/pombase
+name: pombase
 description: >-
   Various association data models
 imports:
@@ -8,11 +8,8 @@ prefixes:
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/vocab/
   ontology_association: https://w3id.org/ontology_association/
-  SO: http://purl.obolibrary.org/obo/SO_
-  PR: http://purl.obolibrary.org/obo/PR_
-  GO: http://purl.obolibrary.org/obo/GO_
   RO: http://purl.obolibrary.org/obo/RO_
-  BFO: http://purl.obolibrary.org/obo/BFO_
+  FYPO: http://purl.obolibrary.org/obo/FYPO_
   owl: "http://www.w3.org/2002/07/owl#"
 default_prefix: ontology_association
 
@@ -30,15 +27,15 @@ types:
 
 classes:
 
-  phaf association document:
+  pombase phaf association document:
     is_a: association document
     slot_usage:
       associations:
-        range: phaf association
+        range: pombase phaf association
         multivalued: true
       
-  phaf association:
-    is_a: xaf association
+  pombase phaf association:
+    is_a: association
     mixins:
       - denormalized
     description: >-

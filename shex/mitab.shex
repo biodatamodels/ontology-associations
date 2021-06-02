@@ -2,6 +2,7 @@ BASE <https://w3id.org/mitab/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
+PREFIX ontology_association: <https://w3id.org/ontology_association/>
 
 
 <https://w3id.org/mitabIdentifier> xsd:string
@@ -42,6 +43,65 @@ linkml:Objectidentifier IRI
 
 linkml:Nodeidentifier NONLITERAL
 
+ontology_association:Curie xsd:string
+
+ontology_association:SymbolType xsd:string
+
+ontology_association:NameType xsd:string
+
+ontology_association:Annotation  (
+    @ontology_association:Association OR @<https://w3id.org/mitabInteraction>
+)
+
+ontology_association:Annotation_struct {
+    (  $ontology_association:Annotation_tes rdf:type . * ;
+       rdf:type [ ontology_association:Annotation ] ?
+    )
+}
+
+ontology_association:AnnotationExtension CLOSED {
+    (  $ontology_association:AnnotationExtension_tes (  &ontology_association:RelationalConstruct_tes ;
+          rdf:type [ ontology_association:RelationalConstruct ] ?
+       ) ;
+       rdf:type [ ontology_association:AnnotationExtension ] ?
+    )
+}
+
+ontology_association:Association  (
+    {
+       (  $ontology_association:Association_tes (  &ontology_association:Annotation_tes ;
+             rdf:type [ ontology_association:Annotation ] ?
+          ) ;
+          rdf:type [ ontology_association:Association ] ?
+       )
+    } OR @ontology_association:XafAssociation
+)
+
+ontology_association:AssociationDocument CLOSED {
+    (  $ontology_association:AssociationDocument_tes (  &ontology_association:Document_tes ;
+          rdf:type [ ontology_association:Document ] ? ;
+          ontology_association:date_generated @linkml:String ? ;
+          ontology_association:generated_by @ontology_association:Provider ? ;
+          ontology_association:url @linkml:String ? ;
+          ontology_association:project_release @linkml:String ? ;
+          ontology_association:funding @linkml:String ? ;
+          ontology_association:go_version @linkml:String ? ;
+          ontology_association:ro_version @linkml:String ? ;
+          ontology_association:gorel_version @linkml:String ? ;
+          <https://w3id.org/mitabassociations> @ontology_association:Association *
+       ) ;
+       rdf:type [ ontology_association:AssociationDocument ] ?
+    )
+}
+
+ontology_association:BiologicalEntity {
+    (  $ontology_association:BiologicalEntity_tes (  &ontology_association:Entity_tes ;
+          rdf:type [ ontology_association:Entity ] ?
+       ) ;
+       rdf:type [ ontology_association:BiologicalEntity ] ?
+    )
+}
+
 <https://w3id.org/mitabCausaltabInteraction> CLOSED {
     (  $<https://w3id.org/mitabCausaltabInteraction_tes> (  &<https://w3id.org/mitabMitabInteraction_tes> ;
           rdf:type [ <https://w3id.org/mitabMitabInteraction> ] ? ;
@@ -54,9 +114,52 @@ linkml:Nodeidentifier NONLITERAL
     )
 }
 
+ontology_association:ControlledTerm  (
+    CLOSED {
+       (  $ontology_association:ControlledTerm_tes (  &ontology_association:Entity_tes ;
+             rdf:type [ ontology_association:Entity ] ?
+          ) ;
+          rdf:type [ ontology_association:ControlledTerm ] ?
+       )
+    } OR @ontology_association:OntologyClass OR @ontology_association:RelationTerm
+)
+
+ontology_association:Denormalized {
+    (  $ontology_association:Denormalized_tes rdf:type . * ;
+       rdf:type [ ontology_association:Denormalized ] ?
+    )
+}
+
+ontology_association:Document  (
+    {
+       (  $ontology_association:Document_tes rdf:type . * ;
+          rdf:type [ ontology_association:Document ] ?
+       )
+    } OR @ontology_association:AssociationDocument
+)
+
+ontology_association:Entity  (
+    @ontology_association:BiologicalEntity OR @ontology_association:ControlledTerm OR @ontology_association:Provider OR
+    @ontology_association:Publication
+)
+
+ontology_association:Entity_struct {
+    (  $ontology_association:Entity_tes rdf:type . * ;
+       rdf:type [ ontology_association:Entity ] ?
+    )
+}
+
+ontology_association:GoRelated {
+    (  $ontology_association:GoRelated_tes rdf:type . * ;
+       rdf:type [ ontology_association:GoRelated ] ?
+    )
+}
+
 <https://w3id.org/mitabInteraction>  (
     CLOSED {
-       (  $<https://w3id.org/mitabInteraction_tes> rdf:type . * ;
+       (  $<https://w3id.org/mitabInteraction_tes> (  &ontology_association:Annotation_tes ;
+             rdf:type [ ontology_association:Annotation ] ?
+          ) ;
           rdf:type [ <https://w3id.org/mitabInteraction> ] ?
        )
     } OR @<https://w3id.org/mitabMitabInteraction>
@@ -113,6 +216,101 @@ linkml:Nodeidentifier NONLITERAL
        )
     } OR @<https://w3id.org/mitabCausaltabInteraction>
 )
+
+ontology_association:Normalized {
+    (  $ontology_association:Normalized_tes rdf:type . * ;
+       rdf:type [ ontology_association:Normalized ] ?
+    )
+}
+
+ontology_association:OntologyClass  (
+    CLOSED {
+       (  $ontology_association:OntologyClass_tes (  &ontology_association:ControlledTerm_tes ;
+             rdf:type [ ontology_association:ControlledTerm ] ?
+          ) ;
+          rdf:type [ ontology_association:OntologyClass ] ?
+       )
+    } OR @ontology_association:Taxon
+)
+
+ontology_association:PropertyValuePair CLOSED {
+    (  $ontology_association:PropertyValuePair_tes (  &ontology_association:RelationalConstruct_tes ;
+          rdf:type [ ontology_association:RelationalConstruct ] ? ;
+          <https://w3id.org/mitabproperty> @ontology_association:ControlledTerm ? ;
+          <https://w3id.org/mitabvalue> @linkml:String ?
+       ) ;
+       rdf:type [ ontology_association:PropertyValuePair ] ?
+    )
+}
+
+ontology_association:Provider CLOSED {
+    (  $ontology_association:Provider_tes (  &ontology_association:Entity_tes ;
+          rdf:type [ ontology_association:Entity ] ?
+       ) ;
+       rdf:type [ ontology_association:Provider ] ?
+    )
+}
+
+ontology_association:Publication CLOSED {
+    (  $ontology_association:Publication_tes (  &ontology_association:Entity_tes ;
+          rdf:type [ ontology_association:Entity ] ?
+       ) ;
+       rdf:type [ ontology_association:Publication ] ?
+    )
+}
+
+ontology_association:RelationTerm CLOSED {
+    (  $ontology_association:RelationTerm_tes (  &ontology_association:ControlledTerm_tes ;
+          rdf:type [ ontology_association:ControlledTerm ] ?
+       ) ;
+       rdf:type [ ontology_association:RelationTerm ] ?
+    )
+}
+
+ontology_association:RelationalConstruct  (
+    @ontology_association:AnnotationExtension OR @ontology_association:PropertyValuePair
+)
+
+ontology_association:RelationalConstruct_struct {
+    (  $ontology_association:RelationalConstruct_tes rdf:type . * ;
+       rdf:type [ ontology_association:RelationalConstruct ] ?
+    )
+}
+
+ontology_association:Taxon CLOSED {
+    (  $ontology_association:Taxon_tes (  &ontology_association:OntologyClass_tes ;
+          rdf:type [ ontology_association:OntologyClass ] ?
+       ) ;
+       rdf:type [ ontology_association:Taxon ] ?
+    )
+}
+
+ontology_association:XafAssociation CLOSED {
+    (  $ontology_association:XafAssociation_tes (  &ontology_association:Association_tes ;
+          rdf:type [ ontology_association:Association ] ? ;
+          &ontology_association:Denormalized_tes ;
+          rdf:type [ ontology_association:Denormalized ] ? ;
+          ontology_association:db @linkml:String ;
+          ontology_association:local_id @linkml:String ;
+          ontology_association:db_object_symbol @ontology_association:SymbolType ;
+          ontology_association:qualifiers @linkml:String * ;
+          ontology_association:ontology_class_ref @ontology_association:OntologyClass ;
+          ontology_association:supporting_references @ontology_association:Publication + ;
+          ontology_association:evidence_type @ontology_association:OntologyClass ;
+          ontology_association:with_or_from @ontology_association:Entity * ;
+          ontology_association:aspect @linkml:String ;
+          ontology_association:db_object_name @ontology_association:NameType ? ;
+          ontology_association:db_object_synonyms @ontology_association:NameType * ;
+          ontology_association:db_object_type @linkml:String ? ;
+          ontology_association:db_object_taxon @ontology_association:Taxon ;
+          ontology_association:annotation_date @linkml:Datetime ? ;
+          ontology_association:assigned_by @ontology_association:Provider ;
+          ontology_association:annotation_extensions @ontology_association:AnnotationExtension * ;
+          ontology_association:gene_product_form @ontology_association:BiologicalEntity ?
+       ) ;
+       rdf:type [ ontology_association:XafAssociation ] ?
+    )
+}
 
 
 

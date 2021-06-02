@@ -3,9 +3,10 @@ name: mitab
 description: mitab
 imports:
 - linkml:types
+- association
 prefixes:
   linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/
+  biolink: https://w3id.org/biolink/vocab/
   mitab: https://w3id.org/mitab
   MI: http://purl.obolibrary.org/obo/MI_
   MI2CAST: https://github.com/MI2CAST/MI2CAST/
@@ -23,6 +24,7 @@ types:
     typeof: string
 classes:
   interaction:
+    is_a: annotation
     description: >-
       An interaction between two molecular entities
       

@@ -1,10 +1,13 @@
+Warning: The following errors were encountered in the schema
+		File "/Users/cjm/repos/ontology_associations/src/schema/gpi.yaml", line 37, col 7:  Slot gpi entity_db object ref is declared inline but single valued
+
 id,mappings,description
-abstract_thing,,
-association,,generic association
+annotation,,
+annotation_extension,,set of expressions all true
+association,,generic association between an entity and an ontological term
 association_document,,
 biological_entity,,
 causaltab_interaction,,
-conjunction_extension_expression,,set of expressions all true
 controlled_term,,
 denormalized,,mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes
 document,,root class for association or entity documents
@@ -14,18 +17,22 @@ gaf_association_document,,
 go_related,,mixin for any association that is GO related
 gpad_association,,line of GPAD
 gpad_association_document,,
-gpi_document,,
-gpi_entity,,
+gpi_document,,A collection of gpi entities plus associated metadata
+gpi_entity,,"An entity that can be annotated using GO. May be a gene, gene product, or complex"
 human_phenotype_ontology_association,,
 human_phenotype_ontology_association_document,,
 interaction,,An interaction between two molecular entities
 mitab_interaction,,
 normalized,,"mixin for a normalized class, in the sense of database normal forms"
 ontology_class,,
+phaf_association,,line of PHAF
+phaf_association_document,,
 property_value_pair,,
 provider,,
 publication,,
 relation_term,,
+relational_construct,,
 simple_gaf_association,,
 taxon,,
+xaf_association,,"line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions."
 

@@ -7,6 +7,7 @@ imports:
  - gaf
  - gpi
  - mitab
+ - pombase
 prefixes:
   linkml: https://w3id.org/linkml/
   ontology_association: https://w3id.org/ontology_association/

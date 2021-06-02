@@ -49,7 +49,7 @@ slots:
     
       
   db object ref:
-    range: abstract thing
+    range: entity
     required: true
     exact_mappings:
       - biolink:subject
@@ -91,15 +91,15 @@ slots:
     examples:
       - value: NCBITaxon:9606
   encoded by:
-    range: abstract thing ## TODO
+    range: entity
     required: false
     multivalued: true
   parent protein:
-    range: abstract thing ## TODO
+    range: entity
     required: false
     multivalued: true
   protein containing complex members:
-    range: abstract thing ## TODO
+    range: entity
     required: false
     multivalued: true
     
@@ -112,7 +112,7 @@ slots:
     range: boolean
       
   ontology class ref:
-    range: abstract thing
+    range: ontology class
     exact_mappings:
       - biolink:object
     required: true
@@ -137,7 +137,7 @@ slots:
     required: true
 
   with or from:
-    range: abstract thing
+    range: entity
     exact_mappings:
       - biolink:evidence_object ## TODO
     multivalued: true
@@ -180,7 +180,7 @@ slots:
   annotation extensions:
     description: >-
       disjunction
-    range: conjunction extension expression
+    range: annotation extension
     multivalued: true
     examples:
       - value: "BFO:0000066(GO:0005829)"
@@ -244,26 +244,22 @@ classes:
     abstract: true
     close_mappings:
       - biolink:NamedThing
-  
+
+      
   biological entity:
     is_a: entity
     abstract: true
     exact_mappings:
       - biolink:BiologicalEntity
   
-  abstract thing:
-    is_a: entity
-    slots:
-      - id
-
   provider:
-    is_a: abstract thing
+    is_a: entity
 
   publication:
-    is_a: abstract thing
+    is_a: entity
 
   controlled term:
-    is_a: abstract thing
+    is_a: entity
 
   ontology class:
     is_a: controlled term
@@ -278,21 +274,30 @@ classes:
   relation term:
     is_a: controlled term
 
+  relational construct:
+    abstract: true
+    
   property value pair:
+    is_a: relational construct
     attributes:
       property:
         range: controlled term
       value:
         description: >-
           value
-  conjunction extension expression:
+  annotation extension:
+    is_a: relational construct
     description: >-
       set of expressions all true
 
+  annotation:
+    abstract: true
+    
   association:
     abstract: true
+    is_a: annotation
     description: >-
-      generic association
+      generic association between an entity and an ontological term
 
   xaf association:
     is_a: association
