@@ -94,7 +94,7 @@
                 <h1 id="class-gafassociation">Class: GafAssociation</h1>
 <p>line of GAF</p>
 <p>URI: <a href="https://w3id.org/ontology_association/GafAssociation">ontology_association:GafAssociation</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[XafAssociation],[Taxon],[SimpleGafAssociation],[Publication],[Provider],[OntologyClass],[GoRelated],[GafAssociationDocument],[BiologicalEntity]&lt;gene%20product%20form(i)%200..1-++[GafAssociation&#124;qualifiers:gp2term_relation_enum%20*;aspect:gene_ontology_aspect_enum;db_object_type:gp_entity_type_enum%20%3F;db(i):string;local_id(i):string;db_object_symbol(i):symbol_type;db_object_name(i):name_type%20%3F;db_object_synonyms(i):name_type%20*;annotation_date(i):datetime%20%3F],[ConjunctionExtensionExpression]&lt;annotation%20extensions(i)%200..*-++[GafAssociation],[Provider]&lt;assigned%20by(i)%201..1-%20[GafAssociation],[Taxon]&lt;db%20object%20taxon(i)%201..1-%20[GafAssociation],[AbstractThing]&lt;with%20or%20from(i)%200..*-%20[GafAssociation],[OntologyClass]&lt;evidence%20type(i)%201..1-%20[GafAssociation],[Publication]&lt;supporting%20references(i)%201..*-%20[GafAssociation],[AbstractThing]&lt;ontology%20class%20ref%201..1-%20[GafAssociation],[GafAssociationDocument]++-%20associations%200..*&gt;[GafAssociation],[GafAssociation]uses%20-.-&gt;[Denormalized],[GafAssociation]uses%20-.-&gt;[GoRelated],[GafAssociation]^-[SimpleGafAssociation],[XafAssociation]^-[GafAssociation],[Denormalized],[ConjunctionExtensionExpression],[BiologicalEntity],[AbstractThing]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[XafAssociation],[Taxon],[SimpleGafAssociation],[Publication],[Provider],[OntologyClass],[GoRelated],[GafAssociationDocument],[BiologicalEntity]&lt;gene%20product%20form(i)%200..1-++[GafAssociation&#124;qualifiers:gp2term_relation_enum%20*;aspect:gene_ontology_aspect_enum;db_object_type:gp_entity_type_enum%20%3F;db(i):string;local_id(i):string;db_object_symbol(i):symbol_type;db_object_name(i):name_type%20%3F;db_object_synonyms(i):name_type%20*;annotation_date(i):datetime%20%3F],[AnnotationExtension]&lt;annotation%20extensions(i)%200..*-++[GafAssociation],[Provider]&lt;assigned%20by(i)%201..1-++[GafAssociation],[Taxon]&lt;db%20object%20taxon(i)%201..1-++[GafAssociation],[Entity]&lt;with%20or%20from(i)%200..*-++[GafAssociation],[OntologyClass]&lt;evidence%20type(i)%201..1-++[GafAssociation],[Publication]&lt;supporting%20references(i)%201..*-++[GafAssociation],[OntologyClass]&lt;ontology%20class%20ref%201..1-++[GafAssociation],[GafAssociationDocument]++-%20associations%200..*&gt;[GafAssociation],[GafAssociation]uses%20-.-&gt;[Denormalized],[GafAssociation]uses%20-.-&gt;[GoRelated],[GafAssociation]^-[SimpleGafAssociation],[XafAssociation]^-[GafAssociation],[Entity],[Denormalized],[BiologicalEntity],[AnnotationExtension]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../XafAssociation/">XafAssociation</a> - line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions. </li>
@@ -122,7 +122,7 @@
 </li>
 <li><a href="../annotation_extensions/">annotation extensions</a>  <sub>0..*</sub><ul>
 <li>Description: disjunction</li>
-<li>range: <a href="../ConjunctionExtensionExpression/">ConjunctionExtensionExpression</a></li>
+<li>range: <a href="../AnnotationExtension/">AnnotationExtension</a></li>
 <li>Example: BFO:0000066(GO:0005829) None</li>
 </ul>
 </li>
@@ -170,7 +170,7 @@
 </li>
 <li><a href="../gaf_association_ontology_class_ref/">gaf association➞ontology class ref</a>  <sub>REQ</sub><ul>
 <li>Description: this must be a GO ID</li>
-<li>range: <a href="../AbstractThing/">AbstractThing</a></li>
+<li>range: <a href="../OntologyClass/">OntologyClass</a></li>
 </ul>
 </li>
 <li><a href="../gaf_association_qualifiers/">gaf association➞qualifiers</a>  <sub>0..*</sub><ul>
@@ -192,7 +192,7 @@
 </ul>
 </li>
 <li><a href="../with_or_from/">with or from</a>  <sub>0..*</sub><ul>
-<li>range: <a href="../AbstractThing/">AbstractThing</a></li>
+<li>range: <a href="../Entity/">Entity</a></li>
 <li>Example: WB:WBVar00000510 None</li>
 </ul>
 </li>

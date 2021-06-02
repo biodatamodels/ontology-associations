@@ -93,7 +93,7 @@
               
                 <h1 id="class-ontologyclass">Class: OntologyClass</h1>
 <p>URI: <a href="https://w3id.org/ontology_association/OntologyClass">ontology_association:OntologyClass</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[HumanPhenotypeOntologyAssociation]-%20evidence%20type%201..1&gt;[OntologyClass&#124;id(i):curie],[GpadAssociation]-%20evidence%20type%201..1&gt;[OntologyClass],[GafAssociation]-%20evidence%20type(i)%201..1&gt;[OntologyClass],[XafAssociation]-%20evidence%20type%201..1&gt;[OntologyClass],[OntologyClass]^-[Taxon],[ControlledTerm]^-[OntologyClass],[XafAssociation],[HumanPhenotypeOntologyAssociation],[GpadAssociation],[GafAssociation],[ControlledTerm]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[HumanPhenotypeOntologyAssociation]++-%20evidence%20type%201..1&gt;[OntologyClass],[GpadAssociation]++-%20evidence%20type%201..1&gt;[OntologyClass],[GafAssociation]++-%20evidence%20type(i)%201..1&gt;[OntologyClass],[XafAssociation]++-%20evidence%20type%201..1&gt;[OntologyClass],[GafAssociation]++-%20ontology%20class%20ref%201..1&gt;[OntologyClass],[HumanPhenotypeOntologyAssociation]++-%20ontology%20class%20ref%201..1&gt;[OntologyClass],[GpadAssociation]++-%20ontology%20class%20ref%201..1&gt;[OntologyClass],[GafAssociation]++-%20ontology%20class%20ref(i)%201..1&gt;[OntologyClass],[XafAssociation]++-%20ontology%20class%20ref%201..1&gt;[OntologyClass],[OntologyClass]^-[Taxon],[ControlledTerm]^-[OntologyClass],[XafAssociation],[HumanPhenotypeOntologyAssociation],[GpadAssociation],[GafAssociation],[ControlledTerm]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../ControlledTerm/">ControlledTerm</a></li>
@@ -105,16 +105,10 @@
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
 <li><strong>None</strong> <em><a href="../evidence_type/">evidence type</a></em>  <sub>REQ</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../GafAssociation/">GafAssociation</a></strong> <em><a href="../gaf_association_ontology_class_ref/">gaf association➞ontology class ref</a></em>  <sub>REQ</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../ontology_class_ref/">ontology class ref</a></em>  <sub>REQ</sub>  <strong><a href="./">OntologyClass</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
-<h3 id="inherited-from-controlled-term">Inherited from controlled term:</h3>
-<ul>
-<li><a href="../id/">id</a>  <sub>REQ</sub><ul>
-<li>Description: identifier</li>
-<li>range: <a href="../types/Curie/">Curie</a></li>
-</ul>
-</li>
-</ul>
 <h2 id="other-properties">Other properties</h2>
 <table>
 <thead>

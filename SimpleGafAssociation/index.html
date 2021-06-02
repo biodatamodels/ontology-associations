@@ -93,7 +93,7 @@
               
                 <h1 id="class-simplegafassociation">Class: SimpleGafAssociation</h1>
 <p>URI: <a href="https://w3id.org/ontology_association/SimpleGafAssociation">ontology_association:SimpleGafAssociation</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[GafAssociation]^-[SimpleGafAssociation&#124;qualifiers:simple_qualifier_enum%20*;aspect(i):gene_ontology_aspect_enum;db_object_type(i):gp_entity_type_enum%20%3F;db(i):string;local_id(i):string;db_object_symbol(i):symbol_type;db_object_name(i):name_type%20%3F;db_object_synonyms(i):name_type%20*;annotation_date(i):datetime%20%3F],[Publication],[Provider],[OntologyClass],[GafAssociation],[ConjunctionExtensionExpression],[BiologicalEntity],[AbstractThing]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Taxon],[GafAssociation]^-[SimpleGafAssociation&#124;qualifiers:simple_qualifier_enum%20*;aspect(i):gene_ontology_aspect_enum;db_object_type(i):gp_entity_type_enum%20%3F;db(i):string;local_id(i):string;db_object_symbol(i):symbol_type;db_object_name(i):name_type%20%3F;db_object_synonyms(i):name_type%20*;annotation_date(i):datetime%20%3F],[Publication],[Provider],[OntologyClass],[GafAssociation],[Entity],[BiologicalEntity],[AnnotationExtension]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../GafAssociation/">GafAssociation</a> - line of GAF</li>
@@ -116,7 +116,7 @@
 </li>
 <li><a href="../annotation_extensions/">annotation extensions</a>  <sub>0..*</sub><ul>
 <li>Description: disjunction</li>
-<li>range: <a href="../ConjunctionExtensionExpression/">ConjunctionExtensionExpression</a></li>
+<li>range: <a href="../AnnotationExtension/">AnnotationExtension</a></li>
 <li>Example: BFO:0000066(GO:0005829) None</li>
 </ul>
 </li>
@@ -164,7 +164,7 @@
 </li>
 <li><a href="../gaf_association_ontology_class_ref/">gaf association➞ontology class ref</a>  <sub>REQ</sub><ul>
 <li>Description: this must be a GO ID</li>
-<li>range: <a href="../AbstractThing/">AbstractThing</a></li>
+<li>range: <a href="../OntologyClass/">OntologyClass</a></li>
 </ul>
 </li>
 <li><a href="../gene_product_form/">gene product form</a>  <sub>OPT</sub><ul>
@@ -182,7 +182,7 @@
 </ul>
 </li>
 <li><a href="../with_or_from/">with or from</a>  <sub>0..*</sub><ul>
-<li>range: <a href="../AbstractThing/">AbstractThing</a></li>
+<li>range: <a href="../Entity/">Entity</a></li>
 <li>Example: WB:WBVar00000510 None</li>
 </ul>
 </li>

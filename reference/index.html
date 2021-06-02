@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Type: reference - ontology association</title>
+  <title>Slot: Reference - ontology association</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Type: reference";
+    var mkdocs_page_name = "Slot: Reference";
     var mkdocs_page_input_path = "reference.md";
     var mkdocs_page_url = null;
   </script>
@@ -80,7 +80,7 @@
     
       
     
-    <li>Type: reference</li>
+    <li>Slot: Reference</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -91,13 +91,20 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="type-reference">Type: reference</h1>
-<p>URI: <a href="https://w3id.org/ontology_association/reference">ontology_association:reference</a></p>
+                <h1 id="slot-reference">Slot: Reference</h1>
+<p>The Reference column has the publication’s PubMed ID (PMID).</p>
+<p>URI: <a href="https://w3id.org/ontology_association/Reference">ontology_association:Reference</a></p>
 <h2 id="domain-and-range">Domain and Range</h2>
-<p>None -&gt;  <sub>0..*</sub> <a href="../NamedThing/">NamedThing</a></p>
+<p>None -&gt;  <sub>1..*</sub> <a href="../Publication/">Publication</a></p>
 <h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="../supporting_references/">supporting references</a></li>
+</ul>
 <h2 id="children">Children</h2>
 <h2 id="used-by">Used by</h2>
+<ul>
+<li><a href="../PombasePhafAssociation/">PombasePhafAssociation</a></li>
+</ul>
 <h2 id="other-properties">Other properties</h2>
 <table>
 <thead>
@@ -109,9 +116,9 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Exact Mappings:</strong></td>
+<td><strong>Examples:</strong></td>
 <td></td>
-<td>biolink:publications</td>
+<td>Example(value='PMID:19229492', description=None)</td>
 </tr>
 </tbody>
 </table>

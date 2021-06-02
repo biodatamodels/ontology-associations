@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Class: PhafAssociation - ontology association</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Class: PhafAssociation";
+    var mkdocs_page_input_path = "PhafAssociation.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ontology association</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../home/">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../credits/">Credits</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ontology association</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Class: PhafAssociation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="class-phafassociation">Class: PhafAssociation</h1>
+<p>line of PHAF</p>
+<p>URI: <a href="https://w3id.org/ontology_association/PhafAssociation">ontology_association:PhafAssociation</a></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[XafAssociation],[Taxon],[Publication],[Provider],[PhafAssociationDocument],[Publication]&lt;Reference%201..*-++[PhafAssociation&#124;Database_name:Database_name_enum;Gene_systematic_ID:string;FYPO_ID:FYPO_identifier;Allele_description:string%20%3F;Expression:Expression_enum%20%3F;Parental_strain:string%20%3F;Strain_name_(background):string%20%3F;Genotype_description:string%20%3F;Gene_name:string%20%3F;Allele_name:string%20%3F;Allele_synonym:string%20%3F;Allele_type:Allele_type_enum%20%3F;Evidence:Evidence_enum;Condition:PECO_identifier%20%3F;Penetrance:string%20%3F;Severity:FYPO_EXT_identifier%20%3F;Extension:string%20*;Taxon:integer;Date:string%20%3F;db(i):string;local_id(i):string;db_object_symbol(i):symbol_type;qualifiers(i):string%20*;aspect(i):string;db_object_name(i):name_type%20%3F;db_object_synonyms(i):name_type%20*;db_object_type(i):string%20%3F;annotation_date(i):datetime%20%3F],[PhafAssociationDocument]++-%20associations%200..*&gt;[PhafAssociation],[PhafAssociation]uses%20-.-&gt;[Denormalized],[XafAssociation]^-[PhafAssociation],[OntologyClass],[Entity],[Denormalized],[BiologicalEntity],[AnnotationExtension]" /></p>
+<h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="../XafAssociation/">XafAssociation</a> - line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions. </li>
+</ul>
+<h2 id="uses-mixins">Uses Mixins</h2>
+<ul>
+<li>mixin: <a href="../Denormalized/">Denormalized</a> - mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong><a href="../PhafAssociationDocument/">PhafAssociationDocument</a></strong> <em><a href="../phaf_association_document_associations/">phaf association document➞associations</a></em>  <sub>0..<em></sub>  </em><em><a href="./">PhafAssociation</a></em>*</li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../Allele_description/">Allele description</a>  <sub>OPT</sub><ul>
+<li>Description: The allele description specifically describes the change; see the Phenotype data bulk upload format for details on allele types and descriptions.</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li>Example: G126D None</li>
+</ul>
+</li>
+<li><a href="../Allele_name/">Allele name</a>  <sub>OPT</sub><ul>
+<li>Description: Allele names are optional for upload, but are included where available in the download. Column 10 lists the preferred allele name, and any alternative names are in column 11.</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li>Example: bcp1+ None</li>
+</ul>
+</li>
+<li><a href="../Allele_synonym/">Allele synonym</a>  <sub>OPT</sub><ul>
+<li>Description: See note on Allele name above. Multiple entries are separated with pipes (|).</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../Allele_type/">Allele type</a>  <sub>OPT</sub><ul>
+<li>Description: Allowed allele types, example descriptions, etc. are shown in the table at the bottom of the <a href="https://www.pombase.org/documentation/phenotype-data-bulk-upload-format">Phenotype data bulk upload</a> format page.</li>
+<li>range: </li>
+<li>Example: wild_type None</li>
+</ul>
+</li>
+<li><a href="../Condition/">Condition</a>  <sub>OPT</sub><ul>
+<li>Description: Conditions use a small ontology maintained in-house by PomBase curators, and we can help you interpret the IDs. Multiple entries are shown in cases where more than one condition detail applies at the same time (e.g. high temperature, minimal medium), and are separated with commas (,).</li>
+<li>range: <a href="../types/PECOIdentifier/">PECOIdentifier</a></li>
+<li>Example: PECO:0000126,PECO:0000102 None</li>
+</ul>
+</li>
+<li><a href="../Database_name/">Database name</a>  <sub>REQ</sub><ul>
+<li>Description: The database that produced the file – included to facilitate data sharing with other databases. Obviously always PomBase for this file.</li>
+<li>range: </li>
+<li>Example: PomBase None</li>
+</ul>
+</li>
+<li><a href="Date.md">Date</a>  <sub>OPT</sub><ul>
+<li>Description: The date is the date on which the annotations are created. Format: YYYY-MM-DD</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li>Example: 20141023 None</li>
+</ul>
+</li>
+<li><a href="../Evidence/">Evidence</a>  <sub>REQ</sub><ul>
+<li>Description: For the Evidence column, we use a small selection from the Evidence Ontology (ECO). Please contact the Helpdesk if you need assistance using these IDs</li>
+<li>range: </li>
+<li>Example: cell growth assay evidence None</li>
+</ul>
+</li>
+<li><a href="../Expression/">Expression</a>  <sub>OPT</sub><ul>
+<li>Description: The Expression column contains one of these values: ‘overexpression’, ‘knockdown’, ‘endogenous’, ‘null’, ‘not specified’. Deletions always have ‘null’ expression.</li>
+<li>range: </li>
+<li>Example: Overexpression None</li>
+</ul>
+</li>
+<li><a href="../Extension/">Extension</a>  <sub>0..*</sub><ul>
+<li>Description: The Extension column is used to record when a mutation in one gene affects another gene or its product. For example, if a mutation in gene A decreases its ability to phosphorylate protein B, the A allele is annotated to the phenotype “decreased protein kinase activity” with the ID for gene B in an extension. In the downloadable file, an annotation can have multiple comma-separated extensions if they combine to form a “compound” extension (e.g. two or more genes assayed together).</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li>Example: assayed_using(PomBase:SPBC11B10.09) None</li>
+</ul>
+</li>
+<li><a href="../FYPO_ID/">FYPO ID</a>  <sub>REQ</sub><ul>
+<li>Description: To use the FYPO IDs, see the <a href="https://www.pombase.org/browse-curation/fission-yeast-phenotype-ontology">FYPO summary page</a> and the FAQ on browsing FYPO.</li>
+<li>range: <a href="../types/FYPOIdentifier/">FYPOIdentifier</a></li>
+<li>Example: FYPO:0001164 None</li>
+</ul>
+</li>
+<li><a href="../Gene_name/">Gene name</a>  <sub>OPT</sub><ul>
+<li>Description: Gene names are optional for upload, but are included where available in the download.</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li>Example: bcp1 None</li>
+</ul>
+</li>
+<li><a href="../Gene_systematic_ID/">Gene systematic ID</a>  <sub>REQ</sub><ul>
+<li>Description: The systematic ID for each gene.</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li>Example: SPBC1773.02c None</li>
+</ul>
+</li>
+<li><a href="../Genotype_description/">Genotype description</a>  <sub>OPT</sub><ul>
+<li>Description: The Background genotype description column is for alleles in the background, such as selectable markers; these details are optional. To avoid redundancy, it does not repeat the allele of interest (from column 4 or 10) in the genotype column.</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../Parental_strain/">Parental strain</a>  <sub>OPT</sub><ul>
+<li>Description: The Parental strain column is for the parental strain designation, such as 972 h-, 975 h+, etc. This column must be filled in, but “unknown” is allowed.</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li>Example: 972 h- None</li>
+</ul>
+</li>
+<li><a href="../Penetrance/">Penetrance</a>  <sub>OPT</sub><ul>
+<li>Description: Penetrance describes the proportion of a population that shows a cell-level phenotype. Penetrance data are represented as percents or entries from the in-house FYPO_EXT ontology (FYPO_EXT:0000001 = high; FYPO_EXT:0000002 = medium; FYPO_EXT:0000003 = low; FYPO_EXT:0000004 = full).</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li>Example: FYPO_EXT:0000002 None</li>
+</ul>
+</li>
+<li><a href="Reference.md">Reference</a>  <sub>1..*</sub><ul>
+<li>Description: The Reference column has the publication’s PubMed ID (PMID).</li>
+<li>range: <a href="../Publication/">Publication</a></li>
+<li>Example: PMID:19229492 None</li>
+</ul>
+</li>
+<li><a href="../Severity/">Severity</a>  <sub>OPT</sub><ul>
+<li>Description: Severity (formerly designated “expressivity”) uses the FYPO_EXT ontology described in description of <a href="../Penetrance/">Penetrance</a></li>
+<li>range: <a href="../types/FYPOEXTIdentifier/">FYPOEXTIdentifier</a></li>
+<li>Example: FYPO_EXT:0000001 None</li>
+</ul>
+</li>
+<li><a href="../Strain_name_%28background%29/">Strain name (background)</a>  <sub>OPT</sub><ul>
+<li>Description: The Background strain name column is used for a lab’s in-house name/ID/designation for the background strain (i.e. the derivative of the parental strain that has selectable marker alleles etc.). The description in the Genotype column should match this background strain.</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../Taxon/">Taxon</a>  <sub>REQ</sub><ul>
+<li>Description: The taxon will usually be 4896 (the NCBI taxon ID for Schizosaccharomyces pombe), although an NCBI taxon ID for a specific S. pombe strain would be allowed.</li>
+<li>range: <a href="../types/Integer/">Integer</a></li>
+<li>Example: 4896 None</li>
+</ul>
+</li>
+</ul>
+<h3 id="inherited-from-xaf-association">Inherited from xaf association:</h3>
+<ul>
+<li><a href="../annotation_date/">annotation date</a>  <sub>OPT</sub><ul>
+<li>Description: date when annotation was made</li>
+<li>range: <a href="../types/Datetime/">Datetime</a></li>
+</ul>
+</li>
+<li><a href="../annotation_extensions/">annotation extensions</a>  <sub>0..*</sub><ul>
+<li>Description: disjunction</li>
+<li>range: <a href="../AnnotationExtension/">AnnotationExtension</a></li>
+<li>Example: BFO:0000066(GO:0005829) None</li>
+</ul>
+</li>
+<li><a href="../aspect/">aspect</a>  <sub>REQ</sub><ul>
+<li>Description: varies by association type</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../assigned_by/">assigned by</a>  <sub>REQ</sub><ul>
+<li>Description: assigned by</li>
+<li>range: <a href="../Provider/">Provider</a></li>
+</ul>
+</li>
+<li><a href="../db/">db</a>  <sub>REQ</sub><ul>
+<li>Description: db part of identifier</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../db_object_name/">db object name</a>  <sub>OPT</sub><ul>
+<li>range: <a href="../types/NameType/">NameType</a></li>
+<li>Example: Angiomotin None</li>
+</ul>
+</li>
+<li><a href="../db_object_symbol/">db object symbol</a>  <sub>REQ</sub><ul>
+<li>range: <a href="../types/SymbolType/">SymbolType</a></li>
+<li>Example: AMOT None</li>
+</ul>
+</li>
+<li><a href="../db_object_synonyms/">db object synonyms</a>  <sub>0..*</sub><ul>
+<li>range: <a href="../types/NameType/">NameType</a></li>
+<li>Example: Angiomotin None</li>
+</ul>
+</li>
+<li><a href="../db_object_taxon/">db object taxon</a>  <sub>REQ</sub><ul>
+<li>range: <a href="../Taxon/">Taxon</a></li>
+<li>Example: NCBITaxon:9606 None</li>
+</ul>
+</li>
+<li><a href="../db_object_type/">db object type</a>  <sub>OPT</sub><ul>
+<li>range: <a href="../types/String/">String</a></li>
+<li>Example: PR:000000001 None</li>
+</ul>
+</li>
+<li><a href="../evidence_type/">evidence type</a>  <sub>REQ</sub><ul>
+<li>range: <a href="../OntologyClass/">OntologyClass</a></li>
+</ul>
+</li>
+<li><a href="../gene_product_form/">gene product form</a>  <sub>OPT</sub><ul>
+<li>Description: isoform</li>
+<li>range: <a href="../BiologicalEntity/">BiologicalEntity</a></li>
+</ul>
+</li>
+<li><a href="../local_id/">local id</a>  <sub>REQ</sub><ul>
+<li>Description: local part of identifier</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../ontology_class_ref/">ontology class ref</a>  <sub>REQ</sub><ul>
+<li>range: <a href="../OntologyClass/">OntologyClass</a></li>
+<li>Example: GO:0050803 None</li>
+</ul>
+</li>
+<li><a href="../qualifiers/">qualifiers</a>  <sub>0..*</sub><ul>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../supporting_references/">supporting references</a>  <sub>1..*</sub><ul>
+<li>range: <a href="../Publication/">Publication</a></li>
+</ul>
+</li>
+<li><a href="../with_or_from/">with or from</a>  <sub>0..*</sub><ul>
+<li>range: <a href="../Entity/">Entity</a></li>
+<li>Example: WB:WBVar00000510 None</li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

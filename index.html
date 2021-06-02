@@ -111,9 +111,11 @@
 <p>Various association data models</p>
 <h3 id="classes">Classes</h3>
 <ul>
-<li><a href="Association/">Association</a> - generic association<ul>
+<li><a href="Annotation/">Annotation</a><ul>
+<li><a href="Association/">Association</a> - generic association between an entity and an ontological term<ul>
 <li><a href="GpadAssociation/">GpadAssociation</a> - line of GPAD</li>
 <li><a href="HumanPhenotypeOntologyAssociation/">HumanPhenotypeOntologyAssociation</a></li>
+<li><a href="PombasePhafAssociation/">PombasePhafAssociation</a> - line of PHAF</li>
 <li><a href="XafAssociation/">XafAssociation</a> - line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions. <ul>
 <li><a href="GafAssociation/">GafAssociation</a> - line of GAF<ul>
 <li><a href="SimpleGafAssociation/">SimpleGafAssociation</a></li>
@@ -123,19 +125,31 @@
 </li>
 </ul>
 </li>
-<li><a href="ConjunctionExtensionExpression/">ConjunctionExtensionExpression</a> - set of expressions all true</li>
+<li><a href="Interaction/">Interaction</a> - An interaction between two molecular entities<ul>
+<li><a href="MitabInteraction/">MitabInteraction</a><ul>
+<li><a href="CausaltabInteraction/">CausaltabInteraction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="Document/">Document</a> - root class for association or entity documents<ul>
 <li><a href="AssociationDocument/">AssociationDocument</a><ul>
 <li><a href="GafAssociationDocument/">GafAssociationDocument</a></li>
 <li><a href="GpadAssociationDocument/">GpadAssociationDocument</a></li>
 <li><a href="HumanPhenotypeOntologyAssociationDocument/">HumanPhenotypeOntologyAssociationDocument</a></li>
+<li><a href="PombasePhafAssociationDocument/">PombasePhafAssociationDocument</a></li>
 </ul>
 </li>
 <li><a href="GpiDocument/">GpiDocument</a> - A collection of gpi entities plus associated metadata</li>
 </ul>
 </li>
 <li><a href="Entity/">Entity</a><ul>
-<li><a href="AbstractThing/">AbstractThing</a><ul>
+<li><a href="BiologicalEntity/">BiologicalEntity</a><ul>
+<li><a href="GpiEntity/">GpiEntity</a> - An entity that can be annotated using GO. May be a gene, gene product, or complex</li>
+</ul>
+</li>
 <li><a href="ControlledTerm/">ControlledTerm</a><ul>
 <li><a href="OntologyClass/">OntologyClass</a><ul>
 <li><a href="Taxon/">Taxon</a></li>
@@ -148,20 +162,11 @@
 <li><a href="Publication/">Publication</a></li>
 </ul>
 </li>
-<li><a href="BiologicalEntity/">BiologicalEntity</a><ul>
-<li><a href="GpiEntity/">GpiEntity</a> - An entity that can be annotated using GO. May be a gene, gene product, or complex</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="Interaction/">Interaction</a> - An interaction between two molecular entities<ul>
-<li><a href="MitabInteraction/">MitabInteraction</a><ul>
-<li><a href="CausaltabInteraction/">CausaltabInteraction</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="RelationalConstruct/">RelationalConstruct</a><ul>
+<li><a href="AnnotationExtension/">AnnotationExtension</a> - set of expressions all true</li>
 <li><a href="PropertyValuePair/">PropertyValuePair</a></li>
+</ul>
+</li>
 </ul>
 <h3 id="mixins">Mixins</h3>
 <ul>
@@ -173,6 +178,10 @@
 <ul>
 <li><a href="Alias%28es%29_interactor_A/">Alias(es) interactor A</a></li>
 <li><a href="Alias%28es%29_interactor_B/">Alias(es) interactor B</a></li>
+<li><a href="Allele_description/">Allele description</a> - The allele description specifically describes the change; see the Phenotype data bulk upload format for details on allele types and descriptions.</li>
+<li><a href="Allele_name/">Allele name</a> - Allele names are optional for upload, but are included where available in the download. Column 10 lists the preferred allele name, and any alternative names are in column 11.</li>
+<li><a href="Allele_synonym/">Allele synonym</a> - See note on Allele name above. Multiple entries are separated with pipes (|).</li>
+<li><a href="Allele_type/">Allele type</a> - Allowed allele types, example descriptions, etc. are shown in the table at the bottom of the <a href="https://www.pombase.org/documentation/phenotype-data-bulk-upload-format">Phenotype data bulk upload</a> format page.</li>
 <li><a href="Alt._ID%28s%29_interactor_A/">Alt. ID(s) interactor A</a></li>
 <li><a href="Alt._ID%28s%29_interactor_B/">Alt. ID(s) interactor B</a></li>
 <li><a href="Annotation%28s%29_interactor_A/">Annotation(s) interactor A</a></li>
@@ -185,13 +194,17 @@
 <li><a href="Causal_statement/">Causal statement</a></li>
 <li><a href="Checksum%28s%29_interactor_A/">Checksum(s) interactor A</a></li>
 <li><a href="Checksum%28s%29_interactor_B/">Checksum(s) interactor B</a></li>
+<li><a href="Condition/">Condition</a> - Conditions use a small ontology maintained in-house by PomBase curators, and we can help you interpret the IDs. Multiple entries are shown in cases where more than one condition detail applies at the same time (e.g. high temperature, minimal medium), and are separated with commas (,).</li>
 <li><a href="Confidence_value%28s%29/">Confidence value(s)</a></li>
 <li><a href="Creation_date/">Creation date</a></li>
 <li><a href="Expansion_method%28s%29/">Expansion method(s)</a></li>
 <li><a href="Experimental_role%28s%29_interactor_A/">Experimental role(s) interactor A</a></li>
 <li><a href="Experimental_role%28s%29_interactor_B/">Experimental role(s) interactor B</a></li>
+<li><a href="Expression/">Expression</a> - The Expression column contains one of these values: ‘overexpression’, ‘knockdown’, ‘endogenous’, ‘null’, ‘not specified’. Deletions always have ‘null’ expression.</li>
 <li><a href="Feature%28s%29_interactor_A/">Feature(s) interactor A</a></li>
 <li><a href="Feature%28s%29_interactor_B/">Feature(s) interactor B</a></li>
+<li><a href="Gene_name/">Gene name</a> - Gene names are optional for upload, but are included where available in the download.</li>
+<li><a href="Genotype_description/">Genotype description</a> - The Background genotype description column is for alleles in the background, such as selectable markers; these details are optional. To avoid redundancy, it does not repeat the allele of interest (from column 4 or 10) in the genotype column.</li>
 <li><a href="Host_organism%28s%29/">Host organism(s)</a></li>
 <li><a href="ID%28s%29_interactor_A/">ID(s) interactor A</a></li>
 <li><a href="ID%28s%29_interactor_B/">ID(s) interactor B</a></li>
@@ -205,11 +218,15 @@
 <li><a href="Interaction_parameter%28s%29/">Interaction parameter(s)</a></li>
 <li><a href="Interaction_type%28s%29/">Interaction type(s)</a></li>
 <li><a href="Negative/">Negative</a></li>
+<li><a href="Parental_strain/">Parental strain</a> - The Parental strain column is for the parental strain designation, such as 972 h-, 975 h+, etc. This column must be filled in, but “unknown” is allowed.</li>
+<li><a href="Penetrance/">Penetrance</a> - Penetrance describes the proportion of a population that shows a cell-level phenotype. Penetrance data are represented as percents or entries from the in-house FYPO_EXT ontology (FYPO_EXT:0000001 = high; FYPO_EXT:0000002 = medium; FYPO_EXT:0000003 = low; FYPO_EXT:0000004 = full).</li>
 <li><a href="Publication_1st_author%28s%29/">Publication 1st author(s)</a></li>
 <li><a href="Publication_Identifier%28s%29/">Publication Identifier(s)</a></li>
+<li><a href="Severity/">Severity</a> - Severity (formerly designated “expressivity”) uses the FYPO_EXT ontology described in description of <a href="Penetrance/">Penetrance</a></li>
 <li><a href="Source_database%28s%29/">Source database(s)</a></li>
 <li><a href="Stoichiometry%28s%29_interactor_A/">Stoichiometry(s) interactor A</a></li>
 <li><a href="Stoichiometry%28s%29_interactor_B/">Stoichiometry(s) interactor B</a></li>
+<li><a href="Strain_name_%28background%29/">Strain name (background)</a> - The Background strain name column is used for a lab’s in-house name/ID/designation for the background strain (i.e. the derivative of the parental strain that has selectable marker alleles etc.). The description in the Genotype column should match this background strain.</li>
 <li><a href="Taxid_interactor_A/">Taxid interactor A</a></li>
 <li><a href="Taxid_interactor_B/">Taxid interactor B</a></li>
 <li><a href="Type%28s%29_interactor_A/">Type(s) interactor A</a></li>
@@ -217,8 +234,14 @@
 <li><a href="Update_date/">Update date</a></li>
 <li><a href="Xref%28s%29_interactor_A/">Xref(s) interactor A</a></li>
 <li><a href="Xref%28s%29_interactor_B/">Xref(s) interactor B</a></li>
-<li><a href="annotation_date/">annotation date</a> - date when annotation was made</li>
-<li><a href="annotation_extensions/">annotation extensions</a> - disjunction</li>
+<li><a href="annotation_date/">annotation date</a> - date when annotation was made<ul>
+<li><a href="Date.md">Date</a> - The date is the date on which the annotations are created. Format: YYYY-MM-DD</li>
+</ul>
+</li>
+<li><a href="annotation_extensions/">annotation extensions</a> - disjunction<ul>
+<li><a href="Extension/">Extension</a> - The Extension column is used to record when a mutation in one gene affects another gene or its product. For example, if a mutation in gene A decreases its ability to phosphorylate protein B, the A allele is annotated to the phenotype “decreased protein kinase activity” with the ID for gene B in an extension. In the downloadable file, an annotation can have multiple comma-separated extensions if they combine to form a “compound” extension (e.g. two or more genes assayed together).</li>
+</ul>
+</li>
 <li><a href="annotation_properties/">annotation properties</a></li>
 <li><a href="aspect/">aspect</a> - varies by association type<ul>
 <li><a href="gaf_association_aspect/">gaf association➞aspect</a></li>
@@ -229,10 +252,14 @@
 <li><a href="gaf_association_document_associations/">gaf association document➞associations</a></li>
 <li><a href="gpad_association_document_associations/">gpad association document➞associations</a></li>
 <li><a href="human_phenotype_ontology_association_document_associations/">human phenotype ontology association document➞associations</a></li>
+<li><a href="pombase_phaf_association_document_associations/">pombase phaf association document➞associations</a></li>
 </ul>
 </li>
 <li><a href="bioentity_type/">bioentity type</a> - type of entity</li>
-<li><a href="db/">db</a> - db part of identifier</li>
+<li><a href="db/">db</a> - db part of identifier<ul>
+<li><a href="Database_name/">Database name</a> - The database that produced the file – included to facilitate data sharing with other databases. Obviously always PomBase for this file.</li>
+</ul>
+</li>
 <li><a href="db_object_name/">db object name</a></li>
 <li><a href="db_object_ref/">db object ref</a><ul>
 <li><a href="gpi_entity_db_object_ref/">gpi entity➞db object ref</a></li>
@@ -240,7 +267,10 @@
 </li>
 <li><a href="db_object_symbol/">db object symbol</a></li>
 <li><a href="db_object_synonyms/">db object synonyms</a></li>
-<li><a href="db_object_taxon/">db object taxon</a></li>
+<li><a href="db_object_taxon/">db object taxon</a><ul>
+<li><a href="Taxon/">Taxon</a> - The taxon will usually be 4896 (the NCBI taxon ID for Schizosaccharomyces pombe), although an NCBI taxon ID for a specific S. pombe strain would be allowed.</li>
+</ul>
+</li>
 <li><a href="db_object_type/">db object type</a><ul>
 <li><a href="gaf_association_db_object_type/">gaf association➞db object type</a></li>
 <li><a href="gpad_association_db_object_type/">gpad association➞db object type</a></li>
@@ -263,17 +293,24 @@
 </ul>
 </li>
 <li><a href="encoded_by/">encoded by</a></li>
-<li><a href="evidence_type/">evidence type</a></li>
+<li><a href="evidence_type/">evidence type</a><ul>
+<li><a href="Evidence/">Evidence</a> - For the Evidence column, we use a small selection from the Evidence Ontology (ECO). Please contact the Helpdesk if you need assistance using these IDs</li>
+</ul>
+</li>
 <li><a href="frequency/">frequency</a></li>
 <li><a href="gene_product_form/">gene product form</a> - isoform</li>
 <li><a href="gene_product_properties/">gene product properties</a></li>
 <li><a href="gpiDocument__entities/">➞entities</a></li>
 <li><a href="id/">id</a> - identifier</li>
 <li><a href="interacting_taxon_ref/">interacting taxon ref</a></li>
-<li><a href="local_id/">local id</a> - local part of identifier</li>
+<li><a href="local_id/">local id</a> - local part of identifier<ul>
+<li><a href="Gene_systematic_ID/">Gene systematic ID</a> - The systematic ID for each gene.</li>
+</ul>
+</li>
 <li><a href="negation/">negation</a></li>
 <li><a href="onset/">onset</a></li>
 <li><a href="ontology_class_ref/">ontology class ref</a><ul>
+<li><a href="FYPO_ID/">FYPO ID</a> - To use the FYPO IDs, see the <a href="https://www.pombase.org/browse-curation/fission-yeast-phenotype-ontology">FYPO summary page</a> and the FAQ on browsing FYPO.</li>
 <li><a href="gaf_association_ontology_class_ref/">gaf association➞ontology class ref</a> - this must be a GO ID</li>
 </ul>
 </li>
@@ -292,7 +329,10 @@
 <li><a href="gpad_association_relation/">gpad association➞relation</a></li>
 </ul>
 </li>
-<li><a href="supporting_references/">supporting references</a></li>
+<li><a href="supporting_references/">supporting references</a><ul>
+<li><a href="Reference.md">Reference</a> - The Reference column has the publication’s PubMed ID (PMID).</li>
+</ul>
+</li>
 <li><a href="with_or_from/">with or from</a></li>
 </ul>
 <h3 id="types">Types</h3>
@@ -314,6 +354,9 @@
 </ul>
 <h4 id="defined">Defined</h4>
 <ul>
+<li><a href="types/FYPOIdentifier/">FYPOIdentifier</a>  (<a href="types/String/">String</a>) </li>
+<li><a href="types/FYPOEXTIdentifier/">FYPOEXTIdentifier</a>  (<a href="types/String/">String</a>) </li>
+<li><a href="types/PECOIdentifier/">PECOIdentifier</a>  (<a href="types/String/">String</a>) </li>
 <li><a href="types/Boolean/">Boolean</a>  (<strong>Bool</strong>)  - A binary (true or false) value</li>
 <li><a href="types/Curie/">Curie</a>  (<a href="types/String/">String</a>) </li>
 <li><a href="types/Date/">Date</a>  (<strong>XSDDate</strong>)  - a date (year, month and day) in an idealized calendar</li>
@@ -394,5 +437,5 @@
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-05-28 02:29:36.461932+00:00
+Build Date UTC : 2021-06-02 03:07:18.603647+00:00
 -->
