@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  
+  <link rel="canonical" href="http://biodatamodels.github.io/ontology-associations/XafAssociation/">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Class: XafAssociation - ontology association</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
@@ -20,7 +20,7 @@
     // Current page data
     var mkdocs_page_name = "Class: XafAssociation";
     var mkdocs_page_input_path = "XafAssociation.md";
-    var mkdocs_page_url = null;
+    var mkdocs_page_url = "/ontology-associations/XafAssociation/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -83,6 +83,9 @@
     <li>Class: XafAssociation</li>
     <li class="wy-breadcrumbs-aside">
       
+        <a href="https://github.com/biodatamodels/ontology-associations/edit/master/docs/XafAssociation.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
     </li>
   </ul>
   
@@ -113,84 +116,84 @@
 <ul>
 <li><a href="../annotation_date/">annotation date</a>  <sub>OPT</sub><ul>
 <li>Description: date when annotation was made</li>
-<li>range: <a href="../types/Datetime/">Datetime</a></li>
+<li>Range: <a href="../types/Datetime/">Datetime</a></li>
 </ul>
 </li>
 <li><a href="../annotation_extensions/">annotation extensions</a>  <sub>0..*</sub><ul>
 <li>Description: disjunction</li>
-<li>range: <a href="../AnnotationExtension/">AnnotationExtension</a></li>
+<li>Range: <a href="../AnnotationExtension/">AnnotationExtension</a></li>
 <li>Example: BFO:0000066(GO:0005829) None</li>
 </ul>
 </li>
 <li><a href="../aspect/">aspect</a>  <sub>REQ</sub><ul>
 <li>Description: varies by association type</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>
 <li><a href="../assigned_by/">assigned by</a>  <sub>REQ</sub><ul>
 <li>Description: assigned by</li>
-<li>range: <a href="../Provider/">Provider</a></li>
+<li>Range: <a href="../Provider/">Provider</a></li>
 </ul>
 </li>
 <li><a href="../db/">db</a>  <sub>REQ</sub><ul>
 <li>Description: db part of identifier</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>
 <li><a href="../db_object_name/">db object name</a>  <sub>OPT</sub><ul>
-<li>range: <a href="../types/NameType/">NameType</a></li>
+<li>Range: <a href="../types/NameType/">NameType</a></li>
 <li>Example: Angiomotin None</li>
 </ul>
 </li>
 <li><a href="../db_object_symbol/">db object symbol</a>  <sub>REQ</sub><ul>
-<li>range: <a href="../types/SymbolType/">SymbolType</a></li>
+<li>Range: <a href="../types/SymbolType/">SymbolType</a></li>
 <li>Example: AMOT None</li>
 </ul>
 </li>
 <li><a href="../db_object_synonyms/">db object synonyms</a>  <sub>0..*</sub><ul>
-<li>range: <a href="../types/NameType/">NameType</a></li>
+<li>Range: <a href="../types/NameType/">NameType</a></li>
 <li>Example: Angiomotin None</li>
 </ul>
 </li>
 <li><a href="../db_object_taxon/">db object taxon</a>  <sub>REQ</sub><ul>
-<li>range: <a href="../Taxon/">Taxon</a></li>
+<li>Range: <a href="../Taxon/">Taxon</a></li>
 <li>Example: NCBITaxon:9606 None</li>
 </ul>
 </li>
 <li><a href="../db_object_type/">db object type</a>  <sub>OPT</sub><ul>
-<li>range: <a href="../types/String/">String</a></li>
+<li>Range: <a href="../types/String/">String</a></li>
 <li>Example: PR:000000001 None</li>
 </ul>
 </li>
 <li><a href="../evidence_type/">evidence type</a>  <sub>REQ</sub><ul>
-<li>range: <a href="../OntologyClass/">OntologyClass</a></li>
+<li>Range: <a href="../OntologyClass/">OntologyClass</a></li>
 </ul>
 </li>
 <li><a href="../gene_product_form/">gene product form</a>  <sub>OPT</sub><ul>
 <li>Description: isoform</li>
-<li>range: <a href="../BiologicalEntity/">BiologicalEntity</a></li>
+<li>Range: <a href="../BiologicalEntity/">BiologicalEntity</a></li>
 </ul>
 </li>
 <li><a href="../local_id/">local id</a>  <sub>REQ</sub><ul>
 <li>Description: local part of identifier</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>
 <li><a href="../ontology_class_ref/">ontology class ref</a>  <sub>REQ</sub><ul>
-<li>range: <a href="../OntologyClass/">OntologyClass</a></li>
+<li>Range: <a href="../OntologyClass/">OntologyClass</a></li>
 <li>Example: GO:0050803 None</li>
 </ul>
 </li>
 <li><a href="../qualifiers/">qualifiers</a>  <sub>0..*</sub><ul>
-<li>range: <a href="../types/String/">String</a></li>
+<li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>
 <li><a href="../supporting_references/">supporting references</a>  <sub>1..*</sub><ul>
-<li>range: <a href="../Publication/">Publication</a></li>
+<li>Range: <a href="../Publication/">Publication</a></li>
 </ul>
 </li>
 <li><a href="../with_or_from/">with or from</a>  <sub>0..*</sub><ul>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 <li>Example: WB:WBVar00000510 None</li>
 </ul>
 </li>
@@ -220,6 +223,8 @@
 
   <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/biodatamodels/ontology-associations/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
       
