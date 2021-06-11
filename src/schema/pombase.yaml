@@ -68,36 +68,36 @@ slots:
     range: Database_name_enum
     description: The database that produced the file – included to facilitate data sharing with other databases. Obviously always PomBase for this file.
     examples:
-      value: PomBase
+      - value: PomBase
   Gene systematic ID:
     is_a: local id
     description: The systematic ID for each gene.
     range: string
     examples:
-      value: SPBC1773.02c
+      - value: SPBC1773.02c
   FYPO ID:
     is_a: ontology class ref
     description: To use the FYPO IDs, see the [FYPO summary page](https://www.pombase.org/browse-curation/fission-yeast-phenotype-ontology) and the FAQ on browsing FYPO.    
     range: FYPO identifier
     examples:
-      value: FYPO:0001164
+      - value: FYPO:0001164
   Allele description:
     range: string
     description: The allele description specifically describes the change; see the Phenotype data bulk upload format for details on allele types and descriptions.    
     examples:
-      value: G126D
+      - value: G126D
   Expression:
     range: Expression_enum
     description: >-
       The Expression column contains one of these values: ‘overexpression’, ‘knockdown’, ‘endogenous’, ‘null’, ‘not specified’. Deletions always have ‘null’ expression.
     examples:
-      value: Overexpression
+      - value: Overexpression
   Parental strain:
     range: string
     description: >-
       The Parental strain column is for the parental strain designation, such as 972 h-, 975 h+, etc. This column must be filled in, but “unknown” is allowed.
     examples:
-      value: 972 h-
+      - value: 972 h-
   Strain name (background):
     range: string
     description: The Background strain name column is used for a lab’s in-house name/ID/designation for the background strain (i.e. the derivative of the parental strain that has selectable marker alleles etc.). The description in the Genotype column should match this background strain.
@@ -108,12 +108,12 @@ slots:
     range: string
     description: Gene names are optional for upload, but are included where available in the download.
     examples:
-      value: bcp1
+      - value: bcp1
   Allele name:
     range: string
     description: Allele names are optional for upload, but are included where available in the download. Column 10 lists the preferred allele name, and any alternative names are in column 11.
     examples:
-      value: bcp1+
+      - value: bcp1+
   Allele synonym:
     range: string
     description: See note on Allele name above. Multiple entries are separated with pipes (|).
@@ -122,20 +122,20 @@ slots:
     description: >-
       Allowed allele types, example descriptions, etc. are shown in the table at the bottom of the [Phenotype data bulk upload](https://www.pombase.org/documentation/phenotype-data-bulk-upload-format) format page.
     examples:
-      value: wild_type
+      - value: wild_type
   Evidence:
     is_a: evidence type
     description: >-
       For the Evidence column, we use a small selection from the Evidence Ontology (ECO). Please contact the Helpdesk if you need assistance using these IDs
     range: Evidence_enum
     examples:
-      value: cell growth assay evidence
+      - value: cell growth assay evidence
   Condition:
     range: PECO identifier
     description: >-
       Conditions use a small ontology maintained in-house by PomBase curators, and we can help you interpret the IDs. Multiple entries are shown in cases where more than one condition detail applies at the same time (e.g. high temperature, minimal medium), and are separated with commas (,).
     examples:
-      value: PECO:0000126,PECO:0000102
+      - value: PECO:0000126,PECO:0000102
   Penetrance:
     range: string
     description: >-
@@ -143,34 +143,34 @@ slots:
     todos:
       - Revisit range when this is solved https://github.com/linkml/linkml/issues/215
     examples:
-      value: FYPO_EXT:0000002
+      - value: FYPO_EXT:0000002
   Severity:
     range: FYPO_EXT identifier
     description: >-
       Severity (formerly designated “expressivity”) uses the FYPO_EXT ontology described in description of [Penetrance](Penetrance.md)
     examples:
-      value: FYPO_EXT:0000001
+      - value: FYPO_EXT:0000001
   Extension:
     range: string
     is_a: annotation extensions
     description: >-
       The Extension column is used to record when a mutation in one gene affects another gene or its product. For example, if a mutation in gene A decreases its ability to phosphorylate protein B, the A allele is annotated to the phenotype “decreased protein kinase activity” with the ID for gene B in an extension. In the downloadable file, an annotation can have multiple comma-separated extensions if they combine to form a “compound” extension (e.g. two or more genes assayed together).
     examples:
-      value: assayed_using(PomBase:SPBC11B10.09)
+      - value: assayed_using(PomBase:SPBC11B10.09)
   Reference:
     is_a: supporting references
     description: >-
       The Reference column has the publication’s PubMed ID (PMID).
     range: publication
     examples:
-      value: PMID:19229492
+      - value: PMID:19229492
   Taxon:
     is_a: db object taxon
     description: >-
       The taxon will usually be 4896 (the NCBI taxon ID for Schizosaccharomyces pombe), although an NCBI taxon ID for a specific S. pombe strain would be allowed.
     range: integer
     examples:
-      value: '4896'
+      - value: '4896'
   Date:
     is_a: annotation date
     description: >-
@@ -179,7 +179,7 @@ slots:
     todos:
       - https://github.com/pombase/website/issues/1708
     examples:
-      value: '20141023'
+      - value: '20141023'
 enums:
   Database_name_enum:
     permissible_values:

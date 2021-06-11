@@ -2,9 +2,9 @@
 
 Datamodels for various kinds of ontology associations
 
-Uses [LinkML](https://github.com/biolink/biolinkml/) project.
+Uses [LinkML](https://github.com/linkml/) project.
 
-See http://cmungall.github.io/ontology_associations
+See http://biodatamodels.github.io/ontology-associations
 
 ## Running locally
 

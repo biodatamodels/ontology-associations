@@ -90,237 +90,209 @@ slots:
   ID(s) interactor A:
     range: identifier
     examples:
-      value: uniprotkb:A9QPL9
+      - value: uniprotkb:A9QPL9
     exact_mappings:
       - biolink:subject
   ID(s) interactor B:
     range: identifier
     examples:
-      value: uniprotkb:Q10589
+      - value: uniprotkb:Q10589
     exact_mappings:
       - biolink:object
   Alt. ID(s) interactor A:
     range: identifier
     examples:
-      value: intact:EBI-15754841
+      - value: intact:EBI-15754841
     multivalued: true
   Alt. ID(s) interactor B:
     range: string
     examples:
-      value: intact:EBI-2476339|intact:EBI-2839059|uniprotkb:A8K4Y4|uniprotkb:Q53G07
+      - value: intact:EBI-2476339|intact:EBI-2839059|uniprotkb:A8K4Y4|uniprotkb:Q53G07
     multivalued: true
   Alias(es) interactor A:
     range: identifier
     examples:
-      value: psi-mi:a9qpl9_9mono(display_long)|uniprotkb:GP(gene name)|psi-mi:GP(display_short)
+      - value: psi-mi:a9qpl9_9mono(display_long)|uniprotkb:GP(gene name)|psi-mi:GP(display_short)
     multivalued: true
   Alias(es) interactor B:
     range: identifier
     examples:
-      value: psi-mi:bst2_human(display_long)|uniprotkb:BST2(gene name)|psi-mi:BST2(display_short)|uniprotkb:Tetherin(gene
-        name synonym)|uniprotkb:HM1.24 antigen(gene name synonym)
+      - value: psi-mi:bst2_human(display_long)|uniprotkb:BST2(gene name)|psi-mi:BST2(display_short)|uniprotkb:Tetherin(gene name synonym)|uniprotkb:HM1.24 antigen(gene name synonym)
     multivalued: true
   Interaction detection method(s):
     range: Interaction_detection_method_enum
     examples:
-      value: psi-mi:"MI:0006"(anti bait coimmunoprecipitation)
+      - value: psi-mi:"MI:0006"(anti bait coimmunoprecipitation)
   Publication 1st author(s):
     range: string
     examples:
-      value: Kaletsky et al. (2009)
+      - value: Kaletsky et al. (2009)
   Publication Identifier(s):
     range: identifier
     examples:
-      value: pubmed:19179289|doi:10.1073/pnas.0811014106|imex:IM-15261
+      - value: pubmed:19179289|doi:10.1073/pnas.0811014106|imex:IM-15261
     multivalued: true
   Taxid interactor A:
     range: taxid identifier
     examples:
-      value: taxid:186538(Zaire ebolavirus)|taxid:186538(Zaire ebolavirus)
+      - value: taxid:186538(Zaire ebolavirus)|taxid:186538(Zaire ebolavirus)
     multivalued: true
   Taxid interactor B:
     range: taxid identifier
     examples:
-      value: taxid:9606(human)|taxid:9606(Homo sapiens)
+      - value: taxid:9606(human)|taxid:9606(Homo sapiens)
     multivalued: true
   Interaction type(s):
     range: Interaction_type_enum
     examples:
-      value: psi-mi:"MI:0915"(physical association)
+      - value: psi-mi:"MI:0915"(physical association)
     close_mappings:
       - biolink:predicate
   Source database(s):
     range: psi-mi identifier
     examples:
-      value: psi-mi:"MI:0465"(DIP)
+      - value: psi-mi:"MI:0465"(DIP)
   Interaction identifier(s):
     range: identifier
     examples:
-      value: intact:EBI-15754872|imex:IM-15261-2|dip:DIP-185793E
+      - value: intact:EBI-15754872|imex:IM-15261-2|dip:DIP-185793E
     multivalued: true
   Confidence value(s):
     range: intact-miscore identifier
     examples:
-      value: intact-miscore:0.52
+      - value: intact-miscore:0.52
   Expansion method(s):
     range: Expansion_method_enum
     examples:
-      value: '-'
+      - value: '-'
   Biological role(s) interactor A:
     range: Biological_role_interactor_enum
     examples:
-      value: psi-mi:"MI:0499"(unspecified role)
+      - value: psi-mi:"MI:0499"(unspecified role)
   Biological role(s) interactor B:
     range: Biological_role_interactor_enum
     examples:
-      value: psi-mi:"MI:0499"(unspecified role)
+      - value: psi-mi:"MI:0499"(unspecified role)
   Experimental role(s) interactor A:
     range: Experimental_role_interactor_enum
     examples:
-      value: psi-mi:"MI:0496"(bait)
+      - value: psi-mi:"MI:0496"(bait)
   Experimental role(s) interactor B:
     range: Experimental_role_interactor_enum
     examples:
-      value: psi-mi:"MI:0498"(prey)
+      - value: psi-mi:"MI:0498"(prey)
   Type(s) interactor A:
     range: psi-mi identifier
     examples:
-      value: psi-mi:"MI:0326"(protein)
+      - value: psi-mi:"MI:0326"(protein)
   Type(s) interactor B:
     range: psi-mi identifier
     examples:
-      value: psi-mi:"MI:0326"(protein)
+      - value: psi-mi:"MI:0326"(protein)
   Xref(s) interactor A:
     range: identifier
-    examples:
-      value: go:"GO:0016021"(integral component of membrane)|interpro:IPR002561(Envelope
-        glycoprotein precursor, extracellular region, filoviridae type)|interpro:IPR014625(Envelope
-        glycoprotein precursor, Filoviridae type)|rcsb pdb:2LCY|rcsb pdb:2LCZ|rcsb
-        pdb:2M5F|refseq:NP_066246.1|go:"GO:0005576"(extracellular region)
     multivalued: true
   Xref(s) interactor B:
     range: identifier
-    examples:
-      value: go:"GO:0005886"(plasma membrane)|go:"GO:0009615"(response to virus)|go:"GO:0042803"(protein
-        homodimerization activity)|go:"GO:0045087"(innate immune response)|ensembl:ENSG00000130303|ensembl:ENSP00000252593|go:"GO:0016020"(membrane)|go:"GO:0045121"(membrane
-        raft)|go:"GO:0060337"(type I interferon signaling pathway)|go:"GO:0003723"(RNA
-        binding)|go:"GO:0005829"(cytosol)|go:"GO:0035577"(azurophil granule membrane)|go:"GO:0043312"(neutrophil
-        degranulation)|reactome:R-HSA-6798695|go:"GO:0016021"(integral component of
-        membrane)|go:"GO:0070665"(positive regulation of leukocyte proliferation)|ensembl:ENST00000252593|interpro:IPR024886|rcsb
-        pdb:2LK9|go:"GO:0005771"(multivesicular body)|go:"GO:0042113"(B cell activation)|go:"GO:0051607"(defense
-        response to virus)|go:"GO:0043123"(positive regulation of I-kappaB kinase/NF-kappaB
-        signaling)|refseq:NP_004326.1|rcsb pdb:2X7A|rcsb pdb:2XG7|rcsb pdb:3MQ7|rcsb
-        pdb:3MQ9|rcsb pdb:3MQB|rcsb pdb:3MQC|rcsb pdb:3NWH|go:"GO:0031225"(anchored
-        component of membrane)|go:"GO:0005794"(Golgi apparatus)|rcsb pdb:4P6Z|go:"GO:0070062"(extracellular
-        exosome)|reactome:R-HSA-909733|go:"GO:0002737"(negative regulation of plasmacytoid
-        dendritic cell cytokine production)|go:"GO:0008191"(metalloendopeptidase inhibitor
-        activity)|go:"GO:0009986"(cell surface)|go:"GO:0016324"(apical plasma membrane)|go:"GO:0030308"(negative
-        regulation of cell growth)|go:"GO:0030336"(negative regulation of cell migration)|go:"GO:0032956"(regulation
-        of actin cytoskeleton organization)|go:"GO:0034341"(response to interferon-gamma)|go:"GO:0035455"(response
-        to interferon-alpha)|go:"GO:0035456"(response to interferon-beta)|go:"GO:0045071"(negative
-        regulation of viral genome replication)|go:"GO:1901253"(negative regulation
-        of intracellular transport of viral material)|dip:DIP-53216N|go:"GO:0042802"(identical
-        protein binding)|mint:Q10589|rcsb pdb:6CM9|rcsb pdb:6CRI|rcsb pdb:6D83|rcsb
-        pdb:6D84|rcsb pdb:6DFF
     multivalued: true
   Interaction Xref(s):
     range: Interaction_Xref_enum
     examples:
-      value: psi-mi:"MI:0465"(dip)
+      - value: psi-mi:"MI:0465"(dip)
     multivalued: true
   Annotation(s) interactor A:
     range: string
     examples:
-      value: crc64:BE8AB3B339F63261
+      - value: crc64:BE8AB3B339F63261
   Annotation(s) interactor B:
     range: string
     examples:
-      value: '-'
+      - value: '-'
     multivalued: true
   Interaction annotation(s):
     range: identifier
     examples:
-      value: full coverage:Only protein-protein interactions|curation depth:imex curation
+      - value: full coverage:Only protein-protein interactions|curation depth:imex curation
     multivalued: true
   Host organism(s):
     range: taxid identifier
     examples:
-      value: taxid:9606(human)|taxid:9606(Homo sapiens)
+      - value: taxid:9606(human)|taxid:9606(Homo sapiens)
     multivalued: true
   Interaction parameter(s):
     range: string
     examples:
-      value: '-'
+      - value: '-'
   Creation date:
     range: datetime
     examples:
-      value: 2017/08/06
+      - value: 2017/08/06
   Update date:
     range: datetime
     examples:
-      value: 2017/08/10
+      - value: 2017/08/10
   Checksum(s) interactor A:
     range: rogid identifier
     examples:
-      value: rogid:mdZH953i2elFKNtwJcAbPdm6Vvw186538
+      - value: rogid:mdZH953i2elFKNtwJcAbPdm6Vvw186538
   Checksum(s) interactor B:
     range: string
     examples:
-      value: rogid:vunnCOscGahFdaeN03pDo/8xW7I9606
+      - value: rogid:vunnCOscGahFdaeN03pDo/8xW7I9606
   Interaction Checksum(s):
     range: identifier
     examples:
-      value: rigid:11bG+XivSz4SlWEEWVkNz5Qspro
+      - value: rigid:11bG+XivSz4SlWEEWVkNz5Qspro
     multivalued: true
   Negative:
     range: Negative_enum
     examples:
-      value: 'false'
+      - value: 'false'
   Feature(s) interactor A:
     range: string
     examples:
-      value: '-'
+      - value: '-'
     multivalued: true
   Feature(s) interactor B:
     range: string
     examples:
-      value: au1 tag:n-n
+      - value: au1 tag:n-n
     multivalued: true
   Stoichiometry(s) interactor A:
     range: Stoichiometry_interactor_enum
     examples:
-      value: '-'
+      - value: '-'
   Stoichiometry(s) interactor B:
     range: Stoichiometry_interactor_enum
     examples:
-      value: '-'
+      - value: '-'
   Identification method participant A:
     range: psi-mi identifier
     examples:
-      value: psi-mi:"MI:0396"(predetermined participant)
+      - value: psi-mi:"MI:0396"(predetermined participant)
   Identification method participant B:
     range: psi-mi identifier
     examples:
-      value: psi-mi:"MI:0396"(predetermined participant)
+      - value: psi-mi:"MI:0396"(predetermined participant)
 
 ## CAUSALTAB
 
   Biological Effect interactor A:
     range: Biological_Effect_interactor_enum
     examples:
-      value: '-'
+      - value: '-'
   Biological Effect interactor B:
     range: Biological_Effect_interactor_enum
     examples:
-      value: '-'
+      - value: '-'
   Causal Regulatory Mechanism:
     range: Causal_Regulatory_Mechanism_enum
     examples:
-      value: '-'
+      - value: '-'
   Causal statement:
     range: psi-mi identifier
     examples:
-      value: psi-mi:"MI:2236"(up-regulates activity)
+      - value: psi-mi:"MI:2236"(up-regulates activity)
 enums:
   Interaction_detection_method_enum:
     permissible_values:
