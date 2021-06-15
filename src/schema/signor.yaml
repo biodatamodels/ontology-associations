@@ -1,0 +1,665 @@
+id: https://w3id.org/example
+name: example
+description: example
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  example: https://w3id.org/example
+default_prefix: example
+types:
+  BTO identifier:
+    typeof: string
+  identifier:
+    typeof: string
+classes:
+  example:
+    slots:
+    - ENTITYA
+    - TYPEA
+    - IDA
+    - DATABASEA
+    - ENTITYB
+    - TYPEB
+    - IDB
+    - DATABASEB
+    - EFFECT
+    - MECHANISM
+    - RESIDUE
+    - SEQUENCE
+    - TAX_ID
+    - CELL_DATA
+    - TISSUE_DATA
+    - MODULATOR_COMPLEX
+    - TARGET_COMPLEX
+    - MODIFICATIONA
+    - MODASEQ
+    - MODIFICATIONB
+    - MODBSEQ
+    - PMID
+    - DIRECT
+    - NOTES
+    - ANNOTATOR
+    - SENTENCE
+    - SCORE
+    - SIGNOR_ID
+slots:
+  ENTITYA:
+    range: string
+    examples:
+      - value: TICAM2
+  TYPEA:
+    range: TYPEA_enum
+    examples:
+      - value: protein
+  IDA:
+    range: string
+    examples:
+      - value: Q86XR7
+  DATABASEA:
+    range: DATABASEA_enum
+    examples:
+      - value: UNIPROT
+  ENTITYB:
+    range: string
+    examples:
+      - value: TICAM1
+  TYPEB:
+    range: TYPEB_enum
+    examples:
+      - value: protein
+  IDB:
+    range: string
+    examples:
+      - value: Q8IUC6
+  DATABASEB:
+    range: DATABASEB_enum
+    examples:
+      - value: UNIPROT
+  EFFECT:
+    range: EFFECT_enum
+    examples:
+      - value: up-regulates activity
+  MECHANISM:
+    range: MECHANISM_enum
+    examples:
+      - value: binding
+  RESIDUE:
+    range: string
+    examples:
+      - value: Tyr424
+  SEQUENCE:
+    range: string
+    examples:
+      - value: GQVGTARyMAPEVLE
+  TAX_ID:
+    range: TAX_ID_enum
+    examples:
+      - value: '9606'
+  CELL_DATA:
+    range: BTO identifier
+    examples:
+      - value: BTO:0000801
+  TISSUE_DATA:
+    range: BTO identifier
+    examples:
+      - value: BTO:0004710
+  MODULATOR_COMPLEX:
+    range: MODULATOR_COMPLEX_enum
+    examples:
+      - value: SIGNOR-C21
+  TARGET_COMPLEX:
+    range: TARGET_COMPLEX_enum
+    examples:
+      - value: SIGNOR-C16
+  MODIFICATIONA:
+    range: identifier
+    examples:
+      - value: phosphorylation:Ser213
+  MODASEQ:
+    range: MODASEQ_enum
+    examples:
+      - value: TRKLMEFsEHCAIIL
+  MODIFICATIONB:
+    range: identifier
+    examples:
+      - value: phosphorylation:Tyr397
+  MODBSEQ:
+    range: MODBSEQ_enum
+    examples:
+      - value: SVSETDDyAEIIDEE
+  PMID:
+    range: string
+    examples:
+      - value: '14519765'
+  DIRECT:
+    range: DIRECT_enum
+    examples:
+      - value: 'YES'
+  NOTES:
+    range: string
+    examples:
+      - value: Ligand-GPCR dataset
+  ANNOTATOR:
+    range: string
+    examples:
+      - value: lperfetto
+  SENTENCE:
+    range: string
+    examples:
+      - value: Tram binds trif directly and recruits it to tlr4
+    multivalued: true
+  SCORE:
+    range: string
+    examples:
+      - value: '0.4599'
+  SIGNOR_ID:
+    range: string
+    examples:
+      - value: SIGNOR-118367
+enums:
+  TYPEA_enum:
+    permissible_values:
+      antibody:
+        description: antibody
+      stimulus:
+        description: stimulus
+      complex:
+        description: complex
+      phenotype:
+        description: phenotype
+      fusion protein:
+        description: fusion protein
+      protein:
+        description: protein
+      chemical:
+        description: chemical
+      mirna:
+        description: mirna
+      proteinfamily:
+        description: proteinfamily
+      smallmolecule:
+        description: smallmolecule
+  DATABASEA_enum:
+    permissible_values:
+      SIGNOR:
+        description: SIGNOR
+      DRUGBANK:
+        description: DRUGBANK
+      miRBase:
+        description: miRBase
+      UNIPROT:
+        description: UNIPROT
+      PUBCHEM:
+        description: PUBCHEM
+      ChEBI:
+        description: ChEBI
+  TYPEB_enum:
+    permissible_values:
+      stimulus:
+        description: stimulus
+      complex:
+        description: complex
+      phenotype:
+        description: phenotype
+      fusion protein:
+        description: fusion protein
+      protein:
+        description: protein
+      chemical:
+        description: chemical
+      mirna:
+        description: mirna
+      proteinfamily:
+        description: proteinfamily
+      smallmolecule:
+        description: smallmolecule
+  DATABASEB_enum:
+    permissible_values:
+      SIGNOR:
+        description: SIGNOR
+      miRBase:
+        description: miRBase
+      UNIPROT:
+        description: UNIPROT
+      PUBCHEM:
+        description: PUBCHEM
+      ChEBI:
+        description: ChEBI
+  EFFECT_enum:
+    permissible_values:
+      unknown:
+        description: unknown
+      up-regulates activity:
+        description: up-regulates activity
+      up-regulates quantity:
+        description: up-regulates quantity
+      down-regulates:
+        description: down-regulates
+      down-regulates quantity by repression:
+        description: down-regulates quantity by repression
+      up-regulates quantity by stabilization:
+        description: up-regulates quantity by stabilization
+      down-regulates quantity:
+        description: down-regulates quantity
+      down-regulates quantity by destabilization:
+        description: down-regulates quantity by destabilization
+      up-regulates quantity by expression:
+        description: up-regulates quantity by expression
+      up-regulates:
+        description: up-regulates
+      form complex:
+        description: form complex
+      down-regulates activity:
+        description: down-regulates activity
+  MECHANISM_enum:
+    permissible_values:
+      chemical inhibition:
+        description: chemical inhibition
+      guanine nucleotide exchange factor:
+        description: guanine nucleotide exchange factor
+      deubiquitination:
+        description: deubiquitination
+      catalytic activity:
+        description: catalytic activity
+      acetylation:
+        description: acetylation
+      neddylation:
+        description: neddylation
+      gtpase-activating protein:
+        description: gtpase-activating protein
+      glycosylation:
+        description: glycosylation
+      binding:
+        description: binding
+      transcriptional regulation:
+        description: transcriptional regulation
+      relocalization:
+        description: relocalization
+      post translational modification:
+        description: post translational modification
+      cleavage:
+        description: cleavage
+      isomerization:
+        description: isomerization
+      methylation:
+        description: methylation
+      oxidation:
+        description: oxidation
+      ubiquitination:
+        description: ubiquitination
+      post transcriptional regulation:
+        description: post transcriptional regulation
+      dephosphorylation:
+        description: dephosphorylation
+      small molecule catalysis:
+        description: small molecule catalysis
+      phosphorylation:
+        description: phosphorylation
+      s-nitrosylation:
+        description: s-nitrosylation
+      ADP-ribosylation:
+        description: ADP-ribosylation
+      chemical activation:
+        description: chemical activation
+      deacetylation:
+        description: deacetylation
+      demethylation:
+        description: demethylation
+      sumoylation:
+        description: sumoylation
+      lipidation:
+        description: lipidation
+      translation regulation:
+        description: translation regulation
+      desumoylation:
+        description: desumoylation
+      tyrosination:
+        description: tyrosination
+      palmitoylation:
+        description: palmitoylation
+      hydroxylation:
+        description: hydroxylation
+  TAX_ID_enum:
+    permissible_values:
+      '10030':
+        description: '10030'
+      '9543':
+        description: '9543'
+      '8355':
+        description: '8355'
+      '10090':
+        description: '10090'
+      '9600':
+        description: '9600'
+      '9615':
+        description: '9615'
+      '7227':
+        description: '7227'
+      '9031':
+        description: '9031'
+      '6239':
+        description: '6239'
+      '9606':
+        description: '9606'
+      '9825':
+        description: '9825'
+      '99606':
+        description: '99606'
+      '93934':
+        description: '93934'
+      '10036':
+        description: '10036'
+      '9913':
+        description: '9913'
+      '4932':
+        description: '4932'
+      '960':
+        description: '960'
+      '-1':
+        description: '-1'
+      '452646':
+        description: '452646'
+      '10029':
+        description: '10029'
+      '9006':
+        description: '9006'
+      '9935':
+        description: '9935'
+      '9608':
+        description: '9608'
+      '1792':
+        description: '1792'
+      '9823':
+        description: '9823'
+      '10116':
+        description: '10116'
+      '9609':
+        description: '9609'
+      '9534':
+        description: '9534'
+      '9060':
+        description: '9060'
+  MODULATOR_COMPLEX_enum:
+    permissible_values:
+      SIGNOR-C301:
+        description: SIGNOR-C301
+      SIGNOR-C3:
+        description: SIGNOR-C3
+      SIGNOR-C8:
+        description: SIGNOR-C8
+      SIGNOR-C16:
+        description: SIGNOR-C16
+      SIGNOR-C135:
+        description: SIGNOR-C135
+      SIGNOR-C306:
+        description: SIGNOR-C306
+      SIGNOR-C7:
+        description: SIGNOR-C7
+      SIGNOR-C14:
+        description: SIGNOR-C14
+      SIGNOR-C303:
+        description: SIGNOR-C303
+      SIGNOR-C85:
+        description: SIGNOR-C85
+      SIGNOR-C17:
+        description: SIGNOR-C17
+      SIGNOR-C305:
+        description: SIGNOR-C305
+      SIGNOR-C297:
+        description: SIGNOR-C297
+      SIGNOR-C29:
+        description: SIGNOR-C29
+      SIGNOR-C298:
+        description: SIGNOR-C298
+      SIGNOR-C60:
+        description: SIGNOR-C60
+      SIGNOR-C5:
+        description: SIGNOR-C5
+      SIGNOR-C21:
+        description: SIGNOR-C21
+      SIGNOR-C54:
+        description: SIGNOR-C54
+      SIGNOR-C13:
+        description: SIGNOR-C13
+      SIGNOR-C15:
+        description: SIGNOR-C15
+      SIGNOR-C300:
+        description: SIGNOR-C300
+      SIGNOR-C136:
+        description: SIGNOR-C136
+      SIGNOR-C110:
+        description: SIGNOR-C110
+      SIGNOR-C6:
+        description: SIGNOR-C6
+      SIGNOR-C2:
+        description: SIGNOR-C2
+      SIGNOR-C18:
+        description: SIGNOR-C18
+      SIGNOR-C319:
+        description: SIGNOR-C319
+      SIGNOR-C83:
+        description: SIGNOR-C83
+  TARGET_COMPLEX_enum:
+    permissible_values:
+      SIGNOR-C3:
+        description: SIGNOR-C3
+      SIGNOR-C106:
+        description: SIGNOR-C106
+      SIGNOR-C8:
+        description: SIGNOR-C8
+      SIGNOR-C89:
+        description: SIGNOR-C89
+      SIGNOR-C16:
+        description: SIGNOR-C16
+      SIGNOR-C129:
+        description: SIGNOR-C129
+      SIGNOR-C306:
+        description: SIGNOR-C306
+      SIGNOR-C7:
+        description: SIGNOR-C7
+      SIGNOR-C14:
+        description: SIGNOR-C14
+      SIGNOR-C302:
+        description: SIGNOR-C302
+      SIGNOR-C50:
+        description: SIGNOR-C50
+      SIGNOR-C85:
+        description: SIGNOR-C85
+      SIGNOR-C17:
+        description: SIGNOR-C17
+      SIGNOR-C305:
+        description: SIGNOR-C305
+      SIGNOR-C29:
+        description: SIGNOR-C29
+      SIGNOR-C242:
+        description: SIGNOR-C242
+      SIGNOR-C295:
+        description: SIGNOR-C295
+      SIGNOR-C9:
+        description: SIGNOR-C9
+      SIGNOR-C98:
+        description: SIGNOR-C98
+      SIGNOR-C21:
+        description: SIGNOR-C21
+      SIGNOR-C308:
+        description: SIGNOR-C308
+      SIGNOR-C263:
+        description: SIGNOR-C263
+      SIGNOR-C30:
+        description: SIGNOR-C30
+      SIGNOR-C92:
+        description: SIGNOR-C92
+      SIGNOR-C123:
+        description: SIGNOR-C123
+      SIGNOR-C77:
+        description: SIGNOR-C77
+      SIGNOR-C13:
+        description: SIGNOR-C13
+      SIGNOR-C15:
+        description: SIGNOR-C15
+      SIGNOR-C110:
+        description: SIGNOR-C110
+      SIGNOR-C6:
+        description: SIGNOR-C6
+      SIGNOR-C154:
+        description: SIGNOR-C154
+      SIGNOR-C2:
+        description: SIGNOR-C2
+      SIGNOR-C88:
+        description: SIGNOR-C88
+      SIGNOR-C68:
+        description: SIGNOR-C68
+      SIGNOR-C12:
+        description: SIGNOR-C12
+      SIGNOR-C18:
+        description: SIGNOR-C18
+      SIGNOR-C125:
+        description: SIGNOR-C125
+      SIGNOR-C128:
+        description: SIGNOR-C128
+      SIGNOR-C167:
+        description: SIGNOR-C167
+      SIGNOR-C127:
+        description: SIGNOR-C127
+  MODASEQ_enum:
+    permissible_values:
+      GGAKRHRkVLRDNIQ:
+        description: GGAKRHRkVLRDNIQ
+      SGRPRTTsFAESCKP:
+        description: SGRPRTTsFAESCKP
+      GPGEQQKrKIVLDPS:
+        description: GPGEQQKrKIVLDPS
+      VDFREYEyDLKWEFP:
+        description: VDFREYEyDLKWEFP
+      KDRDGYEsSYRRRTL:
+        description: KDRDGYEsSYRRRTL
+      KGQKYFDsGDYNMAK:
+        description: KGQKYFDsGDYNMAK
+      T-->L:
+        description: T-->L
+      ELPTRVSsPVFGATS:
+        description: ELPTRVSsPVFGATS
+      LPTPTKMtPRSRILV:
+        description: LPTPTKMtPRSRILV
+      SFDERQPyAHMNGGR:
+        description: SFDERQPyAHMNGGR
+      KGQAGLQrALEILQE;TPLQLFEgRRNRRRR:
+        description: KGQAGLQrALEILQE;TPLQLFEgRRNRRRR
+      SAAQLAStPFHKLPV:
+        description: SAAQLAStPFHKLPV
+      SPSVRCSsMS;SVRCSSMs:
+        description: SPSVRCSsMS;SVRCSSMs
+      SDSPREQdSESQTLD:
+        description: SDSPREQdSESQTLD
+      NMMDILTtPSMAKPR;PRQDYSRtPGQVLSL:
+        description: NMMDILTtPSMAKPR;PRQDYSRtPGQVLSL
+      IFGATDYtSSIDVWS:
+        description: IFGATDYtSSIDVWS
+      EENMTETdAFYKREM:
+        description: EENMTETdAFYKREM
+      GGAKRHRkVLRDNIQ;GLGKGGAkRHRKVLR:
+        description: GGAKRHRkVLRDNIQ;GLGKGGAkRHRKVLR
+      DDYHNPGyLVVLPDS;SMESIDDyVNVPESG:
+        description: DDYHNPGyLVVLPDS;SMESIDDyVNVPESG
+      ASHLGLArSNLDEDI:
+        description: ASHLGLArSNLDEDI
+      EEEGAPDyENLQELN;SLDGSREyVNVSQEL:
+        description: EEEGAPDyENLQELN;SLDGSREyVNVSQEL
+      IHGSESMdSGISLDN:
+        description: IHGSESMdSGISLDN
+      SPGCEESdAGKEKLP:
+        description: SPGCEESdAGKEKLP
+      SGPINDTdANPRYKI:
+        description: SGPINDTdANPRYKI
+      HKDMQLGrLHMKTLL;KEILRPRrTLQKKIE:
+        description: HKDMQLGrLHMKTLL;KEILRPRrTLQKKIE
+      CTTKTSTrIVGGTNS:
+        description: CTTKTSTrIVGGTNS
+      HKDMQLGrLHMKTLL:
+        description: HKDMQLGrLHMKTLL
+      TRKLMEFsEHCAIIL:
+        description: TRKLMEFsEHCAIIL
+      KTKESLGrKIQIQRS:
+        description: KTKESLGrKIQIQRS
+      DTNITEVdAASVYTL:
+        description: DTNITEVdAASVYTL
+      SESTNHIySNLANCS:
+        description: SESTNHIySNLANCS
+      MLEERKTyVNTTLYE:
+        description: MLEERKTyVNTTLYE
+      QPAARRRrSVQLTEK;ASHLGLArSNLDEDI:
+        description: QPAARRRrSVQLTEK;ASHLGLArSNLDEDI
+      KSKGRASsSGNQESS:
+        description: KSKGRASsSGNQESS
+      CLHNFLTdGVPAEGA:
+        description: CLHNFLTdGVPAEGA
+      kGGKGLGK;SGRGKGGkGLGKGGA:
+        description: kGGKGLGK;SGRGKGGkGLGKGGA
+      PAPQAVQdNPAMPTS:
+        description: PAPQAVQdNPAMPTS
+      VAKVDDPkLANSEFL:
+        description: VAKVDDPkLANSEFL
+      GMISLMKrPPGFSPF;PPGFSPFrSSRIGEI:
+        description: GMISLMKrPPGFSPF;PPGFSPFrSSRIGEI
+      DHAEAALyKNLLHSK:
+        description: DHAEAALyKNLLHSK
+      AQQDGKDyIVLPISE:
+        description: AQQDGKDyIVLPISE
+  MODBSEQ_enum:
+    permissible_values:
+      sAEVIHQV;VQGAGTSyRNVLQAA:
+        description: sAEVIHQV;VQGAGTSyRNVLQAA
+      TYVDPHTyEDPNQAV:
+        description: TYVDPHTyEDPNQAV
+      PSSDSLSsPTLLAL;AAAHRKGsSSNEPSS:
+        description: PSSDSLSsPTLLAL;AAAHRKGsSSNEPSS
+      KVSSTHYyLLPERPP:
+        description: KVSSTHYyLLPERPP
+      QPLSKSSsSPELQTL:
+        description: QPLSKSSsSPELQTL
+      GETRFTDtRKDEQER:
+        description: GETRFTDtRKDEQER
+      PQHVRAHsSPASLQL:
+        description: PQHVRAHsSPASLQL
+      RAGETRFtDTRKDEQ:
+        description: RAGETRFtDTRKDEQ
+      FTSTEPQyQPGENL:
+        description: FTSTEPQyQPGENL
+      TSVYESPySDPEELK:
+        description: TSVYESPySDPEELK
+      EANSRCQtPIKMKPN:
+        description: EANSRCQtPIKMKPN
+      SVSETDDyAEIIDEE:
+        description: SVSETDDyAEIIDEE
+      HIIENPQyFSDACVH:
+        description: HIIENPQyFSDACVH
+      ASHLGLArSNLDEDI:
+        description: ASHLGLArSNLDEDI
+      PSHDRSRtVSASSTG:
+        description: PSHDRSRtVSASSTG
+      GFPSKTDsPSCEYSR;GSLCSVFsPSFVQWE;GADSDVEtPSNFGKY:
+        description: GFPSKTDsPSCEYSR;GSLCSVFsPSFVQWE;GADSDVEtPSNFGKY
+      PPPGSLEyLCLPAGG:
+        description: PPPGSLEyLCLPAGG
+      ESENSGDsGYPSEKR;SGDSGYPsEKRGELD:
+        description: ESENSGDsGYPSEKR;SGDSGYPsEKRGELD
+      RPHFPQFsYSASGTA:
+        description: RPHFPQFsYSASGTA
+      LLPTPPLsPSRRSGL:
+        description: LLPTPPLsPSRRSGL
+      HDHTGFLtEYVATRW:
+        description: HDHTGFLtEYVATRW
+      ANLRKLNsRLFVIRG:
+        description: ANLRKLNsRLFVIRG
+      T-->E:
+        description: T-->E
+  DIRECT_enum:
+    permissible_values:
+      'NO':
+        description: 'NO'
+      UNK:
+        description: UNK
+      'YES':
+        description: 'YES'
+
