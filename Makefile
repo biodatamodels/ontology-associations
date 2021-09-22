@@ -26,118 +26,7 @@ GEN_OPTS =
 all: gen stage
 
 gen-project:
-	gen-project -d . $(SCHEMA_SRC)
-
-gen: $(patsubst %,gen-%,$(TGTS))
-clean:
-	rm -rf target/
-	rm -rf docs/
-
-t:
-	echo $(SCHEMA_NAMES)
-ts:
-	echo $(SOURCE_FILES)
-
-echo:
-	echo $(patsubst %,gen-%,$(TGTS))
-
-test: all pytest
-
-pytest:
-	pytest
-
-install:
-	. environment.sh
-	pip install -r requirements.txt
-
-tdir-%:
-	mkdir -p target/$*
-docs:
-	mkdir $@
-
-stage: $(patsubst %,stage-%,$(TGTS))
-stage-%: gen-%
-	cp -pr target/$* .
-
-src-modified: $(SOURCE_FILES)
-.PHONY: src-modified
-
-###  -- MARKDOWN DOCS --
-# Generate documentation ready for mkdocs
-# TODO: modularize imports
-# TODO: ensure triggered
-gen-docs: target/docs/index.md copy-src-docs
-.PHONY: gen-docs
-copy-src-docs:
-	cp $(SRC_DIR)/docs/*md target/docs/
-target/docs/%.md: $(SOURCE_FILES) tdir-docs
-	gen-markdown $(GEN_OPTS) --dir target/docs src/schema/all.yaml
-stage-docs: gen-docs
-	cp -pr target/docs .
-
-###  -- MARKDOWN DOCS --
-# TODO: modularize imports
-gen-python: $(patsubst %, target/python/%.py, $(SOURCE_NAMES))
-	cp python/*py ontology_association/datamodel/
-.PHONY: gen-python
-target/python/%.py: $(SCHEMA_DIR)/%.yaml  tdir-python
-	gen-py-classes --no-mergeimports $(GEN_OPTS) $< > $@
-
-###  -- MARKDOWN DOCS --
-# TODO: modularize imports. For now imports are merged.
-gen-graphql:target/graphql/$(SCHEMA_NAME).graphql 
-target/graphql/%.graphql: $(SCHEMA_DIR)/%.yaml tdir-graphql
-	gen-graphql $(GEN_OPTS) $< > $@
-
-###  -- JSON schema --
-# TODO: modularize imports. For now imports are merged.
-gen-jsonschema: target/jsonschema/$(SCHEMA_NAME).schema.json
-target/jsonschema/%.schema.json: $(SCHEMA_DIR)/%.yaml tdir-jsonschema
-	gen-json-schema $(GEN_OPTS) -t transaction $< > $@
-
-###  -- JSON-LD-CONTEXT --
-# TODO: modularize imports. For now imports are merged.
-gen-jsonld-context: target/jsonld-context/$(SCHEMA_NAME).context.json
-target/jsonld-context/%.context.json: $(SCHEMA_DIR)/%.yaml tdir-jsonld-context
-	gen-jsonld-context $(GEN_OPTS)  $< > $@
-
-###  -- Shex --
-# one file per module
-gen-shex: $(patsubst %, target/shex/%.shex, $(SCHEMA_NAMES))
-target/shex/%.shex: $(SCHEMA_DIR)/%.yaml tdir-shex
-	gen-shex --no-mergeimports $(GEN_OPTS) $< > $@
-
-###  -- Golr --
-# one file per module
-gen-golr: $(patsubst %, target/golr/%.golr.yaml, $(SCHEMA_NAME))
-target/golr/%.golr.yaml: $(SCHEMA_DIR)/%.yaml tdir-golr
-	gen-golr-views --no-mergeimports -d target/golr $(GEN_OPTS) $<
-
-###  -- CSV --
-# one file per module
-gen-csv: $(patsubst %, target/csv/%.csv, $(SCHEMA_NAMES))
-target/csv/%.csv: $(SCHEMA_DIR)/%.yaml tdir-csv
-	gen-csv $(GEN_OPTS) $< > $@
-
-###  -- OWL --
-# TODO: modularize imports. For now imports are merged.
-gen-owl: target/owl/$(SCHEMA_NAME).owl.ttl
-.PHONY: gen-owl
-target/owl/%.owl.ttl: $(SCHEMA_DIR)/%.yaml tdir-owl
-	gen-owl $(GEN_OPTS) $< > $@
-
-###  -- RDF (direct mapping) --
-# TODO: modularize imports. For now imports are merged.
-gen-rdf: target/rdf/$(SCHEMA_NAME).ttl
-target/rdf/%.ttl: $(SCHEMA_DIR)/%.yaml tdir-rdf
-	gen-rdf $(GEN_OPTS) $< > $@
-
-###  -- LinkML --
-# linkml (copy)
-# one file per module
-gen-linkml: target/linkml/$(SCHEMA_NAME).yaml
-target/linkml/%.yaml: $(SCHEMA_DIR)/%.yaml tdir-limkml
-	cp $< > $@
+	gen-project -d ontology_associations $(SCHEMA_SRC)
 
 # test docs locally.
 docserve:
@@ -156,15 +45,6 @@ csv/gpad.header.tsv: src/schema/gpad.yaml
 csv/gpi.header.tsv: src/schema/gpi.yaml
 	./util/gen-header.py -c 'gpi entity' $< > $@
 
-# ddl
-sql/gaf.ddl.sql: src/schema/gaf.yaml
-	./util/gen-sqlddl.py -c 'gaf association' $< > $@
-
-sql/gpad.ddl.sql: src/schema/gpad.yaml
-	./util/gen-sqlddl.py -c 'gpad association' $< > $@
-
-sql/gpi.ddl.sql: src/schema/gpi.yaml
-	./util/gen-sqlddl.py -c 'gpi entity' $< > $@
 
 test.db:
 	cat sql/gaf.ddl.sql | sqlite3 test.db
