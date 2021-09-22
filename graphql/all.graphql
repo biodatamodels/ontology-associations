@@ -1,6 +1,3 @@
-Warning: The following errors were encountered in the schema
-		File "/Users/cjm/repos/ontology_associations/src/schema/gpi.yaml", line 37, col 7:  Slot gpi entity_db object ref is declared inline but single valued
-
 interface Annotation
   {
   }
@@ -273,25 +270,8 @@ type OntologyClass
   {
   }
 
-type PhafAssociation implements Denormalized
+type PombasePhafAssociation implements Denormalized
   {
-    db: String!
-    localId: String!
-    dbObjectSymbol: SymbolType!
-    qualifiers: [String]
-    ontologyClassRef: OntologyClass!
-    supportingReferences: [Publication]!
-    evidenceType: OntologyClass!
-    withOrFrom: [Entity]
-    aspect: String!
-    dbObjectName: NameType
-    dbObjectSynonyms: [NameType]
-    dbObjectType: String
-    dbObjectTaxon: Taxon!
-    annotationDate: Datetime
-    assignedBy: Provider!
-    annotationExtensions: [AnnotationExtension]
-    geneProductForm: BiologicalEntity
     databaseName: DatabaseNameEnum!
     geneSystematicID: String!
     fYPOID: FYPOIdentifier!
@@ -308,13 +288,13 @@ type PhafAssociation implements Denormalized
     condition: PECOIdentifier
     penetrance: String
     severity: FYPOEXTIdentifier
-    extension: String
-    reference: Identifier
-    taxon: Integer
-    date: Integer
+    extension: [String]
+    reference: [Publication]!
+    taxon: Integer!
+    date: String
   }
 
-type PhafAssociationDocument
+type PombasePhafAssociationDocument
   {
     dateGenerated: String
     generatedBy: Provider
@@ -324,7 +304,7 @@ type PhafAssociationDocument
     goVersion: String
     roVersion: String
     gorelVersion: String
-    associations: [PhafAssociation]
+    associations: [PombasePhafAssociation]
   }
 
 type PropertyValuePair
@@ -394,5 +374,4 @@ type XafAssociation implements Denormalized
     annotationExtensions: [AnnotationExtension]
     geneProductForm: BiologicalEntity
   }
-
 

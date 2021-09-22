@@ -1,10 +1,27 @@
-Warning: The following errors were encountered in the schema
-		File "/Users/cjm/repos/ontology_associations/src/schema/gpi.yaml", line 37, col 7:  Slot gpi entity_db object ref is declared inline but single valued
-
 {
-   "$id": "https://w3id.org/ontology_association/all",
-   "$schema": "http://json-schema.org/draft-07/schema#",
-   "definitions": {
+   "$defs": {
+      "AlleleTypeEnum": {
+         "description": "",
+         "enum": [
+            "deletion",
+            "nucleotide_mutation",
+            "amino_acid_insertion",
+            "other",
+            "partial_amino_acid_deletion",
+            "nonsense_mutation",
+            "partial_nucleotide_deletion",
+            "amino_acid_deletion_and_mutation",
+            "wild_type",
+            "amino_acid_insertion_and_mutation",
+            "amino_acid_mutation",
+            "unrecorded",
+            "nucleotide_insertion",
+            "unknown",
+            "disruption"
+         ],
+         "title": "AlleleTypeEnum",
+         "type": "string"
+      },
       "AnnotationExtension": {
          "additionalProperties": false,
          "description": "set of expressions all true",
@@ -19,7 +36,7 @@ Warning: The following errors were encountered in the schema
          "properties": {
             "associations": {
                "items": {
-                  "$ref": "#/definitions/Association"
+                  "$ref": "#/$defs/Association"
                },
                "type": "array"
             },
@@ -31,7 +48,7 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "generated_by": {
-               "$ref": "#/definitions/Provider",
+               "$ref": "#/$defs/Provider",
                "description": "YYYY-MM-DD or YYYY-MM-DDTHH:MM"
             },
             "go_version": {
@@ -55,6 +72,36 @@ Warning: The following errors were encountered in the schema
          "required": [],
          "title": "AssociationDocument",
          "type": "object"
+      },
+      "BiologicalEffectInteractorEnum": {
+         "description": "",
+         "enum": [
+            "-"
+         ],
+         "title": "BiologicalEffectInteractorEnum",
+         "type": "string"
+      },
+      "BiologicalRoleInteractorEnum": {
+         "description": "",
+         "enum": [
+            "psi-mi:\"MI:0499\"(unspecified role)",
+            "psi-mi:\"MI:0502\"(enzyme target)",
+            "psi-mi:\"MI:0501\"(enzyme)"
+         ],
+         "title": "BiologicalRoleInteractorEnum",
+         "type": "string"
+      },
+      "CausalRegulatoryMechanismEnum": {
+         "description": "",
+         "enum": [
+            "psi-mi:\"MI:2246\"(indirect causal regulation)",
+            "psi-mi:\"MI:2249\"(post transcriptional regulation)",
+            "psi-mi:\"MI:2248\"(translation regulation)",
+            "-",
+            "psi-mi:\"MI:2247\"(transcriptional regulation)"
+         ],
+         "title": "CausalRegulatoryMechanismEnum",
+         "type": "string"
       },
       "CausaltabInteraction": {
          "additionalProperties": false,
@@ -94,19 +141,19 @@ Warning: The following errors were encountered in the schema
                "type": "array"
             },
             "Biological_Effect_interactor_A": {
-               "type": "string"
+               "$ref": "#/$defs/BiologicalEffectInteractorEnum"
             },
             "Biological_Effect_interactor_B": {
-               "type": "string"
+               "$ref": "#/$defs/BiologicalEffectInteractorEnum"
             },
             "Biological_role(s)_interactor_A": {
-               "type": "string"
+               "$ref": "#/$defs/BiologicalRoleInteractorEnum"
             },
             "Biological_role(s)_interactor_B": {
-               "type": "string"
+               "$ref": "#/$defs/BiologicalRoleInteractorEnum"
             },
             "Causal_Regulatory_Mechanism": {
-               "type": "string"
+               "$ref": "#/$defs/CausalRegulatoryMechanismEnum"
             },
             "Causal_statement": {
                "type": "string"
@@ -121,16 +168,17 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "Creation_date": {
+               "format": "date-time",
                "type": "string"
             },
             "Expansion_method(s)": {
-               "type": "string"
+               "$ref": "#/$defs/ExpansionMethodEnum"
             },
             "Experimental_role(s)_interactor_A": {
-               "type": "string"
+               "$ref": "#/$defs/ExperimentalRoleInteractorEnum"
             },
             "Experimental_role(s)_interactor_B": {
-               "type": "string"
+               "$ref": "#/$defs/ExperimentalRoleInteractorEnum"
             },
             "Feature(s)_interactor_A": {
                "items": {
@@ -170,7 +218,7 @@ Warning: The following errors were encountered in the schema
             },
             "Interaction_Xref(s)": {
                "items": {
-                  "type": "string"
+                  "$ref": "#/$defs/InteractionXrefEnum"
                },
                "type": "array"
             },
@@ -181,7 +229,7 @@ Warning: The following errors were encountered in the schema
                "type": "array"
             },
             "Interaction_detection_method(s)": {
-               "type": "string"
+               "$ref": "#/$defs/InteractionDetectionMethodEnum"
             },
             "Interaction_identifier(s)": {
                "items": {
@@ -193,10 +241,10 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "Interaction_type(s)": {
-               "type": "string"
+               "$ref": "#/$defs/InteractionTypeEnum"
             },
             "Negative": {
-               "type": "string"
+               "$ref": "#/$defs/NegativeEnum"
             },
             "Publication_1st_author(s)": {
                "type": "string"
@@ -211,10 +259,10 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "Stoichiometry(s)_interactor_A": {
-               "type": "string"
+               "$ref": "#/$defs/StoichiometryInteractorEnum"
             },
             "Stoichiometry(s)_interactor_B": {
-               "type": "string"
+               "$ref": "#/$defs/StoichiometryInteractorEnum"
             },
             "Taxid_interactor_A": {
                "items": {
@@ -235,6 +283,7 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "Update_date": {
+               "format": "date-time",
                "type": "string"
             },
             "Xref(s)_interactor_A": {
@@ -262,30 +311,108 @@ Warning: The following errors were encountered in the schema
          "title": "ControlledTerm",
          "type": "object"
       },
+      "DatabaseNameEnum": {
+         "description": "",
+         "enum": [
+            "PomBase"
+         ],
+         "title": "DatabaseNameEnum",
+         "type": "string"
+      },
+      "EvidenceEnum": {
+         "description": "",
+         "enum": [
+            "Particle size and count assay",
+            "gel electrophoresis evidence",
+            "Flow cytometry data",
+            "Chromatin immunoprecipitation experiment",
+            "quantitative PCR",
+            "Microscopy",
+            "Electrophoretic mobility shift assay data",
+            "Epitope-tagged protein immunolocalization experiment data",
+            "Enzyme assay data",
+            "sodium dodecyl sulfate polyacrylamide gel electrophoresis evidence",
+            "microscopy evidence used in manual assertion",
+            "Co-immunoprecipitation experiment",
+            "Plasmid maintenance assay evidence",
+            "reporter gene assay evidence",
+            "experimental phenotypic evidence",
+            "transcript expression level evidence",
+            "Other direct assay",
+            "Chromatography evidence",
+            "Immunolocalization experiment data",
+            "Northern assay evidence",
+            "Other",
+            "cell growth assay evidence",
+            "tryptic phosphopeptide mapping assay evidence used in automatic assertion",
+            "high throughput nucleotide sequencing assay evidence",
+            "competitive growth assay evidence",
+            "western blot evidence used in manual assertion",
+            "Substance quantification evidence",
+            "Western blot assay"
+         ],
+         "title": "EvidenceEnum",
+         "type": "string"
+      },
+      "ExpansionMethodEnum": {
+         "description": "",
+         "enum": [
+            "-",
+            "psi-mi:\"MI:1060\"(spoke expansion)"
+         ],
+         "title": "ExpansionMethodEnum",
+         "type": "string"
+      },
+      "ExperimentalRoleInteractorEnum": {
+         "description": "",
+         "enum": [
+            "psi-mi:\"MI:0498\"(prey)",
+            "psi-mi:\"MI:0497\"(neutral component)",
+            "psi-mi:\"MI:0496\"(bait)"
+         ],
+         "title": "ExperimentalRoleInteractorEnum",
+         "type": "string"
+      },
+      "ExpressionEnum": {
+         "description": "",
+         "enum": [
+            "Wild type product level",
+            "Not assayed",
+            "Null",
+            "Endogenous",
+            "Knockdown",
+            "Overexpression"
+         ],
+         "title": "ExpressionEnum",
+         "type": "string"
+      },
       "GafAssociation": {
          "additionalProperties": false,
          "description": "line of GAF",
          "properties": {
             "annotation_date": {
                "description": "date when annotation was made",
+               "format": "date-time",
+               "pattern": "^\\d{6}",
                "type": "string"
             },
             "annotation_extensions": {
                "description": "disjunction",
                "items": {
-                  "$ref": "#/definitions/AnnotationExtension"
+                  "$ref": "#/$defs/AnnotationExtension"
                },
                "type": "array"
             },
             "aspect": {
-               "type": "string"
+               "$ref": "#/$defs/GeneOntologyAspectEnum"
             },
             "assigned_by": {
-               "$ref": "#/definitions/Provider",
+               "$ref": "#/$defs/Provider",
                "description": "assigned by"
             },
             "db": {
                "description": "db part of identifier",
+               "pattern": "[a-zA-Z0-9\\.\\-\\_]+",
                "type": "string"
             },
             "db_object_name": {
@@ -301,41 +428,43 @@ Warning: The following errors were encountered in the schema
                "type": "array"
             },
             "db_object_taxon": {
-               "$ref": "#/definitions/Taxon"
+               "$ref": "#/$defs/Taxon"
             },
             "db_object_type": {
-               "type": "string"
+               "$ref": "#/$defs/GpEntityTypeEnum"
             },
             "evidence_type": {
-               "$ref": "#/definitions/OntologyClass"
+               "$ref": "#/$defs/OntologyClass"
             },
             "gene_product_form": {
-               "$ref": "#/definitions/BiologicalEntity",
+               "$ref": "#/$defs/BiologicalEntity",
                "description": "isoform"
             },
             "local_id": {
                "description": "local part of identifier",
+               "pattern": "\\S+",
                "type": "string"
             },
             "ontology_class_ref": {
-               "$ref": "#/definitions/OntologyClass",
-               "description": "this must be a GO ID"
+               "$ref": "#/$defs/OntologyClass",
+               "description": "this must be a GO ID",
+               "pattern": "^GO:\\d+"
             },
             "qualifiers": {
                "items": {
-                  "type": "string"
+                  "$ref": "#/$defs/Gp2termRelationEnum"
                },
                "type": "array"
             },
             "supporting_references": {
                "items": {
-                  "$ref": "#/definitions/Publication"
+                  "$ref": "#/$defs/Publication"
                },
                "type": "array"
             },
             "with_or_from": {
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             }
@@ -360,7 +489,7 @@ Warning: The following errors were encountered in the schema
          "properties": {
             "associations": {
                "items": {
-                  "$ref": "#/definitions/GafAssociation"
+                  "$ref": "#/$defs/GafAssociation"
                },
                "type": "array"
             },
@@ -372,7 +501,7 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "generated_by": {
-               "$ref": "#/definitions/Provider",
+               "$ref": "#/$defs/Provider",
                "description": "YYYY-MM-DD or YYYY-MM-DDTHH:MM"
             },
             "go_version": {
@@ -397,43 +526,90 @@ Warning: The following errors were encountered in the schema
          "title": "GafAssociationDocument",
          "type": "object"
       },
+      "GeneOntologyAspectEnum": {
+         "description": "",
+         "enum": [
+            "F",
+            "P",
+            "C"
+         ],
+         "title": "GeneOntologyAspectEnum",
+         "type": "string"
+      },
+      "Gp2termRelationEnum": {
+         "description": "",
+         "enum": [
+            "NOT",
+            "enables",
+            "involved_in",
+            "located_in",
+            "contributes_to",
+            "acts_upstream_of",
+            "part_of",
+            "acts_upstream_of_positive_effect",
+            "is_active_in",
+            "acts_upstream_of_negative_effect",
+            "colocalizes_with",
+            "acts_upstream_of_or_within",
+            "acts_upstream_of_or_within_positive_effect",
+            "acts_upstream_of_or_within_negative_effect"
+         ],
+         "title": "Gp2termRelationEnum",
+         "type": "string"
+      },
+      "GpEntityTypeEnum": {
+         "description": "",
+         "enum": [
+            "protein_coding_gene",
+            "ncRNA_gene",
+            "mRNA",
+            "ncRNA",
+            "protein",
+            "protein-containing complex",
+            "genetic_marker"
+         ],
+         "title": "GpEntityTypeEnum",
+         "type": "string"
+      },
       "GpadAssociation": {
          "additionalProperties": false,
          "description": "line of GPAD",
          "properties": {
             "annotation_date": {
                "description": "date when annotation was made",
+               "format": "date-time",
+               "pattern": "^\\d{6}",
                "type": "string"
             },
             "annotation_extensions": {
                "description": "disjunction",
                "items": {
-                  "$ref": "#/definitions/AnnotationExtension"
+                  "$ref": "#/$defs/AnnotationExtension"
                },
                "type": "array"
             },
             "annotation_properties": {
                "items": {
-                  "$ref": "#/definitions/PropertyValuePair"
+                  "$ref": "#/$defs/PropertyValuePair"
                },
                "type": "array"
             },
             "assigned_by": {
-               "$ref": "#/definitions/Provider",
+               "$ref": "#/$defs/Provider",
                "description": "assigned by"
             },
             "db_object_ref": {
-               "$ref": "#/definitions/Entity"
+               "$ref": "#/$defs/Entity"
             },
             "db_object_type": {
-               "type": "string"
+               "$ref": "#/$defs/GpEntityTypeEnum"
             },
             "evidence_type": {
-               "$ref": "#/definitions/OntologyClass"
+               "$ref": "#/$defs/OntologyClass"
             },
             "interacting_taxon_ref": {
                "items": {
-                  "$ref": "#/definitions/Taxon"
+                  "$ref": "#/$defs/Taxon"
                },
                "type": "array"
             },
@@ -441,20 +617,20 @@ Warning: The following errors were encountered in the schema
                "type": "boolean"
             },
             "ontology_class_ref": {
-               "$ref": "#/definitions/OntologyClass"
+               "$ref": "#/$defs/OntologyClass"
             },
             "relation": {
-               "type": "string"
+               "$ref": "#/$defs/Gp2termRelationEnum"
             },
             "supporting_references": {
                "items": {
-                  "$ref": "#/definitions/Publication"
+                  "$ref": "#/$defs/Publication"
                },
                "type": "array"
             },
             "with_or_from": {
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             }
@@ -476,7 +652,7 @@ Warning: The following errors were encountered in the schema
          "properties": {
             "associations": {
                "items": {
-                  "$ref": "#/definitions/GpadAssociation"
+                  "$ref": "#/$defs/GpadAssociation"
                },
                "type": "array"
             },
@@ -488,7 +664,7 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "generated_by": {
-               "$ref": "#/definitions/Provider",
+               "$ref": "#/$defs/Provider",
                "description": "YYYY-MM-DD or YYYY-MM-DDTHH:MM"
             },
             "go_version": {
@@ -536,7 +712,7 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "db_object_ref": {
-               "$ref": "#/definitions/Entity"
+               "$ref": "#/$defs/Entity"
             },
             "db_object_symbol": {
                "type": "string"
@@ -548,7 +724,7 @@ Warning: The following errors were encountered in the schema
                "type": "array"
             },
             "db_object_taxon": {
-               "$ref": "#/definitions/Taxon"
+               "$ref": "#/$defs/Taxon"
             },
             "db_object_type": {
                "type": "string"
@@ -561,25 +737,25 @@ Warning: The following errors were encountered in the schema
             },
             "encoded_by": {
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             },
             "gene_product_properties": {
                "items": {
-                  "$ref": "#/definitions/PropertyValuePair"
+                  "$ref": "#/$defs/PropertyValuePair"
                },
                "type": "array"
             },
             "parent_protein": {
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             },
             "protein_containing_complex_members": {
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             }
@@ -598,6 +774,8 @@ Warning: The following errors were encountered in the schema
          "properties": {
             "annotation_date": {
                "description": "date when annotation was made",
+               "format": "date-time",
+               "pattern": "^\\d{6}",
                "type": "string"
             },
             "aspect": {
@@ -605,11 +783,12 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "assigned_by": {
-               "$ref": "#/definitions/Provider",
+               "$ref": "#/$defs/Provider",
                "description": "assigned by"
             },
             "db": {
                "description": "db part of identifier",
+               "pattern": "[a-zA-Z0-9\\.\\-\\_]+",
                "type": "string"
             },
             "db_object_symbol": {
@@ -622,33 +801,34 @@ Warning: The following errors were encountered in the schema
                "type": "array"
             },
             "evidence_type": {
-               "$ref": "#/definitions/OntologyClass"
+               "$ref": "#/$defs/OntologyClass"
             },
             "frequency": {
                "type": "string"
             },
             "local_id": {
                "description": "local part of identifier",
+               "pattern": "\\S+",
                "type": "string"
             },
             "onset": {
                "type": "string"
             },
             "ontology_class_ref": {
-               "$ref": "#/definitions/OntologyClass"
+               "$ref": "#/$defs/OntologyClass"
             },
             "relation": {
                "type": "string"
             },
             "supporting_references": {
                "items": {
-                  "$ref": "#/definitions/Publication"
+                  "$ref": "#/$defs/Publication"
                },
                "type": "array"
             },
             "with_or_from": {
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             }
@@ -673,7 +853,7 @@ Warning: The following errors were encountered in the schema
          "properties": {
             "associations": {
                "items": {
-                  "$ref": "#/definitions/HumanPhenotypeOntologyAssociation"
+                  "$ref": "#/$defs/HumanPhenotypeOntologyAssociation"
                },
                "type": "array"
             },
@@ -685,7 +865,7 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "generated_by": {
-               "$ref": "#/definitions/Provider",
+               "$ref": "#/$defs/Provider",
                "description": "YYYY-MM-DD or YYYY-MM-DDTHH:MM"
             },
             "go_version": {
@@ -717,6 +897,43 @@ Warning: The following errors were encountered in the schema
          "required": [],
          "title": "Interaction",
          "type": "object"
+      },
+      "InteractionDetectionMethodEnum": {
+         "description": "",
+         "enum": [
+            "psi-mi:\"MI:0107\"(surface plasmon resonance)",
+            "psi-mi:\"MI:0410\"(3D electron microscopy)",
+            "psi-mi:\"MI:0096\"(pull down)",
+            "psi-mi:\"MI:0007\"(anti tag coimmunoprecipitation)",
+            "psi-mi:\"MI:0006\"(anti bait coimmunoprecipitation)",
+            "psi-mi:\"MI:0424\"(protein kinase assay)",
+            "psi-mi:\"MI:0676\"(tandem affinity purification)",
+            "psi-mi:\"MI:0114\"(x-ray crystallography)"
+         ],
+         "title": "InteractionDetectionMethodEnum",
+         "type": "string"
+      },
+      "InteractionTypeEnum": {
+         "description": "",
+         "enum": [
+            "psi-mi:\"MI:0915\"(physical association)",
+            "psi-mi:\"MI:0407\"(direct interaction)",
+            "psi-mi:\"MI:0217\"(phosphorylation reaction)",
+            "psi-mi:\"MI:0914\"(association)"
+         ],
+         "title": "InteractionTypeEnum",
+         "type": "string"
+      },
+      "InteractionXrefEnum": {
+         "description": "",
+         "enum": [
+            "-",
+            "go:\"GO:0006468\"(protein phosphorylation)",
+            "psi-mi:\"MI:0465\"(dip)",
+            "go:\"GO:0004672\"(protein kinase activity)"
+         ],
+         "title": "InteractionXrefEnum",
+         "type": "string"
       },
       "MitabInteraction": {
          "additionalProperties": false,
@@ -756,10 +973,10 @@ Warning: The following errors were encountered in the schema
                "type": "array"
             },
             "Biological_role(s)_interactor_A": {
-               "type": "string"
+               "$ref": "#/$defs/BiologicalRoleInteractorEnum"
             },
             "Biological_role(s)_interactor_B": {
-               "type": "string"
+               "$ref": "#/$defs/BiologicalRoleInteractorEnum"
             },
             "Checksum(s)_interactor_A": {
                "type": "string"
@@ -771,16 +988,17 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "Creation_date": {
+               "format": "date-time",
                "type": "string"
             },
             "Expansion_method(s)": {
-               "type": "string"
+               "$ref": "#/$defs/ExpansionMethodEnum"
             },
             "Experimental_role(s)_interactor_A": {
-               "type": "string"
+               "$ref": "#/$defs/ExperimentalRoleInteractorEnum"
             },
             "Experimental_role(s)_interactor_B": {
-               "type": "string"
+               "$ref": "#/$defs/ExperimentalRoleInteractorEnum"
             },
             "Feature(s)_interactor_A": {
                "items": {
@@ -820,7 +1038,7 @@ Warning: The following errors were encountered in the schema
             },
             "Interaction_Xref(s)": {
                "items": {
-                  "type": "string"
+                  "$ref": "#/$defs/InteractionXrefEnum"
                },
                "type": "array"
             },
@@ -831,7 +1049,7 @@ Warning: The following errors were encountered in the schema
                "type": "array"
             },
             "Interaction_detection_method(s)": {
-               "type": "string"
+               "$ref": "#/$defs/InteractionDetectionMethodEnum"
             },
             "Interaction_identifier(s)": {
                "items": {
@@ -843,10 +1061,10 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "Interaction_type(s)": {
-               "type": "string"
+               "$ref": "#/$defs/InteractionTypeEnum"
             },
             "Negative": {
-               "type": "string"
+               "$ref": "#/$defs/NegativeEnum"
             },
             "Publication_1st_author(s)": {
                "type": "string"
@@ -861,10 +1079,10 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "Stoichiometry(s)_interactor_A": {
-               "type": "string"
+               "$ref": "#/$defs/StoichiometryInteractorEnum"
             },
             "Stoichiometry(s)_interactor_B": {
-               "type": "string"
+               "$ref": "#/$defs/StoichiometryInteractorEnum"
             },
             "Taxid_interactor_A": {
                "items": {
@@ -885,6 +1103,7 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "Update_date": {
+               "format": "date-time",
                "type": "string"
             },
             "Xref(s)_interactor_A": {
@@ -904,6 +1123,14 @@ Warning: The following errors were encountered in the schema
          "title": "MitabInteraction",
          "type": "object"
       },
+      "NegativeEnum": {
+         "description": "",
+         "enum": [
+            "false"
+         ],
+         "title": "NegativeEnum",
+         "type": "string"
+      },
       "OntologyClass": {
          "additionalProperties": false,
          "description": "",
@@ -912,169 +1139,118 @@ Warning: The following errors were encountered in the schema
          "title": "OntologyClass",
          "type": "object"
       },
-      "PhafAssociation": {
+      "PombasePhafAssociation": {
          "additionalProperties": false,
          "description": "line of PHAF",
          "properties": {
             "Allele_description": {
+               "description": "The allele description specifically describes the change; see the Phenotype data bulk upload format for details on allele types and descriptions.",
                "type": "string"
             },
             "Allele_name": {
+               "description": "Allele names are optional for upload, but are included where available in the download. Column 10 lists the preferred allele name, and any alternative names are in column 11.",
                "type": "string"
             },
             "Allele_synonym": {
+               "description": "See note on Allele name above. Multiple entries are separated with pipes (|).",
                "type": "string"
             },
             "Allele_type": {
-               "type": "string"
+               "$ref": "#/$defs/AlleleTypeEnum",
+               "description": "Allowed allele types, example descriptions, etc. are shown in the table at the bottom of the [Phenotype data bulk upload](https://www.pombase.org/documentation/phenotype-data-bulk-upload-format) format page."
             },
             "Condition": {
+               "description": "Conditions use a small ontology maintained in-house by PomBase curators, and we can help you interpret the IDs. Multiple entries are shown in cases where more than one condition detail applies at the same time (e.g. high temperature, minimal medium), and are separated with commas (,).",
                "type": "string"
             },
             "Database_name": {
-               "type": "string"
+               "$ref": "#/$defs/DatabaseNameEnum",
+               "description": "The database that produced the file \u2013 included to facilitate data sharing with other databases. Obviously always PomBase for this file.",
+               "pattern": "[a-zA-Z0-9\\.\\-\\_]+"
             },
             "Date": {
-               "type": "integer"
+               "description": "The date is the date on which the annotations are created. Format: YYYY-MM-DD",
+               "pattern": "^\\d{6}",
+               "type": "string"
             },
             "Evidence": {
-               "type": "string"
+               "$ref": "#/$defs/EvidenceEnum",
+               "description": "For the Evidence column, we use a small selection from the Evidence Ontology (ECO). Please contact the Helpdesk if you need assistance using these IDs"
             },
             "Expression": {
-               "type": "string"
+               "$ref": "#/$defs/ExpressionEnum",
+               "description": "The Expression column contains one of these values: \u2018overexpression\u2019, \u2018knockdown\u2019, \u2018endogenous\u2019, \u2018null\u2019, \u2018not specified\u2019. Deletions always have \u2018null\u2019 expression."
             },
             "Extension": {
-               "type": "string"
+               "description": "The Extension column is used to record when a mutation in one gene affects another gene or its product. For example, if a mutation in gene A decreases its ability to phosphorylate protein B, the A allele is annotated to the phenotype \u201cdecreased protein kinase activity\u201d with the ID for gene B in an extension. In the downloadable file, an annotation can have multiple comma-separated extensions if they combine to form a \u201ccompound\u201d extension (e.g. two or more genes assayed together).",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "FYPO_ID": {
+               "description": "To use the FYPO IDs, see the [FYPO summary page](https://www.pombase.org/browse-curation/fission-yeast-phenotype-ontology) and the FAQ on browsing FYPO.",
                "type": "string"
             },
             "Gene_name": {
+               "description": "Gene names are optional for upload, but are included where available in the download.",
                "type": "string"
             },
             "Gene_systematic_ID": {
+               "description": "The systematic ID for each gene.",
+               "pattern": "\\S+",
                "type": "string"
             },
             "Genotype_description": {
+               "description": "The Background genotype description column is for alleles in the background, such as selectable markers; these details are optional. To avoid redundancy, it does not repeat the allele of interest (from column 4 or 10) in the genotype column.",
                "type": "string"
             },
             "Parental_strain": {
+               "description": "The Parental strain column is for the parental strain designation, such as 972 h-, 975 h+, etc. This column must be filled in, but \u201cunknown\u201d is allowed.",
                "type": "string"
             },
             "Penetrance": {
+               "description": "Penetrance describes the proportion of a population that shows a cell-level phenotype. Penetrance data are represented as percents or entries from the in-house FYPO_EXT ontology (FYPO_EXT:0000001 = high; FYPO_EXT:0000002 = medium; FYPO_EXT:0000003 = low; FYPO_EXT:0000004 = full).",
                "type": "string"
             },
             "Reference": {
-               "type": "string"
+               "description": "The Reference column has the publication\u2019s PubMed ID (PMID).",
+               "items": {
+                  "$ref": "#/$defs/Publication"
+               },
+               "type": "array"
             },
             "Severity": {
+               "description": "Severity (formerly designated \u201cexpressivity\u201d) uses the FYPO_EXT ontology described in description of [Penetrance](Penetrance.md)",
                "type": "string"
             },
             "Strain_name_(background)": {
+               "description": "The Background strain name column is used for a lab\u2019s in-house name/ID/designation for the background strain (i.e. the derivative of the parental strain that has selectable marker alleles etc.). The description in the Genotype column should match this background strain.",
                "type": "string"
             },
             "Taxon": {
+               "description": "The taxon will usually be 4896 (the NCBI taxon ID for Schizosaccharomyces pombe), although an NCBI taxon ID for a specific S. pombe strain would be allowed.",
                "type": "integer"
-            },
-            "annotation_date": {
-               "description": "date when annotation was made",
-               "type": "string"
-            },
-            "annotation_extensions": {
-               "description": "disjunction",
-               "items": {
-                  "$ref": "#/definitions/AnnotationExtension"
-               },
-               "type": "array"
-            },
-            "aspect": {
-               "description": "varies by association type",
-               "type": "string"
-            },
-            "assigned_by": {
-               "$ref": "#/definitions/Provider",
-               "description": "assigned by"
-            },
-            "db": {
-               "description": "db part of identifier",
-               "type": "string"
-            },
-            "db_object_name": {
-               "type": "string"
-            },
-            "db_object_symbol": {
-               "type": "string"
-            },
-            "db_object_synonyms": {
-               "items": {
-                  "type": "string"
-               },
-               "type": "array"
-            },
-            "db_object_taxon": {
-               "$ref": "#/definitions/Taxon"
-            },
-            "db_object_type": {
-               "type": "string"
-            },
-            "evidence_type": {
-               "$ref": "#/definitions/OntologyClass"
-            },
-            "gene_product_form": {
-               "$ref": "#/definitions/BiologicalEntity",
-               "description": "isoform"
-            },
-            "local_id": {
-               "description": "local part of identifier",
-               "type": "string"
-            },
-            "ontology_class_ref": {
-               "$ref": "#/definitions/OntologyClass"
-            },
-            "qualifiers": {
-               "items": {
-                  "type": "string"
-               },
-               "type": "array"
-            },
-            "supporting_references": {
-               "items": {
-                  "$ref": "#/definitions/Publication"
-               },
-               "type": "array"
-            },
-            "with_or_from": {
-               "items": {
-                  "$ref": "#/definitions/Entity"
-               },
-               "type": "array"
             }
          },
          "required": [
-            "db",
-            "local_id",
-            "db_object_symbol",
-            "ontology_class_ref",
-            "supporting_references",
-            "evidence_type",
-            "aspect",
-            "db_object_taxon",
-            "assigned_by",
             "Database_name",
             "Gene_systematic_ID",
             "FYPO_ID",
-            "Evidence"
+            "Evidence",
+            "Reference",
+            "Taxon"
          ],
-         "title": "PhafAssociation",
+         "title": "PombasePhafAssociation",
          "type": "object"
       },
-      "PhafAssociationDocument": {
+      "PombasePhafAssociationDocument": {
          "additionalProperties": false,
          "description": "",
          "properties": {
             "associations": {
                "items": {
-                  "$ref": "#/definitions/PhafAssociation"
+                  "$ref": "#/$defs/PombasePhafAssociation"
                },
                "type": "array"
             },
@@ -1086,7 +1262,7 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "generated_by": {
-               "$ref": "#/definitions/Provider",
+               "$ref": "#/$defs/Provider",
                "description": "YYYY-MM-DD or YYYY-MM-DDTHH:MM"
             },
             "go_version": {
@@ -1108,7 +1284,7 @@ Warning: The following errors were encountered in the schema
             }
          },
          "required": [],
-         "title": "PhafAssociationDocument",
+         "title": "PombasePhafAssociationDocument",
          "type": "object"
       },
       "PropertyValuePair": {
@@ -1116,7 +1292,7 @@ Warning: The following errors were encountered in the schema
          "description": "",
          "properties": {
             "property": {
-               "$ref": "#/definitions/ControlledTerm"
+               "$ref": "#/$defs/ControlledTerm"
             },
             "value": {
                "description": "value",
@@ -1157,24 +1333,27 @@ Warning: The following errors were encountered in the schema
          "properties": {
             "annotation_date": {
                "description": "date when annotation was made",
+               "format": "date-time",
+               "pattern": "^\\d{6}",
                "type": "string"
             },
             "annotation_extensions": {
                "description": "disjunction",
                "items": {
-                  "$ref": "#/definitions/AnnotationExtension"
+                  "$ref": "#/$defs/AnnotationExtension"
                },
                "type": "array"
             },
             "aspect": {
-               "type": "string"
+               "$ref": "#/$defs/GeneOntologyAspectEnum"
             },
             "assigned_by": {
-               "$ref": "#/definitions/Provider",
+               "$ref": "#/$defs/Provider",
                "description": "assigned by"
             },
             "db": {
                "description": "db part of identifier",
+               "pattern": "[a-zA-Z0-9\\.\\-\\_]+",
                "type": "string"
             },
             "db_object_name": {
@@ -1190,41 +1369,43 @@ Warning: The following errors were encountered in the schema
                "type": "array"
             },
             "db_object_taxon": {
-               "$ref": "#/definitions/Taxon"
+               "$ref": "#/$defs/Taxon"
             },
             "db_object_type": {
-               "type": "string"
+               "$ref": "#/$defs/GpEntityTypeEnum"
             },
             "evidence_type": {
-               "$ref": "#/definitions/OntologyClass"
+               "$ref": "#/$defs/OntologyClass"
             },
             "gene_product_form": {
-               "$ref": "#/definitions/BiologicalEntity",
+               "$ref": "#/$defs/BiologicalEntity",
                "description": "isoform"
             },
             "local_id": {
                "description": "local part of identifier",
+               "pattern": "\\S+",
                "type": "string"
             },
             "ontology_class_ref": {
-               "$ref": "#/definitions/OntologyClass",
-               "description": "this must be a GO ID"
+               "$ref": "#/$defs/OntologyClass",
+               "description": "this must be a GO ID",
+               "pattern": "^GO:\\d+"
             },
             "qualifiers": {
                "items": {
-                  "type": "string"
+                  "$ref": "#/$defs/SimpleQualifierEnum"
                },
                "type": "array"
             },
             "supporting_references": {
                "items": {
-                  "$ref": "#/definitions/Publication"
+                  "$ref": "#/$defs/Publication"
                },
                "type": "array"
             },
             "with_or_from": {
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             }
@@ -1243,6 +1424,24 @@ Warning: The following errors were encountered in the schema
          "title": "SimpleGafAssociation",
          "type": "object"
       },
+      "SimpleQualifierEnum": {
+         "description": "",
+         "enum": [
+            "NOT",
+            "contributes_to"
+         ],
+         "title": "SimpleQualifierEnum",
+         "type": "string"
+      },
+      "StoichiometryInteractorEnum": {
+         "description": "",
+         "enum": [
+            "-",
+            "1"
+         ],
+         "title": "StoichiometryInteractorEnum",
+         "type": "string"
+      },
       "Taxon": {
          "additionalProperties": false,
          "description": "",
@@ -1257,12 +1456,14 @@ Warning: The following errors were encountered in the schema
          "properties": {
             "annotation_date": {
                "description": "date when annotation was made",
+               "format": "date-time",
+               "pattern": "^\\d{6}",
                "type": "string"
             },
             "annotation_extensions": {
                "description": "disjunction",
                "items": {
-                  "$ref": "#/definitions/AnnotationExtension"
+                  "$ref": "#/$defs/AnnotationExtension"
                },
                "type": "array"
             },
@@ -1271,11 +1472,12 @@ Warning: The following errors were encountered in the schema
                "type": "string"
             },
             "assigned_by": {
-               "$ref": "#/definitions/Provider",
+               "$ref": "#/$defs/Provider",
                "description": "assigned by"
             },
             "db": {
                "description": "db part of identifier",
+               "pattern": "[a-zA-Z0-9\\.\\-\\_]+",
                "type": "string"
             },
             "db_object_name": {
@@ -1291,24 +1493,25 @@ Warning: The following errors were encountered in the schema
                "type": "array"
             },
             "db_object_taxon": {
-               "$ref": "#/definitions/Taxon"
+               "$ref": "#/$defs/Taxon"
             },
             "db_object_type": {
                "type": "string"
             },
             "evidence_type": {
-               "$ref": "#/definitions/OntologyClass"
+               "$ref": "#/$defs/OntologyClass"
             },
             "gene_product_form": {
-               "$ref": "#/definitions/BiologicalEntity",
+               "$ref": "#/$defs/BiologicalEntity",
                "description": "isoform"
             },
             "local_id": {
                "description": "local part of identifier",
+               "pattern": "\\S+",
                "type": "string"
             },
             "ontology_class_ref": {
-               "$ref": "#/definitions/OntologyClass"
+               "$ref": "#/$defs/OntologyClass"
             },
             "qualifiers": {
                "items": {
@@ -1318,13 +1521,13 @@ Warning: The following errors were encountered in the schema
             },
             "supporting_references": {
                "items": {
-                  "$ref": "#/definitions/Publication"
+                  "$ref": "#/$defs/Publication"
                },
                "type": "array"
             },
             "with_or_from": {
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             }
@@ -1344,8 +1547,10 @@ Warning: The following errors were encountered in the schema
          "type": "object"
       }
    },
+   "$id": "https://w3id.org/ontology_association/all",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "additionalProperties": true,
    "properties": {},
    "title": "ontology_associations",
    "type": "object"
 }
-

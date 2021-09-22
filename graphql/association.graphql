@@ -1,70 +1,58 @@
-type ConjunctionExtensionExpression
+interface Annotation
+  {
+  }
+
+type AnnotationExtension
+  {
+  }
+
+interface Association
+  {
+  }
+
+type AssociationDocument
+  {
+    dateGenerated: String
+    generatedBy: Provider
+    url: String
+    projectRelease: String
+    funding: String
+    goVersion: String
+    roVersion: String
+    gorelVersion: String
+    associations: [Association]
+  }
+
+interface BiologicalEntity
   {
   }
 
 type ControlledTerm
   {
-    id: Curie!
   }
 
-type GafAssociation
+interface Denormalized
   {
-    db: String
-    localId: String
-    dbObjectSymbol: SymbolType!
-    relation: RelationTerm
-    ontologyClassRef: NamedThing!
-    references: [NamedThing]
-    evidenceType: OntologyClass
-    withOrFrom: [NamedThing]
-    dbObjectName: NameType
-    dbObjectSynonyms: [NameType]
-    dbObjectType: GpEntityTypeEnum
-    dbObjectTaxon: Taxon!
-    date: String
-    assignedBy: Provider
-    annotationExtensions: [ConjunctionExtensionExpression]
   }
 
-type GpadAssociation
+interface Document
   {
-    dbObjectRef: NamedThing!
-    negation: Boolean
-    relation: RelationTerm
-    ontologyClassRef: NamedThing!
-    references: [NamedThing]
-    evidenceType: OntologyClass
-    withOrFrom: [NamedThing]
-    interactingTaxonRef: [Taxon]
-    date: String
-    assignedBy: Provider
-    annotationExtensions: [ConjunctionExtensionExpression]
-    annotationProperties: [PropertyValuePair]
   }
 
-type GpiEntity
+interface Entity
   {
-    id: Curie!
-    dbObjectSymbol: SymbolType!
-    dbObjectName: NameType
-    dbObjectSynonyms: [NameType]
-    dbObjectType: GpEntityTypeEnum
-    dbObjectTaxon: Taxon!
-    encodedBy: [NamedThing]
-    parentProtein: [NamedThing]
-    proteinContainingComplexMembers: [NamedThing]
-    dbXrefs: [Curie]
-    geneProductProperties: [PropertyValuePair]
   }
 
-type NamedThing
+interface GoRelated
   {
-    id: Curie!
+  }
+
+interface Normalized
+  {
   }
 
 type OntologyClass
   {
-    id: Curie!
   }
 
 type PropertyValuePair
@@ -75,17 +63,42 @@ type PropertyValuePair
 
 type Provider
   {
-    id: Curie!
+  }
+
+type Publication
+  {
   }
 
 type RelationTerm
   {
-    id: Curie!
+  }
+
+interface RelationalConstruct
+  {
   }
 
 type Taxon
   {
-    id: Curie!
   }
 
+type XafAssociation implements Denormalized
+  {
+    db: String!
+    localId: String!
+    dbObjectSymbol: SymbolType!
+    qualifiers: [String]
+    ontologyClassRef: OntologyClass!
+    supportingReferences: [Publication]!
+    evidenceType: OntologyClass!
+    withOrFrom: [Entity]
+    aspect: String!
+    dbObjectName: NameType
+    dbObjectSynonyms: [NameType]
+    dbObjectType: String
+    dbObjectTaxon: Taxon!
+    annotationDate: Datetime
+    assignedBy: Provider!
+    annotationExtensions: [AnnotationExtension]
+    geneProductForm: BiologicalEntity
+  }
 

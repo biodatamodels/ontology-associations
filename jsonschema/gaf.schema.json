@@ -1,27 +1,61 @@
 {
-   "$id": "https://w3id.org/ontology_association/gaf",
-   "$schema": "http://json-schema.org/draft-07/schema#",
-   "definitions": {
-      "ConjunctionExtensionExpression": {
+   "$defs": {
+      "AnnotationExtension": {
          "additionalProperties": false,
          "description": "set of expressions all true",
          "properties": {},
          "required": [],
-         "title": "ConjunctionExtensionExpression",
+         "title": "AnnotationExtension",
+         "type": "object"
+      },
+      "AssociationDocument": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "associations": {
+               "items": {
+                  "$ref": "#/$defs/Association"
+               },
+               "type": "array"
+            },
+            "date_generated": {
+               "type": "string"
+            },
+            "funding": {
+               "description": "e.g. NHGRI",
+               "type": "string"
+            },
+            "generated_by": {
+               "$ref": "#/$defs/Provider",
+               "description": "YYYY-MM-DD or YYYY-MM-DDTHH:MM"
+            },
+            "go_version": {
+               "type": "string"
+            },
+            "gorel_version": {
+               "type": "string"
+            },
+            "project_release": {
+               "description": "e.g.  WS275",
+               "type": "string"
+            },
+            "ro_version": {
+               "type": "string"
+            },
+            "url": {
+               "description": "e.g. http://www.yeastgenome.org/",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "AssociationDocument",
          "type": "object"
       },
       "ControlledTerm": {
          "additionalProperties": false,
          "description": "",
-         "properties": {
-            "id": {
-               "description": "identifier",
-               "type": "string"
-            }
-         },
-         "required": [
-            "id"
-         ],
+         "properties": {},
+         "required": [],
          "title": "ControlledTerm",
          "type": "object"
       },
@@ -31,24 +65,27 @@
          "properties": {
             "annotation_date": {
                "description": "date when annotation was made",
+               "format": "date-time",
+               "pattern": "^\\d{6}",
                "type": "string"
             },
             "annotation_extensions": {
                "description": "disjunction",
                "items": {
-                  "$ref": "#/definitions/ConjunctionExtensionExpression"
+                  "$ref": "#/$defs/AnnotationExtension"
                },
                "type": "array"
             },
             "aspect": {
-               "type": "string"
+               "$ref": "#/$defs/GeneOntologyAspectEnum"
             },
             "assigned_by": {
-               "description": "assigned by",
-               "type": "string"
+               "$ref": "#/$defs/Provider",
+               "description": "assigned by"
             },
             "db": {
                "description": "db part of identifier",
+               "pattern": "[a-zA-Z0-9\\.\\-\\_]+",
                "type": "string"
             },
             "db_object_name": {
@@ -64,33 +101,43 @@
                "type": "array"
             },
             "db_object_taxon": {
-               "type": "string"
+               "$ref": "#/$defs/Taxon"
             },
             "db_object_type": {
-               "type": "string"
+               "$ref": "#/$defs/GpEntityTypeEnum"
             },
             "evidence_type": {
-               "type": "string"
+               "$ref": "#/$defs/OntologyClass"
+            },
+            "gene_product_form": {
+               "$ref": "#/$defs/BiologicalEntity",
+               "description": "isoform"
             },
             "local_id": {
                "description": "local part of identifier",
+               "pattern": "\\S+",
                "type": "string"
             },
             "ontology_class_ref": {
-               "type": "string"
+               "$ref": "#/$defs/OntologyClass",
+               "description": "this must be a GO ID",
+               "pattern": "^GO:\\d+"
             },
-            "references": {
+            "qualifiers": {
                "items": {
-                  "type": "string"
+                  "$ref": "#/$defs/Gp2termRelationEnum"
                },
                "type": "array"
             },
-            "relation": {
-               "type": "string"
+            "supporting_references": {
+               "items": {
+                  "$ref": "#/$defs/Publication"
+               },
+               "type": "array"
             },
             "with_or_from": {
                "items": {
-                  "type": "string"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             }
@@ -100,106 +147,226 @@
             "local_id",
             "db_object_symbol",
             "ontology_class_ref",
-            "references",
+            "supporting_references",
             "evidence_type",
+            "aspect",
             "db_object_taxon",
             "assigned_by"
          ],
          "title": "GafAssociation",
          "type": "object"
       },
-      "GpiEntity": {
+      "GafAssociationDocument": {
          "additionalProperties": false,
          "description": "",
          "properties": {
-            "db_object_name": {
+            "associations": {
+               "items": {
+                  "$ref": "#/$defs/GafAssociation"
+               },
+               "type": "array"
+            },
+            "date_generated": {
                "type": "string"
             },
-            "db_object_symbol": {
+            "funding": {
+               "description": "e.g. NHGRI",
                "type": "string"
             },
-            "db_object_synonyms": {
-               "items": {
-                  "type": "string"
-               },
-               "type": "array"
+            "generated_by": {
+               "$ref": "#/$defs/Provider",
+               "description": "YYYY-MM-DD or YYYY-MM-DDTHH:MM"
             },
-            "db_object_taxon": {
+            "go_version": {
                "type": "string"
             },
-            "db_object_type": {
+            "gorel_version": {
                "type": "string"
             },
-            "db_xrefs": {
-               "items": {
-                  "type": "string"
-               },
-               "type": "array"
-            },
-            "encoded_by": {
-               "items": {
-                  "type": "string"
-               },
-               "type": "array"
-            },
-            "gene_product_properties": {
-               "items": {
-                  "$ref": "#/definitions/PropertyValuePair"
-               },
-               "type": "array"
-            },
-            "id": {
-               "description": "identifier",
+            "project_release": {
+               "description": "e.g.  WS275",
                "type": "string"
             },
-            "parent_protein": {
-               "items": {
-                  "type": "string"
-               },
-               "type": "array"
+            "ro_version": {
+               "type": "string"
             },
-            "protein_containing_complex_members": {
-               "items": {
-                  "type": "string"
-               },
-               "type": "array"
+            "url": {
+               "description": "e.g. http://www.yeastgenome.org/",
+               "type": "string"
             }
          },
-         "required": [
-            "id",
-            "db_object_symbol",
-            "db_object_taxon"
-         ],
-         "title": "GpiEntity",
+         "required": [],
+         "title": "GafAssociationDocument",
          "type": "object"
       },
-      "NamedThing": {
-         "additionalProperties": false,
+      "GeneOntologyAspectEnum": {
          "description": "",
+         "enum": [
+            "F",
+            "P",
+            "C"
+         ],
+         "title": "GeneOntologyAspectEnum",
+         "type": "string"
+      },
+      "Gp2termRelationEnum": {
+         "description": "",
+         "enum": [
+            "NOT",
+            "enables",
+            "involved_in",
+            "located_in",
+            "contributes_to",
+            "acts_upstream_of",
+            "part_of",
+            "acts_upstream_of_positive_effect",
+            "is_active_in",
+            "acts_upstream_of_negative_effect",
+            "colocalizes_with",
+            "acts_upstream_of_or_within",
+            "acts_upstream_of_or_within_positive_effect",
+            "acts_upstream_of_or_within_negative_effect"
+         ],
+         "title": "Gp2termRelationEnum",
+         "type": "string"
+      },
+      "GpEntityTypeEnum": {
+         "description": "",
+         "enum": [
+            "protein_coding_gene",
+            "ncRNA_gene",
+            "mRNA",
+            "ncRNA",
+            "protein",
+            "protein-containing complex",
+            "genetic_marker"
+         ],
+         "title": "GpEntityTypeEnum",
+         "type": "string"
+      },
+      "GpadAssociation": {
+         "additionalProperties": false,
+         "description": "line of GPAD",
          "properties": {
-            "id": {
-               "description": "identifier",
+            "annotation_date": {
+               "description": "date when annotation was made",
+               "format": "date-time",
+               "pattern": "^\\d{6}",
                "type": "string"
+            },
+            "annotation_extensions": {
+               "description": "disjunction",
+               "items": {
+                  "$ref": "#/$defs/AnnotationExtension"
+               },
+               "type": "array"
+            },
+            "annotation_properties": {
+               "items": {
+                  "$ref": "#/$defs/PropertyValuePair"
+               },
+               "type": "array"
+            },
+            "assigned_by": {
+               "$ref": "#/$defs/Provider",
+               "description": "assigned by"
+            },
+            "db_object_ref": {
+               "$ref": "#/$defs/Entity"
+            },
+            "db_object_type": {
+               "$ref": "#/$defs/GpEntityTypeEnum"
+            },
+            "evidence_type": {
+               "$ref": "#/$defs/OntologyClass"
+            },
+            "interacting_taxon_ref": {
+               "items": {
+                  "$ref": "#/$defs/Taxon"
+               },
+               "type": "array"
+            },
+            "negation": {
+               "type": "boolean"
+            },
+            "ontology_class_ref": {
+               "$ref": "#/$defs/OntologyClass"
+            },
+            "relation": {
+               "$ref": "#/$defs/Gp2termRelationEnum"
+            },
+            "supporting_references": {
+               "items": {
+                  "$ref": "#/$defs/Publication"
+               },
+               "type": "array"
+            },
+            "with_or_from": {
+               "items": {
+                  "$ref": "#/$defs/Entity"
+               },
+               "type": "array"
             }
          },
          "required": [
-            "id"
+            "db_object_ref",
+            "relation",
+            "ontology_class_ref",
+            "supporting_references",
+            "evidence_type",
+            "assigned_by"
          ],
-         "title": "NamedThing",
+         "title": "GpadAssociation",
+         "type": "object"
+      },
+      "GpadAssociationDocument": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "associations": {
+               "items": {
+                  "$ref": "#/$defs/GpadAssociation"
+               },
+               "type": "array"
+            },
+            "date_generated": {
+               "type": "string"
+            },
+            "funding": {
+               "description": "e.g. NHGRI",
+               "type": "string"
+            },
+            "generated_by": {
+               "$ref": "#/$defs/Provider",
+               "description": "YYYY-MM-DD or YYYY-MM-DDTHH:MM"
+            },
+            "go_version": {
+               "type": "string"
+            },
+            "gorel_version": {
+               "type": "string"
+            },
+            "project_release": {
+               "description": "e.g.  WS275",
+               "type": "string"
+            },
+            "ro_version": {
+               "type": "string"
+            },
+            "url": {
+               "description": "e.g. http://www.yeastgenome.org/",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "GpadAssociationDocument",
          "type": "object"
       },
       "OntologyClass": {
          "additionalProperties": false,
          "description": "",
-         "properties": {
-            "id": {
-               "description": "identifier",
-               "type": "string"
-            }
-         },
-         "required": [
-            "id"
-         ],
+         "properties": {},
+         "required": [],
          "title": "OntologyClass",
          "type": "object"
       },
@@ -208,7 +375,7 @@
          "description": "",
          "properties": {
             "property": {
-               "type": "string"
+               "$ref": "#/$defs/ControlledTerm"
             },
             "value": {
                "description": "value",
@@ -222,51 +389,242 @@
       "Provider": {
          "additionalProperties": false,
          "description": "",
-         "properties": {
-            "id": {
-               "description": "identifier",
-               "type": "string"
-            }
-         },
-         "required": [
-            "id"
-         ],
+         "properties": {},
+         "required": [],
          "title": "Provider",
+         "type": "object"
+      },
+      "Publication": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {},
+         "required": [],
+         "title": "Publication",
          "type": "object"
       },
       "RelationTerm": {
          "additionalProperties": false,
          "description": "",
+         "properties": {},
+         "required": [],
+         "title": "RelationTerm",
+         "type": "object"
+      },
+      "SimpleGafAssociation": {
+         "additionalProperties": false,
+         "description": "",
          "properties": {
-            "id": {
-               "description": "identifier",
+            "annotation_date": {
+               "description": "date when annotation was made",
+               "format": "date-time",
+               "pattern": "^\\d{6}",
                "type": "string"
+            },
+            "annotation_extensions": {
+               "description": "disjunction",
+               "items": {
+                  "$ref": "#/$defs/AnnotationExtension"
+               },
+               "type": "array"
+            },
+            "aspect": {
+               "$ref": "#/$defs/GeneOntologyAspectEnum"
+            },
+            "assigned_by": {
+               "$ref": "#/$defs/Provider",
+               "description": "assigned by"
+            },
+            "db": {
+               "description": "db part of identifier",
+               "pattern": "[a-zA-Z0-9\\.\\-\\_]+",
+               "type": "string"
+            },
+            "db_object_name": {
+               "type": "string"
+            },
+            "db_object_symbol": {
+               "type": "string"
+            },
+            "db_object_synonyms": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "db_object_taxon": {
+               "$ref": "#/$defs/Taxon"
+            },
+            "db_object_type": {
+               "$ref": "#/$defs/GpEntityTypeEnum"
+            },
+            "evidence_type": {
+               "$ref": "#/$defs/OntologyClass"
+            },
+            "gene_product_form": {
+               "$ref": "#/$defs/BiologicalEntity",
+               "description": "isoform"
+            },
+            "local_id": {
+               "description": "local part of identifier",
+               "pattern": "\\S+",
+               "type": "string"
+            },
+            "ontology_class_ref": {
+               "$ref": "#/$defs/OntologyClass",
+               "description": "this must be a GO ID",
+               "pattern": "^GO:\\d+"
+            },
+            "qualifiers": {
+               "items": {
+                  "$ref": "#/$defs/SimpleQualifierEnum"
+               },
+               "type": "array"
+            },
+            "supporting_references": {
+               "items": {
+                  "$ref": "#/$defs/Publication"
+               },
+               "type": "array"
+            },
+            "with_or_from": {
+               "items": {
+                  "$ref": "#/$defs/Entity"
+               },
+               "type": "array"
             }
          },
          "required": [
-            "id"
+            "db",
+            "local_id",
+            "db_object_symbol",
+            "ontology_class_ref",
+            "supporting_references",
+            "evidence_type",
+            "aspect",
+            "db_object_taxon",
+            "assigned_by"
          ],
-         "title": "RelationTerm",
+         "title": "SimpleGafAssociation",
          "type": "object"
+      },
+      "SimpleQualifierEnum": {
+         "description": "",
+         "enum": [
+            "NOT",
+            "contributes_to"
+         ],
+         "title": "SimpleQualifierEnum",
+         "type": "string"
       },
       "Taxon": {
          "additionalProperties": false,
          "description": "",
+         "properties": {},
+         "required": [],
+         "title": "Taxon",
+         "type": "object"
+      },
+      "XafAssociation": {
+         "additionalProperties": false,
+         "description": "line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions.",
          "properties": {
-            "id": {
-               "description": "identifier",
+            "annotation_date": {
+               "description": "date when annotation was made",
+               "format": "date-time",
+               "pattern": "^\\d{6}",
                "type": "string"
+            },
+            "annotation_extensions": {
+               "description": "disjunction",
+               "items": {
+                  "$ref": "#/$defs/AnnotationExtension"
+               },
+               "type": "array"
+            },
+            "aspect": {
+               "description": "varies by association type",
+               "type": "string"
+            },
+            "assigned_by": {
+               "$ref": "#/$defs/Provider",
+               "description": "assigned by"
+            },
+            "db": {
+               "description": "db part of identifier",
+               "pattern": "[a-zA-Z0-9\\.\\-\\_]+",
+               "type": "string"
+            },
+            "db_object_name": {
+               "type": "string"
+            },
+            "db_object_symbol": {
+               "type": "string"
+            },
+            "db_object_synonyms": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "db_object_taxon": {
+               "$ref": "#/$defs/Taxon"
+            },
+            "db_object_type": {
+               "type": "string"
+            },
+            "evidence_type": {
+               "$ref": "#/$defs/OntologyClass"
+            },
+            "gene_product_form": {
+               "$ref": "#/$defs/BiologicalEntity",
+               "description": "isoform"
+            },
+            "local_id": {
+               "description": "local part of identifier",
+               "pattern": "\\S+",
+               "type": "string"
+            },
+            "ontology_class_ref": {
+               "$ref": "#/$defs/OntologyClass"
+            },
+            "qualifiers": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "supporting_references": {
+               "items": {
+                  "$ref": "#/$defs/Publication"
+               },
+               "type": "array"
+            },
+            "with_or_from": {
+               "items": {
+                  "$ref": "#/$defs/Entity"
+               },
+               "type": "array"
             }
          },
          "required": [
-            "id"
+            "db",
+            "local_id",
+            "db_object_symbol",
+            "ontology_class_ref",
+            "supporting_references",
+            "evidence_type",
+            "aspect",
+            "db_object_taxon",
+            "assigned_by"
          ],
-         "title": "Taxon",
+         "title": "XafAssociation",
          "type": "object"
       }
    },
+   "$id": "https://w3id.org/ontology_association/gaf",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "additionalProperties": true,
    "properties": {},
    "title": "gaf",
    "type": "object"
 }
-

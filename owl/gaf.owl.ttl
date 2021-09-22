@@ -1,512 +1,814 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix meta: <https://w3id.org/biolink/biolinkml/meta/> .
+@prefix linkml: <https://w3id.org/linkml/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-meta:SubsetDefinition a owl:Class ;
+linkml:Date a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "date" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a date (year, month and day) in an idealized calendar" ;
+    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
+
+linkml:Decimal a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "decimal" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:decimal ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number with arbitrary precision that conforms to the xsd:decimal specification" .
+
+linkml:Double a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "double" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:double ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number that conforms to the xsd:double specification" .
+
+linkml:Float a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "float" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:float ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number that conforms to the xsd:float specification" .
+
+linkml:Integer a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "integer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:integer ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "An integer" .
+
+linkml:Ncname a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "ncname" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "Prefix part of CURIE" .
+
+linkml:Nodeidentifier a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "nodeidentifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <http://www.w3.org/ns/shex#nonLiteral> ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A URI, CURIE or BNODE that represents a node in a model." .
+
+linkml:Objectidentifier a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "objectidentifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <http://www.w3.org/ns/shex#iri> ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A URI or CURIE that represents an object in the model." ;
+    skos:note "Used for inheritence and type checking" .
+
+linkml:SubsetDefinition a owl:Class ;
     rdfs:label "subset_definition" ;
     skos:definition "the name and description of a subset" .
 
-meta:gaf_association_aspect a owl:ObjectProperty,
-        meta:SlotDefinition ;
+linkml:Time a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "time" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A time object represents a (local) time of day, independent of any particular day" ;
+    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
+
+linkml:Uri a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "uri" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a complete URI" .
+
+linkml:Uriorcurie a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "uriorcurie" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a URI or a CURIE" .
+
+linkml:gaf_association_aspect a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "gaf association_aspect" ;
     rdfs:domain <https://w3id.org/ontology_association/GafAssociation> ;
     rdfs:range <http://UNKNOWN.org/gene_ontology_aspect_enum> ;
     rdfs:subPropertyOf <https://w3id.org/ontology_association/aspect> .
 
-meta:propertyValuePair__property a owl:ObjectProperty,
-        meta:SlotDefinition ;
+linkml:gaf_association_db_object_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "gaf association_db object type" ;
+    rdfs:domain <https://w3id.org/ontology_association/GafAssociation> ;
+    rdfs:range <http://UNKNOWN.org/gp_entity_type_enum> ;
+    rdfs:subPropertyOf <https://w3id.org/ontology_association/db_object_type> .
+
+linkml:gaf_association_document_associations a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "gaf association document_associations" ;
+    rdfs:domain <https://w3id.org/ontology_association/GafAssociationDocument> ;
+    rdfs:range <https://w3id.org/ontology_association/GafAssociation> ;
+    rdfs:subPropertyOf linkml:associationDocument__associations .
+
+linkml:gaf_association_ontology_class_ref a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "gaf association_ontology class ref" ;
+    rdfs:domain <https://w3id.org/ontology_association/GafAssociation> ;
+    rdfs:range <https://w3id.org/ontology_association/OntologyClass> ;
+    rdfs:subPropertyOf <https://w3id.org/ontology_association/ontology_class_ref> ;
+    skos:definition "this must be a GO ID" .
+
+linkml:gpad_association_db_object_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "gpad association_db object type" ;
+    rdfs:domain <https://w3id.org/ontology_association/GpadAssociation> ;
+    rdfs:range <http://UNKNOWN.org/gp_entity_type_enum> ;
+    rdfs:subPropertyOf <https://w3id.org/ontology_association/db_object_type> .
+
+linkml:gpad_association_document_associations a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "gpad association document_associations" ;
+    rdfs:domain <https://w3id.org/ontology_association/GpadAssociationDocument> ;
+    rdfs:range <https://w3id.org/ontology_association/GpadAssociation> ;
+    rdfs:subPropertyOf linkml:associationDocument__associations .
+
+linkml:gpad_association_relation a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "gpad association_relation" ;
+    rdfs:domain <https://w3id.org/ontology_association/GpadAssociation> ;
+    rdfs:range <http://UNKNOWN.org/gp2term_relation_enum> ;
+    rdfs:subPropertyOf <https://w3id.org/ontology_association/relation> .
+
+linkml:propertyValuePair__property a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "propertyValuePair__property" ;
     rdfs:range <https://w3id.org/ontology_association/ControlledTerm> .
 
-meta:propertyValuePair__value a owl:ObjectProperty,
-        meta:SlotDefinition ;
+linkml:propertyValuePair__value a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "propertyValuePair__value" ;
-    rdfs:range <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+    rdfs:range linkml:String ;
     skos:definition "value" .
 
-<https://w3id.org/biolink/biolinkml/meta/types/Date> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "date" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:date ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "a date (year, month and day) in an idealized calendar" ;
-    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
+linkml:simple_gaf_association_qualifiers a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "simple gaf association_qualifiers" ;
+    rdfs:domain <https://w3id.org/ontology_association/SimpleGafAssociation> ;
+    rdfs:range <http://UNKNOWN.org/simple_qualifier_enum> ;
+    rdfs:subPropertyOf linkml:gaf_association_qualifiers .
 
-<https://w3id.org/biolink/biolinkml/meta/types/Decimal> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "decimal" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:decimal ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "A real number with arbitrary precision that conforms to the xsd:decimal specification" .
+<https://w3id.org/ontology_association/Normalized> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "normalized" ;
+    rdfs:subClassOf linkml:mixin ;
+    skos:definition "mixin for a normalized class, in the sense of database normal forms" .
 
-<https://w3id.org/biolink/biolinkml/meta/types/Double> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "double" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:double ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "A real number that conforms to the xsd:double specification" .
-
-<https://w3id.org/biolink/biolinkml/meta/types/Float> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "float" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:float ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "A real number that conforms to the xsd:float specification" .
-
-<https://w3id.org/biolink/biolinkml/meta/types/Integer> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "integer" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:integer ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "An integer" .
-
-<https://w3id.org/biolink/biolinkml/meta/types/Ncname> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "ncname" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "Prefix part of CURIE" .
-
-<https://w3id.org/biolink/biolinkml/meta/types/Nodeidentifier> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "nodeidentifier" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange <http://www.w3.org/ns/shex#nonLiteral> ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "A URI, CURIE or BNODE that represents a node in a model." .
-
-<https://w3id.org/biolink/biolinkml/meta/types/Objectidentifier> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "objectidentifier" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange <http://www.w3.org/ns/shex#iri> ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "A URI or CURIE that represents an object in the model." ;
-    skos:note "Used for inheritence and type checking" .
-
-<https://w3id.org/biolink/biolinkml/meta/types/Time> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "time" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:dateTime ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "A time object represents a (local) time of day, independent of any particular day" ;
-    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
-
-<https://w3id.org/biolink/biolinkml/meta/types/Uri> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "uri" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:anyURI ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "a complete URI" .
-
-<https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "uriorcurie" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:anyURI ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "a URI or a CURIE" .
-
-<https://w3id.org/ontology_association/GpiEntity> a owl:Class,
-        meta:ClassDefinition ;
-    rdfs:label "gpi entity" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/ontology_association/NameType> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_object_name> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/NameType> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_object_synonyms> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/NamedThing> ;
-            owl:onProperty <https://w3id.org/ontology_association/protein_containing_complex_members> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/NamedThing> ;
-            owl:onProperty <https://w3id.org/ontology_association/encoded_by> ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/Taxon> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_object_taxon> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/gp_entity_type_enum> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_object_type> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/PropertyValuePair> ;
-            owl:onProperty <https://w3id.org/ontology_association/gene_product_properties> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/Curie> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_xrefs> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/NamedThing> ;
-            owl:onProperty <https://w3id.org/ontology_association/parent_protein> ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/SymbolType> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_object_symbol> ;
-            owl:qualifiedCardinality 1 ],
-        <https://w3id.org/ontology_association/NamedThing> .
-
-<https://w3id.org/ontology_association/annotation_properties> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "annotation properties" ;
-    rdfs:range <https://w3id.org/ontology_association/PropertyValuePair> .
+<https://w3id.org/ontology_association/RelationTerm> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "relation term" ;
+    rdfs:subClassOf <https://w3id.org/ontology_association/ControlledTerm> .
 
 <https://w3id.org/ontology_association/bioentity_type> a owl:ObjectProperty,
-        meta:SlotDefinition ;
+        linkml:SlotDefinition ;
     rdfs:label "bioentity type" ;
-    rdfs:range <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+    rdfs:range linkml:String ;
     skos:definition "type of entity" .
 
-<https://w3id.org/ontology_association/db_object_ref> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "db object ref" ;
-    rdfs:range <https://w3id.org/ontology_association/NamedThing> ;
-    meta:examples "Example(value='UniProtKB:P11678', description=None)" .
+<https://w3id.org/ontology_association/db_xrefs> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "db xrefs" ;
+    rdfs:range <https://w3id.org/ontology_association/Curie> .
+
+<https://w3id.org/ontology_association/eco_version> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "eco version" ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf <https://w3id.org/ontology_association/ontology_version> .
+
+<https://w3id.org/ontology_association/encoded_by> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "encoded by" ;
+    rdfs:range <https://w3id.org/ontology_association/Entity> .
 
 <https://w3id.org/ontology_association/gaf> a owl:Ontology ;
     rdfs:label "gaf" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     skos:definition "Various association data models" ;
-    meta:generation_date "2021-02-13 18:15" ;
-    meta:metamodel_version "1.7.0" ;
-    meta:source_file "gaf.yaml" ;
-    meta:source_file_date "Sat Feb 13 18:14:43 2021" ;
-    meta:source_file_size 1274 .
+    linkml:generation_date "2021-09-21 16:51" ;
+    linkml:metamodel_version "1.7.0" ;
+    linkml:source_file "gaf.yaml" ;
+    linkml:source_file_date "Thu May 27 19:28:53 2021" ;
+    linkml:source_file_size 4266 .
 
-<https://w3id.org/ontology_association/interacting_taxon_ref> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "interacting taxon ref" ;
-    rdfs:range <https://w3id.org/ontology_association/Taxon> .
+<https://w3id.org/ontology_association/gene_product_properties> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "gene product properties" ;
+    rdfs:range <https://w3id.org/ontology_association/PropertyValuePair> ;
+    linkml:examples "Example(value='db-subset=Swiss-Prot', description=None)" .
 
-<https://w3id.org/ontology_association/negation> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "negation" ;
-    rdfs:range <https://w3id.org/biolink/biolinkml/meta/types/Boolean> .
+<https://w3id.org/ontology_association/id> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "id" ;
+    rdfs:range <https://w3id.org/ontology_association/Curie> ;
+    skos:definition "identifier" .
 
-<https://w3id.org/biolink/biolinkml/meta/types/Boolean> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "boolean" ;
+<https://w3id.org/ontology_association/parent_protein> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "parent protein" ;
+    rdfs:range <https://w3id.org/ontology_association/Entity> .
+
+<https://w3id.org/ontology_association/protein_containing_complex_members> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "protein containing complex members" ;
+    rdfs:range <https://w3id.org/ontology_association/Entity> .
+
+linkml:gaf_association_qualifiers a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "gaf association_qualifiers" ;
+    rdfs:domain <https://w3id.org/ontology_association/GafAssociation> ;
+    rdfs:range <http://UNKNOWN.org/gp2term_relation_enum> ;
+    rdfs:subPropertyOf <https://w3id.org/ontology_association/qualifiers> .
+
+<https://w3id.org/ontology_association/Annotation> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "annotation" .
+
+<https://w3id.org/ontology_association/Document> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "document" ;
+    skos:definition "root class for association or entity documents" .
+
+<https://w3id.org/ontology_association/GafAssociationDocument> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "gaf association document" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:boolean ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "A binary (true or false) value" .
+            owl:allValuesFrom <https://w3id.org/ontology_association/GafAssociation> ;
+            owl:onProperty linkml:associations ],
+        <https://w3id.org/ontology_association/AssociationDocument> .
 
-<https://w3id.org/ontology_association/GafAssociation> a owl:Class,
-        meta:ClassDefinition ;
-    rdfs:label "gaf association" ;
+<https://w3id.org/ontology_association/GpadAssociationDocument> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "gpad association document" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/NamedThing> ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/GpadAssociation> ;
+            owl:onProperty linkml:associations ],
+        <https://w3id.org/ontology_association/AssociationDocument> .
+
+<https://w3id.org/ontology_association/SimpleGafAssociation> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "simple gaf association" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/simple_qualifier_enum> ;
+            owl:onProperty <https://w3id.org/ontology_association/qualifiers> ],
+        <https://w3id.org/ontology_association/GafAssociation> ;
+    skos:definition "" .
+
+<https://w3id.org/ontology_association/XafAssociation> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "xaf association" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/ontology_association/Provider> ;
+            owl:onProperty <https://w3id.org/ontology_association/assigned_by> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://w3id.org/ontology_association/aspect> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/Entity> ;
             owl:onProperty <https://w3id.org/ontology_association/with_or_from> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/ontology_association/RelationTerm> ;
-            owl:onProperty <https://w3id.org/ontology_association/relation> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Datetime> ;
-            owl:onProperty <https://w3id.org/ontology_association/annotation_date> ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/SymbolType> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_object_symbol> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <https://w3id.org/ontology_association/db> ;
-            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/ontology_association/NameType> ;
             owl:onProperty <https://w3id.org/ontology_association/db_object_name> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/ontology_association/qualifiers> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://w3id.org/ontology_association/db_object_type> ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/ontology_association/SymbolType> ;
+            owl:onProperty <https://w3id.org/ontology_association/db_object_symbol> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:onClass <https://w3id.org/ontology_association/Taxon> ;
             owl:onProperty <https://w3id.org/ontology_association/db_object_taxon> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Datetime ;
+            owl:onProperty <https://w3id.org/ontology_association/annotation_date> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/AnnotationExtension> ;
+            owl:onProperty <https://w3id.org/ontology_association/annotation_extensions> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/ontology_association/BiologicalEntity> ;
+            owl:onProperty <https://w3id.org/ontology_association/gene_product_form> ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/ontology_association/OntologyClass> ;
+            owl:onProperty <https://w3id.org/ontology_association/ontology_class_ref> ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass <https://w3id.org/ontology_association/OntologyClass> ;
             owl:onProperty <https://w3id.org/ontology_association/evidence_type> ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <https://w3id.org/ontology_association/local_id> ;
-            owl:qualifiedCardinality 1 ],
+            owl:allValuesFrom <https://w3id.org/ontology_association/NameType> ;
+            owl:onProperty <https://w3id.org/ontology_association/db_object_synonyms> ],
         [ a owl:Class ;
             owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:allValuesFrom <https://w3id.org/ontology_association/NamedThing> ;
-                        owl:onProperty <https://w3id.org/ontology_association/references> ] [ a owl:Restriction ;
-                        owl:onProperty <https://w3id.org/ontology_association/references> ;
-                        owl:someValuesFrom <https://w3id.org/ontology_association/NamedThing> ] ) ],
+                        owl:allValuesFrom <https://w3id.org/ontology_association/Publication> ;
+                        owl:onProperty <https://w3id.org/ontology_association/supporting_references> ] [ a owl:Restriction ;
+                        owl:onProperty <https://w3id.org/ontology_association/supporting_references> ;
+                        owl:someValuesFrom <https://w3id.org/ontology_association/Publication> ] ) ],
         [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/NamedThing> ;
-            owl:onProperty <https://w3id.org/ontology_association/ontology_class_ref> ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://w3id.org/ontology_association/db> ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://w3id.org/ontology_association/local_id> ;
+            owl:qualifiedCardinality 1 ],
+        <https://w3id.org/ontology_association/Association>,
+        <https://w3id.org/ontology_association/Denormalized> ;
+    skos:definition "line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions. " .
+
+<https://w3id.org/ontology_association/annotation_properties> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "annotation properties" ;
+    rdfs:range <https://w3id.org/ontology_association/PropertyValuePair> .
+
+<https://w3id.org/ontology_association/date_generated> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "date generated" ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf <https://w3id.org/ontology_association/document_metadata_field> .
+
+<https://w3id.org/ontology_association/db> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "db" ;
+    rdfs:range linkml:String ;
+    skos:definition "db part of identifier" .
+
+<https://w3id.org/ontology_association/db_object_name> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "db object name" ;
+    rdfs:range <https://w3id.org/ontology_association/NameType> ;
+    linkml:examples "Example(value='Angiomotin', description=None)" .
+
+<https://w3id.org/ontology_association/db_object_ref> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "db object ref" ;
+    rdfs:range <https://w3id.org/ontology_association/Entity> ;
+    linkml:examples "Example(value='UniProtKB:P11678', description=None)" .
+
+<https://w3id.org/ontology_association/db_object_symbol> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "db object symbol" ;
+    rdfs:range <https://w3id.org/ontology_association/SymbolType> ;
+    linkml:examples "Example(value='AMOT', description=None)" .
+
+<https://w3id.org/ontology_association/db_object_synonyms> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "db object synonyms" ;
+    rdfs:range <https://w3id.org/ontology_association/NameType> ;
+    linkml:examples "Example(value='Angiomotin', description=None)" .
+
+<https://w3id.org/ontology_association/db_object_taxon> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "db object taxon" ;
+    rdfs:range <https://w3id.org/ontology_association/Taxon> ;
+    linkml:examples "Example(value='NCBITaxon:9606', description=None)" .
+
+<https://w3id.org/ontology_association/funding> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "funding" ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf <https://w3id.org/ontology_association/document_metadata_field> ;
+    skos:definition "e.g. NHGRI" .
+
+<https://w3id.org/ontology_association/gene_product_form> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "gene product form" ;
+    rdfs:range <https://w3id.org/ontology_association/BiologicalEntity> ;
+    skos:definition "isoform" .
+
+<https://w3id.org/ontology_association/generated_by> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "generated by" ;
+    rdfs:range <https://w3id.org/ontology_association/Provider> ;
+    rdfs:subPropertyOf <https://w3id.org/ontology_association/document_metadata_field> ;
+    skos:definition "YYYY-MM-DD or YYYY-MM-DDTHH:MM" .
+
+<https://w3id.org/ontology_association/go_version> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "go version" ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf <https://w3id.org/ontology_association/ontology_version> .
+
+<https://w3id.org/ontology_association/gorel_version> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "gorel version" ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf <https://w3id.org/ontology_association/ontology_version> .
+
+<https://w3id.org/ontology_association/interacting_taxon_ref> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "interacting taxon ref" ;
+    rdfs:range <https://w3id.org/ontology_association/Taxon> .
+
+<https://w3id.org/ontology_association/local_id> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "local id" ;
+    rdfs:range linkml:String ;
+    skos:definition "local part of identifier" .
+
+<https://w3id.org/ontology_association/negation> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "negation" ;
+    rdfs:range linkml:Boolean .
+
+<https://w3id.org/ontology_association/project_release> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "project release" ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf <https://w3id.org/ontology_association/document_metadata_field> ;
+    skos:definition "e.g.  WS275" .
+
+<https://w3id.org/ontology_association/ro_version> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ro version" ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf <https://w3id.org/ontology_association/ontology_version> .
+
+<https://w3id.org/ontology_association/url> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "url" ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf <https://w3id.org/ontology_association/document_metadata_field> ;
+    skos:definition "e.g. http://www.yeastgenome.org/" .
+
+linkml:Boolean a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "boolean" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A binary (true or false) value" .
+
+linkml:associationDocument__associations a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "associationDocument__associations" ;
+    rdfs:range <https://w3id.org/ontology_association/Association> .
+
+<https://w3id.org/ontology_association/AssociationDocument> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "association document" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://w3id.org/ontology_association/gorel_version> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://w3id.org/ontology_association/date_generated> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/ontology_association/Provider> ;
+            owl:onProperty <https://w3id.org/ontology_association/generated_by> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://w3id.org/ontology_association/funding> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://w3id.org/ontology_association/ro_version> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://w3id.org/ontology_association/go_version> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/Association> ;
+            owl:onProperty linkml:associations ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://w3id.org/ontology_association/url> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://w3id.org/ontology_association/project_release> ],
+        <https://w3id.org/ontology_association/Document> .
+
+<https://w3id.org/ontology_association/BiologicalEntity> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "biological entity" ;
+    rdfs:subClassOf <https://w3id.org/ontology_association/Entity> ;
+    skos:exactMatch <https://w3id.org/biolink/vocab/BiologicalEntity> .
+
+<https://w3id.org/ontology_association/Curie> a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "curie" ;
+    rdfs:subClassOf linkml:String .
+
+<https://w3id.org/ontology_association/GoRelated> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "go related" ;
+    rdfs:subClassOf linkml:mixin ;
+    skos:definition "mixin for any association that is GO related" .
+
+<https://w3id.org/ontology_association/RelationalConstruct> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "relational construct" .
+
+<https://w3id.org/ontology_association/SymbolType> a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "symbol type" ;
+    rdfs:subClassOf linkml:String .
+
+<https://w3id.org/ontology_association/annotation_date> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "annotation date" ;
+    rdfs:range linkml:Datetime ;
+    skos:definition "date when annotation was made" .
+
+<https://w3id.org/ontology_association/annotation_extensions> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "annotation extensions" ;
+    rdfs:range <https://w3id.org/ontology_association/AnnotationExtension> ;
+    skos:definition "disjunction" ;
+    linkml:examples "Example(value='BFO:0000066(GO:0005829)', description=None)" .
+
+<https://w3id.org/ontology_association/assigned_by> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "assigned by" ;
+    rdfs:range <https://w3id.org/ontology_association/Provider> ;
+    skos:definition "assigned by" .
+
+<https://w3id.org/ontology_association/evidence_type> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "evidence type" ;
+    rdfs:range <https://w3id.org/ontology_association/OntologyClass> .
+
+<https://w3id.org/ontology_association/relation> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "relation" ;
+    rdfs:range linkml:String ;
+    linkml:examples "Example(value='RO:0002263', description=None)" .
+
+<https://w3id.org/ontology_association/with_or_from> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "with or from" ;
+    rdfs:range <https://w3id.org/ontology_association/Entity> ;
+    linkml:examples "Example(value='WB:WBVar00000510', description=None)" .
+
+linkml:Datetime a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "datetime" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "The combination of a date and time" .
+
+<https://w3id.org/ontology_association/AnnotationExtension> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "annotation extension" ;
+    rdfs:subClassOf <https://w3id.org/ontology_association/RelationalConstruct> ;
+    skos:definition "set of expressions all true" .
+
+<https://w3id.org/ontology_association/Denormalized> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "denormalized" ;
+    rdfs:subClassOf linkml:mixin ;
+    skos:definition "mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes" .
+
+<https://w3id.org/ontology_association/PropertyValuePair> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "property value pair" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:value ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/ontology_association/ControlledTerm> ;
+            owl:onProperty linkml:property ],
+        <https://w3id.org/ontology_association/RelationalConstruct> .
+
+<https://w3id.org/ontology_association/aspect> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "aspect" ;
+    rdfs:range linkml:String ;
+    skos:definition "varies by association type" .
+
+<https://w3id.org/ontology_association/Association> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "association" ;
+    rdfs:subClassOf <https://w3id.org/ontology_association/Annotation> ;
+    skos:definition "generic association between an entity and an ontological term" .
+
+<https://w3id.org/ontology_association/ControlledTerm> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "controlled term" ;
+    rdfs:subClassOf <https://w3id.org/ontology_association/Entity> .
+
+<https://w3id.org/ontology_association/GpadAssociation> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "gpad association" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/gp2term_relation_enum> ;
+            owl:onProperty <https://w3id.org/ontology_association/relation> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/Taxon> ;
+            owl:onProperty <https://w3id.org/ontology_association/interacting_taxon_ref> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/PropertyValuePair> ;
+            owl:onProperty <https://w3id.org/ontology_association/annotation_properties> ],
+        [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom <https://w3id.org/ontology_association/Publication> ;
+                        owl:onProperty <https://w3id.org/ontology_association/supporting_references> ] [ a owl:Restriction ;
+                        owl:onProperty <https://w3id.org/ontology_association/supporting_references> ;
+                        owl:someValuesFrom <https://w3id.org/ontology_association/Publication> ] ) ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/gp_entity_type_enum> ;
             owl:onProperty <https://w3id.org/ontology_association/db_object_type> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/gene_ontology_aspect_enum> ;
-            owl:onProperty <https://w3id.org/ontology_association/aspect> ],
+            owl:onClass linkml:Datetime ;
+            owl:onProperty <https://w3id.org/ontology_association/annotation_date> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/ConjunctionExtensionExpression> ;
-            owl:onProperty <https://w3id.org/ontology_association/annotation_extensions> ],
+            owl:onClass <https://w3id.org/ontology_association/OntologyClass> ;
+            owl:onProperty <https://w3id.org/ontology_association/evidence_type> ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/ontology_association/NameType> ;
-            owl:onProperty <https://w3id.org/ontology_association/db_object_synonyms> ],
+            owl:onClass <https://w3id.org/ontology_association/Entity> ;
+            owl:onProperty <https://w3id.org/ontology_association/db_object_ref> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Boolean ;
+            owl:onProperty <https://w3id.org/ontology_association/negation> ],
         [ a owl:Restriction ;
             owl:onClass <https://w3id.org/ontology_association/Provider> ;
             owl:onProperty <https://w3id.org/ontology_association/assigned_by> ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "line of GAF" .
-
-<https://w3id.org/ontology_association/annotation_date> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "annotation date" ;
-    rdfs:range <https://w3id.org/biolink/biolinkml/meta/types/Datetime> ;
-    skos:definition "date when annotation was made" .
-
-<https://w3id.org/ontology_association/annotation_extensions> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "annotation extensions" ;
-    rdfs:range <https://w3id.org/ontology_association/ConjunctionExtensionExpression> ;
-    skos:definition "disjunction" ;
-    meta:examples "Example(value='BFO:0000066(GO:0005829)', description=None)" .
-
-<https://w3id.org/ontology_association/assigned_by> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "assigned by" ;
-    rdfs:range <https://w3id.org/ontology_association/Provider> ;
-    skos:definition "assigned by" .
-
-<https://w3id.org/ontology_association/db> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "db" ;
-    rdfs:range <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-    skos:definition "db part of identifier" .
-
-<https://w3id.org/ontology_association/db_xrefs> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "db xrefs" ;
-    rdfs:range <https://w3id.org/ontology_association/Curie> .
-
-<https://w3id.org/ontology_association/encoded_by> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "encoded by" ;
-    rdfs:range <https://w3id.org/ontology_association/NamedThing> .
-
-<https://w3id.org/ontology_association/evidence_type> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "evidence type" ;
-    rdfs:range <https://w3id.org/ontology_association/OntologyClass> .
-
-<https://w3id.org/ontology_association/gene_product_properties> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "gene product properties" ;
-    rdfs:range <https://w3id.org/ontology_association/PropertyValuePair> ;
-    meta:examples "Example(value='db-subset=Swiss-Prot', description=None)" .
-
-<https://w3id.org/ontology_association/id> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "id" ;
-    rdfs:range <https://w3id.org/ontology_association/Curie> ;
-    skos:definition "identifier" .
-
-<https://w3id.org/ontology_association/local_id> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "local id" ;
-    rdfs:range <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-    skos:definition "local part of identifier" .
-
-<https://w3id.org/ontology_association/ontology_class_ref> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "ontology class ref" ;
-    rdfs:range <https://w3id.org/ontology_association/NamedThing> ;
-    meta:examples "Example(value='GO:0050803', description=None)" .
-
-<https://w3id.org/ontology_association/parent_protein> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "parent protein" ;
-    rdfs:range <https://w3id.org/ontology_association/NamedThing> .
-
-<https://w3id.org/ontology_association/protein_containing_complex_members> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "protein containing complex members" ;
-    rdfs:range <https://w3id.org/ontology_association/NamedThing> .
-
-<https://w3id.org/ontology_association/relation> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "relation" ;
-    rdfs:range <https://w3id.org/ontology_association/RelationTerm> ;
-    meta:examples "Example(value='RO:0002263', description=None)" .
-
-<https://w3id.org/ontology_association/with_or_from> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "with or from" ;
-    rdfs:range <https://w3id.org/ontology_association/NamedThing> ;
-    meta:examples "Example(value='WB:WBVar00000510', description=None)" .
-
-<https://w3id.org/biolink/biolinkml/meta/types/Datetime> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "datetime" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:dateTime ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "The combination of a date and time" .
-
-<https://w3id.org/ontology_association/ConjunctionExtensionExpression> a owl:Class,
-        meta:ClassDefinition ;
-    rdfs:label "conjunction extension expression" ;
-    skos:definition "set of expressions all true" .
-
-<https://w3id.org/ontology_association/Provider> a owl:Class,
-        meta:ClassDefinition ;
-    rdfs:label "provider" ;
-    rdfs:subClassOf <https://w3id.org/ontology_association/NamedThing> .
-
-<https://w3id.org/ontology_association/RelationTerm> a owl:Class,
-        meta:ClassDefinition ;
-    rdfs:label "relation term" ;
-    rdfs:subClassOf <https://w3id.org/ontology_association/ControlledTerm> .
-
-<https://w3id.org/ontology_association/aspect> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "aspect" ;
-    rdfs:range <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-    skos:definition "varies by association type" .
-
-<https://w3id.org/ontology_association/db_object_name> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "db object name" ;
-    rdfs:range <https://w3id.org/ontology_association/NameType> ;
-    meta:examples "Example(value='Angiomotin', description=None)" .
-
-<https://w3id.org/ontology_association/db_object_symbol> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "db object symbol" ;
-    rdfs:range <https://w3id.org/ontology_association/SymbolType> ;
-    meta:examples "Example(value='AMOT', description=None)" .
-
-<https://w3id.org/ontology_association/db_object_synonyms> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "db object synonyms" ;
-    rdfs:range <https://w3id.org/ontology_association/NameType> ;
-    meta:examples "Example(value='Angiomotin', description=None)" .
-
-<https://w3id.org/ontology_association/db_object_taxon> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "db object taxon" ;
-    rdfs:range <https://w3id.org/ontology_association/Taxon> ;
-    meta:examples "Example(value='NCBITaxon:9606', description=None)" .
-
-<https://w3id.org/ontology_association/db_object_type> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "db object type" ;
-    rdfs:range <http://UNKNOWN.org/gp_entity_type_enum> ;
-    meta:examples "Example(value='PR:000000001', description=None)" .
-
-<https://w3id.org/ontology_association/references> a owl:ObjectProperty,
-        meta:SlotDefinition ;
-    rdfs:label "references" ;
-    rdfs:range <https://w3id.org/ontology_association/NamedThing> .
-
-<https://w3id.org/ontology_association/OntologyClass> a owl:Class,
-        meta:ClassDefinition ;
-    rdfs:label "ontology class" ;
-    rdfs:subClassOf <https://w3id.org/ontology_association/ControlledTerm> .
-
-<https://w3id.org/ontology_association/PropertyValuePair> a owl:Class,
-        meta:ClassDefinition ;
-    rdfs:label "property value pair" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/ontology_association/ControlledTerm> ;
-            owl:onProperty meta:property ],
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:value ] .
-
-<https://w3id.org/ontology_association/SymbolType> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "symbol type" ;
-    rdfs:subClassOf <https://w3id.org/biolink/biolinkml/meta/types/String> .
-
-<https://w3id.org/ontology_association/ControlledTerm> a owl:Class,
-        meta:ClassDefinition ;
-    rdfs:label "controlled term" ;
-    rdfs:subClassOf <https://w3id.org/ontology_association/NamedThing> .
-
-<https://w3id.org/ontology_association/Curie> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "curie" ;
-    rdfs:subClassOf <https://w3id.org/biolink/biolinkml/meta/types/String> .
-
-<https://w3id.org/ontology_association/Taxon> a owl:Class,
-        meta:ClassDefinition ;
-    rdfs:label "taxon" ;
-    rdfs:subClassOf <https://w3id.org/ontology_association/OntologyClass> .
+            owl:onClass <https://w3id.org/ontology_association/OntologyClass> ;
+            owl:onProperty <https://w3id.org/ontology_association/ontology_class_ref> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/AnnotationExtension> ;
+            owl:onProperty <https://w3id.org/ontology_association/annotation_extensions> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/ontology_association/Entity> ;
+            owl:onProperty <https://w3id.org/ontology_association/with_or_from> ],
+        <https://w3id.org/ontology_association/Association>,
+        <https://w3id.org/ontology_association/Denormalized>,
+        <https://w3id.org/ontology_association/GoRelated> ;
+    skos:definition "line of GPAD" .
 
 <https://w3id.org/ontology_association/NameType> a owl:Class,
-        meta:TypeDefinition ;
+        linkml:TypeDefinition ;
     rdfs:label "name type" ;
-    rdfs:subClassOf <https://w3id.org/biolink/biolinkml/meta/types/String> .
+    rdfs:subClassOf linkml:String .
 
-meta:ClassDefinition a owl:Class ;
-    rdfs:label "class_definition" ;
-    skos:definition "the definition of a class or interface" .
+<https://w3id.org/ontology_association/Taxon> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "taxon" ;
+    rdfs:subClassOf <https://w3id.org/ontology_association/OntologyClass> ;
+    skos:exactMatch <https://w3id.org/biolink/vocab/OrganismTaxon> .
 
-<https://w3id.org/biolink/biolinkml/meta/types/String> a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "string" ;
+<https://w3id.org/ontology_association/ontology_class_ref> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ontology class ref" ;
+    rdfs:range <https://w3id.org/ontology_association/OntologyClass> ;
+    linkml:examples "Example(value='GO:0050803', description=None)" .
+
+<https://w3id.org/ontology_association/ontology_version> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ontology version" ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf <https://w3id.org/ontology_association/document_metadata_field> .
+
+<https://w3id.org/ontology_association/qualifiers> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "qualifiers" ;
+    rdfs:range linkml:String .
+
+<https://w3id.org/ontology_association/supporting_references> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "supporting references" ;
+    rdfs:range <https://w3id.org/ontology_association/Publication> .
+
+<https://w3id.org/ontology_association/Provider> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "provider" ;
+    rdfs:subClassOf <https://w3id.org/ontology_association/Entity> .
+
+<https://w3id.org/ontology_association/Publication> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "publication" ;
+    rdfs:subClassOf <https://w3id.org/ontology_association/Entity> .
+
+<https://w3id.org/ontology_association/db_object_type> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "db object type" ;
+    rdfs:range linkml:String ;
+    linkml:examples "Example(value='PR:000000001', description=None)" .
+
+<https://w3id.org/ontology_association/document_metadata_field> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "document metadata field" ;
+    rdfs:range linkml:String .
+
+<https://w3id.org/ontology_association/GafAssociation> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "gaf association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "A character string" .
+            owl:onClass <http://UNKNOWN.org/gene_ontology_aspect_enum> ;
+            owl:onProperty <https://w3id.org/ontology_association/aspect> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/gp2term_relation_enum> ;
+            owl:onProperty <https://w3id.org/ontology_association/qualifiers> ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/ontology_association/OntologyClass> ;
+            owl:onProperty <https://w3id.org/ontology_association/ontology_class_ref> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/gp_entity_type_enum> ;
+            owl:onProperty <https://w3id.org/ontology_association/db_object_type> ],
+        <https://w3id.org/ontology_association/Denormalized>,
+        <https://w3id.org/ontology_association/GoRelated>,
+        <https://w3id.org/ontology_association/XafAssociation> ;
+    skos:definition "line of GAF" .
 
-meta:topValue a owl:DatatypeProperty ;
+<https://w3id.org/ontology_association/OntologyClass> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ontology class" ;
+    rdfs:subClassOf <https://w3id.org/ontology_association/ControlledTerm> ;
+    skos:exactMatch <https://w3id.org/biolink/vocab/OntologyClass> .
+
+<https://w3id.org/ontology_association/Entity> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "entity" ;
+    skos:closeMatch <https://w3id.org/biolink/vocab/NamedThing> .
+
+linkml:topValue a owl:DatatypeProperty ;
     rdfs:label "value" .
 
-meta:TypeDefinition a owl:Class ;
+linkml:TypeDefinition a owl:Class ;
     rdfs:label "type_definition" ;
     skos:definition "A data type definition." .
 
-<https://w3id.org/ontology_association/NamedThing> a owl:Class,
-        meta:ClassDefinition ;
-    rdfs:label "named thing" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/ontology_association/Curie> ;
-            owl:onProperty <https://w3id.org/ontology_association/id> ;
-            owl:qualifiedCardinality 1 ] .
+linkml:ClassDefinition a owl:Class ;
+    rdfs:label "class_definition" ;
+    skos:definition "the definition of a class or interface" .
 
-meta:SlotDefinition a owl:Class ;
+linkml:String a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "string" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A character string" .
+
+linkml:SlotDefinition a owl:Class ;
     rdfs:label "slot_definition" ;
     skos:definition "the definition of a property or a slot" .
-
 
 

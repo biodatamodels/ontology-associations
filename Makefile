@@ -24,6 +24,10 @@ TGTS = graphql jsonschema docs shex owl csv graphql python jsonld-context golr
 GEN_OPTS = 
 
 all: gen stage
+
+gen-project:
+	gen-project -d . $(SCHEMA_SRC)
+
 gen: $(patsubst %,gen-%,$(TGTS))
 clean:
 	rm -rf target/
