@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://biodatamodels.github.io/ontology-associations/ANNOTATOR/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
