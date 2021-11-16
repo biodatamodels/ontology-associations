@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>http://biodatamodels.github.io/ontology-associations/</loc>
+         <loc>http://biodatamodels.github.io/ontology-associations/ANNOTATOR/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -121,6 +121,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/CELL_DATA/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://biodatamodels.github.io/ontology-associations/Causal_Regulatory_Mechanism/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
@@ -151,12 +156,42 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/ComplexDiseaseAssociation/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/ComplexDiseaseAssociationDocument/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/ComplexDiseaseDiseaseRiskAssociation/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/ComplexDiseaseExposureRiskAssociation/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/ComplexDiseasePhenotypeAssociation/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://biodatamodels.github.io/ontology-associations/ComplexDiseasePhenotypeOntologyAssociation/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://biodatamodels.github.io/ontology-associations/ComplexDiseasePhenotypeOntologyAssociationDocument/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/ComplexDiseasePhenotypeRiskAssociation/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -191,6 +226,36 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/DATABASEA/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/DATABASEA_enum/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/DATABASEB/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/DATABASEB_enum/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/DIRECT/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/DIRECT_enum/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://biodatamodels.github.io/ontology-associations/Database_name/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
@@ -211,6 +276,26 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/EFFECT/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/EFFECT_enum/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/ENTITYA/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/ENTITYB/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://biodatamodels.github.io/ontology-associations/Entity/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
@@ -222,6 +307,11 @@
     </url>
     <url>
          <loc>http://biodatamodels.github.io/ontology-associations/Evidence_enum/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/Example/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -356,6 +446,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/IDA/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/IDB/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://biodatamodels.github.io/ontology-associations/Identification_method_participant_A/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
@@ -421,7 +521,62 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/MECHANISM/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/MECHANISM_enum/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/MODASEQ/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/MODASEQ_enum/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/MODBSEQ/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/MODBSEQ_enum/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/MODIFICATIONA/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/MODIFICATIONB/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/MODULATOR_COMPLEX/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/MODULATOR_COMPLEX_enum/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://biodatamodels.github.io/ontology-associations/MitabInteraction/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/NOTES/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -447,6 +602,11 @@
     </url>
     <url>
          <loc>http://biodatamodels.github.io/ontology-associations/OntologyClass/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/PMID/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -506,6 +666,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/RESIDUE/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://biodatamodels.github.io/ontology-associations/Relation/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
@@ -517,6 +682,26 @@
     </url>
     <url>
          <loc>http://biodatamodels.github.io/ontology-associations/RelationalConstruct/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/SCORE/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/SENTENCE/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/SEQUENCE/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/SIGNOR_ID/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -552,6 +737,51 @@
     </url>
     <url>
          <loc>http://biodatamodels.github.io/ontology-associations/Strain_name_%28background%29/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/TARGET_COMPLEX/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/TARGET_COMPLEX_enum/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/TAX_ID/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/TAX_ID_enum/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/TISSUE_DATA/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/TYPEA/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/TYPEA_enum/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/TYPEB/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/TYPEB_enum/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -651,6 +881,36 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/complex_disease_association_document_associations/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/complex_disease_association_frequency/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/complex_disease_association_relation/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/complex_disease_disease_risk_association_relation/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/complex_disease_exposure_risk_association_relation/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/complex_disease_phenotype_association_relation/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://biodatamodels.github.io/ontology-associations/complex_disease_phenotype_ontology_association_document_associations/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
@@ -662,6 +922,11 @@
     </url>
     <url>
          <loc>http://biodatamodels.github.io/ontology-associations/complex_disease_phenotype_ontology_association_relation/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/complex_disease_phenotype_risk_association_relation/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -851,6 +1116,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/gpad/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://biodatamodels.github.io/ontology-associations/gpad_association_db_object_type/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
@@ -1021,6 +1291,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/signor/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://biodatamodels.github.io/ontology-associations/simple_gaf_association_qualifiers/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
@@ -1066,6 +1341,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/types/BTOIdentifier/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://biodatamodels.github.io/ontology-associations/types/Boolean/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
@@ -1096,6 +1376,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/types/ECTOIdentifier/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://biodatamodels.github.io/ontology-associations/types/FYPOEXTIdentifier/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
@@ -1112,6 +1397,11 @@
     </url>
     <url>
          <loc>http://biodatamodels.github.io/ontology-associations/types/HPOIdentifier/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/types/HPOPhenotypeIdentifier/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1137,6 +1427,11 @@
     </url>
     <url>
          <loc>http://biodatamodels.github.io/ontology-associations/types/MONDOIdentifier/</loc>
+         <lastmod>2021-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://biodatamodels.github.io/ontology-associations/types/NCITIdentifier/</loc>
          <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>

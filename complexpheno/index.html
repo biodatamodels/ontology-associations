@@ -51,7 +51,7 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                    <li class="toctree-l1"><a class="" href="../index.md">Index</a>
                     </li>
                 </ul>
                 <ul>
@@ -105,10 +105,16 @@
 </li>
 </ul>
 </li>
-<li><a href="../ComplexDiseasePhenotypeOntologyAssociation/">ComplexDiseasePhenotypeOntologyAssociation</a></li>
+<li><a href="../ComplexDiseaseAssociation/">ComplexDiseaseAssociation</a><ul>
+<li><a href="../ComplexDiseaseDiseaseRiskAssociation/">ComplexDiseaseDiseaseRiskAssociation</a></li>
+<li><a href="../ComplexDiseaseExposureRiskAssociation/">ComplexDiseaseExposureRiskAssociation</a></li>
+<li><a href="../ComplexDiseasePhenotypeAssociation/">ComplexDiseasePhenotypeAssociation</a></li>
+<li><a href="../ComplexDiseasePhenotypeRiskAssociation/">ComplexDiseasePhenotypeRiskAssociation</a></li>
+</ul>
+</li>
 <li><a href="../Document/">Document</a> - root class for association or entity documents<ul>
 <li><a href="../AssociationDocument/">AssociationDocument</a><ul>
-<li><a href="../ComplexDiseasePhenotypeOntologyAssociationDocument/">ComplexDiseasePhenotypeOntologyAssociationDocument</a></li>
+<li><a href="../ComplexDiseaseAssociationDocument/">ComplexDiseaseAssociationDocument</a></li>
 </ul>
 </li>
 </ul>
@@ -147,7 +153,7 @@
 <li><a href="../aspect/">aspect</a> - varies by association type</li>
 <li><a href="../assigned_by/">assigned by</a> - assigned by</li>
 <li><a href="../associationDocument__associations/">➞associations</a><ul>
-<li><a href="../complex_disease_phenotype_ontology_association_document_associations/">complex disease phenotype ontology association document➞associations</a></li>
+<li><a href="../complex_disease_association_document_associations/">complex disease association document➞associations</a></li>
 </ul>
 </li>
 <li><a href="../biocuration/">biocuration</a></li>
@@ -182,7 +188,7 @@
 <li><a href="evidence.md">evidence</a></li>
 <li><a href="../evidence_type/">evidence type</a></li>
 <li><a href="../frequency/">frequency</a><ul>
-<li><a href="../complex_disease_phenotype_ontology_association_frequency/">complex disease phenotype ontology association➞frequency</a></li>
+<li><a href="../complex_disease_association_frequency/">complex disease association➞frequency</a></li>
 </ul>
 </li>
 <li><a href="../gene_product_form/">gene product form</a> - isoform</li>
@@ -201,7 +207,13 @@
 <li><a href="../qualifier/">qualifier</a></li>
 <li><a href="../qualifiers/">qualifiers</a></li>
 <li><a href="relation.md">relation</a><ul>
-<li><a href="../complex_disease_phenotype_ontology_association_relation/">complex disease phenotype ontology association➞relation</a></li>
+<li><a href="../complex_disease_association_relation/">complex disease association➞relation</a><ul>
+<li><a href="../complex_disease_disease_risk_association_relation/">complex disease disease risk association➞relation</a></li>
+<li><a href="../complex_disease_exposure_risk_association_relation/">complex disease exposure risk association➞relation</a></li>
+<li><a href="../complex_disease_phenotype_association_relation/">complex disease phenotype association➞relation</a></li>
+<li><a href="../complex_disease_phenotype_risk_association_relation/">complex disease phenotype risk association➞relation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="../sex/">sex</a></li>
@@ -235,8 +247,10 @@
 </ul>
 <h4 id="defined">Defined</h4>
 <ul>
-<li><a href="../types/HPOIdentifier/">HPOIdentifier</a>  (<a href="../types/IdentifierType/">IdentifierType</a>) </li>
+<li><a href="../types/ECTOIdentifier/">ECTOIdentifier</a>  (<a href="../types/IdentifierType/">IdentifierType</a>) </li>
+<li><a href="../types/HPOPhenotypeIdentifier/">HPOPhenotypeIdentifier</a>  (<a href="../types/PhenotypeIdentifier/">PhenotypeIdentifier</a>) </li>
 <li><a href="../types/MONDOIdentifier/">MONDOIdentifier</a>  (<a href="../types/IdentifierType/">IdentifierType</a>) </li>
+<li><a href="../types/NCITIdentifier/">NCITIdentifier</a>  (<a href="../types/IdentifierType/">IdentifierType</a>) </li>
 <li><a href="../types/PMIDIdentifier/">PMIDIdentifier</a>  (<a href="../types/IdentifierType/">IdentifierType</a>) </li>
 <li><a href="../types/Boolean/">Boolean</a>  (<strong>Bool</strong>)  - A binary (true or false) value</li>
 <li><a href="../types/Curie/">Curie</a>  (<a href="../types/String/">String</a>) </li>
