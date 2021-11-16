@@ -4,6 +4,7 @@ description: >-
   Various association data models
 imports:
  - hpoa
+ - complexpheno
  - gaf
  - gpi
  - mitab

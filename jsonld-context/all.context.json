@@ -1,8 +1,8 @@
 Warning: The following errors were encountered in the schema
-		File "/Users/cjm/repos/ontology_associations/src/schema/gpi.yaml", line 37, col 7:  Slot gpi entity_db object ref is declared inline but single valued
+		:  Slot gpi entity_db object ref is declared inline but single valued
 
 {
-   "_comments": "Auto generated from all.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-06-01 19:46\n    Schema: ontology_associations\n    \n    id: https://w3id.org/ontology_association/all\n    description: Various association data models\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "_comments": "Auto generated from all.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-11-16T13:10:57\n    Schema: ontology_associations\n    \n    id: https://w3id.org/ontology_association/all\n    description: Various association data models\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
    "@context": {
       "biolink": "https://w3id.org/biolink/vocab/",
       "linkml": "https://w3id.org/linkml/",
@@ -122,9 +122,6 @@ Warning: The following errors were encountered in the schema
             "description": "skos:prefLabel",
             "meaning": "@id"
          }
-      },
-      "Date": {
-         "@type": "xsd:integer"
       },
       "db_object_ref": "@id",
       "db_object_taxon": {

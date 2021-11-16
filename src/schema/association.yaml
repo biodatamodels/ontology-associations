@@ -237,6 +237,11 @@ slots:
     
   eco version:
     is_a: ontology version
+
+  frequency:
+  onset:
+  qualifier:
+
     
 classes:
 

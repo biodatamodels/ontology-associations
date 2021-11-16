@@ -1,11 +1,18 @@
-Warning: The following errors were encountered in the schema
-		File "/Users/cjm/repos/ontology_associations/src/schema/gpi.yaml", line 37, col 7:  Slot gpi entity_db object ref is declared inline but single valued
-
 BASE <https://w3id.org/ontology_association/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
 
+
+<IdentifierType> xsd:string
+
+<MONDOIdentifier> xsd:string
+
+<PhenotypeIdentifier> xsd:string
+
+<PMIDIdentifier> xsd:string
+
+<HPOIdentifier> xsd:string
 
 <https://w3id.org/mitabIdentifier> xsd:string
 
@@ -76,7 +83,7 @@ linkml:Nodeidentifier NONLITERAL
 }
 
 <Association>  (
-    @<GpadAssociation> OR @<HumanPhenotypeOntologyAssociation> OR @<XafAssociation>
+    @<GpadAssociation> OR @<HumanPhenotypeOntologyAssociation> OR @<PombasePhafAssociation> OR @<XafAssociation>
 )
 
 <Association_struct> {
@@ -103,8 +110,8 @@ linkml:Nodeidentifier NONLITERAL
           ) ;
           rdf:type [ <AssociationDocument> ] ?
        )
-    } OR @<GafAssociationDocument> OR @<GpadAssociationDocument> OR @<HumanPhenotypeOntologyAssociationDocument> OR
-    @<PhafAssociationDocument>
+    } OR @<ComplexDiseasePhenotypeOntologyAssociationDocument> OR @<GafAssociationDocument> OR @<GpadAssociationDocument> OR
+    @<HumanPhenotypeOntologyAssociationDocument> OR @<PombasePhafAssociationDocument>
 )
 
 <BiologicalEntity>  (
@@ -126,6 +133,34 @@ linkml:Nodeidentifier NONLITERAL
           <https://w3id.org/mitabCausal_statement> @<https://w3id.org/mitabPsi-miIdentifier> ?
        ) ;
        rdf:type [ <https://w3id.org/mitabCausaltabInteraction> ] ?
+    )
+}
+
+<ComplexDiseasePhenotypeOntologyAssociation> CLOSED {
+    (  $<ComplexDiseasePhenotypeOntologyAssociation_tes> (  <disease_id> @<MONDOIdentifier> ? ;
+          <disease_name> @linkml:String ? ;
+          <relation> @<ComplexDiseaseRelation> ;
+          <term_id> @<PhenotypeIdentifier> ? ;
+          <term_label> @linkml:String ? ;
+          <qualifier> @linkml:String ? ;
+          <frequency> @linkml:String ? ;
+          <sex> @linkml:String ? ;
+          <time_course> @linkml:String ? ;
+          <modifier> @linkml:String ? ;
+          <evidence> @linkml:String ? ;
+          <citation> @<PMIDIdentifier> ? ;
+          <biocuration> @<HPOIdentifier> ?
+       ) ;
+       rdf:type [ <ComplexDiseasePhenotypeOntologyAssociation> ] ?
+    )
+}
+
+<ComplexDiseasePhenotypeOntologyAssociationDocument> CLOSED {
+    (  $<ComplexDiseasePhenotypeOntologyAssociationDocument_tes> (  &<AssociationDocument_tes> ;
+          rdf:type [ <AssociationDocument> ] ? ;
+          <associations> @<ComplexDiseasePhenotypeOntologyAssociation> *
+       ) ;
+       rdf:type [ <ComplexDiseasePhenotypeOntologyAssociationDocument> ] ?
     )
 }
 
@@ -370,9 +405,9 @@ linkml:Nodeidentifier NONLITERAL
     } OR @<Taxon>
 )
 
-<PhafAssociation> CLOSED {
-    (  $<PhafAssociation_tes> (  &<XafAssociation_tes> ;
-          rdf:type [ <XafAssociation> ] ? ;
+<PombasePhafAssociation> CLOSED {
+    (  $<PombasePhafAssociation_tes> (  &<Association_tes> ;
+          rdf:type [ <Association> ] ? ;
           &<Denormalized_tes> ;
           rdf:type [ <Denormalized> ] ? ;
           <Database_name> @<DatabaseNameEnum> ;
@@ -391,21 +426,21 @@ linkml:Nodeidentifier NONLITERAL
           <Condition> @<PECOIdentifier> ? ;
           <Penetrance> @linkml:String ? ;
           <Severity> @<FYPOEXTIdentifier> ? ;
-          <Extension> @linkml:String ? ;
+          <Extension> @linkml:String * ;
           <Reference> @<Publication> + ;
           <Taxon> @linkml:Integer ;
-          <Date> @linkml:Integer ?
+          <Date> @linkml:String ?
        ) ;
-       rdf:type [ <PhafAssociation> ] ?
+       rdf:type [ <PombasePhafAssociation> ] ?
     )
 }
 
-<PhafAssociationDocument> CLOSED {
-    (  $<PhafAssociationDocument_tes> (  &<AssociationDocument_tes> ;
+<PombasePhafAssociationDocument> CLOSED {
+    (  $<PombasePhafAssociationDocument_tes> (  &<AssociationDocument_tes> ;
           rdf:type [ <AssociationDocument> ] ? ;
-          <associations> @<PhafAssociation> *
+          <associations> @<PombasePhafAssociation> *
        ) ;
-       rdf:type [ <PhafAssociationDocument> ] ?
+       rdf:type [ <PombasePhafAssociationDocument> ] ?
     )
 }
 
@@ -496,8 +531,7 @@ linkml:Nodeidentifier NONLITERAL
           ) ;
           rdf:type [ <XafAssociation> ] ?
        )
-    } OR @<GafAssociation> OR @<PhafAssociation>
+    } OR @<GafAssociation>
 )
-
 
 

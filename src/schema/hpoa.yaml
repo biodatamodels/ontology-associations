@@ -14,11 +14,7 @@ default_curi_maps:
   - obo_context
   - semweb_context
 
-slots:
-  onset:
-  frequency:
-  
-  
+
 classes:
   human phenotype ontology association:
     is_a: association

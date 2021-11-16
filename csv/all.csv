@@ -1,5 +1,5 @@
 Warning: The following errors were encountered in the schema
-		File "/Users/cjm/repos/ontology_associations/src/schema/gpi.yaml", line 37, col 7:  Slot gpi entity_db object ref is declared inline but single valued
+		:  Slot gpi entity_db object ref is declared inline but single valued
 
 id,mappings,description
 annotation,,
@@ -8,6 +8,8 @@ association,,generic association between an entity and an ontological term
 association_document,,
 biological_entity,,
 causaltab_interaction,,
+complex_disease_phenotype_ontology_association,,
+complex_disease_phenotype_ontology_association_document,,
 controlled_term,,
 denormalized,,mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes
 document,,root class for association or entity documents
@@ -25,8 +27,8 @@ interaction,,An interaction between two molecular entities
 mitab_interaction,,
 normalized,,"mixin for a normalized class, in the sense of database normal forms"
 ontology_class,,
-phaf_association,,line of PHAF
-phaf_association_document,,
+pombase_phaf_association,,line of PHAF
+pombase_phaf_association_document,,
 property_value_pair,,
 provider,,
 publication,,

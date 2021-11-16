@@ -1,5 +1,5 @@
 # Auto generated from association.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-05-27 10:58
+# Generation date: 2021-06-15 09:19
 # Schema: ontology_association
 #
 # id: https://w3id.org/ontology_association
@@ -9,20 +9,21 @@
 import dataclasses
 import sys
 import re
+from jsonasobj2 import JsonObj
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
-from linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
 
-from linkml.utils.slot import Slot
-from linkml.utils.metamodelcore import empty_list, empty_dict, bnode
-from linkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
-from linkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
-from linkml.utils.formatutils import camelcase, underscore, sfx
-from linkml.utils.enumerations import EnumDefinitionImpl
+from linkml_runtime.utils.slot import Slot
+from linkml_runtime.utils.metamodelcore import empty_list, empty_dict, bnode
+from linkml_runtime.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
+from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
+from linkml_runtime.utils.formatutils import camelcase, underscore, sfx
+from linkml_runtime.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
-from linkml.utils.curienamespace import CurieNamespace
-from linkml.utils.metamodelcore import Bool, XSDDateTime
-from linkml_model.types import Boolean, Datetime, String
+from linkml_runtime.utils.curienamespace import CurieNamespace
+from linkml_runtime.linkml_model.types import Boolean, Datetime, String
+from linkml_runtime.utils.metamodelcore import Bool, XSDDateTime
 
 metamodel_version = "1.7.0"
 
@@ -30,11 +31,6 @@ metamodel_version = "1.7.0"
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
-BFO = CurieNamespace('BFO', 'http://purl.obolibrary.org/obo/BFO_')
-GO = CurieNamespace('GO', 'http://purl.obolibrary.org/obo/GO_')
-PR = CurieNamespace('PR', 'http://purl.obolibrary.org/obo/PR_')
-RO = CurieNamespace('RO', 'http://purl.obolibrary.org/obo/RO_')
-SO = CurieNamespace('SO', 'http://purl.obolibrary.org/obo/SO_')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/vocab/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 ONTOLOGY_ASSOCIATION = CurieNamespace('ontology_association', 'https://w3id.org/ontology_association/')
@@ -66,32 +62,7 @@ class NameType(String):
 
 
 # Class references
-class AbstractThingId(Curie):
-    pass
 
-
-class ProviderId(AbstractThingId):
-    pass
-
-
-class PublicationId(AbstractThingId):
-    pass
-
-
-class ControlledTermId(AbstractThingId):
-    pass
-
-
-class OntologyClassId(ControlledTermId):
-    pass
-
-
-class TaxonId(OntologyClassId):
-    pass
-
-
-class RelationTermId(ControlledTermId):
-    pass
 
 
 class Entity(YAMLRoot):
@@ -112,28 +83,7 @@ class BiologicalEntity(Entity):
     class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.BiologicalEntity
 
 
-@dataclass
-class AbstractThing(Entity):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.AbstractThing
-    class_class_curie: ClassVar[str] = "ontology_association:AbstractThing"
-    class_name: ClassVar[str] = "abstract thing"
-    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.AbstractThing
-
-    id: Union[str, AbstractThingId] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is None:
-            raise ValueError("id must be supplied")
-        if not isinstance(self.id, AbstractThingId):
-            self.id = AbstractThingId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class Provider(AbstractThing):
+class Provider(Entity):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Provider
@@ -141,19 +91,8 @@ class Provider(AbstractThing):
     class_name: ClassVar[str] = "provider"
     class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Provider
 
-    id: Union[str, ProviderId] = None
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is None:
-            raise ValueError("id must be supplied")
-        if not isinstance(self.id, ProviderId):
-            self.id = ProviderId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class Publication(AbstractThing):
+class Publication(Entity):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Publication
@@ -161,19 +100,8 @@ class Publication(AbstractThing):
     class_name: ClassVar[str] = "publication"
     class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Publication
 
-    id: Union[str, PublicationId] = None
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is None:
-            raise ValueError("id must be supplied")
-        if not isinstance(self.id, PublicationId):
-            self.id = PublicationId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class ControlledTerm(AbstractThing):
+class ControlledTerm(Entity):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.ControlledTerm
@@ -181,18 +109,7 @@ class ControlledTerm(AbstractThing):
     class_name: ClassVar[str] = "controlled term"
     class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.ControlledTerm
 
-    id: Union[str, ControlledTermId] = None
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is None:
-            raise ValueError("id must be supplied")
-        if not isinstance(self.id, ControlledTermId):
-            self.id = ControlledTermId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
 class OntologyClass(ControlledTerm):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -201,18 +118,7 @@ class OntologyClass(ControlledTerm):
     class_name: ClassVar[str] = "ontology class"
     class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.OntologyClass
 
-    id: Union[str, OntologyClassId] = None
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is None:
-            raise ValueError("id must be supplied")
-        if not isinstance(self.id, OntologyClassId):
-            self.id = OntologyClassId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
 class Taxon(OntologyClass):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -221,18 +127,7 @@ class Taxon(OntologyClass):
     class_name: ClassVar[str] = "taxon"
     class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Taxon
 
-    id: Union[str, TaxonId] = None
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is None:
-            raise ValueError("id must be supplied")
-        if not isinstance(self.id, TaxonId):
-            self.id = TaxonId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
 class RelationTerm(ControlledTerm):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -241,19 +136,18 @@ class RelationTerm(ControlledTerm):
     class_name: ClassVar[str] = "relation term"
     class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.RelationTerm
 
-    id: Union[str, RelationTermId] = None
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is None:
-            raise ValueError("id must be supplied")
-        if not isinstance(self.id, RelationTermId):
-            self.id = RelationTermId(self.id)
+class RelationalConstruct(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
 
-        super().__post_init__(**kwargs)
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.RelationalConstruct
+    class_class_curie: ClassVar[str] = "ontology_association:RelationalConstruct"
+    class_name: ClassVar[str] = "relational construct"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.RelationalConstruct
 
 
 @dataclass
-class PropertyValuePair(YAMLRoot):
+class PropertyValuePair(RelationalConstruct):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.PropertyValuePair
@@ -261,12 +155,12 @@ class PropertyValuePair(YAMLRoot):
     class_name: ClassVar[str] = "property value pair"
     class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.PropertyValuePair
 
-    property: Optional[Union[str, ControlledTermId]] = None
+    property: Optional[Union[dict, ControlledTerm]] = None
     value: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.property is not None and not isinstance(self.property, ControlledTermId):
-            self.property = ControlledTermId(self.property)
+        if self.property is not None and not isinstance(self.property, ControlledTerm):
+            self.property = ControlledTerm()
 
         if self.value is not None and not isinstance(self.value, str):
             self.value = str(self.value)
@@ -274,21 +168,30 @@ class PropertyValuePair(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-class ConjunctionExtensionExpression(YAMLRoot):
+class AnnotationExtension(RelationalConstruct):
     """
     set of expressions all true
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.ConjunctionExtensionExpression
-    class_class_curie: ClassVar[str] = "ontology_association:ConjunctionExtensionExpression"
-    class_name: ClassVar[str] = "conjunction extension expression"
-    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.ConjunctionExtensionExpression
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.AnnotationExtension
+    class_class_curie: ClassVar[str] = "ontology_association:AnnotationExtension"
+    class_name: ClassVar[str] = "annotation extension"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.AnnotationExtension
 
 
-class Association(YAMLRoot):
+class Annotation(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Annotation
+    class_class_curie: ClassVar[str] = "ontology_association:Annotation"
+    class_name: ClassVar[str] = "annotation"
+    class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.Annotation
+
+
+class Association(Annotation):
     """
-    generic association
+    generic association between an entity and an ontological term
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -314,89 +217,81 @@ class XafAssociation(Association):
     db: str = None
     local_id: str = None
     db_object_symbol: Union[str, SymbolType] = None
-    ontology_class_ref: Union[str, AbstractThingId] = None
-    supporting_references: Union[Union[str, PublicationId], List[Union[str, PublicationId]]] = None
-    evidence_type: Union[str, OntologyClassId] = None
+    ontology_class_ref: Union[dict, OntologyClass] = None
+    supporting_references: Union[Union[dict, Publication], List[Union[dict, Publication]]] = None
+    evidence_type: Union[dict, OntologyClass] = None
     aspect: str = None
-    db_object_taxon: Union[str, TaxonId] = None
-    assigned_by: Union[str, ProviderId] = None
+    db_object_taxon: Union[dict, Taxon] = None
+    assigned_by: Union[dict, Provider] = None
     qualifiers: Optional[Union[str, List[str]]] = empty_list()
-    with_or_from: Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]] = empty_list()
+    with_or_from: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
     db_object_name: Optional[Union[str, NameType]] = None
     db_object_synonyms: Optional[Union[Union[str, NameType], List[Union[str, NameType]]]] = empty_list()
     db_object_type: Optional[str] = None
     annotation_date: Optional[Union[str, XSDDateTime]] = None
-    annotation_extensions: Optional[Union[Union[dict, ConjunctionExtensionExpression], List[Union[dict, ConjunctionExtensionExpression]]]] = empty_list()
+    annotation_extensions: Optional[Union[Union[dict, AnnotationExtension], List[Union[dict, AnnotationExtension]]]] = empty_list()
     gene_product_form: Optional[Union[dict, BiologicalEntity]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.db is None:
-            raise ValueError("db must be supplied")
+        if self._is_empty(self.db):
+            self.MissingRequiredField("db")
         if not isinstance(self.db, str):
             self.db = str(self.db)
 
-        if self.local_id is None:
-            raise ValueError("local_id must be supplied")
+        if self._is_empty(self.local_id):
+            self.MissingRequiredField("local_id")
         if not isinstance(self.local_id, str):
             self.local_id = str(self.local_id)
 
-        if self.db_object_symbol is None:
-            raise ValueError("db_object_symbol must be supplied")
+        if self._is_empty(self.db_object_symbol):
+            self.MissingRequiredField("db_object_symbol")
         if not isinstance(self.db_object_symbol, SymbolType):
             self.db_object_symbol = SymbolType(self.db_object_symbol)
 
-        if self.ontology_class_ref is None:
-            raise ValueError("ontology_class_ref must be supplied")
-        if not isinstance(self.ontology_class_ref, AbstractThingId):
-            self.ontology_class_ref = AbstractThingId(self.ontology_class_ref)
+        if self._is_empty(self.ontology_class_ref):
+            self.MissingRequiredField("ontology_class_ref")
+        if not isinstance(self.ontology_class_ref, OntologyClass):
+            self.ontology_class_ref = OntologyClass()
 
-        if self.supporting_references is None:
-            raise ValueError("supporting_references must be supplied")
-        elif not isinstance(self.supporting_references, list):
-            self.supporting_references = [self.supporting_references]
-        elif len(self.supporting_references) == 0:
-            raise ValueError(f"supporting_references must be a non-empty list")
-        self.supporting_references = [v if isinstance(v, PublicationId) else PublicationId(v) for v in self.supporting_references]
+        if self._is_empty(self.supporting_references):
+            self.MissingRequiredField("supporting_references")
+        if not isinstance(self.supporting_references, list):
+            self.supporting_references = [self.supporting_references] if self.supporting_references is not None else []
+        self.supporting_references = [v if isinstance(v, Publication) else Publication(**v) for v in self.supporting_references]
 
-        if self.evidence_type is None:
-            raise ValueError("evidence_type must be supplied")
-        if not isinstance(self.evidence_type, OntologyClassId):
-            self.evidence_type = OntologyClassId(self.evidence_type)
+        if self._is_empty(self.evidence_type):
+            self.MissingRequiredField("evidence_type")
+        if not isinstance(self.evidence_type, OntologyClass):
+            self.evidence_type = OntologyClass()
 
-        if self.aspect is None:
-            raise ValueError("aspect must be supplied")
+        if self._is_empty(self.aspect):
+            self.MissingRequiredField("aspect")
         if not isinstance(self.aspect, str):
             self.aspect = str(self.aspect)
 
-        if self.db_object_taxon is None:
-            raise ValueError("db_object_taxon must be supplied")
-        if not isinstance(self.db_object_taxon, TaxonId):
-            self.db_object_taxon = TaxonId(self.db_object_taxon)
+        if self._is_empty(self.db_object_taxon):
+            self.MissingRequiredField("db_object_taxon")
+        if not isinstance(self.db_object_taxon, Taxon):
+            self.db_object_taxon = Taxon()
 
-        if self.assigned_by is None:
-            raise ValueError("assigned_by must be supplied")
-        if not isinstance(self.assigned_by, ProviderId):
-            self.assigned_by = ProviderId(self.assigned_by)
+        if self._is_empty(self.assigned_by):
+            self.MissingRequiredField("assigned_by")
+        if not isinstance(self.assigned_by, Provider):
+            self.assigned_by = Provider()
 
-        if self.qualifiers is None:
-            self.qualifiers = []
         if not isinstance(self.qualifiers, list):
-            self.qualifiers = [self.qualifiers]
+            self.qualifiers = [self.qualifiers] if self.qualifiers is not None else []
         self.qualifiers = [v if isinstance(v, str) else str(v) for v in self.qualifiers]
 
-        if self.with_or_from is None:
-            self.with_or_from = []
         if not isinstance(self.with_or_from, list):
-            self.with_or_from = [self.with_or_from]
-        self.with_or_from = [v if isinstance(v, AbstractThingId) else AbstractThingId(v) for v in self.with_or_from]
+            self.with_or_from = [self.with_or_from] if self.with_or_from is not None else []
+        self.with_or_from = [v if isinstance(v, Entity) else Entity(**v) for v in self.with_or_from]
 
         if self.db_object_name is not None and not isinstance(self.db_object_name, NameType):
             self.db_object_name = NameType(self.db_object_name)
 
-        if self.db_object_synonyms is None:
-            self.db_object_synonyms = []
         if not isinstance(self.db_object_synonyms, list):
-            self.db_object_synonyms = [self.db_object_synonyms]
+            self.db_object_synonyms = [self.db_object_synonyms] if self.db_object_synonyms is not None else []
         self.db_object_synonyms = [v if isinstance(v, NameType) else NameType(v) for v in self.db_object_synonyms]
 
         if self.db_object_type is not None and not isinstance(self.db_object_type, str):
@@ -405,11 +300,9 @@ class XafAssociation(Association):
         if self.annotation_date is not None and not isinstance(self.annotation_date, XSDDateTime):
             self.annotation_date = XSDDateTime(self.annotation_date)
 
-        if self.annotation_extensions is None:
-            self.annotation_extensions = []
         if not isinstance(self.annotation_extensions, list):
-            self.annotation_extensions = [self.annotation_extensions]
-        self.annotation_extensions = [v if isinstance(v, ConjunctionExtensionExpression) else ConjunctionExtensionExpression(**v) for v in self.annotation_extensions]
+            self.annotation_extensions = [self.annotation_extensions] if self.annotation_extensions is not None else []
+        self.annotation_extensions = [v if isinstance(v, AnnotationExtension) else AnnotationExtension(**v) for v in self.annotation_extensions]
 
         if self.gene_product_form is not None and not isinstance(self.gene_product_form, BiologicalEntity):
             self.gene_product_form = BiologicalEntity()
@@ -439,7 +332,7 @@ class AssociationDocument(Document):
     class_model_uri: ClassVar[URIRef] = ONTOLOGY_ASSOCIATION.AssociationDocument
 
     date_generated: Optional[str] = None
-    generated_by: Optional[Union[str, ProviderId]] = None
+    generated_by: Optional[Union[dict, Provider]] = None
     url: Optional[str] = None
     project_release: Optional[str] = None
     funding: Optional[str] = None
@@ -452,8 +345,8 @@ class AssociationDocument(Document):
         if self.date_generated is not None and not isinstance(self.date_generated, str):
             self.date_generated = str(self.date_generated)
 
-        if self.generated_by is not None and not isinstance(self.generated_by, ProviderId):
-            self.generated_by = ProviderId(self.generated_by)
+        if self.generated_by is not None and not isinstance(self.generated_by, Provider):
+            self.generated_by = Provider()
 
         if self.url is not None and not isinstance(self.url, str):
             self.url = str(self.url)
@@ -473,10 +366,8 @@ class AssociationDocument(Document):
         if self.gorel_version is not None and not isinstance(self.gorel_version, str):
             self.gorel_version = str(self.gorel_version)
 
-        if self.associations is None:
-            self.associations = []
         if not isinstance(self.associations, list):
-            self.associations = [self.associations]
+            self.associations = [self.associations] if self.associations is not None else []
         self.associations = [v if isinstance(v, Association) else Association(**v) for v in self.associations]
 
         super().__post_init__(**kwargs)
@@ -537,7 +428,7 @@ slots.db = Slot(uri=ONTOLOGY_ASSOCIATION.db, name="db", curie=ONTOLOGY_ASSOCIATI
                    pattern=re.compile(r'[a-zA-Z0-9\.\-\_]+'))
 
 slots.db_object_ref = Slot(uri=ONTOLOGY_ASSOCIATION.db_object_ref, name="db object ref", curie=ONTOLOGY_ASSOCIATION.curie('db_object_ref'),
-                   model_uri=ONTOLOGY_ASSOCIATION.db_object_ref, domain=None, range=Union[str, AbstractThingId])
+                   model_uri=ONTOLOGY_ASSOCIATION.db_object_ref, domain=None, range=Union[dict, Entity])
 
 slots.aspect = Slot(uri=ONTOLOGY_ASSOCIATION.aspect, name="aspect", curie=ONTOLOGY_ASSOCIATION.curie('aspect'),
                    model_uri=ONTOLOGY_ASSOCIATION.aspect, domain=None, range=str)
@@ -555,16 +446,16 @@ slots.db_object_type = Slot(uri=ONTOLOGY_ASSOCIATION.db_object_type, name="db ob
                    model_uri=ONTOLOGY_ASSOCIATION.db_object_type, domain=None, range=Optional[str])
 
 slots.db_object_taxon = Slot(uri=ONTOLOGY_ASSOCIATION.db_object_taxon, name="db object taxon", curie=ONTOLOGY_ASSOCIATION.curie('db_object_taxon'),
-                   model_uri=ONTOLOGY_ASSOCIATION.db_object_taxon, domain=None, range=Union[str, TaxonId])
+                   model_uri=ONTOLOGY_ASSOCIATION.db_object_taxon, domain=None, range=Union[dict, Taxon])
 
 slots.encoded_by = Slot(uri=ONTOLOGY_ASSOCIATION.encoded_by, name="encoded by", curie=ONTOLOGY_ASSOCIATION.curie('encoded_by'),
-                   model_uri=ONTOLOGY_ASSOCIATION.encoded_by, domain=None, range=Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]])
+                   model_uri=ONTOLOGY_ASSOCIATION.encoded_by, domain=None, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
 
 slots.parent_protein = Slot(uri=ONTOLOGY_ASSOCIATION.parent_protein, name="parent protein", curie=ONTOLOGY_ASSOCIATION.curie('parent_protein'),
-                   model_uri=ONTOLOGY_ASSOCIATION.parent_protein, domain=None, range=Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]])
+                   model_uri=ONTOLOGY_ASSOCIATION.parent_protein, domain=None, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
 
 slots.protein_containing_complex_members = Slot(uri=ONTOLOGY_ASSOCIATION.protein_containing_complex_members, name="protein containing complex members", curie=ONTOLOGY_ASSOCIATION.curie('protein_containing_complex_members'),
-                   model_uri=ONTOLOGY_ASSOCIATION.protein_containing_complex_members, domain=None, range=Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]])
+                   model_uri=ONTOLOGY_ASSOCIATION.protein_containing_complex_members, domain=None, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
 
 slots.db_xrefs = Slot(uri=ONTOLOGY_ASSOCIATION.db_xrefs, name="db xrefs", curie=ONTOLOGY_ASSOCIATION.curie('db_xrefs'),
                    model_uri=ONTOLOGY_ASSOCIATION.db_xrefs, domain=None, range=Optional[Union[Union[str, Curie], List[Union[str, Curie]]]])
@@ -573,7 +464,7 @@ slots.negation = Slot(uri=ONTOLOGY_ASSOCIATION.negation, name="negation", curie=
                    model_uri=ONTOLOGY_ASSOCIATION.negation, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.ontology_class_ref = Slot(uri=ONTOLOGY_ASSOCIATION.ontology_class_ref, name="ontology class ref", curie=ONTOLOGY_ASSOCIATION.curie('ontology_class_ref'),
-                   model_uri=ONTOLOGY_ASSOCIATION.ontology_class_ref, domain=None, range=Union[str, AbstractThingId])
+                   model_uri=ONTOLOGY_ASSOCIATION.ontology_class_ref, domain=None, range=Union[dict, OntologyClass])
 
 slots.qualifiers = Slot(uri=ONTOLOGY_ASSOCIATION.qualifiers, name="qualifiers", curie=ONTOLOGY_ASSOCIATION.curie('qualifiers'),
                    model_uri=ONTOLOGY_ASSOCIATION.qualifiers, domain=None, range=Optional[Union[str, List[str]]])
@@ -582,16 +473,16 @@ slots.relation = Slot(uri=ONTOLOGY_ASSOCIATION.relation, name="relation", curie=
                    model_uri=ONTOLOGY_ASSOCIATION.relation, domain=None, range=str)
 
 slots.supporting_references = Slot(uri=ONTOLOGY_ASSOCIATION.supporting_references, name="supporting references", curie=ONTOLOGY_ASSOCIATION.curie('supporting_references'),
-                   model_uri=ONTOLOGY_ASSOCIATION.supporting_references, domain=None, range=Union[Union[str, PublicationId], List[Union[str, PublicationId]]])
+                   model_uri=ONTOLOGY_ASSOCIATION.supporting_references, domain=None, range=Union[Union[dict, Publication], List[Union[dict, Publication]]])
 
 slots.with_or_from = Slot(uri=ONTOLOGY_ASSOCIATION.with_or_from, name="with or from", curie=ONTOLOGY_ASSOCIATION.curie('with_or_from'),
-                   model_uri=ONTOLOGY_ASSOCIATION.with_or_from, domain=None, range=Optional[Union[Union[str, AbstractThingId], List[Union[str, AbstractThingId]]]])
+                   model_uri=ONTOLOGY_ASSOCIATION.with_or_from, domain=None, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
 
 slots.interacting_taxon_ref = Slot(uri=ONTOLOGY_ASSOCIATION.interacting_taxon_ref, name="interacting taxon ref", curie=ONTOLOGY_ASSOCIATION.curie('interacting_taxon_ref'),
-                   model_uri=ONTOLOGY_ASSOCIATION.interacting_taxon_ref, domain=None, range=Optional[Union[Union[str, TaxonId], List[Union[str, TaxonId]]]])
+                   model_uri=ONTOLOGY_ASSOCIATION.interacting_taxon_ref, domain=None, range=Optional[Union[Union[dict, Taxon], List[Union[dict, Taxon]]]])
 
 slots.evidence_type = Slot(uri=ONTOLOGY_ASSOCIATION.evidence_type, name="evidence type", curie=ONTOLOGY_ASSOCIATION.curie('evidence_type'),
-                   model_uri=ONTOLOGY_ASSOCIATION.evidence_type, domain=None, range=Union[str, OntologyClassId])
+                   model_uri=ONTOLOGY_ASSOCIATION.evidence_type, domain=None, range=Union[dict, OntologyClass])
 
 slots.bioentity_type = Slot(uri=ONTOLOGY_ASSOCIATION.bioentity_type, name="bioentity type", curie=ONTOLOGY_ASSOCIATION.curie('bioentity_type'),
                    model_uri=ONTOLOGY_ASSOCIATION.bioentity_type, domain=None, range=Optional[str])
@@ -601,13 +492,13 @@ slots.annotation_date = Slot(uri=ONTOLOGY_ASSOCIATION.annotation_date, name="ann
                    pattern=re.compile(r'^\d{6}'))
 
 slots.assigned_by = Slot(uri=ONTOLOGY_ASSOCIATION.assigned_by, name="assigned by", curie=ONTOLOGY_ASSOCIATION.curie('assigned_by'),
-                   model_uri=ONTOLOGY_ASSOCIATION.assigned_by, domain=None, range=Union[str, ProviderId])
+                   model_uri=ONTOLOGY_ASSOCIATION.assigned_by, domain=None, range=Union[dict, Provider])
 
 slots.gene_product_form = Slot(uri=ONTOLOGY_ASSOCIATION.gene_product_form, name="gene product form", curie=ONTOLOGY_ASSOCIATION.curie('gene_product_form'),
                    model_uri=ONTOLOGY_ASSOCIATION.gene_product_form, domain=None, range=Optional[Union[dict, BiologicalEntity]])
 
 slots.annotation_extensions = Slot(uri=ONTOLOGY_ASSOCIATION.annotation_extensions, name="annotation extensions", curie=ONTOLOGY_ASSOCIATION.curie('annotation_extensions'),
-                   model_uri=ONTOLOGY_ASSOCIATION.annotation_extensions, domain=None, range=Optional[Union[Union[dict, ConjunctionExtensionExpression], List[Union[dict, ConjunctionExtensionExpression]]]])
+                   model_uri=ONTOLOGY_ASSOCIATION.annotation_extensions, domain=None, range=Optional[Union[Union[dict, AnnotationExtension], List[Union[dict, AnnotationExtension]]]])
 
 slots.annotation_properties = Slot(uri=ONTOLOGY_ASSOCIATION.annotation_properties, name="annotation properties", curie=ONTOLOGY_ASSOCIATION.curie('annotation_properties'),
                    model_uri=ONTOLOGY_ASSOCIATION.annotation_properties, domain=None, range=Optional[Union[Union[dict, PropertyValuePair], List[Union[dict, PropertyValuePair]]]])
@@ -622,7 +513,7 @@ slots.date_generated = Slot(uri=ONTOLOGY_ASSOCIATION.date_generated, name="date 
                    model_uri=ONTOLOGY_ASSOCIATION.date_generated, domain=None, range=Optional[str])
 
 slots.generated_by = Slot(uri=ONTOLOGY_ASSOCIATION.generated_by, name="generated by", curie=ONTOLOGY_ASSOCIATION.curie('generated_by'),
-                   model_uri=ONTOLOGY_ASSOCIATION.generated_by, domain=None, range=Optional[Union[str, ProviderId]])
+                   model_uri=ONTOLOGY_ASSOCIATION.generated_by, domain=None, range=Optional[Union[dict, Provider]])
 
 slots.url = Slot(uri=ONTOLOGY_ASSOCIATION.url, name="url", curie=ONTOLOGY_ASSOCIATION.curie('url'),
                    model_uri=ONTOLOGY_ASSOCIATION.url, domain=None, range=Optional[str])
@@ -649,7 +540,7 @@ slots.eco_version = Slot(uri=ONTOLOGY_ASSOCIATION.eco_version, name="eco version
                    model_uri=ONTOLOGY_ASSOCIATION.eco_version, domain=None, range=Optional[str])
 
 slots.propertyValuePair__property = Slot(uri=ONTOLOGY_ASSOCIATION.property, name="propertyValuePair__property", curie=ONTOLOGY_ASSOCIATION.curie('property'),
-                   model_uri=ONTOLOGY_ASSOCIATION.propertyValuePair__property, domain=None, range=Optional[Union[str, ControlledTermId]])
+                   model_uri=ONTOLOGY_ASSOCIATION.propertyValuePair__property, domain=None, range=Optional[Union[dict, ControlledTerm]])
 
 slots.propertyValuePair__value = Slot(uri=ONTOLOGY_ASSOCIATION.value, name="propertyValuePair__value", curie=ONTOLOGY_ASSOCIATION.curie('value'),
                    model_uri=ONTOLOGY_ASSOCIATION.propertyValuePair__value, domain=None, range=Optional[str])
