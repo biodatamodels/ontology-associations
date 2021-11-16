@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="http://biodatamodels.github.io/ontology-associations/complexpheno/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>complexpheno schema - ontology association</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "complexpheno schema";
+    var mkdocs_page_input_path = "complexpheno.md";
+    var mkdocs_page_url = "/ontology-associations/complexpheno/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ontology association</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../home/">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../credits/">Credits</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ontology association</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>complexpheno schema</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/biodatamodels/ontology-associations/edit/master/docs/complexpheno.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="complexpheno-schema">complexpheno schema</h1>
+<p>EXPERIMENTAL complex phenotype model, denormalized</p>
+<h3 id="classes">Classes</h3>
+<ul>
+<li><a href="../Annotation/">Annotation</a><ul>
+<li><a href="../Association/">Association</a> - generic association between an entity and an ontological term<ul>
+<li><a href="../XafAssociation/">XafAssociation</a> - line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="../ComplexDiseasePhenotypeOntologyAssociation/">ComplexDiseasePhenotypeOntologyAssociation</a></li>
+<li><a href="../Document/">Document</a> - root class for association or entity documents<ul>
+<li><a href="../AssociationDocument/">AssociationDocument</a><ul>
+<li><a href="../ComplexDiseasePhenotypeOntologyAssociationDocument/">ComplexDiseasePhenotypeOntologyAssociationDocument</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="../Entity/">Entity</a><ul>
+<li><a href="../BiologicalEntity/">BiologicalEntity</a></li>
+<li><a href="../ControlledTerm/">ControlledTerm</a><ul>
+<li><a href="../OntologyClass/">OntologyClass</a><ul>
+<li><a href="../Taxon/">Taxon</a></li>
+</ul>
+</li>
+<li><a href="../RelationTerm/">RelationTerm</a></li>
+</ul>
+</li>
+<li><a href="../Provider/">Provider</a></li>
+<li><a href="../Publication/">Publication</a></li>
+</ul>
+</li>
+<li><a href="../RelationalConstruct/">RelationalConstruct</a><ul>
+<li><a href="../AnnotationExtension/">AnnotationExtension</a> - set of expressions all true</li>
+<li><a href="../PropertyValuePair/">PropertyValuePair</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="mixins">Mixins</h3>
+<ul>
+<li><a href="../Denormalized/">Denormalized</a> - mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes</li>
+<li><a href="../GoRelated/">GoRelated</a> - mixin for any association that is GO related</li>
+<li><a href="../Normalized/">Normalized</a> - mixin for a normalized class, in the sense of database normal forms</li>
+</ul>
+<h3 id="slots">Slots</h3>
+<ul>
+<li><a href="../annotation_date/">annotation date</a> - date when annotation was made</li>
+<li><a href="../annotation_extensions/">annotation extensions</a> - disjunction</li>
+<li><a href="../annotation_properties/">annotation properties</a></li>
+<li><a href="../aspect/">aspect</a> - varies by association type</li>
+<li><a href="../assigned_by/">assigned by</a> - assigned by</li>
+<li><a href="../associationDocument__associations/">➞associations</a><ul>
+<li><a href="../complex_disease_phenotype_ontology_association_document_associations/">complex disease phenotype ontology association document➞associations</a></li>
+</ul>
+</li>
+<li><a href="../biocuration/">biocuration</a></li>
+<li><a href="../bioentity_type/">bioentity type</a> - type of entity</li>
+<li><a href="../citation/">citation</a></li>
+<li><a href="../db/">db</a> - db part of identifier</li>
+<li><a href="../db_object_name/">db object name</a></li>
+<li><a href="../db_object_ref/">db object ref</a></li>
+<li><a href="../db_object_symbol/">db object symbol</a></li>
+<li><a href="../db_object_synonyms/">db object synonyms</a></li>
+<li><a href="../db_object_taxon/">db object taxon</a></li>
+<li><a href="../db_object_type/">db object type</a></li>
+<li><a href="../db_xrefs/">db xrefs</a></li>
+<li><a href="../disease_id/">disease_id</a> - CURIE for </li>
+<li><a href="../disease_name/">disease_name</a></li>
+<li><a href="../document_metadata_field/">document metadata field</a><ul>
+<li><a href="../date_generated/">date generated</a></li>
+<li><a href="../funding/">funding</a> - e.g. NHGRI</li>
+<li><a href="../generated_by/">generated by</a> - YYYY-MM-DD or YYYY-MM-DDTHH:MM</li>
+<li><a href="../ontology_version/">ontology version</a><ul>
+<li><a href="../eco_version/">eco version</a></li>
+<li><a href="../go_version/">go version</a></li>
+<li><a href="../gorel_version/">gorel version</a></li>
+<li><a href="../ro_version/">ro version</a></li>
+</ul>
+</li>
+<li><a href="../project_release/">project release</a> - e.g.  WS275</li>
+<li><a href="../url/">url</a> - e.g. http://www.yeastgenome.org/</li>
+</ul>
+</li>
+<li><a href="../encoded_by/">encoded by</a></li>
+<li><a href="evidence.md">evidence</a></li>
+<li><a href="../evidence_type/">evidence type</a></li>
+<li><a href="../frequency/">frequency</a><ul>
+<li><a href="../complex_disease_phenotype_ontology_association_frequency/">complex disease phenotype ontology association➞frequency</a></li>
+</ul>
+</li>
+<li><a href="../gene_product_form/">gene product form</a> - isoform</li>
+<li><a href="../gene_product_properties/">gene product properties</a></li>
+<li><a href="../id/">id</a> - identifier</li>
+<li><a href="../interacting_taxon_ref/">interacting taxon ref</a></li>
+<li><a href="../local_id/">local id</a> - local part of identifier</li>
+<li><a href="../modifier/">modifier</a></li>
+<li><a href="../negation/">negation</a></li>
+<li><a href="../onset/">onset</a></li>
+<li><a href="../ontology_class_ref/">ontology class ref</a></li>
+<li><a href="../parent_protein/">parent protein</a></li>
+<li><a href="../propertyValuePair__property/">➞property</a></li>
+<li><a href="../propertyValuePair__value/">➞value</a> - value</li>
+<li><a href="../protein_containing_complex_members/">protein containing complex members</a></li>
+<li><a href="../qualifier/">qualifier</a></li>
+<li><a href="../qualifiers/">qualifiers</a></li>
+<li><a href="relation.md">relation</a><ul>
+<li><a href="../complex_disease_phenotype_ontology_association_relation/">complex disease phenotype ontology association➞relation</a></li>
+</ul>
+</li>
+<li><a href="../sex/">sex</a></li>
+<li><a href="../supporting_references/">supporting references</a></li>
+<li><a href="../term_id/">term_id</a></li>
+<li><a href="../term_label/">term_label</a></li>
+<li><a href="../time_course/">time_course</a></li>
+<li><a href="../with_or_from/">with or from</a></li>
+</ul>
+<h3 id="enums">Enums</h3>
+<ul>
+<li><a href="../ComplexDiseaseRelation/">ComplexDiseaseRelation</a></li>
+</ul>
+<h3 id="subsets">Subsets</h3>
+<h3 id="types">Types</h3>
+<h4 id="built-in">Built in</h4>
+<ul>
+<li><strong>Bool</strong></li>
+<li><strong>Decimal</strong></li>
+<li><strong>ElementIdentifier</strong></li>
+<li><strong>NCName</strong></li>
+<li><strong>NodeIdentifier</strong></li>
+<li><strong>URI</strong></li>
+<li><strong>URIorCURIE</strong></li>
+<li><strong>XSDDate</strong></li>
+<li><strong>XSDDateTime</strong></li>
+<li><strong>XSDTime</strong></li>
+<li><strong>float</strong></li>
+<li><strong>int</strong></li>
+<li><strong>str</strong></li>
+</ul>
+<h4 id="defined">Defined</h4>
+<ul>
+<li><a href="../types/HPOIdentifier/">HPOIdentifier</a>  (<a href="../types/IdentifierType/">IdentifierType</a>) </li>
+<li><a href="../types/MONDOIdentifier/">MONDOIdentifier</a>  (<a href="../types/IdentifierType/">IdentifierType</a>) </li>
+<li><a href="../types/PMIDIdentifier/">PMIDIdentifier</a>  (<a href="../types/IdentifierType/">IdentifierType</a>) </li>
+<li><a href="../types/Boolean/">Boolean</a>  (<strong>Bool</strong>)  - A binary (true or false) value</li>
+<li><a href="../types/Curie/">Curie</a>  (<a href="../types/String/">String</a>) </li>
+<li><a href="../types/Date/">Date</a>  (<strong>XSDDate</strong>)  - a date (year, month and day) in an idealized calendar</li>
+<li><a href="../types/Datetime/">Datetime</a>  (<strong>XSDDateTime</strong>)  - The combination of a date and time</li>
+<li><a href="../types/Decimal/">Decimal</a>  (<strong>Decimal</strong>)  - A real number with arbitrary precision that conforms to the xsd:decimal specification</li>
+<li><a href="../types/Double/">Double</a>  (<strong>float</strong>)  - A real number that conforms to the xsd:double specification</li>
+<li><a href="../types/Float/">Float</a>  (<strong>float</strong>)  - A real number that conforms to the xsd:float specification</li>
+<li><a href="../types/IdentifierType/">IdentifierType</a>  (<a href="../types/String/">String</a>) </li>
+<li><a href="../types/Integer/">Integer</a>  (<strong>int</strong>)  - An integer</li>
+<li><a href="../types/NameType/">NameType</a>  (<a href="../types/String/">String</a>) </li>
+<li><a href="../types/Ncname/">Ncname</a>  (<strong>NCName</strong>)  - Prefix part of CURIE</li>
+<li><a href="../types/Nodeidentifier/">Nodeidentifier</a>  (<strong>NodeIdentifier</strong>)  - A URI, CURIE or BNODE that represents a node in a model.</li>
+<li><a href="../types/Objectidentifier/">Objectidentifier</a>  (<strong>ElementIdentifier</strong>)  - A URI or CURIE that represents an object in the model.</li>
+<li><a href="../types/PhenotypeIdentifier/">PhenotypeIdentifier</a>  (<a href="../types/IdentifierType/">IdentifierType</a>) </li>
+<li><a href="../types/String/">String</a>  (<strong>str</strong>)  - A character string</li>
+<li><a href="../types/SymbolType/">SymbolType</a>  (<a href="../types/String/">String</a>) </li>
+<li><a href="../types/Time/">Time</a>  (<strong>XSDTime</strong>)  - A time object represents a (local) time of day, independent of any particular day</li>
+<li><a href="../types/Uri/">Uri</a>  (<strong>URI</strong>)  - a complete URI</li>
+<li><a href="../types/Uriorcurie/">Uriorcurie</a>  (<strong>URIorCURIE</strong>)  - a URI or a CURIE</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/biodatamodels/ontology-associations/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
