@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="css/theme.css" />
   <link rel="stylesheet" href="css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -25,9 +25,8 @@
   
   <script src="js/jquery-2.1.1.min.js" defer></script>
   <script src="js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -41,7 +40,7 @@
         <a href="." class="icon icon-home"> ontology association</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -61,6 +60,8 @@
     <li class="toctree-l2"><a class="reference internal" href="#slots">Slots</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#enums">Enums</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#subsets">Subsets</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#types">Types</a>
         <ul>
@@ -109,6 +110,7 @@
   
   <hr/>
 </div>
+
           <div role="main">
             <div class="section">
               
@@ -139,8 +141,10 @@
 </li>
 </ul>
 </li>
+<li><a href="ComplexDiseasePhenotypeOntologyAssociation/">ComplexDiseasePhenotypeOntologyAssociation</a></li>
 <li><a href="Document/">Document</a> - root class for association or entity documents<ul>
 <li><a href="AssociationDocument/">AssociationDocument</a><ul>
+<li><a href="ComplexDiseasePhenotypeOntologyAssociationDocument/">ComplexDiseasePhenotypeOntologyAssociationDocument</a></li>
 <li><a href="GafAssociationDocument/">GafAssociationDocument</a></li>
 <li><a href="GpadAssociationDocument/">GpadAssociationDocument</a></li>
 <li><a href="HumanPhenotypeOntologyAssociationDocument/">HumanPhenotypeOntologyAssociationDocument</a></li>
@@ -254,13 +258,16 @@
 </li>
 <li><a href="assigned_by/">assigned by</a> - assigned by</li>
 <li><a href="associationDocument__associations/">➞associations</a><ul>
+<li><a href="complex_disease_phenotype_ontology_association_document_associations/">complex disease phenotype ontology association document➞associations</a></li>
 <li><a href="gaf_association_document_associations/">gaf association document➞associations</a></li>
 <li><a href="gpad_association_document_associations/">gpad association document➞associations</a></li>
 <li><a href="human_phenotype_ontology_association_document_associations/">human phenotype ontology association document➞associations</a></li>
 <li><a href="pombase_phaf_association_document_associations/">pombase phaf association document➞associations</a></li>
 </ul>
 </li>
+<li><a href="biocuration/">biocuration</a></li>
 <li><a href="bioentity_type/">bioentity type</a> - type of entity</li>
+<li><a href="citation/">citation</a></li>
 <li><a href="db/">db</a> - db part of identifier<ul>
 <li><a href="Database_name/">Database name</a> - The database that produced the file – included to facilitate data sharing with other databases. Obviously always PomBase for this file.</li>
 </ul>
@@ -282,6 +289,8 @@
 </ul>
 </li>
 <li><a href="db_xrefs/">db xrefs</a></li>
+<li><a href="disease_id/">disease_id</a> - CURIE for </li>
+<li><a href="disease_name/">disease_name</a></li>
 <li><a href="document_metadata_field/">document metadata field</a><ul>
 <li><a href="date_generated/">date generated</a></li>
 <li><a href="funding/">funding</a> - e.g. NHGRI</li>
@@ -298,11 +307,15 @@
 </ul>
 </li>
 <li><a href="encoded_by/">encoded by</a></li>
+<li><a href="evidence.md">evidence</a></li>
 <li><a href="evidence_type/">evidence type</a><ul>
 <li><a href="Evidence/">Evidence</a> - For the Evidence column, we use a small selection from the Evidence Ontology (ECO). Please contact the Helpdesk if you need assistance using these IDs</li>
 </ul>
 </li>
-<li><a href="frequency/">frequency</a></li>
+<li><a href="frequency/">frequency</a><ul>
+<li><a href="complex_disease_phenotype_ontology_association_frequency/">complex disease phenotype ontology association➞frequency</a></li>
+</ul>
+</li>
 <li><a href="gene_product_form/">gene product form</a> - isoform</li>
 <li><a href="gene_product_properties/">gene product properties</a></li>
 <li><a href="gpiDocument__entities/">➞entities</a></li>
@@ -312,6 +325,7 @@
 <li><a href="Gene_systematic_ID/">Gene systematic ID</a> - The systematic ID for each gene.</li>
 </ul>
 </li>
+<li><a href="modifier/">modifier</a></li>
 <li><a href="negation/">negation</a></li>
 <li><a href="onset/">onset</a></li>
 <li><a href="ontology_class_ref/">ontology class ref</a><ul>
@@ -323,6 +337,7 @@
 <li><a href="propertyValuePair__property/">➞property</a></li>
 <li><a href="propertyValuePair__value/">➞value</a> - value</li>
 <li><a href="protein_containing_complex_members/">protein containing complex members</a></li>
+<li><a href="qualifier/">qualifier</a></li>
 <li><a href="qualifiers/">qualifiers</a><ul>
 <li><a href="gaf_association_qualifiers/">gaf association➞qualifiers</a><ul>
 <li><a href="simple_gaf_association_qualifiers/">simple gaf association➞qualifiers</a></li>
@@ -331,13 +346,18 @@
 </ul>
 </li>
 <li><a href="relation.md">relation</a><ul>
+<li><a href="complex_disease_phenotype_ontology_association_relation/">complex disease phenotype ontology association➞relation</a></li>
 <li><a href="gpad_association_relation/">gpad association➞relation</a></li>
 </ul>
 </li>
+<li><a href="sex/">sex</a></li>
 <li><a href="supporting_references/">supporting references</a><ul>
 <li><a href="Reference.md">Reference</a> - The Reference column has the publication’s PubMed ID (PMID).</li>
 </ul>
 </li>
+<li><a href="term_id/">term_id</a></li>
+<li><a href="term_label/">term_label</a></li>
+<li><a href="time_course/">time_course</a></li>
 <li><a href="with_or_from/">with or from</a></li>
 </ul>
 <h3 id="enums">Enums</h3>
@@ -346,6 +366,7 @@
 <li><a href="Biological_Effect_interactor_enum/">Biological_Effect_interactor_enum</a></li>
 <li><a href="Biological_role_interactor_enum/">Biological_role_interactor_enum</a></li>
 <li><a href="Causal_Regulatory_Mechanism_enum/">Causal_Regulatory_Mechanism_enum</a></li>
+<li><a href="ComplexDiseaseRelation/">ComplexDiseaseRelation</a></li>
 <li><a href="Database_name_enum/">Database_name_enum</a></li>
 <li><a href="Evidence_enum/">Evidence_enum</a></li>
 <li><a href="Expansion_method_enum/">Expansion_method_enum</a></li>
@@ -361,6 +382,7 @@
 <li><a href="gp_entity_type_enum/">gp_entity_type_enum</a></li>
 <li><a href="simple_qualifier_enum/">simple_qualifier_enum</a></li>
 </ul>
+<h3 id="subsets">Subsets</h3>
 <h3 id="types">Types</h3>
 <h4 id="built-in">Built in</h4>
 <ul>
@@ -382,7 +404,10 @@
 <ul>
 <li><a href="types/FYPOIdentifier/">FYPOIdentifier</a>  (<a href="types/String/">String</a>) </li>
 <li><a href="types/FYPOEXTIdentifier/">FYPOEXTIdentifier</a>  (<a href="types/String/">String</a>) </li>
+<li><a href="types/HPOIdentifier/">HPOIdentifier</a>  (<a href="types/IdentifierType/">IdentifierType</a>) </li>
+<li><a href="types/MONDOIdentifier/">MONDOIdentifier</a>  (<a href="types/IdentifierType/">IdentifierType</a>) </li>
 <li><a href="types/PECOIdentifier/">PECOIdentifier</a>  (<a href="types/String/">String</a>) </li>
+<li><a href="types/PMIDIdentifier/">PMIDIdentifier</a>  (<a href="types/IdentifierType/">IdentifierType</a>) </li>
 <li><a href="types/Boolean/">Boolean</a>  (<strong>Bool</strong>)  - A binary (true or false) value</li>
 <li><a href="types/Curie/">Curie</a>  (<a href="types/String/">String</a>) </li>
 <li><a href="types/Date/">Date</a>  (<strong>XSDDate</strong>)  - a date (year, month and day) in an idealized calendar</li>
@@ -391,12 +416,14 @@
 <li><a href="types/Double/">Double</a>  (<strong>float</strong>)  - A real number that conforms to the xsd:double specification</li>
 <li><a href="types/Float/">Float</a>  (<strong>float</strong>)  - A real number that conforms to the xsd:float specification</li>
 <li><a href="types/Identifier/">Identifier</a>  (<a href="types/String/">String</a>) </li>
+<li><a href="types/IdentifierType/">IdentifierType</a>  (<a href="types/String/">String</a>) </li>
 <li><a href="types/Intact-miscoreIdentifier/">Intact-miscoreIdentifier</a>  (<a href="types/String/">String</a>) </li>
 <li><a href="types/Integer/">Integer</a>  (<strong>int</strong>)  - An integer</li>
 <li><a href="types/NameType/">NameType</a>  (<a href="types/String/">String</a>) </li>
 <li><a href="types/Ncname/">Ncname</a>  (<strong>NCName</strong>)  - Prefix part of CURIE</li>
 <li><a href="types/Nodeidentifier/">Nodeidentifier</a>  (<strong>NodeIdentifier</strong>)  - A URI, CURIE or BNODE that represents a node in a model.</li>
 <li><a href="types/Objectidentifier/">Objectidentifier</a>  (<strong>ElementIdentifier</strong>)  - A URI or CURIE that represents an object in the model.</li>
+<li><a href="types/PhenotypeIdentifier/">PhenotypeIdentifier</a>  (<a href="types/IdentifierType/">IdentifierType</a>) </li>
 <li><a href="types/Psi-miIdentifier/">Psi-miIdentifier</a>  (<a href="types/String/">String</a>) </li>
 <li><a href="types/RogidIdentifier/">RogidIdentifier</a>  (<a href="types/String/">String</a>) </li>
 <li><a href="types/String/">String</a>  (<strong>str</strong>)  - A character string</li>
@@ -439,19 +466,22 @@
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-          <a href="https://github.com/biodatamodels/ontology-associations/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
-      
-      
-        <span><a href="home/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="credits/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/biodatamodels/ontology-associations/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="home/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="credits/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
     <script src="js/theme.js" defer></script>
       <script src="search/main.js" defer></script>
     <script defer>
@@ -464,6 +494,6 @@
 </html>
 
 <!--
-MkDocs version : 1.1.2
-Build Date UTC : 2021-06-11 21:35:19.453319+00:00
+MkDocs version : 1.2.3
+Build Date UTC : 2021-11-16 21:23:19.134754+00:00
 -->

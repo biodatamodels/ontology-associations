@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="http://biodatamodels.github.io/ontology-associations/pombase/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>pombase schema - ontology association</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "pombase schema";
+    var mkdocs_page_input_path = "pombase.md";
+    var mkdocs_page_url = "/ontology-associations/pombase/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ontology association</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../home/">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../credits/">Credits</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ontology association</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>pombase schema</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/biodatamodels/ontology-associations/edit/master/docs/pombase.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="pombase-schema">pombase schema</h1>
+<p>Various association data models</p>
+<h3 id="classes">Classes</h3>
+<ul>
+<li><a href="../Annotation/">Annotation</a><ul>
+<li><a href="../Association/">Association</a> - generic association between an entity and an ontological term<ul>
+<li><a href="../PombasePhafAssociation/">PombasePhafAssociation</a> - line of PHAF</li>
+<li><a href="../XafAssociation/">XafAssociation</a> - line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="../Document/">Document</a> - root class for association or entity documents<ul>
+<li><a href="../AssociationDocument/">AssociationDocument</a><ul>
+<li><a href="../PombasePhafAssociationDocument/">PombasePhafAssociationDocument</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="../Entity/">Entity</a><ul>
+<li><a href="../BiologicalEntity/">BiologicalEntity</a></li>
+<li><a href="../ControlledTerm/">ControlledTerm</a><ul>
+<li><a href="../OntologyClass/">OntologyClass</a><ul>
+<li><a href="../Taxon/">Taxon</a></li>
+</ul>
+</li>
+<li><a href="../RelationTerm/">RelationTerm</a></li>
+</ul>
+</li>
+<li><a href="../Provider/">Provider</a></li>
+<li><a href="../Publication/">Publication</a></li>
+</ul>
+</li>
+<li><a href="../RelationalConstruct/">RelationalConstruct</a><ul>
+<li><a href="../AnnotationExtension/">AnnotationExtension</a> - set of expressions all true</li>
+<li><a href="../PropertyValuePair/">PropertyValuePair</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="mixins">Mixins</h3>
+<ul>
+<li><a href="../Denormalized/">Denormalized</a> - mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes</li>
+<li><a href="../GoRelated/">GoRelated</a> - mixin for any association that is GO related</li>
+<li><a href="../Normalized/">Normalized</a> - mixin for a normalized class, in the sense of database normal forms</li>
+</ul>
+<h3 id="slots">Slots</h3>
+<ul>
+<li><a href="../Allele_description/">Allele description</a> - The allele description specifically describes the change; see the Phenotype data bulk upload format for details on allele types and descriptions.</li>
+<li><a href="../Allele_name/">Allele name</a> - Allele names are optional for upload, but are included where available in the download. Column 10 lists the preferred allele name, and any alternative names are in column 11.</li>
+<li><a href="../Allele_synonym/">Allele synonym</a> - See note on Allele name above. Multiple entries are separated with pipes (|).</li>
+<li><a href="../Allele_type/">Allele type</a> - Allowed allele types, example descriptions, etc. are shown in the table at the bottom of the <a href="https://www.pombase.org/documentation/phenotype-data-bulk-upload-format">Phenotype data bulk upload</a> format page.</li>
+<li><a href="../Condition/">Condition</a> - Conditions use a small ontology maintained in-house by PomBase curators, and we can help you interpret the IDs. Multiple entries are shown in cases where more than one condition detail applies at the same time (e.g. high temperature, minimal medium), and are separated with commas (,).</li>
+<li><a href="../Expression/">Expression</a> - The Expression column contains one of these values: ‘overexpression’, ‘knockdown’, ‘endogenous’, ‘null’, ‘not specified’. Deletions always have ‘null’ expression.</li>
+<li><a href="../Gene_name/">Gene name</a> - Gene names are optional for upload, but are included where available in the download.</li>
+<li><a href="../Genotype_description/">Genotype description</a> - The Background genotype description column is for alleles in the background, such as selectable markers; these details are optional. To avoid redundancy, it does not repeat the allele of interest (from column 4 or 10) in the genotype column.</li>
+<li><a href="../Parental_strain/">Parental strain</a> - The Parental strain column is for the parental strain designation, such as 972 h-, 975 h+, etc. This column must be filled in, but “unknown” is allowed.</li>
+<li><a href="../Penetrance/">Penetrance</a> - Penetrance describes the proportion of a population that shows a cell-level phenotype. Penetrance data are represented as percents or entries from the in-house FYPO_EXT ontology (FYPO_EXT:0000001 = high; FYPO_EXT:0000002 = medium; FYPO_EXT:0000003 = low; FYPO_EXT:0000004 = full).</li>
+<li><a href="../Severity/">Severity</a> - Severity (formerly designated “expressivity”) uses the FYPO_EXT ontology described in description of <a href="../Penetrance/">Penetrance</a></li>
+<li><a href="../Strain_name_%28background%29/">Strain name (background)</a> - The Background strain name column is used for a lab’s in-house name/ID/designation for the background strain (i.e. the derivative of the parental strain that has selectable marker alleles etc.). The description in the Genotype column should match this background strain.</li>
+<li><a href="../annotation_date/">annotation date</a> - date when annotation was made<ul>
+<li><a href="Date.md">Date</a> - The date is the date on which the annotations are created. Format: YYYY-MM-DD</li>
+</ul>
+</li>
+<li><a href="../annotation_extensions/">annotation extensions</a> - disjunction<ul>
+<li><a href="../Extension/">Extension</a> - The Extension column is used to record when a mutation in one gene affects another gene or its product. For example, if a mutation in gene A decreases its ability to phosphorylate protein B, the A allele is annotated to the phenotype “decreased protein kinase activity” with the ID for gene B in an extension. In the downloadable file, an annotation can have multiple comma-separated extensions if they combine to form a “compound” extension (e.g. two or more genes assayed together).</li>
+</ul>
+</li>
+<li><a href="../annotation_properties/">annotation properties</a></li>
+<li><a href="../aspect/">aspect</a> - varies by association type</li>
+<li><a href="../assigned_by/">assigned by</a> - assigned by</li>
+<li><a href="../associationDocument__associations/">➞associations</a><ul>
+<li><a href="../pombase_phaf_association_document_associations/">pombase phaf association document➞associations</a></li>
+</ul>
+</li>
+<li><a href="../bioentity_type/">bioentity type</a> - type of entity</li>
+<li><a href="../db/">db</a> - db part of identifier<ul>
+<li><a href="../Database_name/">Database name</a> - The database that produced the file – included to facilitate data sharing with other databases. Obviously always PomBase for this file.</li>
+</ul>
+</li>
+<li><a href="../db_object_name/">db object name</a></li>
+<li><a href="../db_object_ref/">db object ref</a></li>
+<li><a href="../db_object_symbol/">db object symbol</a></li>
+<li><a href="../db_object_synonyms/">db object synonyms</a></li>
+<li><a href="../db_object_taxon/">db object taxon</a><ul>
+<li><a href="../Taxon/">Taxon</a> - The taxon will usually be 4896 (the NCBI taxon ID for Schizosaccharomyces pombe), although an NCBI taxon ID for a specific S. pombe strain would be allowed.</li>
+</ul>
+</li>
+<li><a href="../db_object_type/">db object type</a></li>
+<li><a href="../db_xrefs/">db xrefs</a></li>
+<li><a href="../document_metadata_field/">document metadata field</a><ul>
+<li><a href="../date_generated/">date generated</a></li>
+<li><a href="../funding/">funding</a> - e.g. NHGRI</li>
+<li><a href="../generated_by/">generated by</a> - YYYY-MM-DD or YYYY-MM-DDTHH:MM</li>
+<li><a href="../ontology_version/">ontology version</a><ul>
+<li><a href="../eco_version/">eco version</a></li>
+<li><a href="../go_version/">go version</a></li>
+<li><a href="../gorel_version/">gorel version</a></li>
+<li><a href="../ro_version/">ro version</a></li>
+</ul>
+</li>
+<li><a href="../project_release/">project release</a> - e.g.  WS275</li>
+<li><a href="../url/">url</a> - e.g. http://www.yeastgenome.org/</li>
+</ul>
+</li>
+<li><a href="../encoded_by/">encoded by</a></li>
+<li><a href="../evidence_type/">evidence type</a><ul>
+<li><a href="../Evidence/">Evidence</a> - For the Evidence column, we use a small selection from the Evidence Ontology (ECO). Please contact the Helpdesk if you need assistance using these IDs</li>
+</ul>
+</li>
+<li><a href="../gene_product_form/">gene product form</a> - isoform</li>
+<li><a href="../gene_product_properties/">gene product properties</a></li>
+<li><a href="../id/">id</a> - identifier</li>
+<li><a href="../interacting_taxon_ref/">interacting taxon ref</a></li>
+<li><a href="../local_id/">local id</a> - local part of identifier<ul>
+<li><a href="../Gene_systematic_ID/">Gene systematic ID</a> - The systematic ID for each gene.</li>
+</ul>
+</li>
+<li><a href="../negation/">negation</a></li>
+<li><a href="../ontology_class_ref/">ontology class ref</a><ul>
+<li><a href="../FYPO_ID/">FYPO ID</a> - To use the FYPO IDs, see the <a href="https://www.pombase.org/browse-curation/fission-yeast-phenotype-ontology">FYPO summary page</a> and the FAQ on browsing FYPO.</li>
+</ul>
+</li>
+<li><a href="../parent_protein/">parent protein</a></li>
+<li><a href="../propertyValuePair__property/">➞property</a></li>
+<li><a href="../propertyValuePair__value/">➞value</a> - value</li>
+<li><a href="../protein_containing_complex_members/">protein containing complex members</a></li>
+<li><a href="../qualifiers/">qualifiers</a></li>
+<li><a href="relation.md">relation</a></li>
+<li><a href="../supporting_references/">supporting references</a><ul>
+<li><a href="Reference.md">Reference</a> - The Reference column has the publication’s PubMed ID (PMID).</li>
+</ul>
+</li>
+<li><a href="../with_or_from/">with or from</a></li>
+</ul>
+<h3 id="enums">Enums</h3>
+<ul>
+<li><a href="../Allele_type_enum/">Allele_type_enum</a></li>
+<li><a href="../Database_name_enum/">Database_name_enum</a></li>
+<li><a href="../Evidence_enum/">Evidence_enum</a></li>
+<li><a href="../Expression_enum/">Expression_enum</a></li>
+</ul>
+<h3 id="subsets">Subsets</h3>
+<h3 id="types">Types</h3>
+<h4 id="built-in">Built in</h4>
+<ul>
+<li><strong>Bool</strong></li>
+<li><strong>Decimal</strong></li>
+<li><strong>ElementIdentifier</strong></li>
+<li><strong>NCName</strong></li>
+<li><strong>NodeIdentifier</strong></li>
+<li><strong>URI</strong></li>
+<li><strong>URIorCURIE</strong></li>
+<li><strong>XSDDate</strong></li>
+<li><strong>XSDDateTime</strong></li>
+<li><strong>XSDTime</strong></li>
+<li><strong>float</strong></li>
+<li><strong>int</strong></li>
+<li><strong>str</strong></li>
+</ul>
+<h4 id="defined">Defined</h4>
+<ul>
+<li><a href="../types/FYPOIdentifier/">FYPOIdentifier</a>  (<a href="../types/String/">String</a>) </li>
+<li><a href="../types/FYPOEXTIdentifier/">FYPOEXTIdentifier</a>  (<a href="../types/String/">String</a>) </li>
+<li><a href="../types/PECOIdentifier/">PECOIdentifier</a>  (<a href="../types/String/">String</a>) </li>
+<li><a href="../types/Boolean/">Boolean</a>  (<strong>Bool</strong>)  - A binary (true or false) value</li>
+<li><a href="../types/Curie/">Curie</a>  (<a href="../types/String/">String</a>) </li>
+<li><a href="../types/Date/">Date</a>  (<strong>XSDDate</strong>)  - a date (year, month and day) in an idealized calendar</li>
+<li><a href="../types/Datetime/">Datetime</a>  (<strong>XSDDateTime</strong>)  - The combination of a date and time</li>
+<li><a href="../types/Decimal/">Decimal</a>  (<strong>Decimal</strong>)  - A real number with arbitrary precision that conforms to the xsd:decimal specification</li>
+<li><a href="../types/Double/">Double</a>  (<strong>float</strong>)  - A real number that conforms to the xsd:double specification</li>
+<li><a href="../types/Float/">Float</a>  (<strong>float</strong>)  - A real number that conforms to the xsd:float specification</li>
+<li><a href="../types/Integer/">Integer</a>  (<strong>int</strong>)  - An integer</li>
+<li><a href="../types/NameType/">NameType</a>  (<a href="../types/String/">String</a>) </li>
+<li><a href="../types/Ncname/">Ncname</a>  (<strong>NCName</strong>)  - Prefix part of CURIE</li>
+<li><a href="../types/Nodeidentifier/">Nodeidentifier</a>  (<strong>NodeIdentifier</strong>)  - A URI, CURIE or BNODE that represents a node in a model.</li>
+<li><a href="../types/Objectidentifier/">Objectidentifier</a>  (<strong>ElementIdentifier</strong>)  - A URI or CURIE that represents an object in the model.</li>
+<li><a href="../types/String/">String</a>  (<strong>str</strong>)  - A character string</li>
+<li><a href="../types/SymbolType/">SymbolType</a>  (<a href="../types/String/">String</a>) </li>
+<li><a href="../types/Time/">Time</a>  (<strong>XSDTime</strong>)  - A time object represents a (local) time of day, independent of any particular day</li>
+<li><a href="../types/Uri/">Uri</a>  (<strong>URI</strong>)  - a complete URI</li>
+<li><a href="../types/Uriorcurie/">Uriorcurie</a>  (<strong>URIorCURIE</strong>)  - a URI or a CURIE</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/biodatamodels/ontology-associations/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
