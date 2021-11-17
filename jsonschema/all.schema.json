@@ -303,12 +303,15 @@
          "title": "CausaltabInteraction",
          "type": "object"
       },
-      "ComplexDiseasePhenotypeOntologyAssociation": {
+      "ComplexDiseaseAssociation": {
          "additionalProperties": false,
          "description": "",
          "properties": {
             "biocuration": {
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "citation": {
                "type": "string"
@@ -327,7 +330,10 @@
                "type": "string"
             },
             "modifier": {
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "qualifier": {
                "type": "string"
@@ -351,16 +357,16 @@
          "required": [
             "relation"
          ],
-         "title": "ComplexDiseasePhenotypeOntologyAssociation",
+         "title": "ComplexDiseaseAssociation",
          "type": "object"
       },
-      "ComplexDiseasePhenotypeOntologyAssociationDocument": {
+      "ComplexDiseaseAssociationDocument": {
          "additionalProperties": false,
          "description": "",
          "properties": {
             "associations": {
                "items": {
-                  "$ref": "#/$defs/ComplexDiseasePhenotypeOntologyAssociation"
+                  "$ref": "#/$defs/ComplexDiseaseAssociation"
                },
                "type": "array"
             },
@@ -394,7 +400,235 @@
             }
          },
          "required": [],
-         "title": "ComplexDiseasePhenotypeOntologyAssociationDocument",
+         "title": "ComplexDiseaseAssociationDocument",
+         "type": "object"
+      },
+      "ComplexDiseaseDiseaseRiskAssociation": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "biocuration": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "citation": {
+               "type": "string"
+            },
+            "disease_id": {
+               "description": "CURIE for ",
+               "type": "string"
+            },
+            "disease_name": {
+               "type": "string"
+            },
+            "evidence": {
+               "type": "string"
+            },
+            "frequency": {
+               "type": "string"
+            },
+            "modifier": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "qualifier": {
+               "type": "string"
+            },
+            "relation": {
+               "$ref": "#/$defs/ComplexDiseaseRelation"
+            },
+            "sex": {
+               "type": "string"
+            },
+            "term_id": {
+               "type": "string"
+            },
+            "term_label": {
+               "type": "string"
+            },
+            "time_course": {
+               "type": "string"
+            }
+         },
+         "required": [
+            "relation"
+         ],
+         "title": "ComplexDiseaseDiseaseRiskAssociation",
+         "type": "object"
+      },
+      "ComplexDiseaseExposureRiskAssociation": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "biocuration": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "citation": {
+               "type": "string"
+            },
+            "disease_id": {
+               "description": "CURIE for ",
+               "type": "string"
+            },
+            "disease_name": {
+               "type": "string"
+            },
+            "evidence": {
+               "type": "string"
+            },
+            "frequency": {
+               "type": "string"
+            },
+            "modifier": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "qualifier": {
+               "type": "string"
+            },
+            "relation": {
+               "$ref": "#/$defs/ComplexDiseaseRelation"
+            },
+            "sex": {
+               "type": "string"
+            },
+            "term_id": {
+               "type": "string"
+            },
+            "term_label": {
+               "type": "string"
+            },
+            "time_course": {
+               "type": "string"
+            }
+         },
+         "required": [
+            "relation"
+         ],
+         "title": "ComplexDiseaseExposureRiskAssociation",
+         "type": "object"
+      },
+      "ComplexDiseasePhenotypeAssociation": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "biocuration": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "citation": {
+               "type": "string"
+            },
+            "disease_id": {
+               "description": "CURIE for ",
+               "type": "string"
+            },
+            "disease_name": {
+               "type": "string"
+            },
+            "evidence": {
+               "type": "string"
+            },
+            "frequency": {
+               "type": "string"
+            },
+            "modifier": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "qualifier": {
+               "type": "string"
+            },
+            "relation": {
+               "$ref": "#/$defs/ComplexDiseaseRelation"
+            },
+            "sex": {
+               "type": "string"
+            },
+            "term_id": {
+               "type": "string"
+            },
+            "term_label": {
+               "type": "string"
+            },
+            "time_course": {
+               "type": "string"
+            }
+         },
+         "required": [
+            "relation"
+         ],
+         "title": "ComplexDiseasePhenotypeAssociation",
+         "type": "object"
+      },
+      "ComplexDiseasePhenotypeRiskAssociation": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "biocuration": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "citation": {
+               "type": "string"
+            },
+            "disease_id": {
+               "description": "CURIE for ",
+               "type": "string"
+            },
+            "disease_name": {
+               "type": "string"
+            },
+            "evidence": {
+               "type": "string"
+            },
+            "frequency": {
+               "type": "string"
+            },
+            "modifier": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "qualifier": {
+               "type": "string"
+            },
+            "relation": {
+               "$ref": "#/$defs/ComplexDiseaseRelation"
+            },
+            "sex": {
+               "type": "string"
+            },
+            "term_id": {
+               "type": "string"
+            },
+            "term_label": {
+               "type": "string"
+            },
+            "time_course": {
+               "type": "string"
+            }
+         },
+         "required": [
+            "relation"
+         ],
+         "title": "ComplexDiseasePhenotypeRiskAssociation",
          "type": "object"
       },
       "ComplexDiseaseRelation": {
@@ -402,6 +636,7 @@
          "enum": [
             "risk_increased_by_disease",
             "risk_increased_by_exposure",
+            "risk_increased_by_phenotype",
             "has_phenotype"
          ],
          "title": "ComplexDiseaseRelation",

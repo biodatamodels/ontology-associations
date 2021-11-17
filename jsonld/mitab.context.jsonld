@@ -1,0 +1,336 @@
+{
+   "_comments": "Auto generated from mitab.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-09-21 16:51\n    Schema: mitab\n    \n    id: https://w3id.org/mitab\n    description: mitab\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "@context": {
+      "MI": {
+         "@id": "http://purl.obolibrary.org/obo/MI_",
+         "@prefix": true
+      },
+      "MI2CAST": "https://github.com/MI2CAST/MI2CAST/",
+      "biolink": "https://w3id.org/biolink/vocab/",
+      "linkml": "https://w3id.org/linkml/",
+      "mitab": {
+         "@id": "https://w3id.org/mitab",
+         "@prefix": true
+      },
+      "ontology_association": "https://w3id.org/ontology_association/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "@vocab": "https://w3id.org/mitab",
+      "annotation_date": {
+         "@type": "xsd:dateTime",
+         "@id": "ontology_association:annotation_date"
+      },
+      "annotation_extensions": {
+         "@type": "@id",
+         "@id": "ontology_association:annotation_extensions"
+      },
+      "annotation_properties": {
+         "@type": "@id",
+         "@id": "ontology_association:annotation_properties"
+      },
+      "aspect": {
+         "@id": "ontology_association:aspect"
+      },
+      "assigned_by": {
+         "@type": "@id",
+         "@id": "ontology_association:assigned_by"
+      },
+      "associations": {
+         "@type": "@id"
+      },
+      "bioentity_type": {
+         "@id": "ontology_association:bioentity_type"
+      },
+      "Biological_Effect_interactor_A": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "Biological_Effect_interactor_B": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "Biological_role(s)_interactor_A": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "Biological_role(s)_interactor_B": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "Causal_Regulatory_Mechanism": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "Creation_date": {
+         "@type": "xsd:dateTime"
+      },
+      "date_generated": {
+         "@id": "ontology_association:date_generated"
+      },
+      "db": {
+         "@id": "ontology_association:db"
+      },
+      "db_object_name": {
+         "@id": "ontology_association:db_object_name"
+      },
+      "db_object_ref": {
+         "@type": "@id",
+         "@id": "ontology_association:db_object_ref"
+      },
+      "db_object_symbol": {
+         "@id": "ontology_association:db_object_symbol"
+      },
+      "db_object_synonyms": {
+         "@id": "ontology_association:db_object_synonyms"
+      },
+      "db_object_taxon": {
+         "@type": "@id",
+         "@id": "ontology_association:db_object_taxon"
+      },
+      "db_object_type": {
+         "@id": "ontology_association:db_object_type"
+      },
+      "db_xrefs": {
+         "@id": "ontology_association:db_xrefs"
+      },
+      "document_metadata_field": {
+         "@id": "ontology_association:document_metadata_field"
+      },
+      "eco_version": {
+         "@id": "ontology_association:eco_version"
+      },
+      "encoded_by": {
+         "@type": "@id",
+         "@id": "ontology_association:encoded_by"
+      },
+      "evidence_type": {
+         "@type": "@id",
+         "@id": "ontology_association:evidence_type"
+      },
+      "Expansion_method(s)": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "Experimental_role(s)_interactor_A": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "Experimental_role(s)_interactor_B": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "funding": {
+         "@id": "ontology_association:funding"
+      },
+      "gene_product_form": {
+         "@type": "@id",
+         "@id": "ontology_association:gene_product_form"
+      },
+      "gene_product_properties": {
+         "@type": "@id",
+         "@id": "ontology_association:gene_product_properties"
+      },
+      "generated_by": {
+         "@type": "@id",
+         "@id": "ontology_association:generated_by"
+      },
+      "go_version": {
+         "@id": "ontology_association:go_version"
+      },
+      "gorel_version": {
+         "@id": "ontology_association:gorel_version"
+      },
+      "id": "@id",
+      "interacting_taxon_ref": {
+         "@type": "@id",
+         "@id": "ontology_association:interacting_taxon_ref"
+      },
+      "Interaction_detection_method(s)": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "Interaction_type(s)": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "Interaction_Xref(s)": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "local_id": {
+         "@id": "ontology_association:local_id"
+      },
+      "negation": {
+         "@type": "xsd:boolean",
+         "@id": "ontology_association:negation"
+      },
+      "Negative": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "ontology_class_ref": {
+         "@type": "@id",
+         "@id": "ontology_association:ontology_class_ref"
+      },
+      "ontology_version": {
+         "@id": "ontology_association:ontology_version"
+      },
+      "parent_protein": {
+         "@type": "@id",
+         "@id": "ontology_association:parent_protein"
+      },
+      "project_release": {
+         "@id": "ontology_association:project_release"
+      },
+      "property": {
+         "@type": "@id"
+      },
+      "protein_containing_complex_members": {
+         "@type": "@id",
+         "@id": "ontology_association:protein_containing_complex_members"
+      },
+      "qualifiers": {
+         "@id": "ontology_association:qualifiers"
+      },
+      "relation": {
+         "@id": "ontology_association:relation"
+      },
+      "ro_version": {
+         "@id": "ontology_association:ro_version"
+      },
+      "Stoichiometry(s)_interactor_A": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "Stoichiometry(s)_interactor_B": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "supporting_references": {
+         "@type": "@id",
+         "@id": "ontology_association:supporting_references"
+      },
+      "Update_date": {
+         "@type": "xsd:dateTime"
+      },
+      "url": {
+         "@id": "ontology_association:url"
+      },
+      "with_or_from": {
+         "@type": "@id",
+         "@id": "ontology_association:with_or_from"
+      },
+      "Annotation": {
+         "@id": "ontology_association:Annotation"
+      },
+      "AnnotationExtension": {
+         "@id": "ontology_association:AnnotationExtension"
+      },
+      "Association": {
+         "@id": "ontology_association:Association"
+      },
+      "AssociationDocument": {
+         "@id": "ontology_association:AssociationDocument"
+      },
+      "BiologicalEntity": {
+         "@id": "ontology_association:BiologicalEntity"
+      },
+      "ControlledTerm": {
+         "@id": "ontology_association:ControlledTerm"
+      },
+      "Denormalized": {
+         "@id": "ontology_association:Denormalized"
+      },
+      "Document": {
+         "@id": "ontology_association:Document"
+      },
+      "Entity": {
+         "@id": "ontology_association:Entity"
+      },
+      "GoRelated": {
+         "@id": "ontology_association:GoRelated"
+      },
+      "Normalized": {
+         "@id": "ontology_association:Normalized"
+      },
+      "OntologyClass": {
+         "@id": "ontology_association:OntologyClass"
+      },
+      "PropertyValuePair": {
+         "@id": "ontology_association:PropertyValuePair"
+      },
+      "Provider": {
+         "@id": "ontology_association:Provider"
+      },
+      "Publication": {
+         "@id": "ontology_association:Publication"
+      },
+      "RelationTerm": {
+         "@id": "ontology_association:RelationTerm"
+      },
+      "RelationalConstruct": {
+         "@id": "ontology_association:RelationalConstruct"
+      },
+      "Taxon": {
+         "@id": "ontology_association:Taxon"
+      },
+      "XafAssociation": {
+         "@id": "ontology_association:XafAssociation"
+      }
+   }
+}

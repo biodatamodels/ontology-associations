@@ -38,19 +38,27 @@ linkml:Objectidentifier IRI
 
 linkml:Nodeidentifier NONLITERAL
 
-<AbstractThing>  (
-    CLOSED {
-       (  $<AbstractThing_tes> (  &<Entity_tes> ;
-             rdf:type [ <Entity> ] ?
-          ) ;
-          rdf:type [ <AbstractThing> ]
+<Annotation>  (
+    {
+       (  $<Annotation_tes> rdf:type . * ;
+          rdf:type [ <Annotation> ] ?
        )
-    } OR @<ControlledTerm> OR @<Provider> OR @<Publication>
+    } OR @<Association>
 )
+
+<AnnotationExtension> CLOSED {
+    (  $<AnnotationExtension_tes> (  &<RelationalConstruct_tes> ;
+          rdf:type [ <RelationalConstruct> ] ?
+       ) ;
+       rdf:type [ <AnnotationExtension> ] ?
+    )
+}
 
 <Association>  (
     {
-       (  $<Association_tes> rdf:type . * ;
+       (  $<Association_tes> (  &<Annotation_tes> ;
+             rdf:type [ <Annotation> ] ?
+          ) ;
           rdf:type [ <Association> ] ?
        )
     } OR @<XafAssociation>
@@ -81,18 +89,12 @@ linkml:Nodeidentifier NONLITERAL
     )
 }
 
-<ConjunctionExtensionExpression> CLOSED {
-    (  $<ConjunctionExtensionExpression_tes> rdf:type . * ;
-       rdf:type [ <ConjunctionExtensionExpression> ] ?
-    )
-}
-
 <ControlledTerm>  (
     CLOSED {
-       (  $<ControlledTerm_tes> (  &<AbstractThing_tes> ;
-             rdf:type [ <AbstractThing> ] ?
+       (  $<ControlledTerm_tes> (  &<Entity_tes> ;
+             rdf:type [ <Entity> ] ?
           ) ;
-          rdf:type [ <ControlledTerm> ]
+          rdf:type [ <ControlledTerm> ] ?
        )
     } OR @<OntologyClass> OR @<RelationTerm>
 )
@@ -112,7 +114,7 @@ linkml:Nodeidentifier NONLITERAL
 )
 
 <Entity>  (
-    @<AbstractThing> OR @<BiologicalEntity>
+    @<BiologicalEntity> OR @<ControlledTerm> OR @<Provider> OR @<Publication>
 )
 
 <Entity_struct> {
@@ -138,13 +140,15 @@ linkml:Nodeidentifier NONLITERAL
        (  $<OntologyClass_tes> (  &<ControlledTerm_tes> ;
              rdf:type [ <ControlledTerm> ] ?
           ) ;
-          rdf:type [ <OntologyClass> ]
+          rdf:type [ <OntologyClass> ] ?
        )
     } OR @<Taxon>
 )
 
 <PropertyValuePair> CLOSED {
-    (  $<PropertyValuePair_tes> (  <property> @<ControlledTerm> ? ;
+    (  $<PropertyValuePair_tes> (  &<RelationalConstruct_tes> ;
+          rdf:type [ <RelationalConstruct> ] ? ;
+          <property> @<ControlledTerm> ? ;
           <value> @linkml:String ?
        ) ;
        rdf:type [ <PropertyValuePair> ] ?
@@ -152,18 +156,18 @@ linkml:Nodeidentifier NONLITERAL
 }
 
 <Provider> CLOSED {
-    (  $<Provider_tes> (  &<AbstractThing_tes> ;
-          rdf:type [ <AbstractThing> ] ?
+    (  $<Provider_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ?
        ) ;
-       rdf:type [ <Provider> ]
+       rdf:type [ <Provider> ] ?
     )
 }
 
 <Publication> CLOSED {
-    (  $<Publication_tes> (  &<AbstractThing_tes> ;
-          rdf:type [ <AbstractThing> ] ?
+    (  $<Publication_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ?
        ) ;
-       rdf:type [ <Publication> ]
+       rdf:type [ <Publication> ] ?
     )
 }
 
@@ -171,7 +175,17 @@ linkml:Nodeidentifier NONLITERAL
     (  $<RelationTerm_tes> (  &<ControlledTerm_tes> ;
           rdf:type [ <ControlledTerm> ] ?
        ) ;
-       rdf:type [ <RelationTerm> ]
+       rdf:type [ <RelationTerm> ] ?
+    )
+}
+
+<RelationalConstruct>  (
+    @<AnnotationExtension> OR @<PropertyValuePair>
+)
+
+<RelationalConstruct_struct> {
+    (  $<RelationalConstruct_tes> rdf:type . * ;
+       rdf:type [ <RelationalConstruct> ] ?
     )
 }
 
@@ -179,7 +193,7 @@ linkml:Nodeidentifier NONLITERAL
     (  $<Taxon_tes> (  &<OntologyClass_tes> ;
           rdf:type [ <OntologyClass> ] ?
        ) ;
-       rdf:type [ <Taxon> ]
+       rdf:type [ <Taxon> ] ?
     )
 }
 
@@ -192,10 +206,10 @@ linkml:Nodeidentifier NONLITERAL
           <local_id> @linkml:String ;
           <db_object_symbol> @<SymbolType> ;
           <qualifiers> @linkml:String * ;
-          <ontology_class_ref> @<AbstractThing> ;
+          <ontology_class_ref> @<OntologyClass> ;
           <supporting_references> @<Publication> + ;
           <evidence_type> @<OntologyClass> ;
-          <with_or_from> @<AbstractThing> * ;
+          <with_or_from> @<Entity> * ;
           <aspect> @linkml:String ;
           <db_object_name> @<NameType> ? ;
           <db_object_synonyms> @<NameType> * ;
@@ -203,12 +217,11 @@ linkml:Nodeidentifier NONLITERAL
           <db_object_taxon> @<Taxon> ;
           <annotation_date> @linkml:Datetime ? ;
           <assigned_by> @<Provider> ;
-          <annotation_extensions> @<ConjunctionExtensionExpression> * ;
+          <annotation_extensions> @<AnnotationExtension> * ;
           <gene_product_form> @<BiologicalEntity> ?
        ) ;
        rdf:type [ <XafAssociation> ] ?
     )
 }
-
 
 

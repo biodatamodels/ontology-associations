@@ -1,0 +1,361 @@
+@prefix ns1: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/ontology_association/Annotation> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Annotation> .
+
+<https://w3id.org/ontology_association/AssociationDocument> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:property [ ns1:description "e.g. NHGRI" ;
+            ns1:maxCount 1 ;
+            ns1:order 4 ;
+            ns1:path <https://w3id.org/ontology_association/funding> ],
+        [ ns1:description "e.g. http://www.yeastgenome.org/" ;
+            ns1:maxCount 1 ;
+            ns1:order 2 ;
+            ns1:path <https://w3id.org/ontology_association/url> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 6 ;
+            ns1:path <https://w3id.org/ontology_association/ro_version> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 5 ;
+            ns1:path <https://w3id.org/ontology_association/go_version> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 0 ;
+            ns1:path <https://w3id.org/ontology_association/date_generated> ],
+        [ ns1:class <https://w3id.org/ontology_association/Association> ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 8 ;
+            ns1:path <https://w3id.org/ontology_association/associations> ],
+        [ ns1:description "e.g.  WS275" ;
+            ns1:maxCount 1 ;
+            ns1:order 3 ;
+            ns1:path <https://w3id.org/ontology_association/project_release> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 7 ;
+            ns1:path <https://w3id.org/ontology_association/gorel_version> ],
+        [ ns1:class <https://w3id.org/ontology_association/Provider> ;
+            ns1:description "YYYY-MM-DD or YYYY-MM-DDTHH:MM" ;
+            ns1:maxCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 1 ;
+            ns1:path <https://w3id.org/ontology_association/generated_by> ] ;
+    ns1:targetClass <https://w3id.org/ontology_association/AssociationDocument> .
+
+<https://w3id.org/ontology_association/Denormalized> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:description "mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes" ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Denormalized> .
+
+<https://w3id.org/ontology_association/Document> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:description "root class for association or entity documents" ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Document> .
+
+<https://w3id.org/ontology_association/GoRelated> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:description "mixin for any association that is GO related" ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/GoRelated> .
+
+<https://w3id.org/ontology_association/Normalized> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:description "mixin for a normalized class, in the sense of database normal forms" ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Normalized> .
+
+<https://w3id.org/ontology_association/PombasePhafAssociationDocument> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:property [ ns1:description "e.g. NHGRI" ;
+            ns1:maxCount 1 ;
+            ns1:order 4 ;
+            ns1:path <https://w3id.org/ontology_association/funding> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 0 ;
+            ns1:path <https://w3id.org/ontology_association/date_generated> ],
+        [ ns1:class <https://w3id.org/ontology_association/Provider> ;
+            ns1:description "YYYY-MM-DD or YYYY-MM-DDTHH:MM" ;
+            ns1:maxCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 1 ;
+            ns1:path <https://w3id.org/ontology_association/generated_by> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 6 ;
+            ns1:path <https://w3id.org/ontology_association/ro_version> ],
+        [ ns1:class <https://w3id.org/ontology_association/PombasePhafAssociation> ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 8 ;
+            ns1:path <https://w3id.org/ontology_association/associations> ],
+        [ ns1:description "e.g. http://www.yeastgenome.org/" ;
+            ns1:maxCount 1 ;
+            ns1:order 2 ;
+            ns1:path <https://w3id.org/ontology_association/url> ],
+        [ ns1:description "e.g.  WS275" ;
+            ns1:maxCount 1 ;
+            ns1:order 3 ;
+            ns1:path <https://w3id.org/ontology_association/project_release> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 7 ;
+            ns1:path <https://w3id.org/ontology_association/gorel_version> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 5 ;
+            ns1:path <https://w3id.org/ontology_association/go_version> ] ;
+    ns1:targetClass <https://w3id.org/ontology_association/PombasePhafAssociationDocument> .
+
+<https://w3id.org/ontology_association/PropertyValuePair> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:property [ ns1:class <https://w3id.org/ontology_association/ControlledTerm> ;
+            ns1:maxCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 0 ;
+            ns1:path <https://w3id.org/ontology_association/property> ],
+        [ ns1:description "value" ;
+            ns1:maxCount 1 ;
+            ns1:order 1 ;
+            ns1:path <https://w3id.org/ontology_association/value> ] ;
+    ns1:targetClass <https://w3id.org/ontology_association/PropertyValuePair> .
+
+<https://w3id.org/ontology_association/RelationTerm> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/RelationTerm> .
+
+<https://w3id.org/ontology_association/RelationalConstruct> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/RelationalConstruct> .
+
+<https://w3id.org/ontology_association/XafAssociation> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:description "line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions. " ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:property [ ns1:class <https://w3id.org/ontology_association/OntologyClass> ;
+            ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 6 ;
+            ns1:path <https://w3id.org/ontology_association/evidence_type> ],
+        [ ns1:class <https://w3id.org/ontology_association/Provider> ;
+            ns1:description "assigned by" ;
+            ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 14 ;
+            ns1:path <https://w3id.org/ontology_association/assigned_by> ],
+        [ ns1:class <https://w3id.org/ontology_association/Taxon> ;
+            ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 12 ;
+            ns1:path <https://w3id.org/ontology_association/db_object_taxon> ],
+        [ ns1:description "date when annotation was made" ;
+            ns1:maxCount 1 ;
+            ns1:order 13 ;
+            ns1:path <https://w3id.org/ontology_association/annotation_date> ;
+            ns1:pattern "^\\d{6}" ],
+        [ ns1:maxCount 1 ;
+            ns1:order 11 ;
+            ns1:path <https://w3id.org/ontology_association/db_object_type> ],
+        [ ns1:class <https://w3id.org/ontology_association/Entity> ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 7 ;
+            ns1:path <https://w3id.org/ontology_association/with_or_from> ],
+        [ ns1:class <https://w3id.org/ontology_association/Publication> ;
+            ns1:minCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 5 ;
+            ns1:path <https://w3id.org/ontology_association/supporting_references> ],
+        [ ns1:order 10 ;
+            ns1:path <https://w3id.org/ontology_association/db_object_synonyms> ],
+        [ ns1:description "varies by association type" ;
+            ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:order 8 ;
+            ns1:path <https://w3id.org/ontology_association/aspect> ],
+        [ ns1:description "db part of identifier" ;
+            ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:order 0 ;
+            ns1:path <https://w3id.org/ontology_association/db> ;
+            ns1:pattern "[a-zA-Z0-9\\.\\-\\_]+" ],
+        [ ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:order 2 ;
+            ns1:path <https://w3id.org/ontology_association/db_object_symbol> ],
+        [ ns1:class <https://w3id.org/ontology_association/AnnotationExtension> ;
+            ns1:description "disjunction" ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 15 ;
+            ns1:path <https://w3id.org/ontology_association/annotation_extensions> ],
+        [ ns1:description "local part of identifier" ;
+            ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:order 1 ;
+            ns1:path <https://w3id.org/ontology_association/local_id> ;
+            ns1:pattern "\\S+" ],
+        [ ns1:maxCount 1 ;
+            ns1:order 9 ;
+            ns1:path <https://w3id.org/ontology_association/db_object_name> ],
+        [ ns1:class <https://w3id.org/ontology_association/BiologicalEntity> ;
+            ns1:description "isoform" ;
+            ns1:maxCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 16 ;
+            ns1:path <https://w3id.org/ontology_association/gene_product_form> ],
+        [ ns1:class <https://w3id.org/ontology_association/OntologyClass> ;
+            ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 4 ;
+            ns1:path <https://w3id.org/ontology_association/ontology_class_ref> ],
+        [ ns1:order 3 ;
+            ns1:path <https://w3id.org/ontology_association/qualifiers> ] ;
+    ns1:targetClass <https://w3id.org/ontology_association/XafAssociation> .
+
+<https://w3id.org/ontology_association/AnnotationExtension> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:description "set of expressions all true" ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/AnnotationExtension> .
+
+<https://w3id.org/ontology_association/Association> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:description "generic association between an entity and an ontological term" ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Association> .
+
+<https://w3id.org/ontology_association/BiologicalEntity> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/BiologicalEntity> .
+
+<https://w3id.org/ontology_association/ControlledTerm> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/ControlledTerm> .
+
+<https://w3id.org/ontology_association/Entity> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Entity> .
+
+<https://w3id.org/ontology_association/PombasePhafAssociation> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:description "line of PHAF" ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:property [ ns1:description "To use the FYPO IDs, see the [FYPO summary page](https://www.pombase.org/browse-curation/fission-yeast-phenotype-ontology) and the FAQ on browsing FYPO." ;
+            ns1:maxCount 1 ;
+            ns1:order 2 ;
+            ns1:path <https://w3id.org/ontology_association/FYPO_ID> ],
+        [ ns1:description "Penetrance describes the proportion of a population that shows a cell-level phenotype. Penetrance data are represented as percents or entries from the in-house FYPO_EXT ontology (FYPO_EXT:0000001 = high; FYPO_EXT:0000002 = medium; FYPO_EXT:0000003 = low; FYPO_EXT:0000004 = full)." ;
+            ns1:maxCount 1 ;
+            ns1:order 14 ;
+            ns1:path <https://w3id.org/ontology_association/Penetrance> ],
+        [ ns1:description "Severity (formerly designated “expressivity”) uses the FYPO_EXT ontology described in description of [Penetrance](Penetrance.md)" ;
+            ns1:maxCount 1 ;
+            ns1:order 15 ;
+            ns1:path <https://w3id.org/ontology_association/Severity> ],
+        [ ns1:description "The taxon will usually be 4896 (the NCBI taxon ID for Schizosaccharomyces pombe), although an NCBI taxon ID for a specific S. pombe strain would be allowed." ;
+            ns1:maxCount 1 ;
+            ns1:order 18 ;
+            ns1:path <https://w3id.org/ontology_association/Taxon> ],
+        [ ns1:description "The database that produced the file – included to facilitate data sharing with other databases. Obviously always PomBase for this file." ;
+            ns1:in ( "PomBase" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 0 ;
+            ns1:path <https://w3id.org/ontology_association/Database_name> ],
+        [ ns1:description "The Background genotype description column is for alleles in the background, such as selectable markers; these details are optional. To avoid redundancy, it does not repeat the allele of interest (from column 4 or 10) in the genotype column." ;
+            ns1:maxCount 1 ;
+            ns1:order 7 ;
+            ns1:path <https://w3id.org/ontology_association/Genotype_description> ],
+        [ ns1:description "The systematic ID for each gene." ;
+            ns1:maxCount 1 ;
+            ns1:order 1 ;
+            ns1:path <https://w3id.org/ontology_association/Gene_systematic_ID> ],
+        [ ns1:description "Allowed allele types, example descriptions, etc. are shown in the table at the bottom of the [Phenotype data bulk upload](https://www.pombase.org/documentation/phenotype-data-bulk-upload-format) format page." ;
+            ns1:in ( "deletion" "nucleotide_mutation" "amino_acid_insertion" "other" "partial_amino_acid_deletion" "nonsense_mutation" "partial_nucleotide_deletion" "amino_acid_deletion_and_mutation" "wild_type" "amino_acid_insertion_and_mutation" "amino_acid_mutation" "unrecorded" "nucleotide_insertion" "unknown" "disruption" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 11 ;
+            ns1:path <https://w3id.org/ontology_association/Allele_type> ],
+        [ ns1:description "Allele names are optional for upload, but are included where available in the download. Column 10 lists the preferred allele name, and any alternative names are in column 11." ;
+            ns1:maxCount 1 ;
+            ns1:order 9 ;
+            ns1:path <https://w3id.org/ontology_association/Allele_name> ],
+        [ ns1:description "The Extension column is used to record when a mutation in one gene affects another gene or its product. For example, if a mutation in gene A decreases its ability to phosphorylate protein B, the A allele is annotated to the phenotype “decreased protein kinase activity” with the ID for gene B in an extension. In the downloadable file, an annotation can have multiple comma-separated extensions if they combine to form a “compound” extension (e.g. two or more genes assayed together)." ;
+            ns1:maxCount 1 ;
+            ns1:order 16 ;
+            ns1:path <https://w3id.org/ontology_association/Extension> ],
+        [ ns1:class <https://w3id.org/ontology_association/Publication> ;
+            ns1:description "The Reference column has the publication’s PubMed ID (PMID)." ;
+            ns1:maxCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 17 ;
+            ns1:path <https://w3id.org/ontology_association/Reference> ],
+        [ ns1:description "See note on Allele name above. Multiple entries are separated with pipes (|)." ;
+            ns1:maxCount 1 ;
+            ns1:order 10 ;
+            ns1:path <https://w3id.org/ontology_association/Allele_synonym> ],
+        [ ns1:description "The Background strain name column is used for a lab’s in-house name/ID/designation for the background strain (i.e. the derivative of the parental strain that has selectable marker alleles etc.). The description in the Genotype column should match this background strain." ;
+            ns1:maxCount 1 ;
+            ns1:order 6 ;
+            ns1:path <https://w3id.org/ontology_association/Strain_name_(background)> ],
+        [ ns1:description "The Parental strain column is for the parental strain designation, such as 972 h-, 975 h+, etc. This column must be filled in, but “unknown” is allowed." ;
+            ns1:maxCount 1 ;
+            ns1:order 5 ;
+            ns1:path <https://w3id.org/ontology_association/Parental_strain> ],
+        [ ns1:description "The date is the date on which the annotations are created. Format: YYYY-MM-DD" ;
+            ns1:maxCount 1 ;
+            ns1:order 19 ;
+            ns1:path <https://w3id.org/ontology_association/Date> ],
+        [ ns1:description "Gene names are optional for upload, but are included where available in the download." ;
+            ns1:maxCount 1 ;
+            ns1:order 8 ;
+            ns1:path <https://w3id.org/ontology_association/Gene_name> ],
+        [ ns1:description "The allele description specifically describes the change; see the Phenotype data bulk upload format for details on allele types and descriptions." ;
+            ns1:maxCount 1 ;
+            ns1:order 3 ;
+            ns1:path <https://w3id.org/ontology_association/Allele_description> ],
+        [ ns1:description "For the Evidence column, we use a small selection from the Evidence Ontology (ECO). Please contact the Helpdesk if you need assistance using these IDs" ;
+            ns1:in ( "Particle size and count assay" "gel electrophoresis evidence" "Flow cytometry data" "Chromatin immunoprecipitation experiment" "quantitative PCR" "Microscopy" "Electrophoretic mobility shift assay data" "Epitope-tagged protein immunolocalization experiment data" "Enzyme assay data" "sodium dodecyl sulfate polyacrylamide gel electrophoresis evidence" "microscopy evidence used in manual assertion" "Co-immunoprecipitation experiment" "Plasmid maintenance assay evidence" "reporter gene assay evidence" "experimental phenotypic evidence" "transcript expression level evidence" "Other direct assay" "Chromatography evidence" "Immunolocalization experiment data" "Northern assay evidence" "Other" "cell growth assay evidence" "tryptic phosphopeptide mapping assay evidence used in automatic assertion" "high throughput nucleotide sequencing assay evidence" "competitive growth assay evidence" "western blot evidence used in manual assertion" "Substance quantification evidence" "Western blot assay" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 12 ;
+            ns1:path <https://w3id.org/ontology_association/Evidence> ],
+        [ ns1:description "The Expression column contains one of these values: ‘overexpression’, ‘knockdown’, ‘endogenous’, ‘null’, ‘not specified’. Deletions always have ‘null’ expression." ;
+            ns1:in ( "Wild type product level" "Not assayed" "Null" "Endogenous" "Knockdown" "Overexpression" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 4 ;
+            ns1:path <https://w3id.org/ontology_association/Expression> ],
+        [ ns1:description "Conditions use a small ontology maintained in-house by PomBase curators, and we can help you interpret the IDs. Multiple entries are shown in cases where more than one condition detail applies at the same time (e.g. high temperature, minimal medium), and are separated with commas (,)." ;
+            ns1:maxCount 1 ;
+            ns1:order 13 ;
+            ns1:path <https://w3id.org/ontology_association/Condition> ] ;
+    ns1:targetClass <https://w3id.org/ontology_association/PombasePhafAssociation> .
+
+<https://w3id.org/ontology_association/OntologyClass> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/OntologyClass> .
+
+<https://w3id.org/ontology_association/Publication> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Publication> .
+
+<https://w3id.org/ontology_association/Taxon> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Taxon> .
+
+<https://w3id.org/ontology_association/Provider> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Provider> .
+

@@ -77,24 +77,24 @@ type CausaltabInteraction
     causalStatement: Psi-miIdentifier
   }
 
-type ComplexDiseasePhenotypeOntologyAssociation
+type ComplexDiseaseAssociation
   {
     diseaseId: MONDOIdentifier
     diseaseName: String
     relation: ComplexDiseaseRelation!
-    termId: PhenotypeIdentifier
+    termId: IdentifierType
     termLabel: String
     qualifier: String
     frequency: String
     sex: String
     timeCourse: String
-    modifier: String
+    modifier: [String]
     evidence: String
     citation: PMIDIdentifier
-    biocuration: HPOIdentifier
+    biocuration: [String]
   }
 
-type ComplexDiseasePhenotypeOntologyAssociationDocument
+type ComplexDiseaseAssociationDocument
   {
     dateGenerated: String
     generatedBy: Provider
@@ -104,7 +104,75 @@ type ComplexDiseasePhenotypeOntologyAssociationDocument
     goVersion: String
     roVersion: String
     gorelVersion: String
-    associations: [ComplexDiseasePhenotypeOntologyAssociation]
+    associations: [ComplexDiseaseAssociation]
+  }
+
+type ComplexDiseaseDiseaseRiskAssociation
+  {
+    diseaseId: MONDOIdentifier
+    diseaseName: String
+    termId: IdentifierType
+    termLabel: String
+    qualifier: String
+    frequency: String
+    sex: String
+    timeCourse: String
+    modifier: [String]
+    evidence: String
+    citation: PMIDIdentifier
+    biocuration: [String]
+    relation: ComplexDiseaseRelation!
+  }
+
+type ComplexDiseaseExposureRiskAssociation
+  {
+    diseaseId: MONDOIdentifier
+    diseaseName: String
+    termId: IdentifierType
+    termLabel: String
+    qualifier: String
+    frequency: String
+    sex: String
+    timeCourse: String
+    modifier: [String]
+    evidence: String
+    citation: PMIDIdentifier
+    biocuration: [String]
+    relation: ComplexDiseaseRelation!
+  }
+
+type ComplexDiseasePhenotypeAssociation
+  {
+    diseaseId: MONDOIdentifier
+    diseaseName: String
+    termId: IdentifierType
+    termLabel: String
+    qualifier: String
+    frequency: String
+    sex: String
+    timeCourse: String
+    modifier: [String]
+    evidence: String
+    citation: PMIDIdentifier
+    biocuration: [String]
+    relation: ComplexDiseaseRelation!
+  }
+
+type ComplexDiseasePhenotypeRiskAssociation
+  {
+    diseaseId: MONDOIdentifier
+    diseaseName: String
+    termId: IdentifierType
+    termLabel: String
+    qualifier: String
+    frequency: String
+    sex: String
+    timeCourse: String
+    modifier: [String]
+    evidence: String
+    citation: PMIDIdentifier
+    biocuration: [String]
+    relation: ComplexDiseaseRelation!
   }
 
 type ControlledTerm

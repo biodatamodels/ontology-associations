@@ -1,0 +1,1805 @@
+{
+  "name": "example",
+  "description": "example",
+  "id": "https://w3id.org/example",
+  "imports": [
+    "linkml:types"
+  ],
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "prefixes": [
+    {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    {
+      "prefix_prefix": "example",
+      "prefix_reference": "https://w3id.org/example"
+    }
+  ],
+  "default_prefix": "example",
+  "default_range": "string",
+  "types": [
+    {
+      "name": "BTO_identifier",
+      "definition_uri": "https://w3id.org/exampleBTOIdentifier",
+      "from_schema": "https://w3id.org/example",
+      "typeof": "string",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "identifier",
+      "definition_uri": "https://w3id.org/exampleIdentifier",
+      "from_schema": "https://w3id.org/example",
+      "typeof": "string",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "string",
+      "definition_uri": "https://w3id.org/linkml/String",
+      "description": "A character string",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "integer",
+      "definition_uri": "https://w3id.org/linkml/Integer",
+      "description": "An integer",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "int",
+      "uri": "http://www.w3.org/2001/XMLSchema#integer",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "boolean",
+      "definition_uri": "https://w3id.org/linkml/Boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Bool",
+      "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "float",
+      "definition_uri": "https://w3id.org/linkml/Float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#float",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "double",
+      "definition_uri": "https://w3id.org/linkml/Double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/linkml/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "time",
+      "definition_uri": "https://w3id.org/linkml/Time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date",
+      "definition_uri": "https://w3id.org/linkml/Date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDDate",
+      "uri": "http://www.w3.org/2001/XMLSchema#date",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "datetime",
+      "definition_uri": "https://w3id.org/linkml/Datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDDateTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uriorcurie",
+      "definition_uri": "https://w3id.org/linkml/Uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URIorCURIE",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uri",
+      "definition_uri": "https://w3id.org/linkml/Uri",
+      "description": "a complete URI",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URI",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "ncname",
+      "definition_uri": "https://w3id.org/linkml/Ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NCName",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "objectidentifier",
+      "definition_uri": "https://w3id.org/linkml/Objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "ElementIdentifier",
+      "uri": "http://www.w3.org/ns/shex#iri",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "nodeidentifier",
+      "definition_uri": "https://w3id.org/linkml/Nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NodeIdentifier",
+      "uri": "http://www.w3.org/ns/shex#nonLiteral",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    }
+  ],
+  "enums": [
+    {
+      "name": "TYPEA_enum",
+      "definition_uri": "https://w3id.org/exampleTYPEAEnum",
+      "from_schema": "https://w3id.org/example",
+      "permissible_values": [
+        {
+          "text": "antibody",
+          "description": "antibody"
+        },
+        {
+          "text": "stimulus",
+          "description": "stimulus"
+        },
+        {
+          "text": "complex",
+          "description": "complex"
+        },
+        {
+          "text": "phenotype",
+          "description": "phenotype"
+        },
+        {
+          "text": "fusion protein",
+          "description": "fusion protein"
+        },
+        {
+          "text": "protein",
+          "description": "protein"
+        },
+        {
+          "text": "chemical",
+          "description": "chemical"
+        },
+        {
+          "text": "mirna",
+          "description": "mirna"
+        },
+        {
+          "text": "proteinfamily",
+          "description": "proteinfamily"
+        },
+        {
+          "text": "smallmolecule",
+          "description": "smallmolecule"
+        }
+      ]
+    },
+    {
+      "name": "DATABASEA_enum",
+      "definition_uri": "https://w3id.org/exampleDATABASEAEnum",
+      "from_schema": "https://w3id.org/example",
+      "permissible_values": [
+        {
+          "text": "SIGNOR",
+          "description": "SIGNOR"
+        },
+        {
+          "text": "DRUGBANK",
+          "description": "DRUGBANK"
+        },
+        {
+          "text": "miRBase",
+          "description": "miRBase"
+        },
+        {
+          "text": "UNIPROT",
+          "description": "UNIPROT"
+        },
+        {
+          "text": "PUBCHEM",
+          "description": "PUBCHEM"
+        },
+        {
+          "text": "ChEBI",
+          "description": "ChEBI"
+        }
+      ]
+    },
+    {
+      "name": "TYPEB_enum",
+      "definition_uri": "https://w3id.org/exampleTYPEBEnum",
+      "from_schema": "https://w3id.org/example",
+      "permissible_values": [
+        {
+          "text": "stimulus",
+          "description": "stimulus"
+        },
+        {
+          "text": "complex",
+          "description": "complex"
+        },
+        {
+          "text": "phenotype",
+          "description": "phenotype"
+        },
+        {
+          "text": "fusion protein",
+          "description": "fusion protein"
+        },
+        {
+          "text": "protein",
+          "description": "protein"
+        },
+        {
+          "text": "chemical",
+          "description": "chemical"
+        },
+        {
+          "text": "mirna",
+          "description": "mirna"
+        },
+        {
+          "text": "proteinfamily",
+          "description": "proteinfamily"
+        },
+        {
+          "text": "smallmolecule",
+          "description": "smallmolecule"
+        }
+      ]
+    },
+    {
+      "name": "DATABASEB_enum",
+      "definition_uri": "https://w3id.org/exampleDATABASEBEnum",
+      "from_schema": "https://w3id.org/example",
+      "permissible_values": [
+        {
+          "text": "SIGNOR",
+          "description": "SIGNOR"
+        },
+        {
+          "text": "miRBase",
+          "description": "miRBase"
+        },
+        {
+          "text": "UNIPROT",
+          "description": "UNIPROT"
+        },
+        {
+          "text": "PUBCHEM",
+          "description": "PUBCHEM"
+        },
+        {
+          "text": "ChEBI",
+          "description": "ChEBI"
+        }
+      ]
+    },
+    {
+      "name": "EFFECT_enum",
+      "definition_uri": "https://w3id.org/exampleEFFECTEnum",
+      "from_schema": "https://w3id.org/example",
+      "permissible_values": [
+        {
+          "text": "unknown",
+          "description": "unknown"
+        },
+        {
+          "text": "up-regulates activity",
+          "description": "up-regulates activity"
+        },
+        {
+          "text": "up-regulates quantity",
+          "description": "up-regulates quantity"
+        },
+        {
+          "text": "down-regulates",
+          "description": "down-regulates"
+        },
+        {
+          "text": "down-regulates quantity by repression",
+          "description": "down-regulates quantity by repression"
+        },
+        {
+          "text": "up-regulates quantity by stabilization",
+          "description": "up-regulates quantity by stabilization"
+        },
+        {
+          "text": "down-regulates quantity",
+          "description": "down-regulates quantity"
+        },
+        {
+          "text": "down-regulates quantity by destabilization",
+          "description": "down-regulates quantity by destabilization"
+        },
+        {
+          "text": "up-regulates quantity by expression",
+          "description": "up-regulates quantity by expression"
+        },
+        {
+          "text": "up-regulates",
+          "description": "up-regulates"
+        },
+        {
+          "text": "form complex",
+          "description": "form complex"
+        },
+        {
+          "text": "down-regulates activity",
+          "description": "down-regulates activity"
+        }
+      ]
+    },
+    {
+      "name": "MECHANISM_enum",
+      "definition_uri": "https://w3id.org/exampleMECHANISMEnum",
+      "from_schema": "https://w3id.org/example",
+      "permissible_values": [
+        {
+          "text": "chemical inhibition",
+          "description": "chemical inhibition"
+        },
+        {
+          "text": "guanine nucleotide exchange factor",
+          "description": "guanine nucleotide exchange factor"
+        },
+        {
+          "text": "deubiquitination",
+          "description": "deubiquitination"
+        },
+        {
+          "text": "catalytic activity",
+          "description": "catalytic activity"
+        },
+        {
+          "text": "acetylation",
+          "description": "acetylation"
+        },
+        {
+          "text": "neddylation",
+          "description": "neddylation"
+        },
+        {
+          "text": "gtpase-activating protein",
+          "description": "gtpase-activating protein"
+        },
+        {
+          "text": "glycosylation",
+          "description": "glycosylation"
+        },
+        {
+          "text": "binding",
+          "description": "binding"
+        },
+        {
+          "text": "transcriptional regulation",
+          "description": "transcriptional regulation"
+        },
+        {
+          "text": "relocalization",
+          "description": "relocalization"
+        },
+        {
+          "text": "post translational modification",
+          "description": "post translational modification"
+        },
+        {
+          "text": "cleavage",
+          "description": "cleavage"
+        },
+        {
+          "text": "isomerization",
+          "description": "isomerization"
+        },
+        {
+          "text": "methylation",
+          "description": "methylation"
+        },
+        {
+          "text": "oxidation",
+          "description": "oxidation"
+        },
+        {
+          "text": "ubiquitination",
+          "description": "ubiquitination"
+        },
+        {
+          "text": "post transcriptional regulation",
+          "description": "post transcriptional regulation"
+        },
+        {
+          "text": "dephosphorylation",
+          "description": "dephosphorylation"
+        },
+        {
+          "text": "small molecule catalysis",
+          "description": "small molecule catalysis"
+        },
+        {
+          "text": "phosphorylation",
+          "description": "phosphorylation"
+        },
+        {
+          "text": "s-nitrosylation",
+          "description": "s-nitrosylation"
+        },
+        {
+          "text": "ADP-ribosylation",
+          "description": "ADP-ribosylation"
+        },
+        {
+          "text": "chemical activation",
+          "description": "chemical activation"
+        },
+        {
+          "text": "deacetylation",
+          "description": "deacetylation"
+        },
+        {
+          "text": "demethylation",
+          "description": "demethylation"
+        },
+        {
+          "text": "sumoylation",
+          "description": "sumoylation"
+        },
+        {
+          "text": "lipidation",
+          "description": "lipidation"
+        },
+        {
+          "text": "translation regulation",
+          "description": "translation regulation"
+        },
+        {
+          "text": "desumoylation",
+          "description": "desumoylation"
+        },
+        {
+          "text": "tyrosination",
+          "description": "tyrosination"
+        },
+        {
+          "text": "palmitoylation",
+          "description": "palmitoylation"
+        },
+        {
+          "text": "hydroxylation",
+          "description": "hydroxylation"
+        }
+      ]
+    },
+    {
+      "name": "TAX_ID_enum",
+      "definition_uri": "https://w3id.org/exampleTAXIDEnum",
+      "from_schema": "https://w3id.org/example",
+      "permissible_values": [
+        {
+          "text": "10030",
+          "description": "10030"
+        },
+        {
+          "text": "9543",
+          "description": "9543"
+        },
+        {
+          "text": "8355",
+          "description": "8355"
+        },
+        {
+          "text": "10090",
+          "description": "10090"
+        },
+        {
+          "text": "9600",
+          "description": "9600"
+        },
+        {
+          "text": "9615",
+          "description": "9615"
+        },
+        {
+          "text": "7227",
+          "description": "7227"
+        },
+        {
+          "text": "9031",
+          "description": "9031"
+        },
+        {
+          "text": "6239",
+          "description": "6239"
+        },
+        {
+          "text": "9606",
+          "description": "9606"
+        },
+        {
+          "text": "9825",
+          "description": "9825"
+        },
+        {
+          "text": "99606",
+          "description": "99606"
+        },
+        {
+          "text": "93934",
+          "description": "93934"
+        },
+        {
+          "text": "10036",
+          "description": "10036"
+        },
+        {
+          "text": "9913",
+          "description": "9913"
+        },
+        {
+          "text": "4932",
+          "description": "4932"
+        },
+        {
+          "text": "960",
+          "description": "960"
+        },
+        {
+          "text": "-1",
+          "description": "-1"
+        },
+        {
+          "text": "452646",
+          "description": "452646"
+        },
+        {
+          "text": "10029",
+          "description": "10029"
+        },
+        {
+          "text": "9006",
+          "description": "9006"
+        },
+        {
+          "text": "9935",
+          "description": "9935"
+        },
+        {
+          "text": "9608",
+          "description": "9608"
+        },
+        {
+          "text": "1792",
+          "description": "1792"
+        },
+        {
+          "text": "9823",
+          "description": "9823"
+        },
+        {
+          "text": "10116",
+          "description": "10116"
+        },
+        {
+          "text": "9609",
+          "description": "9609"
+        },
+        {
+          "text": "9534",
+          "description": "9534"
+        },
+        {
+          "text": "9060",
+          "description": "9060"
+        }
+      ]
+    },
+    {
+      "name": "MODULATOR_COMPLEX_enum",
+      "definition_uri": "https://w3id.org/exampleMODULATORCOMPLEXEnum",
+      "from_schema": "https://w3id.org/example",
+      "permissible_values": [
+        {
+          "text": "SIGNOR-C301",
+          "description": "SIGNOR-C301"
+        },
+        {
+          "text": "SIGNOR-C3",
+          "description": "SIGNOR-C3"
+        },
+        {
+          "text": "SIGNOR-C8",
+          "description": "SIGNOR-C8"
+        },
+        {
+          "text": "SIGNOR-C16",
+          "description": "SIGNOR-C16"
+        },
+        {
+          "text": "SIGNOR-C135",
+          "description": "SIGNOR-C135"
+        },
+        {
+          "text": "SIGNOR-C306",
+          "description": "SIGNOR-C306"
+        },
+        {
+          "text": "SIGNOR-C7",
+          "description": "SIGNOR-C7"
+        },
+        {
+          "text": "SIGNOR-C14",
+          "description": "SIGNOR-C14"
+        },
+        {
+          "text": "SIGNOR-C303",
+          "description": "SIGNOR-C303"
+        },
+        {
+          "text": "SIGNOR-C85",
+          "description": "SIGNOR-C85"
+        },
+        {
+          "text": "SIGNOR-C17",
+          "description": "SIGNOR-C17"
+        },
+        {
+          "text": "SIGNOR-C305",
+          "description": "SIGNOR-C305"
+        },
+        {
+          "text": "SIGNOR-C297",
+          "description": "SIGNOR-C297"
+        },
+        {
+          "text": "SIGNOR-C29",
+          "description": "SIGNOR-C29"
+        },
+        {
+          "text": "SIGNOR-C298",
+          "description": "SIGNOR-C298"
+        },
+        {
+          "text": "SIGNOR-C60",
+          "description": "SIGNOR-C60"
+        },
+        {
+          "text": "SIGNOR-C5",
+          "description": "SIGNOR-C5"
+        },
+        {
+          "text": "SIGNOR-C21",
+          "description": "SIGNOR-C21"
+        },
+        {
+          "text": "SIGNOR-C54",
+          "description": "SIGNOR-C54"
+        },
+        {
+          "text": "SIGNOR-C13",
+          "description": "SIGNOR-C13"
+        },
+        {
+          "text": "SIGNOR-C15",
+          "description": "SIGNOR-C15"
+        },
+        {
+          "text": "SIGNOR-C300",
+          "description": "SIGNOR-C300"
+        },
+        {
+          "text": "SIGNOR-C136",
+          "description": "SIGNOR-C136"
+        },
+        {
+          "text": "SIGNOR-C110",
+          "description": "SIGNOR-C110"
+        },
+        {
+          "text": "SIGNOR-C6",
+          "description": "SIGNOR-C6"
+        },
+        {
+          "text": "SIGNOR-C2",
+          "description": "SIGNOR-C2"
+        },
+        {
+          "text": "SIGNOR-C18",
+          "description": "SIGNOR-C18"
+        },
+        {
+          "text": "SIGNOR-C319",
+          "description": "SIGNOR-C319"
+        },
+        {
+          "text": "SIGNOR-C83",
+          "description": "SIGNOR-C83"
+        }
+      ]
+    },
+    {
+      "name": "TARGET_COMPLEX_enum",
+      "definition_uri": "https://w3id.org/exampleTARGETCOMPLEXEnum",
+      "from_schema": "https://w3id.org/example",
+      "permissible_values": [
+        {
+          "text": "SIGNOR-C3",
+          "description": "SIGNOR-C3"
+        },
+        {
+          "text": "SIGNOR-C106",
+          "description": "SIGNOR-C106"
+        },
+        {
+          "text": "SIGNOR-C8",
+          "description": "SIGNOR-C8"
+        },
+        {
+          "text": "SIGNOR-C89",
+          "description": "SIGNOR-C89"
+        },
+        {
+          "text": "SIGNOR-C16",
+          "description": "SIGNOR-C16"
+        },
+        {
+          "text": "SIGNOR-C129",
+          "description": "SIGNOR-C129"
+        },
+        {
+          "text": "SIGNOR-C306",
+          "description": "SIGNOR-C306"
+        },
+        {
+          "text": "SIGNOR-C7",
+          "description": "SIGNOR-C7"
+        },
+        {
+          "text": "SIGNOR-C14",
+          "description": "SIGNOR-C14"
+        },
+        {
+          "text": "SIGNOR-C302",
+          "description": "SIGNOR-C302"
+        },
+        {
+          "text": "SIGNOR-C50",
+          "description": "SIGNOR-C50"
+        },
+        {
+          "text": "SIGNOR-C85",
+          "description": "SIGNOR-C85"
+        },
+        {
+          "text": "SIGNOR-C17",
+          "description": "SIGNOR-C17"
+        },
+        {
+          "text": "SIGNOR-C305",
+          "description": "SIGNOR-C305"
+        },
+        {
+          "text": "SIGNOR-C29",
+          "description": "SIGNOR-C29"
+        },
+        {
+          "text": "SIGNOR-C242",
+          "description": "SIGNOR-C242"
+        },
+        {
+          "text": "SIGNOR-C295",
+          "description": "SIGNOR-C295"
+        },
+        {
+          "text": "SIGNOR-C9",
+          "description": "SIGNOR-C9"
+        },
+        {
+          "text": "SIGNOR-C98",
+          "description": "SIGNOR-C98"
+        },
+        {
+          "text": "SIGNOR-C21",
+          "description": "SIGNOR-C21"
+        },
+        {
+          "text": "SIGNOR-C308",
+          "description": "SIGNOR-C308"
+        },
+        {
+          "text": "SIGNOR-C263",
+          "description": "SIGNOR-C263"
+        },
+        {
+          "text": "SIGNOR-C30",
+          "description": "SIGNOR-C30"
+        },
+        {
+          "text": "SIGNOR-C92",
+          "description": "SIGNOR-C92"
+        },
+        {
+          "text": "SIGNOR-C123",
+          "description": "SIGNOR-C123"
+        },
+        {
+          "text": "SIGNOR-C77",
+          "description": "SIGNOR-C77"
+        },
+        {
+          "text": "SIGNOR-C13",
+          "description": "SIGNOR-C13"
+        },
+        {
+          "text": "SIGNOR-C15",
+          "description": "SIGNOR-C15"
+        },
+        {
+          "text": "SIGNOR-C110",
+          "description": "SIGNOR-C110"
+        },
+        {
+          "text": "SIGNOR-C6",
+          "description": "SIGNOR-C6"
+        },
+        {
+          "text": "SIGNOR-C154",
+          "description": "SIGNOR-C154"
+        },
+        {
+          "text": "SIGNOR-C2",
+          "description": "SIGNOR-C2"
+        },
+        {
+          "text": "SIGNOR-C88",
+          "description": "SIGNOR-C88"
+        },
+        {
+          "text": "SIGNOR-C68",
+          "description": "SIGNOR-C68"
+        },
+        {
+          "text": "SIGNOR-C12",
+          "description": "SIGNOR-C12"
+        },
+        {
+          "text": "SIGNOR-C18",
+          "description": "SIGNOR-C18"
+        },
+        {
+          "text": "SIGNOR-C125",
+          "description": "SIGNOR-C125"
+        },
+        {
+          "text": "SIGNOR-C128",
+          "description": "SIGNOR-C128"
+        },
+        {
+          "text": "SIGNOR-C167",
+          "description": "SIGNOR-C167"
+        },
+        {
+          "text": "SIGNOR-C127",
+          "description": "SIGNOR-C127"
+        }
+      ]
+    },
+    {
+      "name": "MODASEQ_enum",
+      "definition_uri": "https://w3id.org/exampleMODASEQEnum",
+      "from_schema": "https://w3id.org/example",
+      "permissible_values": [
+        {
+          "text": "GGAKRHRkVLRDNIQ",
+          "description": "GGAKRHRkVLRDNIQ"
+        },
+        {
+          "text": "SGRPRTTsFAESCKP",
+          "description": "SGRPRTTsFAESCKP"
+        },
+        {
+          "text": "GPGEQQKrKIVLDPS",
+          "description": "GPGEQQKrKIVLDPS"
+        },
+        {
+          "text": "VDFREYEyDLKWEFP",
+          "description": "VDFREYEyDLKWEFP"
+        },
+        {
+          "text": "KDRDGYEsSYRRRTL",
+          "description": "KDRDGYEsSYRRRTL"
+        },
+        {
+          "text": "KGQKYFDsGDYNMAK",
+          "description": "KGQKYFDsGDYNMAK"
+        },
+        {
+          "text": "T-->L",
+          "description": "T-->L"
+        },
+        {
+          "text": "ELPTRVSsPVFGATS",
+          "description": "ELPTRVSsPVFGATS"
+        },
+        {
+          "text": "LPTPTKMtPRSRILV",
+          "description": "LPTPTKMtPRSRILV"
+        },
+        {
+          "text": "SFDERQPyAHMNGGR",
+          "description": "SFDERQPyAHMNGGR"
+        },
+        {
+          "text": "KGQAGLQrALEILQE;TPLQLFEgRRNRRRR",
+          "description": "KGQAGLQrALEILQE;TPLQLFEgRRNRRRR"
+        },
+        {
+          "text": "SAAQLAStPFHKLPV",
+          "description": "SAAQLAStPFHKLPV"
+        },
+        {
+          "text": "SPSVRCSsMS;SVRCSSMs",
+          "description": "SPSVRCSsMS;SVRCSSMs"
+        },
+        {
+          "text": "SDSPREQdSESQTLD",
+          "description": "SDSPREQdSESQTLD"
+        },
+        {
+          "text": "NMMDILTtPSMAKPR;PRQDYSRtPGQVLSL",
+          "description": "NMMDILTtPSMAKPR;PRQDYSRtPGQVLSL"
+        },
+        {
+          "text": "IFGATDYtSSIDVWS",
+          "description": "IFGATDYtSSIDVWS"
+        },
+        {
+          "text": "EENMTETdAFYKREM",
+          "description": "EENMTETdAFYKREM"
+        },
+        {
+          "text": "GGAKRHRkVLRDNIQ;GLGKGGAkRHRKVLR",
+          "description": "GGAKRHRkVLRDNIQ;GLGKGGAkRHRKVLR"
+        },
+        {
+          "text": "DDYHNPGyLVVLPDS;SMESIDDyVNVPESG",
+          "description": "DDYHNPGyLVVLPDS;SMESIDDyVNVPESG"
+        },
+        {
+          "text": "ASHLGLArSNLDEDI",
+          "description": "ASHLGLArSNLDEDI"
+        },
+        {
+          "text": "EEEGAPDyENLQELN;SLDGSREyVNVSQEL",
+          "description": "EEEGAPDyENLQELN;SLDGSREyVNVSQEL"
+        },
+        {
+          "text": "IHGSESMdSGISLDN",
+          "description": "IHGSESMdSGISLDN"
+        },
+        {
+          "text": "SPGCEESdAGKEKLP",
+          "description": "SPGCEESdAGKEKLP"
+        },
+        {
+          "text": "SGPINDTdANPRYKI",
+          "description": "SGPINDTdANPRYKI"
+        },
+        {
+          "text": "HKDMQLGrLHMKTLL;KEILRPRrTLQKKIE",
+          "description": "HKDMQLGrLHMKTLL;KEILRPRrTLQKKIE"
+        },
+        {
+          "text": "CTTKTSTrIVGGTNS",
+          "description": "CTTKTSTrIVGGTNS"
+        },
+        {
+          "text": "HKDMQLGrLHMKTLL",
+          "description": "HKDMQLGrLHMKTLL"
+        },
+        {
+          "text": "TRKLMEFsEHCAIIL",
+          "description": "TRKLMEFsEHCAIIL"
+        },
+        {
+          "text": "KTKESLGrKIQIQRS",
+          "description": "KTKESLGrKIQIQRS"
+        },
+        {
+          "text": "DTNITEVdAASVYTL",
+          "description": "DTNITEVdAASVYTL"
+        },
+        {
+          "text": "SESTNHIySNLANCS",
+          "description": "SESTNHIySNLANCS"
+        },
+        {
+          "text": "MLEERKTyVNTTLYE",
+          "description": "MLEERKTyVNTTLYE"
+        },
+        {
+          "text": "QPAARRRrSVQLTEK;ASHLGLArSNLDEDI",
+          "description": "QPAARRRrSVQLTEK;ASHLGLArSNLDEDI"
+        },
+        {
+          "text": "KSKGRASsSGNQESS",
+          "description": "KSKGRASsSGNQESS"
+        },
+        {
+          "text": "CLHNFLTdGVPAEGA",
+          "description": "CLHNFLTdGVPAEGA"
+        },
+        {
+          "text": "kGGKGLGK;SGRGKGGkGLGKGGA",
+          "description": "kGGKGLGK;SGRGKGGkGLGKGGA"
+        },
+        {
+          "text": "PAPQAVQdNPAMPTS",
+          "description": "PAPQAVQdNPAMPTS"
+        },
+        {
+          "text": "VAKVDDPkLANSEFL",
+          "description": "VAKVDDPkLANSEFL"
+        },
+        {
+          "text": "GMISLMKrPPGFSPF;PPGFSPFrSSRIGEI",
+          "description": "GMISLMKrPPGFSPF;PPGFSPFrSSRIGEI"
+        },
+        {
+          "text": "DHAEAALyKNLLHSK",
+          "description": "DHAEAALyKNLLHSK"
+        },
+        {
+          "text": "AQQDGKDyIVLPISE",
+          "description": "AQQDGKDyIVLPISE"
+        }
+      ]
+    },
+    {
+      "name": "MODBSEQ_enum",
+      "definition_uri": "https://w3id.org/exampleMODBSEQEnum",
+      "from_schema": "https://w3id.org/example",
+      "permissible_values": [
+        {
+          "text": "sAEVIHQV;VQGAGTSyRNVLQAA",
+          "description": "sAEVIHQV;VQGAGTSyRNVLQAA"
+        },
+        {
+          "text": "TYVDPHTyEDPNQAV",
+          "description": "TYVDPHTyEDPNQAV"
+        },
+        {
+          "text": "PSSDSLSsPTLLAL;AAAHRKGsSSNEPSS",
+          "description": "PSSDSLSsPTLLAL;AAAHRKGsSSNEPSS"
+        },
+        {
+          "text": "KVSSTHYyLLPERPP",
+          "description": "KVSSTHYyLLPERPP"
+        },
+        {
+          "text": "QPLSKSSsSPELQTL",
+          "description": "QPLSKSSsSPELQTL"
+        },
+        {
+          "text": "GETRFTDtRKDEQER",
+          "description": "GETRFTDtRKDEQER"
+        },
+        {
+          "text": "PQHVRAHsSPASLQL",
+          "description": "PQHVRAHsSPASLQL"
+        },
+        {
+          "text": "RAGETRFtDTRKDEQ",
+          "description": "RAGETRFtDTRKDEQ"
+        },
+        {
+          "text": "FTSTEPQyQPGENL",
+          "description": "FTSTEPQyQPGENL"
+        },
+        {
+          "text": "TSVYESPySDPEELK",
+          "description": "TSVYESPySDPEELK"
+        },
+        {
+          "text": "EANSRCQtPIKMKPN",
+          "description": "EANSRCQtPIKMKPN"
+        },
+        {
+          "text": "SVSETDDyAEIIDEE",
+          "description": "SVSETDDyAEIIDEE"
+        },
+        {
+          "text": "HIIENPQyFSDACVH",
+          "description": "HIIENPQyFSDACVH"
+        },
+        {
+          "text": "ASHLGLArSNLDEDI",
+          "description": "ASHLGLArSNLDEDI"
+        },
+        {
+          "text": "PSHDRSRtVSASSTG",
+          "description": "PSHDRSRtVSASSTG"
+        },
+        {
+          "text": "GFPSKTDsPSCEYSR;GSLCSVFsPSFVQWE;GADSDVEtPSNFGKY",
+          "description": "GFPSKTDsPSCEYSR;GSLCSVFsPSFVQWE;GADSDVEtPSNFGKY"
+        },
+        {
+          "text": "PPPGSLEyLCLPAGG",
+          "description": "PPPGSLEyLCLPAGG"
+        },
+        {
+          "text": "ESENSGDsGYPSEKR;SGDSGYPsEKRGELD",
+          "description": "ESENSGDsGYPSEKR;SGDSGYPsEKRGELD"
+        },
+        {
+          "text": "RPHFPQFsYSASGTA",
+          "description": "RPHFPQFsYSASGTA"
+        },
+        {
+          "text": "LLPTPPLsPSRRSGL",
+          "description": "LLPTPPLsPSRRSGL"
+        },
+        {
+          "text": "HDHTGFLtEYVATRW",
+          "description": "HDHTGFLtEYVATRW"
+        },
+        {
+          "text": "ANLRKLNsRLFVIRG",
+          "description": "ANLRKLNsRLFVIRG"
+        },
+        {
+          "text": "T-->E",
+          "description": "T-->E"
+        }
+      ]
+    },
+    {
+      "name": "DIRECT_enum",
+      "definition_uri": "https://w3id.org/exampleDIRECTEnum",
+      "from_schema": "https://w3id.org/example",
+      "permissible_values": [
+        {
+          "text": "NO",
+          "description": "NO"
+        },
+        {
+          "text": "UNK",
+          "description": "UNK"
+        },
+        {
+          "text": "YES",
+          "description": "YES"
+        }
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "ENTITYA",
+      "definition_uri": "https://w3id.org/exampleENTITYA",
+      "examples": [
+        {
+          "value": "TICAM2",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleENTITYA",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "TYPEA",
+      "definition_uri": "https://w3id.org/exampleTYPEA",
+      "examples": [
+        {
+          "value": "protein",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleTYPEA",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "TYPEA_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "IDA",
+      "definition_uri": "https://w3id.org/exampleIDA",
+      "examples": [
+        {
+          "value": "Q86XR7",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleIDA",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DATABASEA",
+      "definition_uri": "https://w3id.org/exampleDATABASEA",
+      "examples": [
+        {
+          "value": "UNIPROT",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleDATABASEA",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "DATABASEA_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ENTITYB",
+      "definition_uri": "https://w3id.org/exampleENTITYB",
+      "examples": [
+        {
+          "value": "TICAM1",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleENTITYB",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "TYPEB",
+      "definition_uri": "https://w3id.org/exampleTYPEB",
+      "examples": [
+        {
+          "value": "protein",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleTYPEB",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "TYPEB_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "IDB",
+      "definition_uri": "https://w3id.org/exampleIDB",
+      "examples": [
+        {
+          "value": "Q8IUC6",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleIDB",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DATABASEB",
+      "definition_uri": "https://w3id.org/exampleDATABASEB",
+      "examples": [
+        {
+          "value": "UNIPROT",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleDATABASEB",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "DATABASEB_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "EFFECT",
+      "definition_uri": "https://w3id.org/exampleEFFECT",
+      "examples": [
+        {
+          "value": "up-regulates activity",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleEFFECT",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "EFFECT_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MECHANISM",
+      "definition_uri": "https://w3id.org/exampleMECHANISM",
+      "examples": [
+        {
+          "value": "binding",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleMECHANISM",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "MECHANISM_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "RESIDUE",
+      "definition_uri": "https://w3id.org/exampleRESIDUE",
+      "examples": [
+        {
+          "value": "Tyr424",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleRESIDUE",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SEQUENCE",
+      "definition_uri": "https://w3id.org/exampleSEQUENCE",
+      "examples": [
+        {
+          "value": "GQVGTARyMAPEVLE",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleSEQUENCE",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "TAX_ID",
+      "definition_uri": "https://w3id.org/exampleTAX_ID",
+      "examples": [
+        {
+          "value": "9606",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleTAX_ID",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "TAX_ID_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CELL_DATA",
+      "definition_uri": "https://w3id.org/exampleCELL_DATA",
+      "examples": [
+        {
+          "value": "BTO:0000801",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleCELL_DATA",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "BTO_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "TISSUE_DATA",
+      "definition_uri": "https://w3id.org/exampleTISSUE_DATA",
+      "examples": [
+        {
+          "value": "BTO:0004710",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleTISSUE_DATA",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "BTO_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MODULATOR_COMPLEX",
+      "definition_uri": "https://w3id.org/exampleMODULATOR_COMPLEX",
+      "examples": [
+        {
+          "value": "SIGNOR-C21",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleMODULATOR_COMPLEX",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "MODULATOR_COMPLEX_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "TARGET_COMPLEX",
+      "definition_uri": "https://w3id.org/exampleTARGET_COMPLEX",
+      "examples": [
+        {
+          "value": "SIGNOR-C16",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleTARGET_COMPLEX",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "TARGET_COMPLEX_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MODIFICATIONA",
+      "definition_uri": "https://w3id.org/exampleMODIFICATIONA",
+      "examples": [
+        {
+          "value": "phosphorylation:Ser213",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleMODIFICATIONA",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MODASEQ",
+      "definition_uri": "https://w3id.org/exampleMODASEQ",
+      "examples": [
+        {
+          "value": "TRKLMEFsEHCAIIL",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleMODASEQ",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "MODASEQ_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MODIFICATIONB",
+      "definition_uri": "https://w3id.org/exampleMODIFICATIONB",
+      "examples": [
+        {
+          "value": "phosphorylation:Tyr397",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleMODIFICATIONB",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MODBSEQ",
+      "definition_uri": "https://w3id.org/exampleMODBSEQ",
+      "examples": [
+        {
+          "value": "SVSETDDyAEIIDEE",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleMODBSEQ",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "MODBSEQ_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "PMID",
+      "definition_uri": "https://w3id.org/examplePMID",
+      "examples": [
+        {
+          "value": "14519765",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/examplePMID",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DIRECT",
+      "definition_uri": "https://w3id.org/exampleDIRECT",
+      "examples": [
+        {
+          "value": "YES",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleDIRECT",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "DIRECT_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "NOTES",
+      "definition_uri": "https://w3id.org/exampleNOTES",
+      "examples": [
+        {
+          "value": "Ligand-GPCR dataset",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleNOTES",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ANNOTATOR",
+      "definition_uri": "https://w3id.org/exampleANNOTATOR",
+      "examples": [
+        {
+          "value": "lperfetto",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleANNOTATOR",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SENTENCE",
+      "definition_uri": "https://w3id.org/exampleSENTENCE",
+      "examples": [
+        {
+          "value": "Tram binds trif directly and recruits it to tlr4",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleSENTENCE",
+      "multivalued": true,
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SCORE",
+      "definition_uri": "https://w3id.org/exampleSCORE",
+      "examples": [
+        {
+          "value": "0.4599",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleSCORE",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SIGNOR_ID",
+      "definition_uri": "https://w3id.org/exampleSIGNOR_ID",
+      "examples": [
+        {
+          "value": "SIGNOR-118367",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/example",
+      "slot_uri": "https://w3id.org/exampleSIGNOR_ID",
+      "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    }
+  ],
+  "classes": [
+    {
+      "name": "Example",
+      "definition_uri": "https://w3id.org/exampleExample",
+      "from_schema": "https://w3id.org/example",
+      "slots": [
+        "ENTITYA",
+        "TYPEA",
+        "IDA",
+        "DATABASEA",
+        "ENTITYB",
+        "TYPEB",
+        "IDB",
+        "DATABASEB",
+        "EFFECT",
+        "MECHANISM",
+        "RESIDUE",
+        "SEQUENCE",
+        "TAX_ID",
+        "CELL_DATA",
+        "TISSUE_DATA",
+        "MODULATOR_COMPLEX",
+        "TARGET_COMPLEX",
+        "MODIFICATIONA",
+        "MODASEQ",
+        "MODIFICATIONB",
+        "MODBSEQ",
+        "PMID",
+        "DIRECT",
+        "NOTES",
+        "ANNOTATOR",
+        "SENTENCE",
+        "SCORE",
+        "SIGNOR_ID"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/exampleExample",
+      "@type": "ClassDefinition"
+    }
+  ],
+  "metamodel_version": "1.7.0",
+  "source_file": "signor.yaml",
+  "source_file_date": "2021-06-15T09:11:12",
+  "source_file_size": 16815,
+  "generation_date": "2021-11-16T14:26:02",
+  "@type": "SchemaDefinition",
+  "@context": [
+    "./jsonld/signor.context.jsonld",
+    "https://w3id.org/linkml/types.context.jsonld",
+    {
+      "@base": "https://w3id.org/example"
+    }
+  ]
+}

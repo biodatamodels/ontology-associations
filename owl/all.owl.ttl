@@ -21,29 +21,70 @@ linkml:topValue a owl:DatatypeProperty ;
     rdfs:seeAlso "https://github.com/PSICQUIC/psicquic-documentation/blob/develop/MITAB28Format.md" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/Causal_Regulatory_Mechanism_enum> ;
-            owl:onProperty <https://w3id.org/mitabCausal_Regulatory_Mechanism> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/Biological_Effect_interactor_enum> ;
-            owl:onProperty <https://w3id.org/mitabBiological_Effect_interactor_A> ],
+            owl:onClass <https://w3id.org/mitabPsi-miIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabCausal_statement> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/Biological_Effect_interactor_enum> ;
             owl:onProperty <https://w3id.org/mitabBiological_Effect_interactor_B> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/mitabPsi-miIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabCausal_statement> ],
+            owl:onClass <http://UNKNOWN.org/Causal_Regulatory_Mechanism_enum> ;
+            owl:onProperty <https://w3id.org/mitabCausal_Regulatory_Mechanism> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/Biological_Effect_interactor_enum> ;
+            owl:onProperty <https://w3id.org/mitabBiological_Effect_interactor_A> ],
         <https://w3id.org/mitabMitabInteraction> .
 
-ontology_association:ComplexDiseasePhenotypeOntologyAssociationDocument a owl:Class,
+ontology_association:ComplexDiseaseAssociationDocument a owl:Class,
         linkml:ClassDefinition ;
-    rdfs:label "complex disease phenotype ontology association document" ;
+    rdfs:label "complex disease association document" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom ontology_association:ComplexDiseasePhenotypeOntologyAssociation ;
+            owl:allValuesFrom ontology_association:ComplexDiseaseAssociation ;
             owl:onProperty ontology_association:associations ],
         ontology_association:AssociationDocument .
+
+ontology_association:ComplexDiseaseDiseaseRiskAssociation a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "complex disease disease risk association" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/ComplexDiseaseRelation> ;
+            owl:onProperty ontology_association:relation ;
+            owl:qualifiedCardinality 1 ],
+        ontology_association:ComplexDiseaseAssociation .
+
+ontology_association:ComplexDiseaseExposureRiskAssociation a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "complex disease exposure risk association" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/ComplexDiseaseRelation> ;
+            owl:onProperty ontology_association:relation ;
+            owl:qualifiedCardinality 1 ],
+        ontology_association:ComplexDiseaseAssociation .
+
+ontology_association:ComplexDiseasePhenotypeAssociation a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "complex disease phenotype association" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/ComplexDiseaseRelation> ;
+            owl:onProperty ontology_association:relation ;
+            owl:qualifiedCardinality 1 ],
+        ontology_association:ComplexDiseaseAssociation .
+
+ontology_association:ComplexDiseasePhenotypeRiskAssociation a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "complex disease phenotype risk association" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/ComplexDiseaseRelation> ;
+            owl:onProperty ontology_association:relation ;
+            owl:qualifiedCardinality 1 ],
+        ontology_association:ComplexDiseaseAssociation .
+
+ontology_association:ECTOIdentifier a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "ECTO identifier" ;
+    rdfs:subClassOf ontology_association:IdentifierType .
 
 ontology_association:GafAssociationDocument a owl:Class,
         linkml:ClassDefinition ;
@@ -70,6 +111,11 @@ ontology_association:GpiDocument a owl:Class,
         ontology_association:Document ;
     skos:definition "A collection of gpi entities plus associated metadata" .
 
+ontology_association:HPOPhenotypeIdentifier a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "HPO phenotype identifier" ;
+    rdfs:subClassOf ontology_association:PhenotypeIdentifier .
+
 ontology_association:HumanPhenotypeOntologyAssociationDocument a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "human phenotype ontology association document" ;
@@ -77,6 +123,11 @@ ontology_association:HumanPhenotypeOntologyAssociationDocument a owl:Class,
             owl:allValuesFrom ontology_association:HumanPhenotypeOntologyAssociation ;
             owl:onProperty ontology_association:associations ],
         ontology_association:AssociationDocument .
+
+ontology_association:NCITIdentifier a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "NCIT identifier" ;
+    rdfs:subClassOf ontology_association:IdentifierType .
 
 ontology_association:PombasePhafAssociationDocument a owl:Class,
         linkml:ClassDefinition ;
@@ -103,7 +154,7 @@ ontology_association:SimpleGafAssociation a owl:Class,
 ontology_association:all a owl:Ontology ;
     rdfs:label "ontology_associations" ;
     IAO:0000700 ontology_association:Annotation,
-        ontology_association:ComplexDiseasePhenotypeOntologyAssociation,
+        ontology_association:ComplexDiseaseAssociation,
         ontology_association:Denormalized,
         ontology_association:Document,
         ontology_association:Entity,
@@ -112,7 +163,7 @@ ontology_association:all a owl:Ontology ;
         ontology_association:RelationalConstruct ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     skos:definition "Various association data models" ;
-    linkml:generation_date "2021-11-16T13:21:30" ;
+    linkml:generation_date "2021-11-16T14:25:32" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "all.yaml" ;
     linkml:source_file_date "2021-11-16T13:06:48" ;
@@ -344,156 +395,156 @@ ontology_association:id a owl:ObjectProperty,
         linkml:ClassDefinition ;
     rdfs:label "mitab interaction" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty <https://w3id.org/mitabFeature(s)_interactor_A> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/mitabPsi-miIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabIdentification_method_participant_A> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/mitabIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabInteraction_annotation(s)> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/Experimental_role_interactor_enum> ;
-            owl:onProperty <https://w3id.org/mitabExperimental_role(s)_interactor_A> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty <https://w3id.org/mitabAlt._ID(s)_interactor_B> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/mitabTaxidIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabHost_organism(s)> ],
+            owl:onProperty <https://w3id.org/mitabAlt._ID(s)_interactor_A> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/mitabIdentifier> ;
             owl:onProperty <https://w3id.org/mitabXref(s)_interactor_B> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty <https://w3id.org/mitabInteraction_parameter(s)> ],
+            owl:onClass <http://UNKNOWN.org/Expansion_method_enum> ;
+            owl:onProperty <https://w3id.org/mitabExpansion_method(s)> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/mitabIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabID(s)_interactor_B> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/mitabIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabXref(s)_interactor_A> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/mitabIntact-miscoreIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabConfidence_value(s)> ],
+            owl:onProperty <https://w3id.org/mitabID(s)_interactor_A> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/Stoichiometry_interactor_enum> ;
             owl:onProperty <https://w3id.org/mitabStoichiometry(s)_interactor_B> ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/mitabPsi-miIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabType(s)_interactor_A> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty <https://w3id.org/mitabAnnotation(s)_interactor_A> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/mitabIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabInteraction_Checksum(s)> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty <https://w3id.org/mitabFeature(s)_interactor_B> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/Experimental_role_interactor_enum> ;
-            owl:onProperty <https://w3id.org/mitabExperimental_role(s)_interactor_B> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/Interaction_detection_method_enum> ;
-            owl:onProperty <https://w3id.org/mitabInteraction_detection_method(s)> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/mitabIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabPublication_Identifier(s)> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/mitabIdentifier> ;
             owl:onProperty <https://w3id.org/mitabAlias(es)_interactor_A> ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty <https://w3id.org/mitabAnnotation(s)_interactor_B> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/Stoichiometry_interactor_enum> ;
-            owl:onProperty <https://w3id.org/mitabStoichiometry(s)_interactor_A> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/mitabPsi-miIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabType(s)_interactor_B> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/mitabPsi-miIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabIdentification_method_participant_B> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/Interaction_Xref_enum> ;
-            owl:onProperty <https://w3id.org/mitabInteraction_Xref(s)> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty <https://w3id.org/mitabPublication_1st_author(s)> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/Biological_role_interactor_enum> ;
-            owl:onProperty <https://w3id.org/mitabBiological_role(s)_interactor_A> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty <https://w3id.org/mitabChecksum(s)_interactor_B> ],
+            owl:onProperty <https://w3id.org/mitabFeature(s)_interactor_A> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Datetime ;
             owl:onProperty <https://w3id.org/mitabUpdate_date> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/Expansion_method_enum> ;
-            owl:onProperty <https://w3id.org/mitabExpansion_method(s)> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/mitabIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabInteraction_identifier(s)> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/mitabRogidIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabChecksum(s)_interactor_A> ],
+            owl:onClass <http://UNKNOWN.org/Stoichiometry_interactor_enum> ;
+            owl:onProperty <https://w3id.org/mitabStoichiometry(s)_interactor_A> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/Biological_role_interactor_enum> ;
             owl:onProperty <https://w3id.org/mitabBiological_role(s)_interactor_B> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/mitabPsi-miIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabSource_database(s)> ],
+            owl:onClass <http://UNKNOWN.org/Experimental_role_interactor_enum> ;
+            owl:onProperty <https://w3id.org/mitabExperimental_role(s)_interactor_B> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/mitabTaxidIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabTaxid_interactor_B> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/Experimental_role_interactor_enum> ;
+            owl:onProperty <https://w3id.org/mitabExperimental_role(s)_interactor_A> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/mitabIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabInteraction_annotation(s)> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://w3id.org/mitabChecksum(s)_interactor_B> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/mitabIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabXref(s)_interactor_A> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/Interaction_type_enum> ;
             owl:onProperty <https://w3id.org/mitabInteraction_type(s)> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/mitabPsi-miIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabType(s)_interactor_B> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/mitabRogidIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabChecksum(s)_interactor_A> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/mitabIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabPublication_Identifier(s)> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/mitabFeature(s)_interactor_B> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/mitabIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabInteraction_identifier(s)> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/mitabPsi-miIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabIdentification_method_participant_A> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/Biological_role_interactor_enum> ;
+            owl:onProperty <https://w3id.org/mitabBiological_role(s)_interactor_A> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/mitabAnnotation(s)_interactor_B> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/mitabTaxidIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabHost_organism(s)> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/mitabPsi-miIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabIdentification_method_participant_B> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/Interaction_detection_method_enum> ;
+            owl:onProperty <https://w3id.org/mitabInteraction_detection_method(s)> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/mitabPsi-miIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabType(s)_interactor_A> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Datetime ;
             owl:onProperty <https://w3id.org/mitabCreation_date> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/mitabTaxidIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabTaxid_interactor_A> ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://w3id.org/mitabPublication_1st_author(s)> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/mitabIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabAlt._ID(s)_interactor_A> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/mitabTaxidIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabTaxid_interactor_B> ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/mitabIntact-miscoreIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabConfidence_value(s)> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/mitabIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabID(s)_interactor_A> ],
+            owl:onProperty <https://w3id.org/mitabID(s)_interactor_B> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/mitabIdentifier> ;
-            owl:onProperty <https://w3id.org/mitabAlias(es)_interactor_B> ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://w3id.org/mitabInteraction_parameter(s)> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://w3id.org/mitabAnnotation(s)_interactor_A> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/Interaction_Xref_enum> ;
+            owl:onProperty <https://w3id.org/mitabInteraction_Xref(s)> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/Negative_enum> ;
             owl:onProperty <https://w3id.org/mitabNegative> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/mitabIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabInteraction_Checksum(s)> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/mitabPsi-miIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabSource_database(s)> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/mitabAlt._ID(s)_interactor_B> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/mitabIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabAlias(es)_interactor_B> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/mitabTaxidIdentifier> ;
+            owl:onProperty <https://w3id.org/mitabTaxid_interactor_A> ],
         <https://w3id.org/mitabInteraction> .
 
 <https://w3id.org/mitabNegative> a owl:ObjectProperty,
@@ -678,12 +729,16 @@ ontology_association:GpadAssociation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "gpad association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Boolean ;
-            owl:onProperty ontology_association:negation ],
+            owl:onClass ontology_association:Provider ;
+            owl:onProperty ontology_association:assigned_by ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:allValuesFrom ontology_association:Taxon ;
-            owl:onProperty ontology_association:interacting_taxon_ref ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Datetime ;
+            owl:onProperty ontology_association:annotation_date ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ontology_association:Entity ;
+            owl:onProperty ontology_association:with_or_from ],
         [ a owl:Class ;
             owl:intersectionOf ( [ a owl:Restriction ;
                         owl:allValuesFrom ontology_association:Publication ;
@@ -692,12 +747,20 @@ ontology_association:GpadAssociation a owl:Class,
                         owl:someValuesFrom ontology_association:Publication ] ) ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Datetime ;
-            owl:onProperty ontology_association:annotation_date ],
+            owl:onClass <http://UNKNOWN.org/gp_entity_type_enum> ;
+            owl:onProperty ontology_association:db_object_type ],
+        [ a owl:Restriction ;
+            owl:onClass ontology_association:OntologyClass ;
+            owl:onProperty ontology_association:evidence_type ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass ontology_association:Entity ;
             owl:onProperty ontology_association:db_object_ref ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Boolean ;
+            owl:onProperty ontology_association:negation ],
         [ a owl:Restriction ;
             owl:allValuesFrom ontology_association:PropertyValuePair ;
             owl:onProperty ontology_association:annotation_properties ],
@@ -705,27 +768,15 @@ ontology_association:GpadAssociation a owl:Class,
             owl:allValuesFrom ontology_association:AnnotationExtension ;
             owl:onProperty ontology_association:annotation_extensions ],
         [ a owl:Restriction ;
-            owl:onClass ontology_association:OntologyClass ;
-            owl:onProperty ontology_association:evidence_type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ontology_association:Entity ;
-            owl:onProperty ontology_association:with_or_from ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/gp_entity_type_enum> ;
-            owl:onProperty ontology_association:db_object_type ],
-        [ a owl:Restriction ;
             owl:onClass <http://UNKNOWN.org/gp2term_relation_enum> ;
             owl:onProperty ontology_association:relation ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
+            owl:allValuesFrom ontology_association:Taxon ;
+            owl:onProperty ontology_association:interacting_taxon_ref ],
+        [ a owl:Restriction ;
             owl:onClass ontology_association:OntologyClass ;
             owl:onProperty ontology_association:ontology_class_ref ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass ontology_association:Provider ;
-            owl:onProperty ontology_association:assigned_by ;
             owl:qualifiedCardinality 1 ],
         ontology_association:Association,
         ontology_association:Denormalized,
@@ -736,20 +787,48 @@ ontology_association:HumanPhenotypeOntologyAssociation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "human phenotype ontology association" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:aspect ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:onClass ontology_association:OntologyClass ;
             owl:onProperty ontology_association:ontology_class_ref ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ontology_association:NameType ;
+            owl:onProperty ontology_association:db_object_synonyms ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Datetime ;
             owl:onProperty ontology_association:annotation_date ],
         [ a owl:Restriction ;
             owl:onClass linkml:String ;
-            owl:onProperty ontology_association:aspect ;
+            owl:onProperty ontology_association:relation ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:allValuesFrom ontology_association:NameType ;
-            owl:onProperty ontology_association:db_object_synonyms ],
+            owl:onClass ontology_association:SymbolType ;
+            owl:onProperty ontology_association:db_object_symbol ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:local_id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:onset ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:frequency ],
+        [ a owl:Restriction ;
+            owl:onClass ontology_association:Provider ;
+            owl:onProperty ontology_association:assigned_by ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:db ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass ontology_association:OntologyClass ;
             owl:onProperty ontology_association:evidence_type ;
@@ -760,34 +839,6 @@ ontology_association:HumanPhenotypeOntologyAssociation a owl:Class,
                         owl:onProperty ontology_association:supporting_references ] [ a owl:Restriction ;
                         owl:onProperty ontology_association:supporting_references ;
                         owl:someValuesFrom ontology_association:Publication ] ) ],
-        [ a owl:Restriction ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:local_id ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:onset ],
-        [ a owl:Restriction ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:db ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:relation ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass ontology_association:Provider ;
-            owl:onProperty ontology_association:assigned_by ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass ontology_association:SymbolType ;
-            owl:onProperty ontology_association:db_object_symbol ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:frequency ],
         [ a owl:Restriction ;
             owl:allValuesFrom ontology_association:Entity ;
             owl:onProperty ontology_association:with_or_from ],
@@ -814,27 +865,30 @@ ontology_association:Penetrance a owl:ObjectProperty,
     skos:definition "Penetrance describes the proportion of a population that shows a cell-level phenotype. Penetrance data are represented as percents or entries from the in-house FYPO_EXT ontology (FYPO_EXT:0000001 = high; FYPO_EXT:0000002 = medium; FYPO_EXT:0000003 = low; FYPO_EXT:0000004 = full)." ;
     linkml:examples "Example(value='FYPO_EXT:0000002', description=None)" .
 
+ontology_association:PhenotypeIdentifier a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "phenotype identifier" ;
+    rdfs:subClassOf ontology_association:IdentifierType .
+
 ontology_association:PombasePhafAssociation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "pombase phaf association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/Allele_type_enum> ;
-            owl:onProperty ontology_association:Allele_type ],
-        [ a owl:Class ;
-            owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:allValuesFrom ontology_association:Publication ;
-                        owl:onProperty ontology_association:Reference ] [ a owl:Restriction ;
-                        owl:onProperty ontology_association:Reference ;
-                        owl:someValuesFrom ontology_association:Publication ] ) ],
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:Gene_systematic_ID ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty ontology_association:Parental_strain ],
+            owl:onProperty ontology_association:Allele_name ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/Expression_enum> ;
+            owl:onProperty ontology_association:Expression ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty ontology_association:Genotype_description ],
+            owl:onProperty ontology_association:Penetrance ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty ontology_association:Extension ],
@@ -842,34 +896,12 @@ ontology_association:PombasePhafAssociation a owl:Class,
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty <https://w3id.org/ontology_association/Strain_name_(background)> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:Date ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass ontology_association:FYPOEXTIdentifier ;
-            owl:onProperty ontology_association:Severity ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:Allele_description ],
-        [ a owl:Restriction ;
-            owl:onClass ontology_association:FYPOIdentifier ;
-            owl:onProperty ontology_association:FYPO_ID ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass ontology_association:PECOIdentifier ;
-            owl:onProperty ontology_association:Condition ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:Allele_name ],
-        [ a owl:Restriction ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:Gene_systematic_ID ;
-            owl:qualifiedCardinality 1 ],
+        [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom ontology_association:Publication ;
+                        owl:onProperty ontology_association:Reference ] [ a owl:Restriction ;
+                        owl:onProperty ontology_association:Reference ;
+                        owl:someValuesFrom ontology_association:Publication ] ) ],
         [ a owl:Restriction ;
             owl:onClass <http://UNKNOWN.org/Database_name_enum> ;
             owl:onProperty ontology_association:Database_name ;
@@ -879,25 +911,49 @@ ontology_association:PombasePhafAssociation a owl:Class,
             owl:onClass linkml:String ;
             owl:onProperty ontology_association:Gene_name ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:Allele_synonym ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:Penetrance ],
-        [ a owl:Restriction ;
-            owl:onClass linkml:Integer ;
-            owl:onProperty ontology_association:Taxon ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass <http://UNKNOWN.org/Evidence_enum> ;
             owl:onProperty ontology_association:Evidence ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/Expression_enum> ;
-            owl:onProperty ontology_association:Expression ],
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:Date ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty ontology_association:Taxon ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:Allele_description ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:Parental_strain ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass ontology_association:FYPOEXTIdentifier ;
+            owl:onProperty ontology_association:Severity ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass ontology_association:PECOIdentifier ;
+            owl:onProperty ontology_association:Condition ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:Genotype_description ],
+        [ a owl:Restriction ;
+            owl:onClass ontology_association:FYPOIdentifier ;
+            owl:onProperty ontology_association:FYPO_ID ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:Allele_synonym ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/Allele_type_enum> ;
+            owl:onProperty ontology_association:Allele_type ],
         ontology_association:Association,
         ontology_association:Denormalized ;
     skos:definition "line of PHAF" .
@@ -919,44 +975,56 @@ ontology_association:XafAssociation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "xaf association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass ontology_association:SymbolType ;
-            owl:onProperty ontology_association:db_object_symbol ;
-            owl:qualifiedCardinality 1 ],
+            owl:allValuesFrom ontology_association:Entity ;
+            owl:onProperty ontology_association:with_or_from ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass ontology_association:NameType ;
-            owl:onProperty ontology_association:db_object_name ],
-        [ a owl:Restriction ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:local_id ;
+            owl:onClass ontology_association:OntologyClass ;
+            owl:onProperty ontology_association:evidence_type ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass ontology_association:OntologyClass ;
             owl:onProperty ontology_association:ontology_class_ref ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass ontology_association:Taxon ;
-            owl:onProperty ontology_association:db_object_taxon ;
-            owl:qualifiedCardinality 1 ],
+            owl:allValuesFrom ontology_association:AnnotationExtension ;
+            owl:onProperty ontology_association:annotation_extensions ],
         [ a owl:Restriction ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:aspect ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass ontology_association:NameType ;
+            owl:onProperty ontology_association:db_object_name ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty ontology_association:db_object_type ],
         [ a owl:Restriction ;
+            owl:allValuesFrom ontology_association:NameType ;
+            owl:onProperty ontology_association:db_object_synonyms ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:local_id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Datetime ;
             owl:onProperty ontology_association:annotation_date ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass ontology_association:BiologicalEntity ;
-            owl:onProperty ontology_association:gene_product_form ],
-        [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty ontology_association:db ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass ontology_association:Provider ;
+            owl:onProperty ontology_association:assigned_by ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass ontology_association:Taxon ;
+            owl:onProperty ontology_association:db_object_taxon ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty ontology_association:qualifiers ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:aspect ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Class ;
             owl:intersectionOf ( [ a owl:Restriction ;
@@ -965,25 +1033,13 @@ ontology_association:XafAssociation a owl:Class,
                         owl:onProperty ontology_association:supporting_references ;
                         owl:someValuesFrom ontology_association:Publication ] ) ],
         [ a owl:Restriction ;
-            owl:allValuesFrom ontology_association:Entity ;
-            owl:onProperty ontology_association:with_or_from ],
-        [ a owl:Restriction ;
-            owl:onClass ontology_association:Provider ;
-            owl:onProperty ontology_association:assigned_by ;
+            owl:onClass ontology_association:SymbolType ;
+            owl:onProperty ontology_association:db_object_symbol ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass ontology_association:OntologyClass ;
-            owl:onProperty ontology_association:evidence_type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty ontology_association:qualifiers ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ontology_association:NameType ;
-            owl:onProperty ontology_association:db_object_synonyms ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ontology_association:AnnotationExtension ;
-            owl:onProperty ontology_association:annotation_extensions ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass ontology_association:BiologicalEntity ;
+            owl:onProperty ontology_association:gene_product_form ],
         ontology_association:Association,
         ontology_association:Denormalized ;
     skos:definition "line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions. " .
@@ -996,7 +1052,7 @@ ontology_association:annotation_properties a owl:ObjectProperty,
 ontology_association:biocuration a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "biocuration" ;
-    rdfs:range ontology_association:HPOIdentifier ;
+    rdfs:range linkml:String ;
     linkml:examples "Example(value='HPO:probinson[15-11-2021]', description=None)" .
 
 ontology_association:citation a owl:ObjectProperty,
@@ -1144,7 +1200,7 @@ ontology_association:sex a owl:ObjectProperty,
 ontology_association:term_id a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "term_id" ;
-    rdfs:range ontology_association:PhenotypeIdentifier ;
+    rdfs:range ontology_association:IdentifierType ;
     linkml:examples "Example(value='HP:0002381', description=None)",
         "Example(value='MONDO:0001134', description=None)",
         "Example(value='NCIT:C1543', description=None)" .
@@ -1183,62 +1239,6 @@ ontology_association:value a owl:ObjectProperty,
     rdfs:label "rogid identifier" ;
     rdfs:subClassOf linkml:String .
 
-ontology_association:ComplexDiseasePhenotypeOntologyAssociation a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "complex disease phenotype ontology association" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:qualifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:sex ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass ontology_association:MONDOIdentifier ;
-            owl:onProperty ontology_association:disease_id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:frequency ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass ontology_association:PhenotypeIdentifier ;
-            owl:onProperty ontology_association:term_id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:evidence ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/ComplexDiseaseRelation> ;
-            owl:onProperty ontology_association:relation ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:term_label ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:time_course ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass ontology_association:PMIDIdentifier ;
-            owl:onProperty ontology_association:citation ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass ontology_association:HPOIdentifier ;
-            owl:onProperty ontology_association:biocuration ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:modifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:disease_name ] .
-
 ontology_association:FYPOEXTIdentifier a owl:Class,
         linkml:TypeDefinition ;
     rdfs:label "FYPO_EXT identifier" ;
@@ -1253,10 +1253,6 @@ ontology_association:GafAssociation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "gaf association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/gene_ontology_aspect_enum> ;
-            owl:onProperty ontology_association:aspect ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass ontology_association:OntologyClass ;
             owl:onProperty ontology_association:ontology_class_ref ;
             owl:qualifiedCardinality 1 ],
@@ -1267,6 +1263,10 @@ ontology_association:GafAssociation a owl:Class,
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/gp_entity_type_enum> ;
             owl:onProperty ontology_association:db_object_type ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/gene_ontology_aspect_enum> ;
+            owl:onProperty ontology_association:aspect ;
+            owl:qualifiedCardinality 1 ],
         ontology_association:Denormalized,
         ontology_association:GoRelated,
         ontology_association:XafAssociation ;
@@ -1276,18 +1276,9 @@ ontology_association:GpiEntity a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "gpi entity" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom ontology_association:Entity ;
-            owl:onProperty ontology_association:protein_containing_complex_members ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty ontology_association:db_object_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ontology_association:PropertyValuePair ;
-            owl:onProperty ontology_association:gene_product_properties ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ontology_association:Curie ;
-            owl:onProperty ontology_association:db_xrefs ],
         [ a owl:Restriction ;
             owl:allValuesFrom ontology_association:Entity ;
             owl:onProperty ontology_association:encoded_by ],
@@ -1295,31 +1286,35 @@ ontology_association:GpiEntity a owl:Class,
             owl:allValuesFrom ontology_association:NameType ;
             owl:onProperty ontology_association:db_object_synonyms ],
         [ a owl:Restriction ;
-            owl:onClass ontology_association:SymbolType ;
-            owl:onProperty ontology_association:db_object_symbol ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass ontology_association:NameType ;
-            owl:onProperty ontology_association:db_object_name ],
-        [ a owl:Restriction ;
-            owl:onClass ontology_association:Taxon ;
-            owl:onProperty ontology_association:db_object_taxon ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass ontology_association:Entity ;
             owl:onProperty ontology_association:db_object_ref ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:allValuesFrom ontology_association:Entity ;
             owl:onProperty ontology_association:parent_protein ],
+        [ a owl:Restriction ;
+            owl:onClass ontology_association:Taxon ;
+            owl:onProperty ontology_association:db_object_taxon ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ontology_association:PropertyValuePair ;
+            owl:onProperty ontology_association:gene_product_properties ],
+        [ a owl:Restriction ;
+            owl:onClass ontology_association:SymbolType ;
+            owl:onProperty ontology_association:db_object_symbol ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ontology_association:Curie ;
+            owl:onProperty ontology_association:db_xrefs ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ontology_association:Entity ;
+            owl:onProperty ontology_association:protein_containing_complex_members ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass ontology_association:NameType ;
+            owl:onProperty ontology_association:db_object_name ],
         ontology_association:BiologicalEntity ;
     skos:definition "An entity that can be annotated using GO. May be a gene, gene product, or complex" .
-
-ontology_association:HPOIdentifier a owl:Class,
-        linkml:TypeDefinition ;
-    rdfs:label "HPO identifier" ;
-    rdfs:subClassOf ontology_association:IdentifierType .
 
 ontology_association:MONDOIdentifier a owl:Class,
         linkml:TypeDefinition ;
@@ -1334,11 +1329,6 @@ ontology_association:PECOIdentifier a owl:Class,
 ontology_association:PMIDIdentifier a owl:Class,
         linkml:TypeDefinition ;
     rdfs:label "PMID identifier" ;
-    rdfs:subClassOf ontology_association:IdentifierType .
-
-ontology_association:PhenotypeIdentifier a owl:Class,
-        linkml:TypeDefinition ;
-    rdfs:label "phenotype identifier" ;
     rdfs:subClassOf ontology_association:IdentifierType .
 
 ontology_association:Reference a owl:ObjectProperty,
@@ -1446,9 +1436,6 @@ ontology_association:local_id a owl:ObjectProperty,
 ontology_association:qualifiers a owl:ObjectProperty,
         linkml:SlotDefinition .
 
-ontology_association:relation a owl:ObjectProperty,
-        linkml:SlotDefinition .
-
 ontology_association:with_or_from a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "with or from" ;
@@ -1460,22 +1447,17 @@ ontology_association:ControlledTerm a owl:Class,
     rdfs:label "controlled term" ;
     rdfs:subClassOf ontology_association:Entity .
 
-ontology_association:IdentifierType a owl:Class,
-        linkml:TypeDefinition ;
-    rdfs:label "identifier type" ;
-    rdfs:subClassOf linkml:String .
-
 ontology_association:PropertyValuePair a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "property value pair" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass ontology_association:ControlledTerm ;
-            owl:onProperty ontology_association:property ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty ontology_association:value ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass ontology_association:ControlledTerm ;
+            owl:onProperty ontology_association:property ],
         ontology_association:RelationalConstruct .
 
 ontology_association:SymbolType a owl:Class,
@@ -1513,28 +1495,28 @@ ontology_association:AssociationDocument a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "association document" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom ontology_association:Association ;
-            owl:onProperty ontology_association:associations ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:date_generated ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty ontology_association:gorel_version ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty ontology_association:funding ],
+            owl:onProperty ontology_association:date_generated ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ontology_association:Association ;
+            owl:onProperty ontology_association:associations ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty ontology_association:url ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass ontology_association:Provider ;
-            owl:onProperty ontology_association:generated_by ],
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:project_release ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:funding ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
@@ -1545,8 +1527,8 @@ ontology_association:AssociationDocument a owl:Class,
             owl:onProperty ontology_association:ro_version ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty ontology_association:project_release ],
+            owl:onClass ontology_association:Provider ;
+            owl:onProperty ontology_association:generated_by ],
         ontology_association:Document .
 
 ontology_association:ontology_class_ref a owl:ObjectProperty,
@@ -1556,6 +1538,60 @@ ontology_association:ontology_class_ref a owl:ObjectProperty,
         linkml:TypeDefinition ;
     rdfs:label "taxid identifier" ;
     rdfs:subClassOf linkml:String .
+
+ontology_association:ComplexDiseaseAssociation a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "complex disease association" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:disease_name ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:qualifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:sex ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:frequency ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass ontology_association:MONDOIdentifier ;
+            owl:onProperty ontology_association:disease_id ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/ComplexDiseaseRelation> ;
+            owl:onProperty ontology_association:relation ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:evidence ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:time_course ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty ontology_association:biocuration ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty ontology_association:modifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass ontology_association:PMIDIdentifier ;
+            owl:onProperty ontology_association:citation ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass ontology_association:IdentifierType ;
+            owl:onProperty ontology_association:term_id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty ontology_association:term_label ] .
 
 ontology_association:Denormalized a owl:Class,
         linkml:ClassDefinition ;
@@ -1589,10 +1625,18 @@ ontology_association:document_metadata_field a owl:ObjectProperty,
     rdfs:label "document metadata field" ;
     rdfs:range linkml:String .
 
+ontology_association:IdentifierType a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "identifier type" ;
+    rdfs:subClassOf linkml:String .
+
 ontology_association:NameType a owl:Class,
         linkml:TypeDefinition ;
     rdfs:label "name type" ;
     rdfs:subClassOf linkml:String .
+
+ontology_association:relation a owl:ObjectProperty,
+        linkml:SlotDefinition .
 
 ontology_association:supporting_references a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -1615,14 +1659,14 @@ ontology_association:Publication a owl:Class,
     rdfs:label "psi-mi identifier" ;
     rdfs:subClassOf linkml:String .
 
-linkml:TypeDefinition a owl:Class ;
-    rdfs:label "type_definition" ;
-    skos:definition "A data type definition." .
-
 ontology_association:Entity a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "entity" ;
     skos:closeMatch <https://w3id.org/biolink/vocab/NamedThing> .
+
+linkml:TypeDefinition a owl:Class ;
+    rdfs:label "type_definition" ;
+    skos:definition "A data type definition." .
 
 <https://w3id.org/mitabIdentifier> a owl:Class,
         linkml:TypeDefinition ;

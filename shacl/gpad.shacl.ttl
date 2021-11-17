@@ -1,0 +1,230 @@
+@prefix ns1: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/ontology_association/Annotation> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Annotation> .
+
+<https://w3id.org/ontology_association/AssociationDocument> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:property [ ns1:maxCount 1 ;
+            ns1:order 0 ;
+            ns1:path <https://w3id.org/ontology_association/date_generated> ],
+        [ ns1:description "e.g. http://www.yeastgenome.org/" ;
+            ns1:maxCount 1 ;
+            ns1:order 2 ;
+            ns1:path <https://w3id.org/ontology_association/url> ],
+        [ ns1:class <https://w3id.org/ontology_association/Association> ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 8 ;
+            ns1:path <https://w3id.org/ontology_association/associations> ],
+        [ ns1:class <https://w3id.org/ontology_association/Provider> ;
+            ns1:description "YYYY-MM-DD or YYYY-MM-DDTHH:MM" ;
+            ns1:maxCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 1 ;
+            ns1:path <https://w3id.org/ontology_association/generated_by> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 5 ;
+            ns1:path <https://w3id.org/ontology_association/go_version> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 6 ;
+            ns1:path <https://w3id.org/ontology_association/ro_version> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 7 ;
+            ns1:path <https://w3id.org/ontology_association/gorel_version> ],
+        [ ns1:description "e.g. NHGRI" ;
+            ns1:maxCount 1 ;
+            ns1:order 4 ;
+            ns1:path <https://w3id.org/ontology_association/funding> ],
+        [ ns1:description "e.g.  WS275" ;
+            ns1:maxCount 1 ;
+            ns1:order 3 ;
+            ns1:path <https://w3id.org/ontology_association/project_release> ] ;
+    ns1:targetClass <https://w3id.org/ontology_association/AssociationDocument> .
+
+<https://w3id.org/ontology_association/Denormalized> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:description "mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes" ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Denormalized> .
+
+<https://w3id.org/ontology_association/Document> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:description "root class for association or entity documents" ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Document> .
+
+<https://w3id.org/ontology_association/GoRelated> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:description "mixin for any association that is GO related" ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/GoRelated> .
+
+<https://w3id.org/ontology_association/Normalized> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:description "mixin for a normalized class, in the sense of database normal forms" ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Normalized> .
+
+<https://w3id.org/ontology_association/PropertyValuePair> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:property [ ns1:description "value" ;
+            ns1:maxCount 1 ;
+            ns1:order 1 ;
+            ns1:path <https://w3id.org/ontology_association/value> ],
+        [ ns1:class <https://w3id.org/ontology_association/ControlledTerm> ;
+            ns1:maxCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 0 ;
+            ns1:path <https://w3id.org/ontology_association/property> ] ;
+    ns1:targetClass <https://w3id.org/ontology_association/PropertyValuePair> .
+
+<https://w3id.org/ontology_association/RelationTerm> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/RelationTerm> .
+
+<https://w3id.org/ontology_association/RelationalConstruct> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/RelationalConstruct> .
+
+<https://w3id.org/ontology_association/XafAssociation> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:description "line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions. " ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:property [ ns1:maxCount 1 ;
+            ns1:order 9 ;
+            ns1:path <https://w3id.org/ontology_association/db_object_name> ],
+        [ ns1:description "date when annotation was made" ;
+            ns1:maxCount 1 ;
+            ns1:order 13 ;
+            ns1:path <https://w3id.org/ontology_association/annotation_date> ;
+            ns1:pattern "^\\d{6}" ],
+        [ ns1:class <https://w3id.org/ontology_association/Provider> ;
+            ns1:description "assigned by" ;
+            ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 14 ;
+            ns1:path <https://w3id.org/ontology_association/assigned_by> ],
+        [ ns1:description "varies by association type" ;
+            ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:order 8 ;
+            ns1:path <https://w3id.org/ontology_association/aspect> ],
+        [ ns1:class <https://w3id.org/ontology_association/Taxon> ;
+            ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 12 ;
+            ns1:path <https://w3id.org/ontology_association/db_object_taxon> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 11 ;
+            ns1:path <https://w3id.org/ontology_association/db_object_type> ],
+        [ ns1:description "db part of identifier" ;
+            ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:order 0 ;
+            ns1:path <https://w3id.org/ontology_association/db> ;
+            ns1:pattern "[a-zA-Z0-9\\.\\-\\_]+" ],
+        [ ns1:class <https://w3id.org/ontology_association/OntologyClass> ;
+            ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 4 ;
+            ns1:path <https://w3id.org/ontology_association/ontology_class_ref> ],
+        [ ns1:class <https://w3id.org/ontology_association/AnnotationExtension> ;
+            ns1:description "disjunction" ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 15 ;
+            ns1:path <https://w3id.org/ontology_association/annotation_extensions> ],
+        [ ns1:description "local part of identifier" ;
+            ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:order 1 ;
+            ns1:path <https://w3id.org/ontology_association/local_id> ;
+            ns1:pattern "\\S+" ],
+        [ ns1:order 3 ;
+            ns1:path <https://w3id.org/ontology_association/qualifiers> ],
+        [ ns1:class <https://w3id.org/ontology_association/OntologyClass> ;
+            ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 6 ;
+            ns1:path <https://w3id.org/ontology_association/evidence_type> ],
+        [ ns1:order 10 ;
+            ns1:path <https://w3id.org/ontology_association/db_object_synonyms> ],
+        [ ns1:class <https://w3id.org/ontology_association/BiologicalEntity> ;
+            ns1:description "isoform" ;
+            ns1:maxCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 16 ;
+            ns1:path <https://w3id.org/ontology_association/gene_product_form> ],
+        [ ns1:class <https://w3id.org/ontology_association/Entity> ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 7 ;
+            ns1:path <https://w3id.org/ontology_association/with_or_from> ],
+        [ ns1:class <https://w3id.org/ontology_association/Publication> ;
+            ns1:minCount 1 ;
+            ns1:nodeKind ns1:BlankNode ;
+            ns1:order 5 ;
+            ns1:path <https://w3id.org/ontology_association/supporting_references> ],
+        [ ns1:maxCount 1 ;
+            ns1:minCount 1 ;
+            ns1:order 2 ;
+            ns1:path <https://w3id.org/ontology_association/db_object_symbol> ] ;
+    ns1:targetClass <https://w3id.org/ontology_association/XafAssociation> .
+
+<https://w3id.org/ontology_association/AnnotationExtension> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:description "set of expressions all true" ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/AnnotationExtension> .
+
+<https://w3id.org/ontology_association/Association> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:description "generic association between an entity and an ontological term" ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Association> .
+
+<https://w3id.org/ontology_association/BiologicalEntity> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/BiologicalEntity> .
+
+<https://w3id.org/ontology_association/ControlledTerm> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/ControlledTerm> .
+
+<https://w3id.org/ontology_association/Entity> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Entity> .
+
+<https://w3id.org/ontology_association/Publication> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Publication> .
+
+<https://w3id.org/ontology_association/Taxon> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Taxon> .
+
+<https://w3id.org/ontology_association/OntologyClass> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/OntologyClass> .
+
+<https://w3id.org/ontology_association/Provider> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:targetClass <https://w3id.org/ontology_association/Provider> .
+

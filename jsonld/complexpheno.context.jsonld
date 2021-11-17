@@ -1,0 +1,74 @@
+{
+   "_comments": "Auto generated from complexpheno.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-11-16T14:25:49\n    Schema: complexpheno\n    \n    id: https://w3id.org/biodatamodels/ontology_association/complexpheno\n    description: EXPERIMENTAL complex phenotype model, denormalized\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "@context": {
+      "RO": {
+         "@id": "http://purl.obolibrary.org/obo/RO_",
+         "@prefix": true
+      },
+      "biolink": "https://w3id.org/biolink/vocab/",
+      "linkml": "https://w3id.org/linkml/",
+      "ontology_association": "https://w3id.org/ontology_association/",
+      "@vocab": "https://w3id.org/ontology_association/",
+      "annotation_date": {
+         "@type": "xsd:dateTime"
+      },
+      "annotation_extensions": {
+         "@type": "@id"
+      },
+      "annotation_properties": {
+         "@type": "@id"
+      },
+      "assigned_by": {
+         "@type": "@id"
+      },
+      "associations": {
+         "@type": "@id"
+      },
+      "db_object_ref": {
+         "@type": "@id"
+      },
+      "db_object_taxon": {
+         "@type": "@id"
+      },
+      "encoded_by": {
+         "@type": "@id"
+      },
+      "evidence_type": {
+         "@type": "@id"
+      },
+      "gene_product_form": {
+         "@type": "@id"
+      },
+      "gene_product_properties": {
+         "@type": "@id"
+      },
+      "generated_by": {
+         "@type": "@id"
+      },
+      "id": "@id",
+      "interacting_taxon_ref": {
+         "@type": "@id"
+      },
+      "negation": {
+         "@type": "xsd:boolean"
+      },
+      "ontology_class_ref": {
+         "@type": "@id"
+      },
+      "parent_protein": {
+         "@type": "@id"
+      },
+      "property": {
+         "@type": "@id"
+      },
+      "protein_containing_complex_members": {
+         "@type": "@id"
+      },
+      "supporting_references": {
+         "@type": "@id"
+      },
+      "with_or_from": {
+         "@type": "@id"
+      }
+   }
+}

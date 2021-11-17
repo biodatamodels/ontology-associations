@@ -13,12 +13,12 @@ SHELL := bash
 
 SRC_DIR = src
 SCHEMA_DIR = $(SRC_DIR)/schema
-SCHEMAS = all complexpheno signor pombase hpoa gpad gaf
+SCHEMAS = all complexpheno signor pombase hpoa gpad gaf gpi
 
-all: all-schemas all-docs
+all: all-schemas all-docs markdown
 
 all-schemas: $(patsubst %, gen-%, $(SCHEMAS))
-all-docs: $(patsubst %, md-%, $(SCHEMAS))
+all-docs: $(patsubst %, md-%, $(SCHEMAS)) markdown
 
 gen-%: $(SCHEMA_DIR)/%.yaml
 	gen-project $< -d .
@@ -29,8 +29,11 @@ markdown:
 	cp src/docs/*md docs/
 	cp docs/all.md docs/index.md
 
+copy-python:
+	cp python/*py ontology_association/datamodel/
+
 deploy-docs:
-	mkdocs gh-deploy
+	wc docs/index.md && mkdocs gh-deploy
 
 test.db:
 	cat sql/gaf.ddl.sql | sqlite3 test.db

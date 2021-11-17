@@ -12,7 +12,11 @@ PREFIX linkml: <https://w3id.org/linkml/>
 
 <PMIDIdentifier> xsd:string
 
-<HPOIdentifier> xsd:string
+<HPOPhenotypeIdentifier> xsd:string
+
+<NCITIdentifier> xsd:string
+
+<ECTOIdentifier> xsd:string
 
 <https://w3id.org/mitabIdentifier> xsd:string
 
@@ -110,7 +114,7 @@ linkml:Nodeidentifier NONLITERAL
           ) ;
           rdf:type [ <AssociationDocument> ] ?
        )
-    } OR @<ComplexDiseasePhenotypeOntologyAssociationDocument> OR @<GafAssociationDocument> OR @<GpadAssociationDocument> OR
+    } OR @<ComplexDiseaseAssociationDocument> OR @<GafAssociationDocument> OR @<GpadAssociationDocument> OR
     @<HumanPhenotypeOntologyAssociationDocument> OR @<PombasePhafAssociationDocument>
 )
 
@@ -136,31 +140,70 @@ linkml:Nodeidentifier NONLITERAL
     )
 }
 
-<ComplexDiseasePhenotypeOntologyAssociation> CLOSED {
-    (  $<ComplexDiseasePhenotypeOntologyAssociation_tes> (  <disease_id> @<MONDOIdentifier> ? ;
-          <disease_name> @linkml:String ? ;
-          <relation> @<ComplexDiseaseRelation> ;
-          <term_id> @<PhenotypeIdentifier> ? ;
-          <term_label> @linkml:String ? ;
-          <qualifier> @linkml:String ? ;
-          <frequency> @linkml:String ? ;
-          <sex> @linkml:String ? ;
-          <time_course> @linkml:String ? ;
-          <modifier> @linkml:String ? ;
-          <evidence> @linkml:String ? ;
-          <citation> @<PMIDIdentifier> ? ;
-          <biocuration> @<HPOIdentifier> ?
+<ComplexDiseaseAssociation>  (
+    CLOSED {
+       (  $<ComplexDiseaseAssociation_tes> (  <disease_id> @<MONDOIdentifier> ? ;
+             <disease_name> @linkml:String ? ;
+             <relation> @<ComplexDiseaseRelation> ;
+             <term_id> @<IdentifierType> ? ;
+             <term_label> @linkml:String ? ;
+             <qualifier> @linkml:String ? ;
+             <frequency> @linkml:String ? ;
+             <sex> @linkml:String ? ;
+             <time_course> @linkml:String ? ;
+             <modifier> @linkml:String * ;
+             <evidence> @linkml:String ? ;
+             <citation> @<PMIDIdentifier> ? ;
+             <biocuration> @linkml:String *
+          ) ;
+          rdf:type [ <ComplexDiseaseAssociation> ] ?
+       )
+    } OR @<ComplexDiseaseDiseaseRiskAssociation> OR @<ComplexDiseaseExposureRiskAssociation> OR
+    @<ComplexDiseasePhenotypeAssociation> OR @<ComplexDiseasePhenotypeRiskAssociation>
+)
+
+<ComplexDiseaseAssociationDocument> CLOSED {
+    (  $<ComplexDiseaseAssociationDocument_tes> (  &<AssociationDocument_tes> ;
+          rdf:type [ <AssociationDocument> ] ? ;
+          <associations> @<ComplexDiseaseAssociation> *
        ) ;
-       rdf:type [ <ComplexDiseasePhenotypeOntologyAssociation> ] ?
+       rdf:type [ <ComplexDiseaseAssociationDocument> ] ?
     )
 }
 
-<ComplexDiseasePhenotypeOntologyAssociationDocument> CLOSED {
-    (  $<ComplexDiseasePhenotypeOntologyAssociationDocument_tes> (  &<AssociationDocument_tes> ;
-          rdf:type [ <AssociationDocument> ] ? ;
-          <associations> @<ComplexDiseasePhenotypeOntologyAssociation> *
+<ComplexDiseaseDiseaseRiskAssociation> CLOSED {
+    (  $<ComplexDiseaseDiseaseRiskAssociation_tes> (  &<ComplexDiseaseAssociation_tes> ;
+          rdf:type [ <ComplexDiseaseAssociation> ] ? ;
+          <relation> @<ComplexDiseaseRelation>
        ) ;
-       rdf:type [ <ComplexDiseasePhenotypeOntologyAssociationDocument> ] ?
+       rdf:type [ <ComplexDiseaseDiseaseRiskAssociation> ] ?
+    )
+}
+
+<ComplexDiseaseExposureRiskAssociation> CLOSED {
+    (  $<ComplexDiseaseExposureRiskAssociation_tes> (  &<ComplexDiseaseAssociation_tes> ;
+          rdf:type [ <ComplexDiseaseAssociation> ] ? ;
+          <relation> @<ComplexDiseaseRelation>
+       ) ;
+       rdf:type [ <ComplexDiseaseExposureRiskAssociation> ] ?
+    )
+}
+
+<ComplexDiseasePhenotypeAssociation> CLOSED {
+    (  $<ComplexDiseasePhenotypeAssociation_tes> (  &<ComplexDiseaseAssociation_tes> ;
+          rdf:type [ <ComplexDiseaseAssociation> ] ? ;
+          <relation> @<ComplexDiseaseRelation>
+       ) ;
+       rdf:type [ <ComplexDiseasePhenotypeAssociation> ] ?
+    )
+}
+
+<ComplexDiseasePhenotypeRiskAssociation> CLOSED {
+    (  $<ComplexDiseasePhenotypeRiskAssociation_tes> (  &<ComplexDiseaseAssociation_tes> ;
+          rdf:type [ <ComplexDiseaseAssociation> ] ? ;
+          <relation> @<ComplexDiseaseRelation>
+       ) ;
+       rdf:type [ <ComplexDiseasePhenotypeRiskAssociation> ] ?
     )
 }
 

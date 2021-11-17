@@ -1,0 +1,104 @@
+@prefix ns1: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/exampleExample> a ns1:NodeShape ;
+    ns1:closed true ;
+    ns1:ignoredProperties ( rdf:type ) ;
+    ns1:property [ ns1:maxCount 1 ;
+            ns1:order 4 ;
+            ns1:path <https://w3id.org/exampleENTITYB> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 24 ;
+            ns1:path <https://w3id.org/exampleANNOTATOR> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 21 ;
+            ns1:path <https://w3id.org/examplePMID> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 0 ;
+            ns1:path <https://w3id.org/exampleENTITYA> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 13 ;
+            ns1:path <https://w3id.org/exampleCELL_DATA> ],
+        [ ns1:in ( "sAEVIHQV;VQGAGTSyRNVLQAA" "TYVDPHTyEDPNQAV" "PSSDSLSsPTLLAL;AAAHRKGsSSNEPSS" "KVSSTHYyLLPERPP" "QPLSKSSsSPELQTL" "GETRFTDtRKDEQER" "PQHVRAHsSPASLQL" "RAGETRFtDTRKDEQ" "FTSTEPQyQPGENL" "TSVYESPySDPEELK" "EANSRCQtPIKMKPN" "SVSETDDyAEIIDEE" "HIIENPQyFSDACVH" "ASHLGLArSNLDEDI" "PSHDRSRtVSASSTG" "GFPSKTDsPSCEYSR;GSLCSVFsPSFVQWE;GADSDVEtPSNFGKY" "PPPGSLEyLCLPAGG" "ESENSGDsGYPSEKR;SGDSGYPsEKRGELD" "RPHFPQFsYSASGTA" "LLPTPPLsPSRRSGL" "HDHTGFLtEYVATRW" "ANLRKLNsRLFVIRG" "T-->E" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 20 ;
+            ns1:path <https://w3id.org/exampleMODBSEQ> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 19 ;
+            ns1:path <https://w3id.org/exampleMODIFICATIONB> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 14 ;
+            ns1:path <https://w3id.org/exampleTISSUE_DATA> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 10 ;
+            ns1:path <https://w3id.org/exampleRESIDUE> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 26 ;
+            ns1:path <https://w3id.org/exampleSCORE> ],
+        [ ns1:order 25 ;
+            ns1:path <https://w3id.org/exampleSENTENCE> ],
+        [ ns1:in ( "unknown" "up-regulates activity" "up-regulates quantity" "down-regulates" "down-regulates quantity by repression" "up-regulates quantity by stabilization" "down-regulates quantity" "down-regulates quantity by destabilization" "up-regulates quantity by expression" "up-regulates" "form complex" "down-regulates activity" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 8 ;
+            ns1:path <https://w3id.org/exampleEFFECT> ],
+        [ ns1:in ( "SIGNOR" "DRUGBANK" "miRBase" "UNIPROT" "PUBCHEM" "ChEBI" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 3 ;
+            ns1:path <https://w3id.org/exampleDATABASEA> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 27 ;
+            ns1:path <https://w3id.org/exampleSIGNOR_ID> ],
+        [ ns1:in ( "stimulus" "complex" "phenotype" "fusion protein" "protein" "chemical" "mirna" "proteinfamily" "smallmolecule" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 5 ;
+            ns1:path <https://w3id.org/exampleTYPEB> ],
+        [ ns1:in ( "SIGNOR" "miRBase" "UNIPROT" "PUBCHEM" "ChEBI" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 7 ;
+            ns1:path <https://w3id.org/exampleDATABASEB> ],
+        [ ns1:in ( "NO" "UNK" "YES" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 22 ;
+            ns1:path <https://w3id.org/exampleDIRECT> ],
+        [ ns1:in ( "SIGNOR-C301" "SIGNOR-C3" "SIGNOR-C8" "SIGNOR-C16" "SIGNOR-C135" "SIGNOR-C306" "SIGNOR-C7" "SIGNOR-C14" "SIGNOR-C303" "SIGNOR-C85" "SIGNOR-C17" "SIGNOR-C305" "SIGNOR-C297" "SIGNOR-C29" "SIGNOR-C298" "SIGNOR-C60" "SIGNOR-C5" "SIGNOR-C21" "SIGNOR-C54" "SIGNOR-C13" "SIGNOR-C15" "SIGNOR-C300" "SIGNOR-C136" "SIGNOR-C110" "SIGNOR-C6" "SIGNOR-C2" "SIGNOR-C18" "SIGNOR-C319" "SIGNOR-C83" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 15 ;
+            ns1:path <https://w3id.org/exampleMODULATOR_COMPLEX> ],
+        [ ns1:in ( "antibody" "stimulus" "complex" "phenotype" "fusion protein" "protein" "chemical" "mirna" "proteinfamily" "smallmolecule" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 1 ;
+            ns1:path <https://w3id.org/exampleTYPEA> ],
+        [ ns1:in ( "SIGNOR-C3" "SIGNOR-C106" "SIGNOR-C8" "SIGNOR-C89" "SIGNOR-C16" "SIGNOR-C129" "SIGNOR-C306" "SIGNOR-C7" "SIGNOR-C14" "SIGNOR-C302" "SIGNOR-C50" "SIGNOR-C85" "SIGNOR-C17" "SIGNOR-C305" "SIGNOR-C29" "SIGNOR-C242" "SIGNOR-C295" "SIGNOR-C9" "SIGNOR-C98" "SIGNOR-C21" "SIGNOR-C308" "SIGNOR-C263" "SIGNOR-C30" "SIGNOR-C92" "SIGNOR-C123" "SIGNOR-C77" "SIGNOR-C13" "SIGNOR-C15" "SIGNOR-C110" "SIGNOR-C6" "SIGNOR-C154" "SIGNOR-C2" "SIGNOR-C88" "SIGNOR-C68" "SIGNOR-C12" "SIGNOR-C18" "SIGNOR-C125" "SIGNOR-C128" "SIGNOR-C167" "SIGNOR-C127" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 16 ;
+            ns1:path <https://w3id.org/exampleTARGET_COMPLEX> ],
+        [ ns1:in ( "GGAKRHRkVLRDNIQ" "SGRPRTTsFAESCKP" "GPGEQQKrKIVLDPS" "VDFREYEyDLKWEFP" "KDRDGYEsSYRRRTL" "KGQKYFDsGDYNMAK" "T-->L" "ELPTRVSsPVFGATS" "LPTPTKMtPRSRILV" "SFDERQPyAHMNGGR" "KGQAGLQrALEILQE;TPLQLFEgRRNRRRR" "SAAQLAStPFHKLPV" "SPSVRCSsMS;SVRCSSMs" "SDSPREQdSESQTLD" "NMMDILTtPSMAKPR;PRQDYSRtPGQVLSL" "IFGATDYtSSIDVWS" "EENMTETdAFYKREM" "GGAKRHRkVLRDNIQ;GLGKGGAkRHRKVLR" "DDYHNPGyLVVLPDS;SMESIDDyVNVPESG" "ASHLGLArSNLDEDI" "EEEGAPDyENLQELN;SLDGSREyVNVSQEL" "IHGSESMdSGISLDN" "SPGCEESdAGKEKLP" "SGPINDTdANPRYKI" "HKDMQLGrLHMKTLL;KEILRPRrTLQKKIE" "CTTKTSTrIVGGTNS" "HKDMQLGrLHMKTLL" "TRKLMEFsEHCAIIL" "KTKESLGrKIQIQRS" "DTNITEVdAASVYTL" "SESTNHIySNLANCS" "MLEERKTyVNTTLYE" "QPAARRRrSVQLTEK;ASHLGLArSNLDEDI" "KSKGRASsSGNQESS" "CLHNFLTdGVPAEGA" "kGGKGLGK;SGRGKGGkGLGKGGA" "PAPQAVQdNPAMPTS" "VAKVDDPkLANSEFL" "GMISLMKrPPGFSPF;PPGFSPFrSSRIGEI" "DHAEAALyKNLLHSK" "AQQDGKDyIVLPISE" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 18 ;
+            ns1:path <https://w3id.org/exampleMODASEQ> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 11 ;
+            ns1:path <https://w3id.org/exampleSEQUENCE> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 2 ;
+            ns1:path <https://w3id.org/exampleIDA> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 6 ;
+            ns1:path <https://w3id.org/exampleIDB> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 23 ;
+            ns1:path <https://w3id.org/exampleNOTES> ],
+        [ ns1:in ( "chemical inhibition" "guanine nucleotide exchange factor" "deubiquitination" "catalytic activity" "acetylation" "neddylation" "gtpase-activating protein" "glycosylation" "binding" "transcriptional regulation" "relocalization" "post translational modification" "cleavage" "isomerization" "methylation" "oxidation" "ubiquitination" "post transcriptional regulation" "dephosphorylation" "small molecule catalysis" "phosphorylation" "s-nitrosylation" "ADP-ribosylation" "chemical activation" "deacetylation" "demethylation" "sumoylation" "lipidation" "translation regulation" "desumoylation" "tyrosination" "palmitoylation" "hydroxylation" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 9 ;
+            ns1:path <https://w3id.org/exampleMECHANISM> ],
+        [ ns1:maxCount 1 ;
+            ns1:order 17 ;
+            ns1:path <https://w3id.org/exampleMODIFICATIONA> ],
+        [ ns1:in ( "10030" "9543" "8355" "10090" "9600" "9615" "7227" "9031" "6239" "9606" "9825" "99606" "93934" "10036" "9913" "4932" "960" "-1" "452646" "10029" "9006" "9935" "9608" "1792" "9823" "10116" "9609" "9534" "9060" ) ;
+            ns1:maxCount 1 ;
+            ns1:order 12 ;
+            ns1:path <https://w3id.org/exampleTAX_ID> ] ;
+    ns1:targetClass <https://w3id.org/exampleExample> .
+

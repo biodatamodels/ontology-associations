@@ -1,0 +1,4367 @@
+{
+  "name": "ontology_associations",
+  "description": "Various association data models",
+  "id": "https://w3id.org/ontology_association/all",
+  "imports": [
+    "hpoa",
+    "complexpheno",
+    "gaf",
+    "gpi",
+    "mitab",
+    "pombase",
+    "association",
+    "linkml:types"
+  ],
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "prefixes": [
+    {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    {
+      "prefix_prefix": "ontology_association",
+      "prefix_reference": "https://w3id.org/ontology_association/"
+    }
+  ],
+  "default_prefix": "ontology_association",
+  "default_range": "string",
+  "types": [
+    {
+      "name": "identifier_type",
+      "definition_uri": "https://w3id.org/ontology_association/IdentifierType",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "typeof": "string",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "MONDO_identifier",
+      "definition_uri": "https://w3id.org/ontology_association/MONDOIdentifier",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "typeof": "identifier_type",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "phenotype_identifier",
+      "definition_uri": "https://w3id.org/ontology_association/PhenotypeIdentifier",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "typeof": "identifier_type",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "PMID_identifier",
+      "definition_uri": "https://w3id.org/ontology_association/PMIDIdentifier",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "typeof": "identifier_type",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "pattern": "^PMID:\\d+$",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "HPO_phenotype_identifier",
+      "definition_uri": "https://w3id.org/ontology_association/HPOPhenotypeIdentifier",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "typeof": "phenotype_identifier",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "pattern": "^HP:\\d{7}$",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "NCIT_identifier",
+      "definition_uri": "https://w3id.org/ontology_association/NCITIdentifier",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "typeof": "identifier_type",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "pattern": "^NCIT:\\d{7}$",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "ECTO_identifier",
+      "definition_uri": "https://w3id.org/ontology_association/ECTOIdentifier",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "typeof": "identifier_type",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "pattern": "^ECTO:\\d{7}$",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "identifier",
+      "definition_uri": "https://w3id.org/mitabIdentifier",
+      "from_schema": "https://w3id.org/mitab",
+      "typeof": "string",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "psi_mi_identifier",
+      "definition_uri": "https://w3id.org/mitabPsi-miIdentifier",
+      "from_schema": "https://w3id.org/mitab",
+      "typeof": "string",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "taxid_identifier",
+      "definition_uri": "https://w3id.org/mitabTaxidIdentifier",
+      "from_schema": "https://w3id.org/mitab",
+      "typeof": "string",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "intact_miscore_identifier",
+      "definition_uri": "https://w3id.org/mitabIntact-miscoreIdentifier",
+      "from_schema": "https://w3id.org/mitab",
+      "typeof": "string",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "rogid_identifier",
+      "definition_uri": "https://w3id.org/mitabRogidIdentifier",
+      "from_schema": "https://w3id.org/mitab",
+      "typeof": "string",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "FYPO_identifier",
+      "definition_uri": "https://w3id.org/ontology_association/FYPOIdentifier",
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "typeof": "string",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "PECO_identifier",
+      "definition_uri": "https://w3id.org/ontology_association/PECOIdentifier",
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "typeof": "string",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "FYPO_EXT_identifier",
+      "definition_uri": "https://w3id.org/ontology_association/FYPOEXTIdentifier",
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "typeof": "string",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "curie",
+      "definition_uri": "https://w3id.org/ontology_association/Curie",
+      "from_schema": "https://w3id.org/ontology_association",
+      "typeof": "string",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "symbol_type",
+      "definition_uri": "https://w3id.org/ontology_association/SymbolType",
+      "from_schema": "https://w3id.org/ontology_association",
+      "typeof": "string",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "name_type",
+      "definition_uri": "https://w3id.org/ontology_association/NameType",
+      "from_schema": "https://w3id.org/ontology_association",
+      "typeof": "string",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "string",
+      "definition_uri": "https://w3id.org/linkml/String",
+      "description": "A character string",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "integer",
+      "definition_uri": "https://w3id.org/linkml/Integer",
+      "description": "An integer",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "int",
+      "uri": "http://www.w3.org/2001/XMLSchema#integer",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "boolean",
+      "definition_uri": "https://w3id.org/linkml/Boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Bool",
+      "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "float",
+      "definition_uri": "https://w3id.org/linkml/Float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#float",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "double",
+      "definition_uri": "https://w3id.org/linkml/Double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/linkml/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "time",
+      "definition_uri": "https://w3id.org/linkml/Time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date",
+      "definition_uri": "https://w3id.org/linkml/Date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDDate",
+      "uri": "http://www.w3.org/2001/XMLSchema#date",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "datetime",
+      "definition_uri": "https://w3id.org/linkml/Datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDDateTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uriorcurie",
+      "definition_uri": "https://w3id.org/linkml/Uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URIorCURIE",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uri",
+      "definition_uri": "https://w3id.org/linkml/Uri",
+      "description": "a complete URI",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URI",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "ncname",
+      "definition_uri": "https://w3id.org/linkml/Ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NCName",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "objectidentifier",
+      "definition_uri": "https://w3id.org/linkml/Objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "ElementIdentifier",
+      "uri": "http://www.w3.org/ns/shex#iri",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "nodeidentifier",
+      "definition_uri": "https://w3id.org/linkml/Nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NodeIdentifier",
+      "uri": "http://www.w3.org/ns/shex#nonLiteral",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    }
+  ],
+  "enums": [
+    {
+      "name": "ComplexDiseaseRelation",
+      "definition_uri": "https://w3id.org/ontology_association/ComplexDiseaseRelation",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "permissible_values": [
+        {
+          "text": "risk_increased_by_disease"
+        },
+        {
+          "text": "risk_increased_by_exposure"
+        },
+        {
+          "text": "risk_increased_by_phenotype"
+        },
+        {
+          "text": "has_phenotype",
+          "meaning": "RO:0002200"
+        }
+      ]
+    },
+    {
+      "name": "gene_ontology_aspect_enum",
+      "definition_uri": "https://w3id.org/ontology_association/GeneOntologyAspectEnum",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "permissible_values": [
+        {
+          "text": "F",
+          "description": "molecular_function",
+          "meaning": "GO:0003674"
+        },
+        {
+          "text": "P",
+          "description": "biological_process",
+          "meaning": "GO:0008150"
+        },
+        {
+          "text": "C",
+          "description": "cellular_component",
+          "meaning": "GO:0005575"
+        }
+      ]
+    },
+    {
+      "name": "gp_entity_type_enum",
+      "definition_uri": "https://w3id.org/ontology_association/GpEntityTypeEnum",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "permissible_values": [
+        {
+          "text": "protein_coding_gene",
+          "meaning": "SO:0001217"
+        },
+        {
+          "text": "ncRNA_gene",
+          "meaning": "SO:0001263"
+        },
+        {
+          "text": "mRNA",
+          "meaning": "SO:0000234"
+        },
+        {
+          "text": "ncRNA",
+          "meaning": "SO:0000655"
+        },
+        {
+          "text": "protein",
+          "meaning": "PR:000000001"
+        },
+        {
+          "text": "protein-containing complex",
+          "meaning": "GO:0032991"
+        },
+        {
+          "text": "genetic_marker",
+          "meaning": "SO:0001645"
+        }
+      ]
+    },
+    {
+      "name": "gp2term_relation_enum",
+      "definition_uri": "https://w3id.org/ontology_association/Gp2termRelationEnum",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "permissible_values": [
+        {
+          "text": "NOT",
+          "meaning": "owl:complementOf"
+        },
+        {
+          "text": "enables",
+          "meaning": "RO:0002327"
+        },
+        {
+          "text": "involved_in",
+          "meaning": "RO:0002331"
+        },
+        {
+          "text": "located_in",
+          "meaning": "RO:0001025"
+        },
+        {
+          "text": "contributes_to",
+          "meaning": "RO:0002326"
+        },
+        {
+          "text": "acts_upstream_of",
+          "meaning": "RO:0002263"
+        },
+        {
+          "text": "part_of",
+          "meaning": "BFO:0000050"
+        },
+        {
+          "text": "acts_upstream_of_positive_effect",
+          "meaning": "RO:0004034"
+        },
+        {
+          "text": "is_active_in",
+          "meaning": "RO:0002432"
+        },
+        {
+          "text": "acts_upstream_of_negative_effect",
+          "meaning": "RO:0004035"
+        },
+        {
+          "text": "colocalizes_with",
+          "meaning": "RO:0002325"
+        },
+        {
+          "text": "acts_upstream_of_or_within",
+          "meaning": "RO:0002264"
+        },
+        {
+          "text": "acts_upstream_of_or_within_positive_effect",
+          "meaning": "RO:0004032"
+        },
+        {
+          "text": "acts_upstream_of_or_within_negative_effect",
+          "meaning": "RO:0004033"
+        }
+      ]
+    },
+    {
+      "name": "simple_qualifier_enum",
+      "definition_uri": "https://w3id.org/ontology_association/SimpleQualifierEnum",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "permissible_values": [
+        {
+          "text": "NOT",
+          "meaning": "owl:complementOf"
+        },
+        {
+          "text": "contributes_to",
+          "meaning": "RO:0002326"
+        }
+      ]
+    },
+    {
+      "name": "Interaction_detection_method_enum",
+      "definition_uri": "https://w3id.org/mitabInteractionDetectionMethodEnum",
+      "from_schema": "https://w3id.org/mitab",
+      "permissible_values": [
+        {
+          "text": "psi-mi:\"MI:0107\"(surface plasmon resonance)",
+          "description": "surface plasmon resonance",
+          "meaning": "MI:0107"
+        },
+        {
+          "text": "psi-mi:\"MI:0410\"(3D electron microscopy)",
+          "description": "3D electron microscopy",
+          "meaning": "MI:0410"
+        },
+        {
+          "text": "psi-mi:\"MI:0096\"(pull down)",
+          "description": "pull down",
+          "meaning": "MI:0096"
+        },
+        {
+          "text": "psi-mi:\"MI:0007\"(anti tag coimmunoprecipitation)",
+          "description": "anti tag coimmunoprecipitation",
+          "meaning": "MI:0007"
+        },
+        {
+          "text": "psi-mi:\"MI:0006\"(anti bait coimmunoprecipitation)",
+          "description": "anti bait coimmunoprecipitation",
+          "meaning": "MI:0006"
+        },
+        {
+          "text": "psi-mi:\"MI:0424\"(protein kinase assay)",
+          "description": "psi-mi:\"MI:0424\"(protein kinase assay)",
+          "meaning": "MI:0424"
+        },
+        {
+          "text": "psi-mi:\"MI:0676\"(tandem affinity purification)",
+          "description": "tandem affinity purification",
+          "meaning": "MI:0676"
+        },
+        {
+          "text": "psi-mi:\"MI:0114\"(x-ray crystallography)",
+          "description": "x-ray crystallography",
+          "meaning": "MI:0114"
+        }
+      ]
+    },
+    {
+      "name": "Interaction_type_enum",
+      "definition_uri": "https://w3id.org/mitabInteractionTypeEnum",
+      "from_schema": "https://w3id.org/mitab",
+      "permissible_values": [
+        {
+          "text": "psi-mi:\"MI:0915\"(physical association)",
+          "description": "psi-mi:\"MI:0915\"(physical association)",
+          "meaning": "MI:0915"
+        },
+        {
+          "text": "psi-mi:\"MI:0407\"(direct interaction)",
+          "description": "psi-mi:\"MI:0407\"(direct interaction)",
+          "meaning": "MI:0407"
+        },
+        {
+          "text": "psi-mi:\"MI:0217\"(phosphorylation reaction)",
+          "description": "psi-mi:\"MI:0217\"(phosphorylation reaction)",
+          "meaning": "MI:0217"
+        },
+        {
+          "text": "psi-mi:\"MI:0914\"(association)",
+          "description": "psi-mi:\"MI:0914\"(association)",
+          "meaning": "MI:0914"
+        }
+      ]
+    },
+    {
+      "name": "Expansion_method_enum",
+      "definition_uri": "https://w3id.org/mitabExpansionMethodEnum",
+      "from_schema": "https://w3id.org/mitab",
+      "permissible_values": [
+        {
+          "text": "-",
+          "description": "-"
+        },
+        {
+          "text": "psi-mi:\"MI:1060\"(spoke expansion)",
+          "description": "psi-mi:\"MI:1060\"(spoke expansion)",
+          "meaning": "MI:1060"
+        }
+      ]
+    },
+    {
+      "name": "Biological_role_interactor_enum",
+      "definition_uri": "https://w3id.org/mitabBiologicalRoleInteractorEnum",
+      "from_schema": "https://w3id.org/mitab",
+      "permissible_values": [
+        {
+          "text": "psi-mi:\"MI:0499\"(unspecified role)",
+          "description": "psi-mi:\"MI:0499\"(unspecified role)"
+        },
+        {
+          "text": "psi-mi:\"MI:0502\"(enzyme target)",
+          "description": "psi-mi:\"MI:0502\"(enzyme target)"
+        },
+        {
+          "text": "psi-mi:\"MI:0501\"(enzyme)",
+          "description": "psi-mi:\"MI:0501\"(enzyme)"
+        }
+      ]
+    },
+    {
+      "name": "Experimental_role_interactor_enum",
+      "definition_uri": "https://w3id.org/mitabExperimentalRoleInteractorEnum",
+      "from_schema": "https://w3id.org/mitab",
+      "permissible_values": [
+        {
+          "text": "psi-mi:\"MI:0498\"(prey)",
+          "description": "psi-mi:\"MI:0498\"(prey)"
+        },
+        {
+          "text": "psi-mi:\"MI:0497\"(neutral component)",
+          "description": "psi-mi:\"MI:0497\"(neutral component)"
+        },
+        {
+          "text": "psi-mi:\"MI:0496\"(bait)",
+          "description": "psi-mi:\"MI:0496\"(bait)"
+        }
+      ]
+    },
+    {
+      "name": "Interaction_Xref_enum",
+      "definition_uri": "https://w3id.org/mitabInteractionXrefEnum",
+      "from_schema": "https://w3id.org/mitab",
+      "permissible_values": [
+        {
+          "text": "-",
+          "description": "-"
+        },
+        {
+          "text": "go:\"GO:0006468\"(protein phosphorylation)",
+          "description": "go:\"GO:0006468\"(protein phosphorylation)"
+        },
+        {
+          "text": "psi-mi:\"MI:0465\"(dip)",
+          "description": "psi-mi:\"MI:0465\"(dip)"
+        },
+        {
+          "text": "go:\"GO:0004672\"(protein kinase activity)",
+          "description": "go:\"GO:0004672\"(protein kinase activity)"
+        }
+      ]
+    },
+    {
+      "name": "Negative_enum",
+      "definition_uri": "https://w3id.org/mitabNegativeEnum",
+      "from_schema": "https://w3id.org/mitab",
+      "permissible_values": [
+        {
+          "text": "false",
+          "description": "false"
+        }
+      ]
+    },
+    {
+      "name": "Stoichiometry_interactor_enum",
+      "definition_uri": "https://w3id.org/mitabStoichiometryInteractorEnum",
+      "from_schema": "https://w3id.org/mitab",
+      "permissible_values": [
+        {
+          "text": "-",
+          "description": "-"
+        },
+        {
+          "text": "1",
+          "description": "1"
+        }
+      ]
+    },
+    {
+      "name": "Biological_Effect_interactor_enum",
+      "definition_uri": "https://w3id.org/mitabBiologicalEffectInteractorEnum",
+      "from_schema": "https://w3id.org/mitab",
+      "permissible_values": [
+        {
+          "text": "-",
+          "description": "-"
+        }
+      ]
+    },
+    {
+      "name": "Causal_Regulatory_Mechanism_enum",
+      "definition_uri": "https://w3id.org/mitabCausalRegulatoryMechanismEnum",
+      "from_schema": "https://w3id.org/mitab",
+      "permissible_values": [
+        {
+          "text": "psi-mi:\"MI:2246\"(indirect causal regulation)",
+          "description": "psi-mi:\"MI:2246\"(indirect causal regulation)"
+        },
+        {
+          "text": "psi-mi:\"MI:2249\"(post transcriptional regulation)",
+          "description": "psi-mi:\"MI:2249\"(post transcriptional regulation)"
+        },
+        {
+          "text": "psi-mi:\"MI:2248\"(translation regulation)",
+          "description": "psi-mi:\"MI:2248\"(translation regulation)"
+        },
+        {
+          "text": "-",
+          "description": "-"
+        },
+        {
+          "text": "psi-mi:\"MI:2247\"(transcriptional regulation)",
+          "description": "psi-mi:\"MI:2247\"(transcriptional regulation)"
+        }
+      ]
+    },
+    {
+      "name": "Database_name_enum",
+      "definition_uri": "https://w3id.org/ontology_association/DatabaseNameEnum",
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "permissible_values": [
+        {
+          "text": "PomBase",
+          "description": "PomBase"
+        }
+      ]
+    },
+    {
+      "name": "Expression_enum",
+      "definition_uri": "https://w3id.org/ontology_association/ExpressionEnum",
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "permissible_values": [
+        {
+          "text": "Wild type product level",
+          "description": "Wild type product level"
+        },
+        {
+          "text": "Not assayed",
+          "description": "Not assayed"
+        },
+        {
+          "text": "Null",
+          "description": "Null"
+        },
+        {
+          "text": "Endogenous",
+          "description": "Endogenous"
+        },
+        {
+          "text": "Knockdown",
+          "description": "Knockdown"
+        },
+        {
+          "text": "Overexpression",
+          "description": "Overexpression"
+        }
+      ]
+    },
+    {
+      "name": "Allele_type_enum",
+      "definition_uri": "https://w3id.org/ontology_association/AlleleTypeEnum",
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "permissible_values": [
+        {
+          "text": "deletion",
+          "description": "deletion"
+        },
+        {
+          "text": "nucleotide_mutation",
+          "description": "nucleotide_mutation"
+        },
+        {
+          "text": "amino_acid_insertion",
+          "description": "amino_acid_insertion"
+        },
+        {
+          "text": "other",
+          "description": "other"
+        },
+        {
+          "text": "partial_amino_acid_deletion",
+          "description": "partial_amino_acid_deletion"
+        },
+        {
+          "text": "nonsense_mutation",
+          "description": "nonsense_mutation"
+        },
+        {
+          "text": "partial_nucleotide_deletion",
+          "description": "partial_nucleotide_deletion"
+        },
+        {
+          "text": "amino_acid_deletion_and_mutation",
+          "description": "amino_acid_deletion_and_mutation"
+        },
+        {
+          "text": "wild_type",
+          "description": "wild_type"
+        },
+        {
+          "text": "amino_acid_insertion_and_mutation",
+          "description": "amino_acid_insertion_and_mutation"
+        },
+        {
+          "text": "amino_acid_mutation",
+          "description": "amino_acid_mutation"
+        },
+        {
+          "text": "unrecorded",
+          "description": "unrecorded"
+        },
+        {
+          "text": "nucleotide_insertion",
+          "description": "nucleotide_insertion"
+        },
+        {
+          "text": "unknown",
+          "description": "unknown"
+        },
+        {
+          "text": "disruption",
+          "description": "disruption"
+        }
+      ]
+    },
+    {
+      "name": "Evidence_enum",
+      "definition_uri": "https://w3id.org/ontology_association/EvidenceEnum",
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "permissible_values": [
+        {
+          "text": "Particle size and count assay",
+          "description": "Particle size and count assay"
+        },
+        {
+          "text": "gel electrophoresis evidence",
+          "description": "gel electrophoresis evidence"
+        },
+        {
+          "text": "Flow cytometry data",
+          "description": "Flow cytometry data"
+        },
+        {
+          "text": "Chromatin immunoprecipitation experiment",
+          "description": "Chromatin immunoprecipitation experiment"
+        },
+        {
+          "text": "quantitative PCR",
+          "description": "quantitative PCR"
+        },
+        {
+          "text": "Microscopy",
+          "description": "Microscopy"
+        },
+        {
+          "text": "Electrophoretic mobility shift assay data",
+          "description": "Electrophoretic mobility shift assay data"
+        },
+        {
+          "text": "Epitope-tagged protein immunolocalization experiment data",
+          "description": "Epitope-tagged protein immunolocalization experiment data"
+        },
+        {
+          "text": "Enzyme assay data",
+          "description": "Enzyme assay data"
+        },
+        {
+          "text": "sodium dodecyl sulfate polyacrylamide gel electrophoresis evidence",
+          "description": "sodium dodecyl sulfate polyacrylamide gel electrophoresis evidence"
+        },
+        {
+          "text": "microscopy evidence used in manual assertion",
+          "description": "microscopy evidence used in manual assertion"
+        },
+        {
+          "text": "Co-immunoprecipitation experiment",
+          "description": "Co-immunoprecipitation experiment"
+        },
+        {
+          "text": "Plasmid maintenance assay evidence",
+          "description": "Plasmid maintenance assay evidence"
+        },
+        {
+          "text": "reporter gene assay evidence",
+          "description": "reporter gene assay evidence"
+        },
+        {
+          "text": "experimental phenotypic evidence",
+          "description": "experimental phenotypic evidence"
+        },
+        {
+          "text": "transcript expression level evidence",
+          "description": "transcript expression level evidence"
+        },
+        {
+          "text": "Other direct assay",
+          "description": "Other direct assay"
+        },
+        {
+          "text": "Chromatography evidence",
+          "description": "Chromatography evidence"
+        },
+        {
+          "text": "Immunolocalization experiment data",
+          "description": "Immunolocalization experiment data"
+        },
+        {
+          "text": "Northern assay evidence",
+          "description": "Northern assay evidence"
+        },
+        {
+          "text": "Other",
+          "description": "Other"
+        },
+        {
+          "text": "cell growth assay evidence",
+          "description": "cell growth assay evidence"
+        },
+        {
+          "text": "tryptic phosphopeptide mapping assay evidence used in automatic assertion",
+          "description": "tryptic phosphopeptide mapping assay evidence used in automatic assertion"
+        },
+        {
+          "text": "high throughput nucleotide sequencing assay evidence",
+          "description": "high throughput nucleotide sequencing assay evidence"
+        },
+        {
+          "text": "competitive growth assay evidence",
+          "description": "competitive growth assay evidence"
+        },
+        {
+          "text": "western blot evidence used in manual assertion",
+          "description": "western blot evidence used in manual assertion"
+        },
+        {
+          "text": "Substance quantification evidence",
+          "description": "Substance quantification evidence"
+        },
+        {
+          "text": "Western blot assay",
+          "description": "Western blot assay"
+        }
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "disease_id",
+      "definition_uri": "https://w3id.org/ontology_association/disease_id",
+      "description": "CURIE for ",
+      "examples": [
+        {
+          "value": "MONDO:0005098",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "slot_uri": "https://w3id.org/ontology_association/disease_id",
+      "owner": "ComplexDiseaseAssociation",
+      "domain_of": [
+        "ComplexDiseaseAssociation"
+      ],
+      "range": "MONDO_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "disease_name",
+      "definition_uri": "https://w3id.org/ontology_association/disease_name",
+      "examples": [
+        {
+          "value": "Stroke disorder",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "slot_uri": "https://w3id.org/ontology_association/disease_name",
+      "owner": "ComplexDiseaseAssociation",
+      "domain_of": [
+        "ComplexDiseaseAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "term_id",
+      "definition_uri": "https://w3id.org/ontology_association/term_id",
+      "examples": [
+        {
+          "value": "NCIT:C1543",
+          "@type": "Example"
+        },
+        {
+          "value": "HP:0002381",
+          "@type": "Example"
+        },
+        {
+          "value": "MONDO:0001134",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "slot_uri": "https://w3id.org/ontology_association/term_id",
+      "owner": "ComplexDiseaseAssociation",
+      "domain_of": [
+        "ComplexDiseaseAssociation"
+      ],
+      "range": "identifier_type",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "term_label",
+      "definition_uri": "https://w3id.org/ontology_association/term_label",
+      "examples": [
+        {
+          "value": "smoking",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "slot_uri": "https://w3id.org/ontology_association/term_label",
+      "owner": "ComplexDiseaseAssociation",
+      "domain_of": [
+        "ComplexDiseaseAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sex",
+      "definition_uri": "https://w3id.org/ontology_association/sex",
+      "todos": [
+        "make an enum"
+      ],
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "slot_uri": "https://w3id.org/ontology_association/sex",
+      "owner": "ComplexDiseaseAssociation",
+      "domain_of": [
+        "ComplexDiseaseAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "time_course",
+      "definition_uri": "https://w3id.org/ontology_association/time_course",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "slot_uri": "https://w3id.org/ontology_association/time_course",
+      "owner": "ComplexDiseaseAssociation",
+      "domain_of": [
+        "ComplexDiseaseAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "modifier",
+      "definition_uri": "https://w3id.org/ontology_association/modifier",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "slot_uri": "https://w3id.org/ontology_association/modifier",
+      "multivalued": true,
+      "owner": "ComplexDiseaseAssociation",
+      "domain_of": [
+        "ComplexDiseaseAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "evidence",
+      "definition_uri": "https://w3id.org/ontology_association/evidence",
+      "examples": [
+        {
+          "value": "PCS",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "slot_uri": "https://w3id.org/ontology_association/evidence",
+      "owner": "ComplexDiseaseAssociation",
+      "domain_of": [
+        "ComplexDiseaseAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "citation",
+      "definition_uri": "https://w3id.org/ontology_association/citation",
+      "examples": [
+        {
+          "value": "PMID:1001",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "slot_uri": "https://w3id.org/ontology_association/citation",
+      "owner": "ComplexDiseaseAssociation",
+      "domain_of": [
+        "ComplexDiseaseAssociation"
+      ],
+      "range": "PMID_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "biocuration",
+      "definition_uri": "https://w3id.org/ontology_association/biocuration",
+      "examples": [
+        {
+          "value": "HPO:probinson[15-11-2021]",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "slot_uri": "https://w3id.org/ontology_association/biocuration",
+      "multivalued": true,
+      "owner": "ComplexDiseaseAssociation",
+      "domain_of": [
+        "ComplexDiseaseAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ID(s)_interactor_A",
+      "definition_uri": "https://w3id.org/mitabID(s)_interactor_A",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/subject"
+      ],
+      "examples": [
+        {
+          "value": "uniprotkb:A9QPL9",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabID(s)_interactor_A",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ID(s)_interactor_B",
+      "definition_uri": "https://w3id.org/mitabID(s)_interactor_B",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/object"
+      ],
+      "examples": [
+        {
+          "value": "uniprotkb:Q10589",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabID(s)_interactor_B",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Alt._ID(s)_interactor_A",
+      "definition_uri": "https://w3id.org/mitabAlt._ID(s)_interactor_A",
+      "examples": [
+        {
+          "value": "intact:EBI-15754841",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabAlt._ID(s)_interactor_A",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Alt._ID(s)_interactor_B",
+      "definition_uri": "https://w3id.org/mitabAlt._ID(s)_interactor_B",
+      "examples": [
+        {
+          "value": "intact:EBI-2476339|intact:EBI-2839059|uniprotkb:A8K4Y4|uniprotkb:Q53G07",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabAlt._ID(s)_interactor_B",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Alias(es)_interactor_A",
+      "definition_uri": "https://w3id.org/mitabAlias(es)_interactor_A",
+      "examples": [
+        {
+          "value": "psi-mi:a9qpl9_9mono(display_long)|uniprotkb:GP(gene name)|psi-mi:GP(display_short)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabAlias(es)_interactor_A",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Alias(es)_interactor_B",
+      "definition_uri": "https://w3id.org/mitabAlias(es)_interactor_B",
+      "examples": [
+        {
+          "value": "psi-mi:bst2_human(display_long)|uniprotkb:BST2(gene name)|psi-mi:BST2(display_short)|uniprotkb:Tetherin(gene name synonym)|uniprotkb:HM1.24 antigen(gene name synonym)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabAlias(es)_interactor_B",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Interaction_detection_method(s)",
+      "definition_uri": "https://w3id.org/mitabInteraction_detection_method(s)",
+      "examples": [
+        {
+          "value": "psi-mi:\"MI:0006\"(anti bait coimmunoprecipitation)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabInteraction_detection_method(s)",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "Interaction_detection_method_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Publication_1st_author(s)",
+      "definition_uri": "https://w3id.org/mitabPublication_1st_author(s)",
+      "examples": [
+        {
+          "value": "Kaletsky et al. (2009)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabPublication_1st_author(s)",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Publication_Identifier(s)",
+      "definition_uri": "https://w3id.org/mitabPublication_Identifier(s)",
+      "examples": [
+        {
+          "value": "pubmed:19179289|doi:10.1073/pnas.0811014106|imex:IM-15261",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabPublication_Identifier(s)",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Taxid_interactor_A",
+      "definition_uri": "https://w3id.org/mitabTaxid_interactor_A",
+      "examples": [
+        {
+          "value": "taxid:186538(Zaire ebolavirus)|taxid:186538(Zaire ebolavirus)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabTaxid_interactor_A",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "taxid_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Taxid_interactor_B",
+      "definition_uri": "https://w3id.org/mitabTaxid_interactor_B",
+      "examples": [
+        {
+          "value": "taxid:9606(human)|taxid:9606(Homo sapiens)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabTaxid_interactor_B",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "taxid_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Interaction_type(s)",
+      "definition_uri": "https://w3id.org/mitabInteraction_type(s)",
+      "close_mappings": [
+        "https://w3id.org/biolink/vocab/predicate"
+      ],
+      "examples": [
+        {
+          "value": "psi-mi:\"MI:0915\"(physical association)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabInteraction_type(s)",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "Interaction_type_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Source_database(s)",
+      "definition_uri": "https://w3id.org/mitabSource_database(s)",
+      "examples": [
+        {
+          "value": "psi-mi:\"MI:0465\"(DIP)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabSource_database(s)",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "psi_mi_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Interaction_identifier(s)",
+      "definition_uri": "https://w3id.org/mitabInteraction_identifier(s)",
+      "examples": [
+        {
+          "value": "intact:EBI-15754872|imex:IM-15261-2|dip:DIP-185793E",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabInteraction_identifier(s)",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Confidence_value(s)",
+      "definition_uri": "https://w3id.org/mitabConfidence_value(s)",
+      "examples": [
+        {
+          "value": "intact-miscore:0.52",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabConfidence_value(s)",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "intact_miscore_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Expansion_method(s)",
+      "definition_uri": "https://w3id.org/mitabExpansion_method(s)",
+      "examples": [
+        {
+          "value": "-",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabExpansion_method(s)",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "Expansion_method_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Biological_role(s)_interactor_A",
+      "definition_uri": "https://w3id.org/mitabBiological_role(s)_interactor_A",
+      "examples": [
+        {
+          "value": "psi-mi:\"MI:0499\"(unspecified role)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabBiological_role(s)_interactor_A",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "Biological_role_interactor_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Biological_role(s)_interactor_B",
+      "definition_uri": "https://w3id.org/mitabBiological_role(s)_interactor_B",
+      "examples": [
+        {
+          "value": "psi-mi:\"MI:0499\"(unspecified role)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabBiological_role(s)_interactor_B",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "Biological_role_interactor_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Experimental_role(s)_interactor_A",
+      "definition_uri": "https://w3id.org/mitabExperimental_role(s)_interactor_A",
+      "examples": [
+        {
+          "value": "psi-mi:\"MI:0496\"(bait)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabExperimental_role(s)_interactor_A",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "Experimental_role_interactor_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Experimental_role(s)_interactor_B",
+      "definition_uri": "https://w3id.org/mitabExperimental_role(s)_interactor_B",
+      "examples": [
+        {
+          "value": "psi-mi:\"MI:0498\"(prey)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabExperimental_role(s)_interactor_B",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "Experimental_role_interactor_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Type(s)_interactor_A",
+      "definition_uri": "https://w3id.org/mitabType(s)_interactor_A",
+      "examples": [
+        {
+          "value": "psi-mi:\"MI:0326\"(protein)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabType(s)_interactor_A",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "psi_mi_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Type(s)_interactor_B",
+      "definition_uri": "https://w3id.org/mitabType(s)_interactor_B",
+      "examples": [
+        {
+          "value": "psi-mi:\"MI:0326\"(protein)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabType(s)_interactor_B",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "psi_mi_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Xref(s)_interactor_A",
+      "definition_uri": "https://w3id.org/mitabXref(s)_interactor_A",
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabXref(s)_interactor_A",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Xref(s)_interactor_B",
+      "definition_uri": "https://w3id.org/mitabXref(s)_interactor_B",
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabXref(s)_interactor_B",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Interaction_Xref(s)",
+      "definition_uri": "https://w3id.org/mitabInteraction_Xref(s)",
+      "examples": [
+        {
+          "value": "psi-mi:\"MI:0465\"(dip)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabInteraction_Xref(s)",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "Interaction_Xref_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Annotation(s)_interactor_A",
+      "definition_uri": "https://w3id.org/mitabAnnotation(s)_interactor_A",
+      "examples": [
+        {
+          "value": "crc64:BE8AB3B339F63261",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabAnnotation(s)_interactor_A",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Annotation(s)_interactor_B",
+      "definition_uri": "https://w3id.org/mitabAnnotation(s)_interactor_B",
+      "examples": [
+        {
+          "value": "-",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabAnnotation(s)_interactor_B",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Interaction_annotation(s)",
+      "definition_uri": "https://w3id.org/mitabInteraction_annotation(s)",
+      "examples": [
+        {
+          "value": "full coverage:Only protein-protein interactions|curation depth:imex curation",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabInteraction_annotation(s)",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Host_organism(s)",
+      "definition_uri": "https://w3id.org/mitabHost_organism(s)",
+      "examples": [
+        {
+          "value": "taxid:9606(human)|taxid:9606(Homo sapiens)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabHost_organism(s)",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "taxid_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Interaction_parameter(s)",
+      "definition_uri": "https://w3id.org/mitabInteraction_parameter(s)",
+      "examples": [
+        {
+          "value": "-",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabInteraction_parameter(s)",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Creation_date",
+      "definition_uri": "https://w3id.org/mitabCreation_date",
+      "examples": [
+        {
+          "value": "2017/08/06",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabCreation_date",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "datetime",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Update_date",
+      "definition_uri": "https://w3id.org/mitabUpdate_date",
+      "examples": [
+        {
+          "value": "2017/08/10",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabUpdate_date",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "datetime",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Checksum(s)_interactor_A",
+      "definition_uri": "https://w3id.org/mitabChecksum(s)_interactor_A",
+      "examples": [
+        {
+          "value": "rogid:mdZH953i2elFKNtwJcAbPdm6Vvw186538",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabChecksum(s)_interactor_A",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "rogid_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Checksum(s)_interactor_B",
+      "definition_uri": "https://w3id.org/mitabChecksum(s)_interactor_B",
+      "examples": [
+        {
+          "value": "rogid:vunnCOscGahFdaeN03pDo/8xW7I9606",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabChecksum(s)_interactor_B",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Interaction_Checksum(s)",
+      "definition_uri": "https://w3id.org/mitabInteraction_Checksum(s)",
+      "examples": [
+        {
+          "value": "rigid:11bG+XivSz4SlWEEWVkNz5Qspro",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabInteraction_Checksum(s)",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Negative",
+      "definition_uri": "https://w3id.org/mitabNegative",
+      "examples": [
+        {
+          "value": "false",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabNegative",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "Negative_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Feature(s)_interactor_A",
+      "definition_uri": "https://w3id.org/mitabFeature(s)_interactor_A",
+      "examples": [
+        {
+          "value": "-",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabFeature(s)_interactor_A",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Feature(s)_interactor_B",
+      "definition_uri": "https://w3id.org/mitabFeature(s)_interactor_B",
+      "examples": [
+        {
+          "value": "au1 tag:n-n",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabFeature(s)_interactor_B",
+      "multivalued": true,
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Stoichiometry(s)_interactor_A",
+      "definition_uri": "https://w3id.org/mitabStoichiometry(s)_interactor_A",
+      "examples": [
+        {
+          "value": "-",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabStoichiometry(s)_interactor_A",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "Stoichiometry_interactor_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Stoichiometry(s)_interactor_B",
+      "definition_uri": "https://w3id.org/mitabStoichiometry(s)_interactor_B",
+      "examples": [
+        {
+          "value": "-",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabStoichiometry(s)_interactor_B",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "Stoichiometry_interactor_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Identification_method_participant_A",
+      "definition_uri": "https://w3id.org/mitabIdentification_method_participant_A",
+      "examples": [
+        {
+          "value": "psi-mi:\"MI:0396\"(predetermined participant)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabIdentification_method_participant_A",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "psi_mi_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Identification_method_participant_B",
+      "definition_uri": "https://w3id.org/mitabIdentification_method_participant_B",
+      "examples": [
+        {
+          "value": "psi-mi:\"MI:0396\"(predetermined participant)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabIdentification_method_participant_B",
+      "owner": "MitabInteraction",
+      "domain_of": [
+        "MitabInteraction"
+      ],
+      "range": "psi_mi_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Biological_Effect_interactor_A",
+      "definition_uri": "https://w3id.org/mitabBiological_Effect_interactor_A",
+      "examples": [
+        {
+          "value": "-",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabBiological_Effect_interactor_A",
+      "owner": "CausaltabInteraction",
+      "domain_of": [
+        "CausaltabInteraction"
+      ],
+      "range": "Biological_Effect_interactor_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Biological_Effect_interactor_B",
+      "definition_uri": "https://w3id.org/mitabBiological_Effect_interactor_B",
+      "examples": [
+        {
+          "value": "-",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabBiological_Effect_interactor_B",
+      "owner": "CausaltabInteraction",
+      "domain_of": [
+        "CausaltabInteraction"
+      ],
+      "range": "Biological_Effect_interactor_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Causal_Regulatory_Mechanism",
+      "definition_uri": "https://w3id.org/mitabCausal_Regulatory_Mechanism",
+      "examples": [
+        {
+          "value": "-",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabCausal_Regulatory_Mechanism",
+      "owner": "CausaltabInteraction",
+      "domain_of": [
+        "CausaltabInteraction"
+      ],
+      "range": "Causal_Regulatory_Mechanism_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Causal_statement",
+      "definition_uri": "https://w3id.org/mitabCausal_statement",
+      "examples": [
+        {
+          "value": "psi-mi:\"MI:2236\"(up-regulates activity)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/mitab",
+      "slot_uri": "https://w3id.org/mitabCausal_statement",
+      "owner": "CausaltabInteraction",
+      "domain_of": [
+        "CausaltabInteraction"
+      ],
+      "range": "psi_mi_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Database_name",
+      "definition_uri": "https://w3id.org/ontology_association/Database_name",
+      "description": "The database that produced the file \u2013 included to facilitate data sharing with other databases. Obviously always PomBase for this file.",
+      "examples": [
+        {
+          "value": "PomBase",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "is_a": "db",
+      "slot_uri": "https://w3id.org/ontology_association/Database_name",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "Database_name_enum",
+      "required": true,
+      "pattern": "[a-zA-Z0-9\\.\\-\\_]+",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Gene_systematic_ID",
+      "definition_uri": "https://w3id.org/ontology_association/Gene_systematic_ID",
+      "description": "The systematic ID for each gene.",
+      "examples": [
+        {
+          "value": "SPBC1773.02c",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "is_a": "local_id",
+      "slot_uri": "https://w3id.org/ontology_association/Gene_systematic_ID",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "\\S+",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "FYPO_ID",
+      "definition_uri": "https://w3id.org/ontology_association/FYPO_ID",
+      "description": "To use the FYPO IDs, see the [FYPO summary page](https://www.pombase.org/browse-curation/fission-yeast-phenotype-ontology) and the FAQ on browsing FYPO.",
+      "examples": [
+        {
+          "value": "FYPO:0001164",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "is_a": "ontology_class_ref",
+      "slot_uri": "https://w3id.org/ontology_association/FYPO_ID",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "FYPO_identifier",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Allele_description",
+      "definition_uri": "https://w3id.org/ontology_association/Allele_description",
+      "description": "The allele description specifically describes the change; see the Phenotype data bulk upload format for details on allele types and descriptions.",
+      "examples": [
+        {
+          "value": "G126D",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "slot_uri": "https://w3id.org/ontology_association/Allele_description",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Expression",
+      "definition_uri": "https://w3id.org/ontology_association/Expression",
+      "description": "The Expression column contains one of these values: \u2018overexpression\u2019, \u2018knockdown\u2019, \u2018endogenous\u2019, \u2018null\u2019, \u2018not specified\u2019. Deletions always have \u2018null\u2019 expression.",
+      "examples": [
+        {
+          "value": "Overexpression",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "slot_uri": "https://w3id.org/ontology_association/Expression",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "Expression_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Parental_strain",
+      "definition_uri": "https://w3id.org/ontology_association/Parental_strain",
+      "description": "The Parental strain column is for the parental strain designation, such as 972 h-, 975 h+, etc. This column must be filled in, but \u201cunknown\u201d is allowed.",
+      "examples": [
+        {
+          "value": "972 h-",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "slot_uri": "https://w3id.org/ontology_association/Parental_strain",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Strain_name_(background)",
+      "definition_uri": "https://w3id.org/ontology_association/Strain_name_(background)",
+      "description": "The Background strain name column is used for a lab\u2019s in-house name/ID/designation for the background strain (i.e. the derivative of the parental strain that has selectable marker alleles etc.). The description in the Genotype column should match this background strain.",
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "slot_uri": "https://w3id.org/ontology_association/Strain_name_(background)",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Genotype_description",
+      "definition_uri": "https://w3id.org/ontology_association/Genotype_description",
+      "description": "The Background genotype description column is for alleles in the background, such as selectable markers; these details are optional. To avoid redundancy, it does not repeat the allele of interest (from column 4 or 10) in the genotype column.",
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "slot_uri": "https://w3id.org/ontology_association/Genotype_description",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Gene_name",
+      "definition_uri": "https://w3id.org/ontology_association/Gene_name",
+      "description": "Gene names are optional for upload, but are included where available in the download.",
+      "examples": [
+        {
+          "value": "bcp1",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "slot_uri": "https://w3id.org/ontology_association/Gene_name",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Allele_name",
+      "definition_uri": "https://w3id.org/ontology_association/Allele_name",
+      "description": "Allele names are optional for upload, but are included where available in the download. Column 10 lists the preferred allele name, and any alternative names are in column 11.",
+      "examples": [
+        {
+          "value": "bcp1+",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "slot_uri": "https://w3id.org/ontology_association/Allele_name",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Allele_synonym",
+      "definition_uri": "https://w3id.org/ontology_association/Allele_synonym",
+      "description": "See note on Allele name above. Multiple entries are separated with pipes (|).",
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "slot_uri": "https://w3id.org/ontology_association/Allele_synonym",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Allele_type",
+      "definition_uri": "https://w3id.org/ontology_association/Allele_type",
+      "description": "Allowed allele types, example descriptions, etc. are shown in the table at the bottom of the [Phenotype data bulk upload](https://www.pombase.org/documentation/phenotype-data-bulk-upload-format) format page.",
+      "examples": [
+        {
+          "value": "wild_type",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "slot_uri": "https://w3id.org/ontology_association/Allele_type",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "Allele_type_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Evidence",
+      "definition_uri": "https://w3id.org/ontology_association/Evidence",
+      "description": "For the Evidence column, we use a small selection from the Evidence Ontology (ECO). Please contact the Helpdesk if you need assistance using these IDs",
+      "examples": [
+        {
+          "value": "cell growth assay evidence",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "is_a": "evidence_type",
+      "slot_uri": "https://w3id.org/ontology_association/Evidence",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "Evidence_enum",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Condition",
+      "definition_uri": "https://w3id.org/ontology_association/Condition",
+      "description": "Conditions use a small ontology maintained in-house by PomBase curators, and we can help you interpret the IDs. Multiple entries are shown in cases where more than one condition detail applies at the same time (e.g. high temperature, minimal medium), and are separated with commas (,).",
+      "examples": [
+        {
+          "value": "PECO:0000126,PECO:0000102",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "slot_uri": "https://w3id.org/ontology_association/Condition",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "PECO_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Penetrance",
+      "definition_uri": "https://w3id.org/ontology_association/Penetrance",
+      "description": "Penetrance describes the proportion of a population that shows a cell-level phenotype. Penetrance data are represented as percents or entries from the in-house FYPO_EXT ontology (FYPO_EXT:0000001 = high; FYPO_EXT:0000002 = medium; FYPO_EXT:0000003 = low; FYPO_EXT:0000004 = full).",
+      "todos": [
+        "Revisit range when this is solved https://github.com/linkml/linkml/issues/215"
+      ],
+      "examples": [
+        {
+          "value": "FYPO_EXT:0000002",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "slot_uri": "https://w3id.org/ontology_association/Penetrance",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Severity",
+      "definition_uri": "https://w3id.org/ontology_association/Severity",
+      "description": "Severity (formerly designated \u201cexpressivity\u201d) uses the FYPO_EXT ontology described in description of [Penetrance](Penetrance.md)",
+      "examples": [
+        {
+          "value": "FYPO_EXT:0000001",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "slot_uri": "https://w3id.org/ontology_association/Severity",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "FYPO_EXT_identifier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Extension",
+      "definition_uri": "https://w3id.org/ontology_association/Extension",
+      "description": "The Extension column is used to record when a mutation in one gene affects another gene or its product. For example, if a mutation in gene A decreases its ability to phosphorylate protein B, the A allele is annotated to the phenotype \u201cdecreased protein kinase activity\u201d with the ID for gene B in an extension. In the downloadable file, an annotation can have multiple comma-separated extensions if they combine to form a \u201ccompound\u201d extension (e.g. two or more genes assayed together).",
+      "examples": [
+        {
+          "value": "assayed_using(PomBase:SPBC11B10.09)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "is_a": "annotation_extensions",
+      "slot_uri": "https://w3id.org/ontology_association/Extension",
+      "multivalued": true,
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Reference",
+      "definition_uri": "https://w3id.org/ontology_association/Reference",
+      "description": "The Reference column has the publication\u2019s PubMed ID (PMID).",
+      "examples": [
+        {
+          "value": "PMID:19229492",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "is_a": "supporting_references",
+      "slot_uri": "https://w3id.org/ontology_association/Reference",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "Publication",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Taxon",
+      "definition_uri": "https://w3id.org/ontology_association/Taxon",
+      "description": "The taxon will usually be 4896 (the NCBI taxon ID for Schizosaccharomyces pombe), although an NCBI taxon ID for a specific S. pombe strain would be allowed.",
+      "examples": [
+        {
+          "value": "4896",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "is_a": "db_object_taxon",
+      "slot_uri": "https://w3id.org/ontology_association/Taxon",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Date",
+      "definition_uri": "https://w3id.org/ontology_association/Date",
+      "description": "The date is the date on which the annotations are created. Format: YYYY-MM-DD",
+      "todos": [
+        "https://github.com/pombase/website/issues/1708"
+      ],
+      "examples": [
+        {
+          "value": "20141023",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "is_a": "annotation_date",
+      "slot_uri": "https://w3id.org/ontology_association/Date",
+      "owner": "PombasePhafAssociation",
+      "domain_of": [
+        "PombasePhafAssociation"
+      ],
+      "range": "string",
+      "pattern": "^\\d{6}",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "id",
+      "definition_uri": "https://w3id.org/ontology_association/id",
+      "description": "identifier",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/id",
+      "identifier": true,
+      "range": "curie",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "local_id",
+      "definition_uri": "https://w3id.org/ontology_association/local_id",
+      "description": "local part of identifier",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/local_id",
+      "owner": "XafAssociation",
+      "domain_of": [
+        "HumanPhenotypeOntologyAssociation",
+        "GafAssociation",
+        "XafAssociation"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "\\S+",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "db",
+      "definition_uri": "https://w3id.org/ontology_association/db",
+      "description": "db part of identifier",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/db",
+      "owner": "XafAssociation",
+      "domain_of": [
+        "HumanPhenotypeOntologyAssociation",
+        "GafAssociation",
+        "XafAssociation"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "[a-zA-Z0-9\\.\\-\\_]+",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "db_object_ref",
+      "definition_uri": "https://w3id.org/ontology_association/db_object_ref",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/subject"
+      ],
+      "todos": [
+        "in GAF this refers to a local id, in GPAD a CURIE"
+      ],
+      "examples": [
+        {
+          "value": "UniProtKB:P11678",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/db_object_ref",
+      "inlined": true,
+      "owner": "GpiEntity",
+      "domain_of": [
+        "GpadAssociation",
+        "GpiEntity"
+      ],
+      "range": "Entity",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "aspect",
+      "definition_uri": "https://w3id.org/ontology_association/aspect",
+      "description": "varies by association type",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/aspect",
+      "owner": "XafAssociation",
+      "domain_of": [
+        "HumanPhenotypeOntologyAssociation",
+        "GafAssociation",
+        "XafAssociation"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "db_object_symbol",
+      "definition_uri": "https://w3id.org/ontology_association/db_object_symbol",
+      "examples": [
+        {
+          "value": "AMOT",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/db_object_symbol",
+      "owner": "XafAssociation",
+      "domain_of": [
+        "HumanPhenotypeOntologyAssociation",
+        "GafAssociation",
+        "GpiEntity",
+        "XafAssociation"
+      ],
+      "range": "symbol_type",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "db_object_name",
+      "definition_uri": "https://w3id.org/ontology_association/db_object_name",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/name"
+      ],
+      "examples": [
+        {
+          "value": "Angiomotin",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/db_object_name",
+      "owner": "XafAssociation",
+      "domain_of": [
+        "GafAssociation",
+        "GpiEntity",
+        "XafAssociation"
+      ],
+      "range": "name_type",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "db_object_synonyms",
+      "definition_uri": "https://w3id.org/ontology_association/db_object_synonyms",
+      "examples": [
+        {
+          "value": "Angiomotin",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/db_object_synonyms",
+      "multivalued": true,
+      "owner": "XafAssociation",
+      "domain_of": [
+        "HumanPhenotypeOntologyAssociation",
+        "GafAssociation",
+        "GpiEntity",
+        "XafAssociation"
+      ],
+      "range": "name_type",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "db_object_type",
+      "definition_uri": "https://w3id.org/ontology_association/db_object_type",
+      "examples": [
+        {
+          "value": "PR:000000001",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/db_object_type",
+      "owner": "XafAssociation",
+      "domain_of": [
+        "GafAssociation",
+        "GpiEntity",
+        "XafAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "db_object_taxon",
+      "definition_uri": "https://w3id.org/ontology_association/db_object_taxon",
+      "examples": [
+        {
+          "value": "NCBITaxon:9606",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/db_object_taxon",
+      "inlined": true,
+      "owner": "XafAssociation",
+      "domain_of": [
+        "GafAssociation",
+        "GpiEntity",
+        "XafAssociation"
+      ],
+      "range": "Taxon",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "encoded_by",
+      "definition_uri": "https://w3id.org/ontology_association/encoded_by",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/encoded_by",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "GpiEntity",
+      "domain_of": [
+        "GpiEntity"
+      ],
+      "range": "Entity",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "parent_protein",
+      "definition_uri": "https://w3id.org/ontology_association/parent_protein",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/parent_protein",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "GpiEntity",
+      "domain_of": [
+        "GpiEntity"
+      ],
+      "range": "Entity",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "protein_containing_complex_members",
+      "definition_uri": "https://w3id.org/ontology_association/protein_containing_complex_members",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/protein_containing_complex_members",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "GpiEntity",
+      "domain_of": [
+        "GpiEntity"
+      ],
+      "range": "Entity",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "db_xrefs",
+      "definition_uri": "https://w3id.org/ontology_association/db_xrefs",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/db_xrefs",
+      "multivalued": true,
+      "owner": "GpiEntity",
+      "domain_of": [
+        "GpiEntity"
+      ],
+      "range": "curie",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "negation",
+      "definition_uri": "https://w3id.org/ontology_association/negation",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/negation",
+      "owner": "GpadAssociation",
+      "domain_of": [
+        "GpadAssociation"
+      ],
+      "range": "boolean",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ontology_class_ref",
+      "definition_uri": "https://w3id.org/ontology_association/ontology_class_ref",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/object"
+      ],
+      "examples": [
+        {
+          "value": "GO:0050803",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/ontology_class_ref",
+      "inlined": true,
+      "owner": "XafAssociation",
+      "domain_of": [
+        "HumanPhenotypeOntologyAssociation",
+        "GpadAssociation",
+        "GafAssociation",
+        "XafAssociation"
+      ],
+      "range": "OntologyClass",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "qualifiers",
+      "definition_uri": "https://w3id.org/ontology_association/qualifiers",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/qualifiers",
+      "multivalued": true,
+      "owner": "XafAssociation",
+      "domain_of": [
+        "GafAssociation",
+        "XafAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "relation",
+      "definition_uri": "https://w3id.org/ontology_association/relation",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/predicate"
+      ],
+      "examples": [
+        {
+          "value": "RO:0002263",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/relation",
+      "owner": "GpadAssociation",
+      "domain_of": [
+        "HumanPhenotypeOntologyAssociation",
+        "ComplexDiseaseAssociation",
+        "GpadAssociation"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "supporting_references",
+      "definition_uri": "https://w3id.org/ontology_association/supporting_references",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/publications"
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/supporting_references",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "XafAssociation",
+      "domain_of": [
+        "HumanPhenotypeOntologyAssociation",
+        "GpadAssociation",
+        "GafAssociation",
+        "XafAssociation"
+      ],
+      "range": "Publication",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "with_or_from",
+      "definition_uri": "https://w3id.org/ontology_association/with_or_from",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/evidence_object"
+      ],
+      "examples": [
+        {
+          "value": "WB:WBVar00000510",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/with_or_from",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "XafAssociation",
+      "domain_of": [
+        "HumanPhenotypeOntologyAssociation",
+        "GpadAssociation",
+        "GafAssociation",
+        "XafAssociation"
+      ],
+      "range": "Entity",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "interacting_taxon_ref",
+      "definition_uri": "https://w3id.org/ontology_association/interacting_taxon_ref",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/evidence_object"
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/interacting_taxon_ref",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "GpadAssociation",
+      "domain_of": [
+        "GpadAssociation"
+      ],
+      "range": "Taxon",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "evidence_type",
+      "definition_uri": "https://w3id.org/ontology_association/evidence_type",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/evidence"
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/evidence_type",
+      "inlined": true,
+      "owner": "XafAssociation",
+      "domain_of": [
+        "HumanPhenotypeOntologyAssociation",
+        "GpadAssociation",
+        "GafAssociation",
+        "XafAssociation"
+      ],
+      "range": "OntologyClass",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "bioentity_type",
+      "definition_uri": "https://w3id.org/ontology_association/bioentity_type",
+      "description": "type of entity",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/bioentity_type",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "annotation_date",
+      "definition_uri": "https://w3id.org/ontology_association/annotation_date",
+      "description": "date when annotation was made",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/annotation_date",
+      "owner": "XafAssociation",
+      "domain_of": [
+        "HumanPhenotypeOntologyAssociation",
+        "GpadAssociation",
+        "GafAssociation",
+        "XafAssociation"
+      ],
+      "range": "datetime",
+      "pattern": "^\\d{6}",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "assigned_by",
+      "definition_uri": "https://w3id.org/ontology_association/assigned_by",
+      "description": "assigned by",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/assigned_by",
+      "inlined": true,
+      "owner": "XafAssociation",
+      "domain_of": [
+        "HumanPhenotypeOntologyAssociation",
+        "GpadAssociation",
+        "GafAssociation",
+        "XafAssociation"
+      ],
+      "range": "Provider",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gene_product_form",
+      "definition_uri": "https://w3id.org/ontology_association/gene_product_form",
+      "description": "isoform",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/gene_product_form",
+      "inlined": true,
+      "owner": "XafAssociation",
+      "domain_of": [
+        "GafAssociation",
+        "XafAssociation"
+      ],
+      "range": "BiologicalEntity",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "annotation_extensions",
+      "definition_uri": "https://w3id.org/ontology_association/annotation_extensions",
+      "description": "disjunction",
+      "examples": [
+        {
+          "value": "BFO:0000066(GO:0005829)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/annotation_extensions",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "XafAssociation",
+      "domain_of": [
+        "GpadAssociation",
+        "GafAssociation",
+        "XafAssociation"
+      ],
+      "range": "AnnotationExtension",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "annotation_properties",
+      "definition_uri": "https://w3id.org/ontology_association/annotation_properties",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/annotation_properties",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "GpadAssociation",
+      "domain_of": [
+        "GpadAssociation"
+      ],
+      "range": "PropertyValuePair",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gene_product_properties",
+      "definition_uri": "https://w3id.org/ontology_association/gene_product_properties",
+      "examples": [
+        {
+          "value": "db-subset=Swiss-Prot",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/gene_product_properties",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "GpiEntity",
+      "domain_of": [
+        "GpiEntity"
+      ],
+      "range": "PropertyValuePair",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "document_metadata_field",
+      "definition_uri": "https://w3id.org/ontology_association/document_metadata_field",
+      "from_schema": "https://w3id.org/ontology_association",
+      "abstract": true,
+      "slot_uri": "https://w3id.org/ontology_association/document_metadata_field",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "date_generated",
+      "definition_uri": "https://w3id.org/ontology_association/date_generated",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "document_metadata_field",
+      "slot_uri": "https://w3id.org/ontology_association/date_generated",
+      "owner": "AssociationDocument",
+      "domain_of": [
+        "AssociationDocument"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "generated_by",
+      "definition_uri": "https://w3id.org/ontology_association/generated_by",
+      "description": "YYYY-MM-DD or YYYY-MM-DDTHH:MM",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "document_metadata_field",
+      "slot_uri": "https://w3id.org/ontology_association/generated_by",
+      "inlined": true,
+      "owner": "AssociationDocument",
+      "domain_of": [
+        "AssociationDocument"
+      ],
+      "range": "Provider",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "url",
+      "definition_uri": "https://w3id.org/ontology_association/url",
+      "description": "e.g. http://www.yeastgenome.org/",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "document_metadata_field",
+      "slot_uri": "https://w3id.org/ontology_association/url",
+      "owner": "AssociationDocument",
+      "domain_of": [
+        "AssociationDocument"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "project_release",
+      "definition_uri": "https://w3id.org/ontology_association/project_release",
+      "description": "e.g.  WS275",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "document_metadata_field",
+      "slot_uri": "https://w3id.org/ontology_association/project_release",
+      "owner": "AssociationDocument",
+      "domain_of": [
+        "AssociationDocument"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "funding",
+      "definition_uri": "https://w3id.org/ontology_association/funding",
+      "description": "e.g. NHGRI",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "document_metadata_field",
+      "slot_uri": "https://w3id.org/ontology_association/funding",
+      "owner": "AssociationDocument",
+      "domain_of": [
+        "AssociationDocument"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ontology_version",
+      "definition_uri": "https://w3id.org/ontology_association/ontology_version",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "document_metadata_field",
+      "abstract": true,
+      "slot_uri": "https://w3id.org/ontology_association/ontology_version",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "go_version",
+      "definition_uri": "https://w3id.org/ontology_association/go_version",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "ontology_version",
+      "slot_uri": "https://w3id.org/ontology_association/go_version",
+      "owner": "AssociationDocument",
+      "domain_of": [
+        "AssociationDocument"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ro_version",
+      "definition_uri": "https://w3id.org/ontology_association/ro_version",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "ontology_version",
+      "slot_uri": "https://w3id.org/ontology_association/ro_version",
+      "owner": "AssociationDocument",
+      "domain_of": [
+        "AssociationDocument"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gorel_version",
+      "definition_uri": "https://w3id.org/ontology_association/gorel_version",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "ontology_version",
+      "slot_uri": "https://w3id.org/ontology_association/gorel_version",
+      "owner": "AssociationDocument",
+      "domain_of": [
+        "AssociationDocument"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eco_version",
+      "definition_uri": "https://w3id.org/ontology_association/eco_version",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "ontology_version",
+      "slot_uri": "https://w3id.org/ontology_association/eco_version",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "frequency",
+      "definition_uri": "https://w3id.org/ontology_association/frequency",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/frequency",
+      "owner": "ComplexDiseaseAssociation",
+      "domain_of": [
+        "HumanPhenotypeOntologyAssociation",
+        "ComplexDiseaseAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "onset",
+      "definition_uri": "https://w3id.org/ontology_association/onset",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/onset",
+      "owner": "HumanPhenotypeOntologyAssociation",
+      "domain_of": [
+        "HumanPhenotypeOntologyAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "qualifier",
+      "definition_uri": "https://w3id.org/ontology_association/qualifier",
+      "from_schema": "https://w3id.org/ontology_association",
+      "slot_uri": "https://w3id.org/ontology_association/qualifier",
+      "owner": "ComplexDiseaseAssociation",
+      "domain_of": [
+        "ComplexDiseaseAssociation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gpiDocument__entities",
+      "from_schema": "https://w3id.org/ontology_association/all",
+      "slot_uri": "https://w3id.org/ontology_association/entities",
+      "multivalued": true,
+      "alias": "entities",
+      "owner": "GpiDocument",
+      "domain_of": [
+        "GpiDocument"
+      ],
+      "range": "GpiEntity",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "propertyValuePair__property",
+      "from_schema": "https://w3id.org/ontology_association/all",
+      "slot_uri": "https://w3id.org/ontology_association/property",
+      "inlined": true,
+      "alias": "property",
+      "owner": "PropertyValuePair",
+      "domain_of": [
+        "PropertyValuePair"
+      ],
+      "range": "ControlledTerm",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "propertyValuePair__value",
+      "description": "value",
+      "from_schema": "https://w3id.org/ontology_association/all",
+      "slot_uri": "https://w3id.org/ontology_association/value",
+      "alias": "value",
+      "owner": "PropertyValuePair",
+      "domain_of": [
+        "PropertyValuePair"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "associationDocument__associations",
+      "from_schema": "https://w3id.org/ontology_association/all",
+      "slot_uri": "https://w3id.org/ontology_association/associations",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "associations",
+      "owner": "AssociationDocument",
+      "domain_of": [
+        "AssociationDocument"
+      ],
+      "range": "Association",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "human_phenotype_ontology_association_document_associations",
+      "from_schema": "https://w3id.org/ontology_association/all",
+      "is_a": "associationDocument__associations",
+      "domain": "HumanPhenotypeOntologyAssociationDocument",
+      "slot_uri": "https://w3id.org/ontology_association/associations",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "associations",
+      "owner": "HumanPhenotypeOntologyAssociationDocument",
+      "domain_of": [
+        "HumanPhenotypeOntologyAssociationDocument"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "associations",
+      "range": "HumanPhenotypeOntologyAssociation",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "complex_disease_association_relation",
+      "definition_uri": "https://w3id.org/ontology_association/relation",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/predicate"
+      ],
+      "examples": [
+        {
+          "value": "risk_increased_by_exposure",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "relation",
+      "domain": "ComplexDiseaseAssociation",
+      "slot_uri": "https://w3id.org/ontology_association/relation",
+      "alias": "relation",
+      "owner": "ComplexDiseaseAssociation",
+      "domain_of": [
+        "ComplexDiseaseAssociation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "relation",
+      "range": "ComplexDiseaseRelation",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "complex_disease_association_frequency",
+      "definition_uri": "https://w3id.org/ontology_association/frequency",
+      "todos": [
+        "is this always a date??"
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "frequency",
+      "domain": "ComplexDiseaseAssociation",
+      "slot_uri": "https://w3id.org/ontology_association/frequency",
+      "alias": "frequency",
+      "owner": "ComplexDiseaseAssociation",
+      "domain_of": [
+        "ComplexDiseaseAssociation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "frequency",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "complex_disease_phenotype_association_relation",
+      "definition_uri": "https://w3id.org/ontology_association/relation",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/predicate"
+      ],
+      "examples": [
+        {
+          "value": "RO:0002263",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "complex_disease_association_relation",
+      "domain": "ComplexDiseasePhenotypeAssociation",
+      "slot_uri": "https://w3id.org/ontology_association/relation",
+      "alias": "relation",
+      "owner": "ComplexDiseasePhenotypeAssociation",
+      "domain_of": [
+        "ComplexDiseasePhenotypeAssociation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "relation",
+      "range": "ComplexDiseaseRelation",
+      "required": true,
+      "equals_string": "risk_increased_by_phenotype",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "complex_disease_exposure_risk_association_relation",
+      "definition_uri": "https://w3id.org/ontology_association/relation",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/predicate"
+      ],
+      "examples": [
+        {
+          "value": "RO:0002263",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "complex_disease_association_relation",
+      "domain": "ComplexDiseaseExposureRiskAssociation",
+      "slot_uri": "https://w3id.org/ontology_association/relation",
+      "alias": "relation",
+      "owner": "ComplexDiseaseExposureRiskAssociation",
+      "domain_of": [
+        "ComplexDiseaseExposureRiskAssociation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "relation",
+      "range": "ComplexDiseaseRelation",
+      "required": true,
+      "equals_string": "risk_increased_by_exposure",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "complex_disease_disease_risk_association_relation",
+      "definition_uri": "https://w3id.org/ontology_association/relation",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/predicate"
+      ],
+      "examples": [
+        {
+          "value": "RO:0002263",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "complex_disease_association_relation",
+      "domain": "ComplexDiseaseDiseaseRiskAssociation",
+      "slot_uri": "https://w3id.org/ontology_association/relation",
+      "alias": "relation",
+      "owner": "ComplexDiseaseDiseaseRiskAssociation",
+      "domain_of": [
+        "ComplexDiseaseDiseaseRiskAssociation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "relation",
+      "range": "ComplexDiseaseRelation",
+      "required": true,
+      "equals_string": "risk_increased_by_disease",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "complex_disease_phenotype_risk_association_relation",
+      "definition_uri": "https://w3id.org/ontology_association/relation",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/predicate"
+      ],
+      "examples": [
+        {
+          "value": "RO:0002263",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "complex_disease_association_relation",
+      "domain": "ComplexDiseasePhenotypeRiskAssociation",
+      "slot_uri": "https://w3id.org/ontology_association/relation",
+      "alias": "relation",
+      "owner": "ComplexDiseasePhenotypeRiskAssociation",
+      "domain_of": [
+        "ComplexDiseasePhenotypeRiskAssociation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "relation",
+      "range": "ComplexDiseaseRelation",
+      "required": true,
+      "equals_string": "has_phenotype",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "complex_disease_association_document_associations",
+      "from_schema": "https://w3id.org/ontology_association/all",
+      "is_a": "associationDocument__associations",
+      "domain": "ComplexDiseaseAssociationDocument",
+      "slot_uri": "https://w3id.org/ontology_association/associations",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "associations",
+      "owner": "ComplexDiseaseAssociationDocument",
+      "domain_of": [
+        "ComplexDiseaseAssociationDocument"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "associations",
+      "range": "ComplexDiseaseAssociation",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gpad_association_db_object_type",
+      "definition_uri": "https://w3id.org/ontology_association/db_object_type",
+      "examples": [
+        {
+          "value": "PR:000000001",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "db_object_type",
+      "domain": "GpadAssociation",
+      "slot_uri": "https://w3id.org/ontology_association/db_object_type",
+      "alias": "db object type",
+      "owner": "GpadAssociation",
+      "domain_of": [
+        "GpadAssociation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "db object type",
+      "range": "gp_entity_type_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gpad_association_relation",
+      "definition_uri": "https://w3id.org/ontology_association/relation",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/predicate"
+      ],
+      "examples": [
+        {
+          "value": "RO:0002263",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "relation",
+      "domain": "GpadAssociation",
+      "slot_uri": "https://w3id.org/ontology_association/relation",
+      "alias": "relation",
+      "owner": "GpadAssociation",
+      "domain_of": [
+        "GpadAssociation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "relation",
+      "range": "gp2term_relation_enum",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gpad_association_document_associations",
+      "from_schema": "https://w3id.org/ontology_association/all",
+      "is_a": "associationDocument__associations",
+      "domain": "GpadAssociationDocument",
+      "slot_uri": "https://w3id.org/ontology_association/associations",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "associations",
+      "owner": "GpadAssociationDocument",
+      "domain_of": [
+        "GpadAssociationDocument"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "associations",
+      "range": "GpadAssociation",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gaf_association_ontology_class_ref",
+      "definition_uri": "https://w3id.org/ontology_association/ontology_class_ref",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/object"
+      ],
+      "description": "this must be a GO ID",
+      "examples": [
+        {
+          "value": "GO:0050803",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "ontology_class_ref",
+      "domain": "GafAssociation",
+      "slot_uri": "https://w3id.org/ontology_association/ontology_class_ref",
+      "inlined": true,
+      "alias": "ontology class ref",
+      "owner": "GafAssociation",
+      "domain_of": [
+        "GafAssociation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "ontology class ref",
+      "range": "OntologyClass",
+      "required": true,
+      "pattern": "^GO:\\d+",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gaf_association_db_object_type",
+      "definition_uri": "https://w3id.org/ontology_association/db_object_type",
+      "examples": [
+        {
+          "value": "PR:000000001",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "db_object_type",
+      "domain": "GafAssociation",
+      "slot_uri": "https://w3id.org/ontology_association/db_object_type",
+      "alias": "db object type",
+      "owner": "GafAssociation",
+      "domain_of": [
+        "GafAssociation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "db object type",
+      "range": "gp_entity_type_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gaf_association_aspect",
+      "definition_uri": "https://w3id.org/ontology_association/aspect",
+      "description": "varies by association type",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "aspect",
+      "domain": "GafAssociation",
+      "slot_uri": "https://w3id.org/ontology_association/aspect",
+      "alias": "aspect",
+      "owner": "GafAssociation",
+      "domain_of": [
+        "GafAssociation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "aspect",
+      "range": "gene_ontology_aspect_enum",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gaf_association_qualifiers",
+      "definition_uri": "https://w3id.org/ontology_association/qualifiers",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "qualifiers",
+      "domain": "GafAssociation",
+      "slot_uri": "https://w3id.org/ontology_association/qualifiers",
+      "multivalued": true,
+      "alias": "qualifiers",
+      "owner": "GafAssociation",
+      "domain_of": [
+        "GafAssociation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "qualifiers",
+      "range": "gp2term_relation_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "simple_gaf_association_qualifiers",
+      "definition_uri": "https://w3id.org/ontology_association/qualifiers",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "gaf_association_qualifiers",
+      "domain": "SimpleGafAssociation",
+      "slot_uri": "https://w3id.org/ontology_association/qualifiers",
+      "multivalued": true,
+      "alias": "qualifiers",
+      "owner": "SimpleGafAssociation",
+      "domain_of": [
+        "SimpleGafAssociation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "qualifiers",
+      "range": "simple_qualifier_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gaf_association_document_associations",
+      "from_schema": "https://w3id.org/ontology_association/all",
+      "is_a": "associationDocument__associations",
+      "domain": "GafAssociationDocument",
+      "slot_uri": "https://w3id.org/ontology_association/associations",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "associations",
+      "owner": "GafAssociationDocument",
+      "domain_of": [
+        "GafAssociationDocument"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "associations",
+      "range": "GafAssociation",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gpi_entity_db_object_ref",
+      "definition_uri": "https://w3id.org/ontology_association/db_object_ref",
+      "exact_mappings": [
+        "https://w3id.org/biolink/vocab/subject"
+      ],
+      "todos": [
+        "in GAF this refers to a local id, in GPAD a CURIE"
+      ],
+      "examples": [
+        {
+          "value": "UniProtKB:P11678",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "db_object_ref",
+      "domain": "GpiEntity",
+      "slot_uri": "https://w3id.org/ontology_association/db_object_ref",
+      "inlined": true,
+      "identifier": true,
+      "alias": "db object ref",
+      "owner": "GpiEntity",
+      "domain_of": [
+        "GpiEntity"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "db object ref",
+      "range": "Entity",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pombase_phaf_association_document_associations",
+      "from_schema": "https://w3id.org/ontology_association/all",
+      "is_a": "associationDocument__associations",
+      "domain": "PombasePhafAssociationDocument",
+      "slot_uri": "https://w3id.org/ontology_association/associations",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "associations",
+      "owner": "PombasePhafAssociationDocument",
+      "domain_of": [
+        "PombasePhafAssociationDocument"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "associations",
+      "range": "PombasePhafAssociation",
+      "@type": "SlotDefinition"
+    }
+  ],
+  "classes": [
+    {
+      "name": "HumanPhenotypeOntologyAssociation",
+      "definition_uri": "https://w3id.org/ontology_association/HumanPhenotypeOntologyAssociation",
+      "from_schema": "https://w3id.org/ontology_association/hpoa",
+      "is_a": "Association",
+      "mixins": [
+        "Denormalized"
+      ],
+      "slots": [
+        "db",
+        "local_id",
+        "db_object_symbol",
+        "relation",
+        "ontology_class_ref",
+        "supporting_references",
+        "evidence_type",
+        "onset",
+        "frequency",
+        "with_or_from",
+        "aspect",
+        "db_object_synonyms",
+        "annotation_date",
+        "assigned_by"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/HumanPhenotypeOntologyAssociation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "HumanPhenotypeOntologyAssociationDocument",
+      "definition_uri": "https://w3id.org/ontology_association/HumanPhenotypeOntologyAssociationDocument",
+      "from_schema": "https://w3id.org/ontology_association/hpoa",
+      "is_a": "AssociationDocument",
+      "slots": [
+        "date_generated",
+        "generated_by",
+        "url",
+        "project_release",
+        "funding",
+        "go_version",
+        "ro_version",
+        "gorel_version",
+        "human_phenotype_ontology_association_document_associations"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/HumanPhenotypeOntologyAssociationDocument",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ComplexDiseaseAssociation",
+      "definition_uri": "https://w3id.org/ontology_association/ComplexDiseaseAssociation",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "slots": [
+        "disease_id",
+        "disease_name",
+        "complex_disease_association_relation",
+        "term_id",
+        "term_label",
+        "qualifier",
+        "complex_disease_association_frequency",
+        "sex",
+        "time_course",
+        "modifier",
+        "evidence",
+        "citation",
+        "biocuration"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/ComplexDiseaseAssociation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ComplexDiseasePhenotypeAssociation",
+      "definition_uri": "https://w3id.org/ontology_association/ComplexDiseasePhenotypeAssociation",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "is_a": "ComplexDiseaseAssociation",
+      "slots": [
+        "disease_id",
+        "disease_name",
+        "term_id",
+        "term_label",
+        "qualifier",
+        "complex_disease_association_frequency",
+        "sex",
+        "time_course",
+        "modifier",
+        "evidence",
+        "citation",
+        "biocuration",
+        "complex_disease_phenotype_association_relation"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/ComplexDiseasePhenotypeAssociation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ComplexDiseaseExposureRiskAssociation",
+      "definition_uri": "https://w3id.org/ontology_association/ComplexDiseaseExposureRiskAssociation",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "is_a": "ComplexDiseaseAssociation",
+      "slots": [
+        "disease_id",
+        "disease_name",
+        "term_id",
+        "term_label",
+        "qualifier",
+        "complex_disease_association_frequency",
+        "sex",
+        "time_course",
+        "modifier",
+        "evidence",
+        "citation",
+        "biocuration",
+        "complex_disease_exposure_risk_association_relation"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/ComplexDiseaseExposureRiskAssociation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ComplexDiseaseDiseaseRiskAssociation",
+      "definition_uri": "https://w3id.org/ontology_association/ComplexDiseaseDiseaseRiskAssociation",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "is_a": "ComplexDiseaseAssociation",
+      "slots": [
+        "disease_id",
+        "disease_name",
+        "term_id",
+        "term_label",
+        "qualifier",
+        "complex_disease_association_frequency",
+        "sex",
+        "time_course",
+        "modifier",
+        "evidence",
+        "citation",
+        "biocuration",
+        "complex_disease_disease_risk_association_relation"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/ComplexDiseaseDiseaseRiskAssociation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ComplexDiseasePhenotypeRiskAssociation",
+      "definition_uri": "https://w3id.org/ontology_association/ComplexDiseasePhenotypeRiskAssociation",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "is_a": "ComplexDiseaseAssociation",
+      "slots": [
+        "disease_id",
+        "disease_name",
+        "term_id",
+        "term_label",
+        "qualifier",
+        "complex_disease_association_frequency",
+        "sex",
+        "time_course",
+        "modifier",
+        "evidence",
+        "citation",
+        "biocuration",
+        "complex_disease_phenotype_risk_association_relation"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/ComplexDiseasePhenotypeRiskAssociation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ComplexDiseaseAssociationDocument",
+      "definition_uri": "https://w3id.org/ontology_association/ComplexDiseaseAssociationDocument",
+      "from_schema": "https://w3id.org/biodatamodels/ontology_association/complexpheno",
+      "is_a": "AssociationDocument",
+      "slots": [
+        "date_generated",
+        "generated_by",
+        "url",
+        "project_release",
+        "funding",
+        "go_version",
+        "ro_version",
+        "gorel_version",
+        "complex_disease_association_document_associations"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/ComplexDiseaseAssociationDocument",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "GpadAssociation",
+      "definition_uri": "https://w3id.org/ontology_association/GpadAssociation",
+      "description": "line of GPAD",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "Association",
+      "mixins": [
+        "Denormalized",
+        "GoRelated"
+      ],
+      "slots": [
+        "db_object_ref",
+        "negation",
+        "gpad_association_relation",
+        "ontology_class_ref",
+        "supporting_references",
+        "evidence_type",
+        "with_or_from",
+        "interacting_taxon_ref",
+        "annotation_date",
+        "assigned_by",
+        "annotation_extensions",
+        "annotation_properties",
+        "gpad_association_db_object_type"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/GpadAssociation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "GpadAssociationDocument",
+      "definition_uri": "https://w3id.org/ontology_association/GpadAssociationDocument",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "AssociationDocument",
+      "slots": [
+        "date_generated",
+        "generated_by",
+        "url",
+        "project_release",
+        "funding",
+        "go_version",
+        "ro_version",
+        "gorel_version",
+        "gpad_association_document_associations"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/GpadAssociationDocument",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "GafAssociation",
+      "definition_uri": "https://w3id.org/ontology_association/GafAssociation",
+      "description": "line of GAF",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "XafAssociation",
+      "mixins": [
+        "Denormalized",
+        "GoRelated"
+      ],
+      "slots": [
+        "db",
+        "local_id",
+        "db_object_symbol",
+        "gaf_association_qualifiers",
+        "gaf_association_ontology_class_ref",
+        "supporting_references",
+        "evidence_type",
+        "with_or_from",
+        "gaf_association_aspect",
+        "db_object_name",
+        "db_object_synonyms",
+        "gaf_association_db_object_type",
+        "db_object_taxon",
+        "annotation_date",
+        "assigned_by",
+        "annotation_extensions",
+        "gene_product_form"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/GafAssociation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "SimpleGafAssociation",
+      "definition_uri": "https://w3id.org/ontology_association/SimpleGafAssociation",
+      "description": "",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "GafAssociation",
+      "slots": [
+        "db",
+        "local_id",
+        "db_object_symbol",
+        "gaf_association_ontology_class_ref",
+        "supporting_references",
+        "evidence_type",
+        "with_or_from",
+        "gaf_association_aspect",
+        "db_object_name",
+        "db_object_synonyms",
+        "gaf_association_db_object_type",
+        "db_object_taxon",
+        "annotation_date",
+        "assigned_by",
+        "annotation_extensions",
+        "gene_product_form",
+        "simple_gaf_association_qualifiers"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/SimpleGafAssociation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "GafAssociationDocument",
+      "definition_uri": "https://w3id.org/ontology_association/GafAssociationDocument",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "AssociationDocument",
+      "slots": [
+        "date_generated",
+        "generated_by",
+        "url",
+        "project_release",
+        "funding",
+        "go_version",
+        "ro_version",
+        "gorel_version",
+        "gaf_association_document_associations"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/GafAssociationDocument",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "GpiEntity",
+      "definition_uri": "https://w3id.org/ontology_association/GpiEntity",
+      "description": "An entity that can be annotated using GO. May be a gene, gene product, or complex",
+      "from_schema": "https://w3id.org/ontology_association/gpi",
+      "is_a": "BiologicalEntity",
+      "slots": [
+        "gpi_entity_db_object_ref",
+        "db_object_symbol",
+        "db_object_name",
+        "db_object_synonyms",
+        "db_object_type",
+        "db_object_taxon",
+        "encoded_by",
+        "parent_protein",
+        "protein_containing_complex_members",
+        "db_xrefs",
+        "gene_product_properties"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/GpiEntity",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "GpiDocument",
+      "definition_uri": "https://w3id.org/ontology_association/GpiDocument",
+      "description": "A collection of gpi entities plus associated metadata",
+      "from_schema": "https://w3id.org/ontology_association/gpi",
+      "is_a": "Document",
+      "slots": [
+        "gpiDocument__entities"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "entities",
+          "multivalued": true,
+          "range": "GpiEntity",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/ontology_association/GpiDocument",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Interaction",
+      "definition_uri": "https://w3id.org/mitabInteraction",
+      "description": "An interaction between two molecular entities",
+      "from_schema": "https://w3id.org/mitab",
+      "is_a": "Annotation",
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/mitabInteraction",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "MitabInteraction",
+      "definition_uri": "https://w3id.org/mitabMitabInteraction",
+      "from_schema": "https://w3id.org/mitab",
+      "is_a": "Interaction",
+      "slots": [
+        "ID(s)_interactor_A",
+        "ID(s)_interactor_B",
+        "Alt._ID(s)_interactor_A",
+        "Alt._ID(s)_interactor_B",
+        "Alias(es)_interactor_A",
+        "Alias(es)_interactor_B",
+        "Interaction_detection_method(s)",
+        "Publication_1st_author(s)",
+        "Publication_Identifier(s)",
+        "Taxid_interactor_A",
+        "Taxid_interactor_B",
+        "Interaction_type(s)",
+        "Source_database(s)",
+        "Interaction_identifier(s)",
+        "Confidence_value(s)",
+        "Expansion_method(s)",
+        "Biological_role(s)_interactor_A",
+        "Biological_role(s)_interactor_B",
+        "Experimental_role(s)_interactor_A",
+        "Experimental_role(s)_interactor_B",
+        "Type(s)_interactor_A",
+        "Type(s)_interactor_B",
+        "Xref(s)_interactor_A",
+        "Xref(s)_interactor_B",
+        "Interaction_Xref(s)",
+        "Annotation(s)_interactor_A",
+        "Annotation(s)_interactor_B",
+        "Interaction_annotation(s)",
+        "Host_organism(s)",
+        "Interaction_parameter(s)",
+        "Creation_date",
+        "Update_date",
+        "Checksum(s)_interactor_A",
+        "Checksum(s)_interactor_B",
+        "Interaction_Checksum(s)",
+        "Negative",
+        "Feature(s)_interactor_A",
+        "Feature(s)_interactor_B",
+        "Stoichiometry(s)_interactor_A",
+        "Stoichiometry(s)_interactor_B",
+        "Identification_method_participant_A",
+        "Identification_method_participant_B"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/mitabMitabInteraction",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CausaltabInteraction",
+      "definition_uri": "https://w3id.org/mitabCausaltabInteraction",
+      "from_schema": "https://w3id.org/mitab",
+      "see_also": [
+        "https://github.com/PSICQUIC/psicquic-documentation/blob/develop/MITAB28Format.md"
+      ],
+      "is_a": "MitabInteraction",
+      "slots": [
+        "ID(s)_interactor_A",
+        "ID(s)_interactor_B",
+        "Alt._ID(s)_interactor_A",
+        "Alt._ID(s)_interactor_B",
+        "Alias(es)_interactor_A",
+        "Alias(es)_interactor_B",
+        "Interaction_detection_method(s)",
+        "Publication_1st_author(s)",
+        "Publication_Identifier(s)",
+        "Taxid_interactor_A",
+        "Taxid_interactor_B",
+        "Interaction_type(s)",
+        "Source_database(s)",
+        "Interaction_identifier(s)",
+        "Confidence_value(s)",
+        "Expansion_method(s)",
+        "Biological_role(s)_interactor_A",
+        "Biological_role(s)_interactor_B",
+        "Experimental_role(s)_interactor_A",
+        "Experimental_role(s)_interactor_B",
+        "Type(s)_interactor_A",
+        "Type(s)_interactor_B",
+        "Xref(s)_interactor_A",
+        "Xref(s)_interactor_B",
+        "Interaction_Xref(s)",
+        "Annotation(s)_interactor_A",
+        "Annotation(s)_interactor_B",
+        "Interaction_annotation(s)",
+        "Host_organism(s)",
+        "Interaction_parameter(s)",
+        "Creation_date",
+        "Update_date",
+        "Checksum(s)_interactor_A",
+        "Checksum(s)_interactor_B",
+        "Interaction_Checksum(s)",
+        "Negative",
+        "Feature(s)_interactor_A",
+        "Feature(s)_interactor_B",
+        "Stoichiometry(s)_interactor_A",
+        "Stoichiometry(s)_interactor_B",
+        "Identification_method_participant_A",
+        "Identification_method_participant_B",
+        "Biological_Effect_interactor_A",
+        "Biological_Effect_interactor_B",
+        "Causal_Regulatory_Mechanism",
+        "Causal_statement"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/mitabCausaltabInteraction",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "PombasePhafAssociationDocument",
+      "definition_uri": "https://w3id.org/ontology_association/PombasePhafAssociationDocument",
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "is_a": "AssociationDocument",
+      "slots": [
+        "date_generated",
+        "generated_by",
+        "url",
+        "project_release",
+        "funding",
+        "go_version",
+        "ro_version",
+        "gorel_version",
+        "pombase_phaf_association_document_associations"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/PombasePhafAssociationDocument",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "PombasePhafAssociation",
+      "definition_uri": "https://w3id.org/ontology_association/PombasePhafAssociation",
+      "description": "line of PHAF",
+      "from_schema": "https://w3id.org/ontology_association/pombase",
+      "is_a": "Association",
+      "mixins": [
+        "Denormalized"
+      ],
+      "slots": [
+        "Database_name",
+        "Gene_systematic_ID",
+        "FYPO_ID",
+        "Allele_description",
+        "Expression",
+        "Parental_strain",
+        "Strain_name_(background)",
+        "Genotype_description",
+        "Gene_name",
+        "Allele_name",
+        "Allele_synonym",
+        "Allele_type",
+        "Evidence",
+        "Condition",
+        "Penetrance",
+        "Severity",
+        "Extension",
+        "Reference",
+        "Taxon",
+        "Date"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/PombasePhafAssociation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Entity",
+      "definition_uri": "https://w3id.org/ontology_association/Entity",
+      "close_mappings": [
+        "biolink:NamedThing"
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "abstract": true,
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/Entity",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "BiologicalEntity",
+      "definition_uri": "https://w3id.org/ontology_association/BiologicalEntity",
+      "exact_mappings": [
+        "biolink:BiologicalEntity"
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "Entity",
+      "abstract": true,
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/BiologicalEntity",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Provider",
+      "definition_uri": "https://w3id.org/ontology_association/Provider",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "Entity",
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/Provider",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Publication",
+      "definition_uri": "https://w3id.org/ontology_association/Publication",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "Entity",
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/Publication",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ControlledTerm",
+      "definition_uri": "https://w3id.org/ontology_association/ControlledTerm",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "Entity",
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/ControlledTerm",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "OntologyClass",
+      "definition_uri": "https://w3id.org/ontology_association/OntologyClass",
+      "exact_mappings": [
+        "biolink:OntologyClass"
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "ControlledTerm",
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/OntologyClass",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Taxon",
+      "definition_uri": "https://w3id.org/ontology_association/Taxon",
+      "exact_mappings": [
+        "biolink:OrganismTaxon"
+      ],
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "OntologyClass",
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/Taxon",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "RelationTerm",
+      "definition_uri": "https://w3id.org/ontology_association/RelationTerm",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "ControlledTerm",
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/RelationTerm",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "RelationalConstruct",
+      "definition_uri": "https://w3id.org/ontology_association/RelationalConstruct",
+      "from_schema": "https://w3id.org/ontology_association",
+      "abstract": true,
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/RelationalConstruct",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "PropertyValuePair",
+      "definition_uri": "https://w3id.org/ontology_association/PropertyValuePair",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "RelationalConstruct",
+      "slots": [
+        "propertyValuePair__property",
+        "propertyValuePair__value"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "property",
+          "range": "ControlledTerm",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "value",
+          "description": "value",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/ontology_association/PropertyValuePair",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AnnotationExtension",
+      "definition_uri": "https://w3id.org/ontology_association/AnnotationExtension",
+      "description": "set of expressions all true",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "RelationalConstruct",
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/AnnotationExtension",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Annotation",
+      "definition_uri": "https://w3id.org/ontology_association/Annotation",
+      "from_schema": "https://w3id.org/ontology_association",
+      "abstract": true,
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/Annotation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Association",
+      "definition_uri": "https://w3id.org/ontology_association/Association",
+      "description": "generic association between an entity and an ontological term",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "Annotation",
+      "abstract": true,
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/Association",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "XafAssociation",
+      "definition_uri": "https://w3id.org/ontology_association/XafAssociation",
+      "description": "line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions. ",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "Association",
+      "mixins": [
+        "Denormalized"
+      ],
+      "slots": [
+        "db",
+        "local_id",
+        "db_object_symbol",
+        "qualifiers",
+        "ontology_class_ref",
+        "supporting_references",
+        "evidence_type",
+        "with_or_from",
+        "aspect",
+        "db_object_name",
+        "db_object_synonyms",
+        "db_object_type",
+        "db_object_taxon",
+        "annotation_date",
+        "assigned_by",
+        "annotation_extensions",
+        "gene_product_form"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/XafAssociation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Document",
+      "definition_uri": "https://w3id.org/ontology_association/Document",
+      "description": "root class for association or entity documents",
+      "from_schema": "https://w3id.org/ontology_association",
+      "abstract": true,
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/Document",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AssociationDocument",
+      "definition_uri": "https://w3id.org/ontology_association/AssociationDocument",
+      "from_schema": "https://w3id.org/ontology_association",
+      "is_a": "Document",
+      "slots": [
+        "date_generated",
+        "generated_by",
+        "url",
+        "project_release",
+        "funding",
+        "go_version",
+        "ro_version",
+        "gorel_version",
+        "associationDocument__associations"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "associations",
+          "multivalued": true,
+          "range": "Association",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/ontology_association/AssociationDocument",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Denormalized",
+      "definition_uri": "https://w3id.org/ontology_association/Denormalized",
+      "description": "mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes",
+      "from_schema": "https://w3id.org/ontology_association",
+      "mixin": true,
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/Denormalized",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Normalized",
+      "definition_uri": "https://w3id.org/ontology_association/Normalized",
+      "description": "mixin for a normalized class, in the sense of database normal forms",
+      "from_schema": "https://w3id.org/ontology_association",
+      "mixin": true,
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/Normalized",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "GoRelated",
+      "definition_uri": "https://w3id.org/ontology_association/GoRelated",
+      "description": "mixin for any association that is GO related",
+      "from_schema": "https://w3id.org/ontology_association",
+      "mixin": true,
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/ontology_association/GoRelated",
+      "@type": "ClassDefinition"
+    }
+  ],
+  "metamodel_version": "1.7.0",
+  "source_file": "all.yaml",
+  "source_file_date": "2021-11-16T13:06:48",
+  "source_file_size": 337,
+  "generation_date": "2021-11-16T14:25:28",
+  "@type": "SchemaDefinition",
+  "@context": [
+    "./jsonld/all.context.jsonld",
+    "hpoa.context.jsonld",
+    "complexpheno.context.jsonld",
+    "gaf.context.jsonld",
+    "gpi.context.jsonld",
+    "mitab.context.jsonld",
+    "pombase.context.jsonld",
+    "association.context.jsonld",
+    "https://w3id.org/linkml/types.context.jsonld",
+    {
+      "@base": "https://w3id.org/ontology_association/"
+    }
+  ]
+}
